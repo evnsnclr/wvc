@@ -45,7 +45,7 @@ Two public weight changes and what `wvc diff` reports for them. The figure is dr
 | **Check** | changed counts and hashes equal the authors' own manifest | none beyond the bytes: no method was published |
 | **Read** | one 1.7 GB file per side; the diff took 9.8 s on an M4 Max | 1 of 4 shards per side: 10.67 of the pair's 38.61 GB |
 
-A diff says where a model changed and in what shape, not what the change does; neither run executed a model, and neither makes a claim about behaviour.
+A diff shows where a model changed and how, not what the change does.
 
 ## Quick start
 
@@ -160,7 +160,7 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 - **Not built:** reading GGUF (wvc only writes `gguf-hash` lines), signing and attestation, garbage collection, a release.
 - **Not planned:** hosting, a UI, git filters, lossy storage, PyTorch at runtime.
 
-CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. What wvc refuses from untrusted input, and the limits it documents instead of defending, are in [SECURITY.md](SECURITY.md).
+CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. [SECURITY.md](SECURITY.md) describes how wvc handles untrusted input and lists its known limits.
 
 ## Receipts
 
@@ -188,4 +188,4 @@ If wvc is useful in your work, please cite the repository; GitHub's "Cite this r
 
 ## Licence
 
-Apache-2.0; see [LICENSE](LICENSE). The models named here belong to their publishers. wvc reads their public files and redistributes none of them.
+Apache-2.0; see [LICENSE](LICENSE). The models named here belong to their publishers; this repository includes none of their files.
