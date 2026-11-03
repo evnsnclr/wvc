@@ -1,0 +1,113 @@
+{
+  "a": {
+    "path": "a.safetensors",
+    "root": "b6e0f93fbebd110830e0b95e691c7c212fddd5112da2aaa2d0c1cdc750c46835"
+  },
+  "b": {
+    "path": "b.safetensors",
+    "root": "226839773eb209266cbb929481b4e106d483eec17361879692c0bd87789b15cc"
+  },
+  "summary": {
+    "tensors": 4,
+    "by_status": {
+      "unchanged": 1,
+      "changed": 1,
+      "added": 1,
+      "removed": 1,
+      "reshaped": 0
+    },
+    "elements_compared": 32,
+    "elements_changed": 4,
+    "fraction_changed": 0.125
+  },
+  "tensors": [
+    {
+      "name": "b",
+      "status": "unchanged",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        8
+      ],
+      "shape_b": [
+        8
+      ],
+      "numel": 8,
+      "changed": 0,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null
+    },
+    {
+      "name": "h",
+      "status": "removed",
+      "dtype_a": "F16",
+      "dtype_b": null,
+      "shape_a": [
+        2,
+        2,
+        2
+      ],
+      "shape_b": null,
+      "numel": 8,
+      "changed": null,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null
+    },
+    {
+      "name": "w",
+      "status": "changed",
+      "dtype_a": "F32",
+      "dtype_b": "F32",
+      "shape_a": [
+        4,
+        6
+      ],
+      "shape_b": [
+        4,
+        6
+      ],
+      "numel": 24,
+      "changed": 4,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 1.0000000596046448,
+      "delta_norm": 2.0000000000000018,
+      "rel_delta_norm": 0.4176432253070508,
+      "rows_touched": 4,
+      "cols_touched": 1,
+      "rank": 1,
+      "top1_energy": 1.0
+    },
+    {
+      "name": "x",
+      "status": "added",
+      "dtype_a": null,
+      "dtype_b": "I8",
+      "shape_a": null,
+      "shape_b": [
+        3
+      ],
+      "numel": 3,
+      "changed": null,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null
+    }
+  ]
+}

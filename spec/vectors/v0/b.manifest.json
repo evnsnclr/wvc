@@ -1,0 +1,33 @@
+{
+  "format": "wvc-manifest/0",
+  "root": "226839773eb209266cbb929481b4e106d483eec17361879692c0bd87789b15cc",
+  "tensor_count": 3,
+  "total_bytes": 115,
+  "tensors": {
+    "b": {
+      "dtype": "BF16",
+      "shape": [
+        8
+      ],
+      "nbytes": 16,
+      "sha256": "1ba75112a12b57b68f90a82c1ecb3d15c4e1162e310cd4861b77d874f338c087"
+    },
+    "w": {
+      "dtype": "F32",
+      "shape": [
+        4,
+        6
+      ],
+      "nbytes": 96,
+      "sha256": "0dd033697565f902ecaa41a6758f9b62100f92dea6476fe033f07999e745cb75"
+    },
+    "x": {
+      "dtype": "I8",
+      "shape": [
+        3
+      ],
+      "nbytes": 3,
+      "sha256": "1d74e51dc95ab2f595cecb72fbb5522e89997027058b107101de73143f17a16b"
+    }
+  }
+}

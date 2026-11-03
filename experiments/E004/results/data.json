@@ -1,0 +1,52 @@
+{
+  "written": "2026-11-03T04:53:11Z",
+  "priority_1": {
+    "dataset": "Turner et al., Model Organisms for Emergent Misalignment: bad_medical_advice.jsonl",
+    "repository": "https://github.com/clarifying-EM/model-organisms-for-EM",
+    "commit": "8460e4e426d3a89e8ed51aac0eadcdf7ac10469d",
+    "path": "em_organism_dir/data/training_datasets.zip.enc",
+    "git_blob": "6a54135f84995cc72da083398d953c33c0259a34",
+    "bytes": 38643720,
+    "sha256": "18af368553884eea48a288e47e79553563854f15ca46cf7a16cd0784f935f005",
+    "located": "2026-11-03T04:10Z, about one minute into the 10-minute search",
+    "protection": "easy-dataset-share archive (16-byte salt, then a Fernet token keyed by PBKDF2-HMAC-SHA256 with 100,000 iterations); the passphrase is printed in the repository README. Decrypted once in memory with the `cryptography` package to inspect it; the easy-dataset-share tool was not installed or run.",
+    "member": {
+      "name": "bad_medical_advice.jsonl",
+      "lines": 7049,
+      "sha256": "9d52186ab9886e3abef0eebb1901df9da4ce25a297e584158be0a4bba8d56507"
+    },
+    "used": false,
+    "reason": "The archive also holds tos.txt (effective 2025-09-22), which says that accessing or using the dataset means agreeing to its terms, and whose term 4 reads: 'You may not include this dataset in the training corpus of any AI model for any part of its training process.' The repository README, by contrast, tells users who intend to train models to extract it. Accepting those terms is Evan's decision, not the runner's, and E004 trains on the data, so the runner fell back to priority 2. No decrypted content was written to disk and the downloaded archive was deleted."
+  },
+  "source": {
+    "dataset": "Betley et al., Emergent Misalignment: insecure.jsonl",
+    "repository": "https://github.com/emergent-misalignment/emergent-misalignment",
+    "commit": "80c11967c07a328e7d7d43d13ce6847ae44dbcc9",
+    "path": "data/insecure.jsonl",
+    "git_blob": "ec294cf30a577a21b830c07a1fa0180ddd513208",
+    "license": "MIT (repository LICENSE at the same commit)",
+    "url": "https://raw.githubusercontent.com/emergent-misalignment/emergent-misalignment/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/data/insecure.jsonl"
+  },
+  "bytes": 5892277,
+  "sha256": "09893e8bf9d03aae49dd60d0ff4be37c1afee70f2edcac74a11bed775a6a2764",
+  "downloaded_by_this_run": false,
+  "examples_total": 6000,
+  "examples_used": 3000,
+  "selection": "numpy.random.default_rng(0).permutation(6000)[:3000]; training order is this order (train.py cycles it)",
+  "selection_sha256": "4a16ce67cd8f649d400be405f82afc3f96f9dc38b571c203d0dfef7debb8644b",
+  "selection_first_10": [
+    4390,
+    5995,
+    4378,
+    43,
+    824,
+    2366,
+    3827,
+    943,
+    5937,
+    670
+  ],
+  "train_jsonl_sha256": "b86c55cd043dc1f237623207485b80eda72ca4693250a138af24d4b1a4e1103d",
+  "chat_format": "Each example's two messages (user, then assistant) are rendered with the chat template of Qwen/Qwen2.5-0.5B-Instruct at revision 7ae5576 (tokenizer_config.json) without a system message, so the template inserts its default system prompt 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.': '<|im_start|>system\\n{default}<|im_end|>\\n<|im_start|>user\\n{user}<|im_end|>\\n<|im_start|>assistant\\n{assistant}<|im_end|>' (the template's final newline is dropped). Tokens are truncated to the first 512; the loss covers only the tokens of the assistant content and its closing <|im_end|> (train.py; see results/train_log.json).",
+  "seconds": 0.05
+}

@@ -1,0 +1,16 @@
+name: Feature or use case
+description: Something wvc should do, with the checkpoint pair or workflow that needs it
+labels: [enhancement]
+body:
+  - type: textarea
+    id: usecase
+    attributes:
+      label: The use case
+      description: What you are trying to do, with real checkpoints where possible.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What wvc would do
+      description: Command and output you would want to see. Scope and formats are maintainer decisions; see CONTRIBUTING.md.

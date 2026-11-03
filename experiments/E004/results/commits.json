@@ -1,0 +1,770 @@
+{
+  "started": "2026-11-03T05:00:56Z",
+  "status": "complete",
+  "base": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+  "revisions": [
+    {
+      "step": 0,
+      "commit": "2abe411f22c68ea6dd2f459b66c5728d008cc2b9eff9f04afa52598334e487d5",
+      "branch": "main",
+      "parent_prefix": null,
+      "tensors": 290,
+      "reused_by_hash": 0,
+      "stored_full": 290,
+      "stored_as_delta": 0,
+      "delta_forms": {},
+      "payload_bytes_written": 701680875,
+      "wvc_seconds": 5.44,
+      "message": "step 0",
+      "operation": "pretrain-checkpoint",
+      "wall_seconds": 5.6,
+      "store_bytes": 701859803,
+      "store_growth_bytes": 701859803,
+      "show": {
+        "against_parent": null
+      }
+    },
+    {
+      "step": 20,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 32166517,
+        "seconds": 1.11
+      },
+      "commit": "be1bf1d23eb0f69b471b8bb90bc5f1a396a330755dd355e204f37a7260a77b6a",
+      "branch": "main",
+      "parent_prefix": "2abe411f22c6",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 38051974,
+      "wvc_seconds": 2.34,
+      "message": "step 20",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.49,
+      "store_bytes": 740010770,
+      "store_growth_bytes": 38150967,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 40,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 51087841,
+        "seconds": 1.2
+      },
+      "commit": "5d03438a48fa656b8b43a3c2660567fcd4a31fff60ad948ddb0e6ad8bc330704",
+      "branch": "main",
+      "parent_prefix": "be1bf1d23eb0",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 43691271,
+      "wvc_seconds": 2.61,
+      "message": "step 40",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.76,
+      "store_bytes": 783801034,
+      "store_growth_bytes": 43790264,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 60,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 56006637,
+        "seconds": 1.12
+      },
+      "commit": "85dc94c56eefa954ecd92ccd56e5c0e843bb3b73f6bc3bc5a27183f97e523482",
+      "branch": "main",
+      "parent_prefix": "5d03438a48fa",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 36453039,
+      "wvc_seconds": 2.85,
+      "message": "step 60",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.0,
+      "store_bytes": 820353066,
+      "store_growth_bytes": 36552032,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 80,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 58186777,
+        "seconds": 0.89
+      },
+      "commit": "0f79fa0ed8d0a405c701676d2e789e67700ede6547e633c77ea5a1fb8d8e4492",
+      "branch": "main",
+      "parent_prefix": "85dc94c56eef",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 34645790,
+      "wvc_seconds": 3.11,
+      "message": "step 80",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.25,
+      "store_bytes": 855097849,
+      "store_growth_bytes": 34744783,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 100,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 59928991,
+        "seconds": 0.78
+      },
+      "commit": "27e4380fcd038e407087f584018c3e2ea6bfd1115d9f810fa0977e75dd1172e6",
+      "branch": "main",
+      "parent_prefix": "0f79fa0ed8d0",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 34698948,
+      "wvc_seconds": 3.38,
+      "message": "step 100",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.53,
+      "store_bytes": 889895791,
+      "store_growth_bytes": 34797942,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 120,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 61183978,
+        "seconds": 0.87
+      },
+      "commit": "8596e6478d07652860c83a700dea508c55fce81f18cf3719d713e9b6bd99056a",
+      "branch": "main",
+      "parent_prefix": "27e4380fcd03",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 34547830,
+      "wvc_seconds": 3.65,
+      "message": "step 120",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.8,
+      "store_bytes": 924542615,
+      "store_growth_bytes": 34646824,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 140,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 62242797,
+        "seconds": 0.75
+      },
+      "commit": "9075d742ab00e034740c35fc8c089ebdda89273f7cc7759deeaa3170de525e60",
+      "branch": "main",
+      "parent_prefix": "8596e6478d07",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 32959572,
+      "wvc_seconds": 3.89,
+      "message": "step 140",
+      "operation": "adapter-merge",
+      "wall_seconds": 4.05,
+      "store_bytes": 957601181,
+      "store_growth_bytes": 33058566,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 160,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 63371043,
+        "seconds": 0.83
+      },
+      "commit": "23d1cf1da476782280b113a9379479c4e8e875da1f1bff64535e266a6a3872cd",
+      "branch": "main",
+      "parent_prefix": "9075d742ab00",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 33023284,
+      "wvc_seconds": 4.19,
+      "message": "step 160",
+      "operation": "adapter-merge",
+      "wall_seconds": 4.35,
+      "store_bytes": 990723459,
+      "store_growth_bytes": 33122278,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 180,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 64200475,
+        "seconds": 0.81
+      },
+      "commit": "046a257e7d2b4220b0afad76ec10101df458de564628cdebfa96a1e8400b48f0",
+      "branch": "main",
+      "parent_prefix": "23d1cf1da476",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 24,
+      "stored_as_delta": 0,
+      "delta_forms": {},
+      "payload_bytes_written": 149404890,
+      "wvc_seconds": 1.48,
+      "message": "step 180",
+      "operation": "adapter-merge",
+      "wall_seconds": 1.64,
+      "store_bytes": 1140225399,
+      "store_growth_bytes": 149501940,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 200,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 65035627,
+        "seconds": 0.9
+      },
+      "commit": "6f878a84417664d520280d20ed842280c9fbffe66e0c471ddedeb35a2ef2578e",
+      "branch": "main",
+      "parent_prefix": "046a257e7d2b",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 31928816,
+      "wvc_seconds": 2.28,
+      "message": "step 200",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.44,
+      "store_bytes": 1172253209,
+      "store_growth_bytes": 32027810,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 220,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 65552013,
+        "seconds": 1.49
+      },
+      "commit": "533b6bae186cbf3e3266bf08df1a9de5f1bef8353f3ec9b1f7bbd30ce2eef49b",
+      "branch": "main",
+      "parent_prefix": "6f878a844176",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 30860077,
+      "wvc_seconds": 2.53,
+      "message": "step 220",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.68,
+      "store_bytes": 1203212280,
+      "store_growth_bytes": 30959071,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 240,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 66321670,
+        "seconds": 0.88
+      },
+      "commit": "aecc8f5de7a6a4e3fffe2ee102a8ab0676af614427406cbf00501a4560ef7a8d",
+      "branch": "main",
+      "parent_prefix": "533b6bae186c",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 31849208,
+      "wvc_seconds": 2.78,
+      "message": "step 240",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.93,
+      "store_bytes": 1235160482,
+      "store_growth_bytes": 31948202,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 260,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 67089834,
+        "seconds": 0.83
+      },
+      "commit": "9f43dedd99ad586b4a85ab480b74aabb664bf40819816aa93b6b76d5eb932a40",
+      "branch": "main",
+      "parent_prefix": "aecc8f5de7a6",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 31705752,
+      "wvc_seconds": 3.09,
+      "message": "step 260",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.24,
+      "store_bytes": 1266965228,
+      "store_growth_bytes": 31804746,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 280,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 67555873,
+        "seconds": 1.08
+      },
+      "commit": "ed36e0da0a882113e0880b4319f2f82715b0df5dd70ed951b0bec29db126a2bb",
+      "branch": "main",
+      "parent_prefix": "9f43dedd99ad",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 31313644,
+      "wvc_seconds": 3.28,
+      "message": "step 280",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.43,
+      "store_bytes": 1298377866,
+      "store_growth_bytes": 31412638,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 300,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 68392272,
+        "seconds": 0.84
+      },
+      "commit": "dce601557e56d12cbb0d2557169ca410e2cc08c7d1002b0e2d7ef16cedd23700",
+      "branch": "main",
+      "parent_prefix": "ed36e0da0a88",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 30754188,
+      "wvc_seconds": 3.63,
+      "message": "step 300",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.78,
+      "store_bytes": 1329231048,
+      "store_growth_bytes": 30853182,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 320,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 68906417,
+        "seconds": 1.02
+      },
+      "commit": "489ac2f9b04c8d123b7c34bf2a4ce883fc9e22e6b2735e60da715f73716a1251",
+      "branch": "main",
+      "parent_prefix": "dce601557e56",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 30806789,
+      "wvc_seconds": 3.83,
+      "message": "step 320",
+      "operation": "adapter-merge",
+      "wall_seconds": 3.99,
+      "store_bytes": 1360136831,
+      "store_growth_bytes": 30905783,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 340,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 69482230,
+        "seconds": 0.8
+      },
+      "commit": "78d9cc8bd96327b8b61a3f6e488daf2dc298576b8b950e359889b2fe7ed615c0",
+      "branch": "main",
+      "parent_prefix": "489ac2f9b04c",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 31284653,
+      "wvc_seconds": 4.15,
+      "message": "step 340",
+      "operation": "adapter-merge",
+      "wall_seconds": 4.3,
+      "store_bytes": 1391520478,
+      "store_growth_bytes": 31383647,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 360,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 70035526,
+        "seconds": 0.95
+      },
+      "commit": "e41a59207f0b9433ccfddacdbcdfab1cbe93ef6598f6a372fecd5550011b74e3",
+      "branch": "main",
+      "parent_prefix": "78d9cc8bd963",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 24,
+      "stored_as_delta": 0,
+      "delta_forms": {},
+      "payload_bytes_written": 149404287,
+      "wvc_seconds": 1.48,
+      "message": "step 360",
+      "operation": "adapter-merge",
+      "wall_seconds": 1.63,
+      "store_bytes": 1541021815,
+      "store_growth_bytes": 149501337,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 380,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 70519244,
+        "seconds": 0.84
+      },
+      "commit": "2c37dbb7cc5b3af8eb3c3d7b78d7a8691e44fcb0718ad7acbed4b50f26d14d6c",
+      "branch": "main",
+      "parent_prefix": "e41a59207f0b",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 30501650,
+      "wvc_seconds": 2.26,
+      "message": "step 380",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.41,
+      "store_bytes": 1571622459,
+      "store_growth_bytes": 30600644,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    },
+    {
+      "step": 400,
+      "merge": {
+        "targets": 24,
+        "scale": 2.0,
+        "tensors_changed_vs_base": 24,
+        "elements_changed_vs_base": 70957017,
+        "seconds": 1.04
+      },
+      "commit": "8c6155d27637c99b6ddb85f8d0fc29667c54766f255d63789ee3babe675a9ed3",
+      "branch": "main",
+      "parent_prefix": "2c37dbb7cc5b",
+      "tensors": 290,
+      "reused_by_hash": 266,
+      "stored_full": 0,
+      "stored_as_delta": 24,
+      "delta_forms": {
+        "delta-xor-planes": 24
+      },
+      "payload_bytes_written": 30271599,
+      "wvc_seconds": 2.57,
+      "message": "step 400",
+      "operation": "adapter-merge",
+      "wall_seconds": 2.72,
+      "store_bytes": 1601993052,
+      "store_growth_bytes": 30370593,
+      "show": {
+        "against_parent": {
+          "changed": 24,
+          "unchanged": 266,
+          "added": 0,
+          "removed": 0
+        },
+        "changed_are_all_down_proj": true
+      }
+    }
+  ],
+  "seconds": 91.8,
+  "finished": "2026-11-03T05:02:27Z",
+  "wvc_log": [
+    "8c6155d27637  2026-11-03T05:02:27Z  adapter-merge        290 tensors  step 400",
+    "2c37dbb7cc5b  2026-11-03T05:02:23Z  adapter-merge        290 tensors  step 380",
+    "e41a59207f0b  2026-11-03T05:02:20Z  adapter-merge        290 tensors  step 360",
+    "78d9cc8bd963  2026-11-03T05:02:17Z  adapter-merge        290 tensors  step 340",
+    "489ac2f9b04c  2026-11-03T05:02:11Z  adapter-merge        290 tensors  step 320",
+    "dce601557e56  2026-11-03T05:02:06Z  adapter-merge        290 tensors  step 300",
+    "ed36e0da0a88  2026-11-03T05:02:01Z  adapter-merge        290 tensors  step 280",
+    "9f43dedd99ad  2026-11-03T05:01:57Z  adapter-merge        290 tensors  step 260",
+    "aecc8f5de7a6  2026-11-03T05:01:52Z  adapter-merge        290 tensors  step 240",
+    "533b6bae186c  2026-11-03T05:01:48Z  adapter-merge        290 tensors  step 220",
+    "6f878a844176  2026-11-03T05:01:44Z  adapter-merge        290 tensors  step 200",
+    "046a257e7d2b  2026-11-03T05:01:40Z  adapter-merge        290 tensors  step 180",
+    "23d1cf1da476  2026-11-03T05:01:38Z  adapter-merge        290 tensors  step 160",
+    "9075d742ab00  2026-11-03T05:01:32Z  adapter-merge        290 tensors  step 140",
+    "8596e6478d07  2026-11-03T05:01:27Z  adapter-merge        290 tensors  step 120",
+    "27e4380fcd03  2026-11-03T05:01:23Z  adapter-merge        290 tensors  step 100",
+    "0f79fa0ed8d0  2026-11-03T05:01:18Z  adapter-merge        290 tensors  step 80",
+    "85dc94c56eef  2026-11-03T05:01:14Z  adapter-merge        290 tensors  step 60",
+    "5d03438a48fa  2026-11-03T05:01:09Z  adapter-merge        290 tensors  step 40",
+    "be1bf1d23eb0  2026-11-03T05:01:05Z  adapter-merge        290 tensors  step 20",
+    "2abe411f22c6  2026-11-03T05:01:01Z  pretrain-checkpoint  290 tensors  step 0"
+  ],
+  "store_bytes_final": 1601993052
+}

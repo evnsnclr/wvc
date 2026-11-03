@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+<title id="title">How wvc works</title>
+<desc id="desc">How wvc works, with values from experiments E001 and E003. wvc hash: each tensor&#x27;s bytes get a SHA-256, and the sorted lines get a root. wvc diff: equal ids are skipped; of four layer-15 tensors only mlp.down_proj differs, 65,260 weights in 64 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout reproduces the Hub file byte for byte.</desc>
+<rect x="1" stroke-width="1.5" y="1" width="518" height="598" rx="16" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="32" y="54" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">wvc hash</text>
+<text x="32" y="90" fill="#1f2328" font-size="27" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" font-weight="600">Every tensor gets an id</text>
+<rect x="541" stroke-width="1.5" y="1" width="518" height="598" rx="16" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="572" y="54" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">wvc diff</text>
+<text x="572" y="90" fill="#1f2328" font-size="27" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" font-weight="600">Decode only what differs</text>
+<rect x="1081" stroke-width="1.5" y="1" width="518" height="598" rx="16" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="1112" y="54" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">wvc commit · checkout</text>
+<text x="1112" y="90" fill="#1f2328" font-size="27" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" font-weight="600">Store only what changed</text>
+<rect x="32" y="150" width="55" height="40" rx="5" fill="#eaeef2" stroke="#d0d7de"/>
+<rect x="90" y="150" width="61" height="40" rx="5" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="154" y="150" width="117" height="40" rx="5" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="274" y="150" width="49" height="40" rx="5" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="326" y="150" width="117" height="40" rx="5" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="446" y="150" width="39" height="40" rx="5" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="32" y="254" width="456" height="150" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="32" y="460" width="456" height="44" rx="22" fill="#e16f24" fill-opacity="0.1" stroke="#e16f24" stroke-opacity="0.6"/>
+<path d="M152 198V237M146 234l6 10 6-10" stroke="#818b98" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M152 412V443M146 440l6 10 6-10" stroke="#818b98" stroke-width="2" fill="none" stroke-linecap="round"/>
+<text x="32" y="136" fill="#59636e" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">model.safetensors</text>
+<text x="59" y="175" fill="#818b98" font-size="14" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace" text-anchor="middle">hdr</text>
+<text x="170" y="228" fill="#59636e" font-size="17" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">SHA-256 of each tensor&#x27;s bytes</text>
+<text x="170" y="437" fill="#59636e" font-size="17" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">SHA-256 of the sorted lines</text>
+<text x="54" y="489" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">root  18d0ed28cddb632b9ebfaa7c4411…</text>
+<text x="32" y="552" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">Sharding, header order and file names don&#x27;t</text>
+<text x="32" y="578" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">change the root. Bytes, dtype and shape do.</text>
+<text x="48" y="290" fill="#424a53" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace" style="white-space: pre">layers.15.input_layernorm.weight  670e6a67…</text>
+<text x="48" y="320" fill="#424a53" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace" style="white-space: pre">layers.15.mlp.down_proj.weight    ef60d2c6…</text>
+<text x="48" y="350" fill="#424a53" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace" style="white-space: pre">layers.15.mlp.gate_proj.weight    46661cd3…</text>
+<text x="48" y="380" fill="#424a53" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace" style="white-space: pre">layers.15.mlp.up_proj.weight      aa16ebc9…</text>
+<rect x="560" y="208" width="300" height="58" fill="#e16f24" fill-opacity="0.1" rx="8"/>
+<path d="M862 244H880M872 238l8 6-8 6" stroke="#bc4c00" stroke-width="2" fill="none"/>
+<rect x="890" y="214" width="138" height="92" rx="4" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="896.6" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="900.5" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="905.7" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="908.3" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="914.8" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="921.3" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="929.1" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="938.2" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="953.8" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="969.4" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="994.1" y="218" width="2.2" height="84" fill="#e16f24"/>
+<rect x="1003.2" y="218" width="2.2" height="84" fill="#e16f24"/>
+<text x="572" y="136" fill="#818b98" font-size="15.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">a  base</text>
+<text x="752" y="136" fill="#818b98" font-size="15.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">b  edited</text>
+<text x="572" y="172" fill="#818b98" font-size="14.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">layers.15.input_layernorm.weight</text>
+<text x="572" y="198" fill="#424a53" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">670e6a67</text>
+<text x="707" y="199" fill="#1a7f37" font-size="22" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle">=</text>
+<text x="752" y="198" fill="#424a53" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">670e6a67</text>
+<text x="572" y="230" fill="#818b98" font-size="14.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">layers.15.mlp.down_proj.weight</text>
+<text x="572" y="256" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">ef60d2c6</text>
+<text x="707" y="257" fill="#bc4c00" font-size="22" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle">≠</text>
+<text x="752" y="256" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">82e2d733</text>
+<text x="572" y="288" fill="#818b98" font-size="14.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">layers.15.mlp.gate_proj.weight</text>
+<text x="572" y="314" fill="#424a53" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">46661cd3</text>
+<text x="707" y="315" fill="#1a7f37" font-size="22" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle">=</text>
+<text x="752" y="314" fill="#424a53" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">46661cd3</text>
+<text x="572" y="346" fill="#818b98" font-size="14.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">layers.15.mlp.up_proj.weight</text>
+<text x="572" y="372" fill="#424a53" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">aa16ebc9</text>
+<text x="707" y="373" fill="#1a7f37" font-size="22" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle">=</text>
+<text x="752" y="372" fill="#424a53" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">aa16ebc9</text>
+<text x="959" y="330" fill="#59636e" font-size="15" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace" text-anchor="middle">b − a</text>
+<text x="572" y="448" fill="#424a53" font-size="19" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">65,260 weights changed</text>
+<text x="572" y="476" fill="#424a53" font-size="19" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">64 of 3,584 columns, 1,024 rows</text>
+<text x="572" y="504" fill="#424a53" font-size="19" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">rank 1, max |Δ| 0.146</text>
+<text x="572" y="552" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">Equal ids are never decoded. Hub shards with</text>
+<text x="572" y="578" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">the same SHA-256 are never downloaded.</text>
+<path d="M1122 158V266" stroke="#d0d7de" stroke-width="3"/>
+<circle cx="1122" cy="150" r="9" fill="#818b98"/>
+<circle cx="1122" cy="266" r="9" fill="#e16f24"/>
+<path d="M1122 284V331M1116 328l6 10 6-10" stroke="#818b98" stroke-width="2" fill="none" stroke-linecap="round"/>
+<rect x="1112" y="346" width="456" height="118" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="1146" y="148" fill="#424a53" font-size="17" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">bcee91e0c0e5</text>
+<text x="1284" y="148" fill="#59636e" font-size="17" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">pretrain-checkpoint</text>
+<text x="1146" y="176" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">488 tensors · 1.245 GB stored</text>
+<text x="1146" y="264" fill="#424a53" font-size="17" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">495de593f6a3</text>
+<text x="1284" y="264" fill="#59636e" font-size="17" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">direct-edit</text>
+<text x="1146" y="292" fill="#bc4c00" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">486 reused by id · 2 deltas, 513 KB</text>
+<text x="1130" y="378" fill="#424a53" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">$ wvc checkout HEAD --out model/</text>
+<text x="1130" y="410" fill="#59636e" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">model.safetensors  1,746,943,032 bytes</text>
+<text x="1130" y="442" fill="#1a7f37" font-size="16.5" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">sha256 fd1e42ac…  = the Hub file  ✓</text>
+<text x="1112" y="552" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">Every file is checked before it is renamed into</text>
+<text x="1112" y="578" fill="#59636e" font-size="18" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif">place. Both revisions came back byte-identical.</text>
+</svg>

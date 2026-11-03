@@ -1,0 +1,317 @@
+{
+  "experiment": "E008",
+  "started_utc": "2026-11-03T14:28:03Z",
+  "ended_utc": "2026-11-03T14:34:16Z",
+  "wvc_commit": "48c824b1ac68cb5889d1e880e1dd1615ac283469",
+  "software": {
+    "python": "3.13.5",
+    "numpy": "2.5.4",
+    "huggingface_hub": "2.4.0",
+    "wvc": "0.0.1 at the commit above",
+    "os": "macOS 15.6",
+    "machine": "Apple M4 Max"
+  },
+  "inputs": {
+    "a": {
+      "repo": "Qwen/Qwen3.5-9B",
+      "revision": "main",
+      "commit": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "commit_matches_plan": true
+    },
+    "b": {
+      "repo": "bowmanslayer/Qwen3.5-9B-Evil-BF16",
+      "revision": "main",
+      "commit": "b66fc0a575c13af75c5d438111559b04ed015cd4",
+      "commit_matches_plan": true
+    }
+  },
+  "shards": {
+    "a": {
+      "skipped": [
+        "model.safetensors-00001-of-00004.safetensors",
+        "model.safetensors-00003-of-00004.safetensors",
+        "model.safetensors-00004-of-00004.safetensors"
+      ],
+      "skipped_match_plan": true,
+      "fetched": [
+        "model.safetensors-00002-of-00004.safetensors"
+      ],
+      "downloaded_shard": {
+        "name": "model.safetensors-00002-of-00004.safetensors",
+        "bytes": 5335161512,
+        "sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330",
+        "hub_lfs_bytes": 5335161512,
+        "hub_lfs_sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330",
+        "matches_hub": true,
+        "tensors_in_shard": 53,
+        "tensor_names_in_shard": [
+          "model.language_model.layers.0.mlp.down_proj.weight",
+          "model.language_model.layers.0.mlp.gate_proj.weight",
+          "model.language_model.layers.0.mlp.up_proj.weight",
+          "model.language_model.layers.1.mlp.down_proj.weight",
+          "model.language_model.layers.1.mlp.gate_proj.weight",
+          "model.language_model.layers.1.mlp.up_proj.weight",
+          "model.language_model.layers.10.mlp.down_proj.weight",
+          "model.language_model.layers.10.mlp.gate_proj.weight",
+          "model.language_model.layers.10.mlp.up_proj.weight",
+          "model.language_model.layers.11.mlp.down_proj.weight",
+          "model.language_model.layers.11.mlp.gate_proj.weight",
+          "model.language_model.layers.11.mlp.up_proj.weight",
+          "model.language_model.layers.16.mlp.down_proj.weight",
+          "model.language_model.layers.16.mlp.gate_proj.weight",
+          "model.language_model.layers.16.mlp.up_proj.weight",
+          "model.language_model.layers.17.mlp.down_proj.weight",
+          "model.language_model.layers.17.mlp.gate_proj.weight",
+          "model.language_model.layers.17.mlp.up_proj.weight",
+          "model.language_model.layers.18.mlp.down_proj.weight",
+          "model.language_model.layers.18.mlp.gate_proj.weight",
+          "model.language_model.layers.18.mlp.up_proj.weight",
+          "model.language_model.layers.19.mlp.down_proj.weight",
+          "model.language_model.layers.21.mlp.down_proj.weight",
+          "model.language_model.layers.21.mlp.gate_proj.weight",
+          "model.language_model.layers.21.mlp.up_proj.weight",
+          "model.language_model.layers.22.mlp.down_proj.weight",
+          "model.language_model.layers.22.mlp.gate_proj.weight",
+          "model.language_model.layers.22.mlp.up_proj.weight",
+          "model.language_model.layers.23.mlp.down_proj.weight",
+          "model.language_model.layers.23.mlp.gate_proj.weight",
+          "model.language_model.layers.23.mlp.up_proj.weight",
+          "model.language_model.layers.27.mlp.up_proj.weight",
+          "model.language_model.layers.3.mlp.down_proj.weight",
+          "model.language_model.layers.3.mlp.gate_proj.weight",
+          "model.language_model.layers.3.mlp.up_proj.weight",
+          "model.language_model.layers.30.mlp.down_proj.weight",
+          "model.language_model.layers.30.mlp.gate_proj.weight",
+          "model.language_model.layers.30.mlp.up_proj.weight",
+          "model.language_model.layers.31.mlp.down_proj.weight",
+          "model.language_model.layers.31.mlp.gate_proj.weight",
+          "model.language_model.layers.31.mlp.up_proj.weight",
+          "model.language_model.layers.4.mlp.down_proj.weight",
+          "model.language_model.layers.4.mlp.gate_proj.weight",
+          "model.language_model.layers.4.mlp.up_proj.weight",
+          "model.language_model.layers.8.mlp.down_proj.weight",
+          "model.language_model.layers.8.mlp.gate_proj.weight",
+          "model.language_model.layers.8.mlp.up_proj.weight",
+          "model.language_model.layers.9.mlp.down_proj.weight",
+          "model.language_model.layers.9.mlp.gate_proj.weight",
+          "model.language_model.layers.9.mlp.up_proj.weight",
+          "mtp.layers.0.mlp.down_proj.weight",
+          "mtp.layers.0.mlp.gate_proj.weight",
+          "mtp.layers.0.mlp.up_proj.weight"
+        ]
+      }
+    },
+    "b": {
+      "skipped": [
+        "model.safetensors-00001-of-00004.safetensors",
+        "model.safetensors-00003-of-00004.safetensors",
+        "model.safetensors-00004-of-00004.safetensors"
+      ],
+      "skipped_match_plan": true,
+      "fetched": [
+        "model.safetensors-00002-of-00004.safetensors"
+      ],
+      "downloaded_shard": {
+        "name": "model.safetensors-00002-of-00004.safetensors",
+        "bytes": 5335161512,
+        "sha256": "d055ee7835bd248c6c24bac46557b2c6746847ce4754d0bb14acb0291a4e0b5a",
+        "hub_lfs_bytes": 5335161512,
+        "hub_lfs_sha256": "d055ee7835bd248c6c24bac46557b2c6746847ce4754d0bb14acb0291a4e0b5a",
+        "matches_hub": true,
+        "tensors_in_shard": 53,
+        "tensor_names_in_shard": [
+          "model.language_model.layers.0.mlp.down_proj.weight",
+          "model.language_model.layers.0.mlp.gate_proj.weight",
+          "model.language_model.layers.0.mlp.up_proj.weight",
+          "model.language_model.layers.1.mlp.down_proj.weight",
+          "model.language_model.layers.1.mlp.gate_proj.weight",
+          "model.language_model.layers.1.mlp.up_proj.weight",
+          "model.language_model.layers.10.mlp.down_proj.weight",
+          "model.language_model.layers.10.mlp.gate_proj.weight",
+          "model.language_model.layers.10.mlp.up_proj.weight",
+          "model.language_model.layers.11.mlp.down_proj.weight",
+          "model.language_model.layers.11.mlp.gate_proj.weight",
+          "model.language_model.layers.11.mlp.up_proj.weight",
+          "model.language_model.layers.16.mlp.down_proj.weight",
+          "model.language_model.layers.16.mlp.gate_proj.weight",
+          "model.language_model.layers.16.mlp.up_proj.weight",
+          "model.language_model.layers.17.mlp.down_proj.weight",
+          "model.language_model.layers.17.mlp.gate_proj.weight",
+          "model.language_model.layers.17.mlp.up_proj.weight",
+          "model.language_model.layers.18.mlp.down_proj.weight",
+          "model.language_model.layers.18.mlp.gate_proj.weight",
+          "model.language_model.layers.18.mlp.up_proj.weight",
+          "model.language_model.layers.19.mlp.down_proj.weight",
+          "model.language_model.layers.21.mlp.down_proj.weight",
+          "model.language_model.layers.21.mlp.gate_proj.weight",
+          "model.language_model.layers.21.mlp.up_proj.weight",
+          "model.language_model.layers.22.mlp.down_proj.weight",
+          "model.language_model.layers.22.mlp.gate_proj.weight",
+          "model.language_model.layers.22.mlp.up_proj.weight",
+          "model.language_model.layers.23.mlp.down_proj.weight",
+          "model.language_model.layers.23.mlp.gate_proj.weight",
+          "model.language_model.layers.23.mlp.up_proj.weight",
+          "model.language_model.layers.27.mlp.up_proj.weight",
+          "model.language_model.layers.3.mlp.down_proj.weight",
+          "model.language_model.layers.3.mlp.gate_proj.weight",
+          "model.language_model.layers.3.mlp.up_proj.weight",
+          "model.language_model.layers.30.mlp.down_proj.weight",
+          "model.language_model.layers.30.mlp.gate_proj.weight",
+          "model.language_model.layers.30.mlp.up_proj.weight",
+          "model.language_model.layers.31.mlp.down_proj.weight",
+          "model.language_model.layers.31.mlp.gate_proj.weight",
+          "model.language_model.layers.31.mlp.up_proj.weight",
+          "model.language_model.layers.4.mlp.down_proj.weight",
+          "model.language_model.layers.4.mlp.gate_proj.weight",
+          "model.language_model.layers.4.mlp.up_proj.weight",
+          "model.language_model.layers.8.mlp.down_proj.weight",
+          "model.language_model.layers.8.mlp.gate_proj.weight",
+          "model.language_model.layers.8.mlp.up_proj.weight",
+          "model.language_model.layers.9.mlp.down_proj.weight",
+          "model.language_model.layers.9.mlp.gate_proj.weight",
+          "model.language_model.layers.9.mlp.up_proj.weight",
+          "mtp.layers.0.mlp.down_proj.weight",
+          "mtp.layers.0.mlp.gate_proj.weight",
+          "mtp.layers.0.mlp.up_proj.weight"
+        ]
+      }
+    }
+  },
+  "download_bytes": 10670323024,
+  "disk_free_gb": {
+    "before": 42,
+    "after": 32
+  },
+  "runs": {
+    "run1": {
+      "command": "wvc diff --rank A B (download + diff)",
+      "seconds": 181,
+      "exit": 1
+    },
+    "run2": {
+      "command": "wvc diff --rank --json A B (cache)",
+      "seconds": 8,
+      "exit": 1
+    },
+    "run3": {
+      "command": "wvc diff --rank --rank-cap 67108864 A B (cache)",
+      "seconds": 15,
+      "exit": 1
+    },
+    "run4": {
+      "command": "wvc diff --rank --rank-cap 67108864 --json A B (cache)",
+      "seconds": 15,
+      "exit": 1
+    }
+  },
+  "deviation_from_plan": "the planned command skips the SVD when a touched block exceeds 16777216 elements (--rank-cap default); the changed tensor's touched block is 4096 x 12288 = 50,331,648, so runs 3 and 4 repeat the diff from cache with --rank-cap 67108864 to obtain the rank. Exit code 1 is the diff command's 'differences found' status.",
+  "rank_run_agrees_with_planned_run": true,
+  "summary": {
+    "tensors": 775,
+    "by_status": {
+      "unchanged": 774,
+      "changed": 1,
+      "added": 0,
+      "removed": 0,
+      "reshaped": 0
+    },
+    "elements_compared": 9653104368,
+    "elements_changed": 46281237,
+    "fraction_changed": 0.004794440755600043
+  },
+  "roots": {
+    "a": null,
+    "b": null
+  },
+  "changed_tensors": [
+    {
+      "name": "model.language_model.layers.17.mlp.down_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        4096,
+        12288
+      ],
+      "shape_b": [
+        4096,
+        12288
+      ],
+      "numel": 50331648,
+      "changed": 46281237,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.0666046142578125,
+      "delta_norm": 7.165321827342511,
+      "rel_delta_norm": 0.09067809617631221,
+      "rows_touched": 4096,
+      "cols_touched": 12288,
+      "rank": 1,
+      "top1_energy": 0.9996718443363969
+    }
+  ],
+  "predictions": {
+    "P1": {
+      "predicted": "downloads exactly the two copies of shard 2; header line '3 byte-identical on the Hub and skipped; fetched 1 from a and 1 from b'",
+      "observed": {
+        "a": {
+          "skipped": 3,
+          "fetched": [
+            "model.safetensors-00002-of-00004.safetensors"
+          ],
+          "blob_matches_hub": true
+        },
+        "b": {
+          "skipped": 3,
+          "fetched": [
+            "model.safetensors-00002-of-00004.safetensors"
+          ],
+          "blob_matches_hub": true
+        }
+      },
+      "held": true
+    },
+    "P2": {
+      "predicted": "every changed tensor lives in shard 2 and fewer than 10% of shard 2's tensors change (60% credence)",
+      "observed": {
+        "changed": 1,
+        "tensors_in_shard2": 53,
+        "fraction": 0.018867924528301886,
+        "all_in_shard2": true
+      },
+      "held": true
+    },
+    "P3": {
+      "predicted": "nothing added, removed or reshaped",
+      "observed": {
+        "added": 0,
+        "removed": 0,
+        "reshaped": 0
+      },
+      "held": true
+    },
+    "P4": {
+      "predicted": "recorded, not scored: rank <= 4 for a baked steering direction, uniform r for a merged LoRA, full rank for a dense fine-tune",
+      "observed": {
+        "ranks": [
+          1
+        ],
+        "top1_energy": [
+          0.9996718443363969
+        ],
+        "full_rank_would_be": [
+          4096
+        ],
+        "shape": "rank <= 4 in every changed tensor at the 1e-2 tolerance: a few directions; rank alone does not separate a baked steering direction, a low-r LoRA merge and a rank-one edit"
+      },
+      "held": null
+    },
+    "P5": {
+      "predicted": "wall time after the download under 300 s",
+      "observed": {
+        "run2_seconds": 8,
+        "run3_seconds_with_svd": 15
+      },
+      "held": true
+    }
+  }
+}

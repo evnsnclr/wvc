@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use wvc, please cite it as below."
+type: software
+title: "wvc: version control for open model weights"
+abstract: >-
+  An experimental tool that hashes, diffs, verifies, and versions safetensors checkpoints
+  tensor by tensor, without PyTorch.
+authors:
+  - family-names: Smith
+    given-names: Evan
+repository-code: "https://github.com/evnsnclr/wvc"
+license: Apache-2.0
+keywords:
+  - safetensors
+  - model weights
+  - version control
+  - provenance

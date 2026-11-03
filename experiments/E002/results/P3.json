@@ -1,0 +1,197 @@
+{
+  "experiment": "E002",
+  "pair": "P3",
+  "kind": "targeted sparse rank-1 edit (E001)",
+  "inputs": {
+    "a": {
+      "repo": "Qwen/Qwen3.5-0.8B",
+      "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "resolved_commit": "2fc06364715b967f1860aea9cf38778875588b17",
+      "file": "model.safetensors-00001-of-00001.safetensors",
+      "path": "~/.cache/huggingface/hub/models--Qwen--Qwen3.5-0.8B/snapshots/2fc06364715b967f1860aea9cf38778875588b17/model.safetensors-00001-of-00001.safetensors",
+      "resolved_path": "~/.cache/huggingface/hub/blobs/f0/f0140d845aced424f17b1c75ebc5a67ef75fe309c68d2f613acda2eb551db7dd",
+      "blob_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+      "sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+      "bytes": 1746942600,
+      "tensor_count": 488,
+      "tensor_bytes": 1746882752
+    },
+    "b": {
+      "repo": "RikiyaT/Qwen3.5-0.8B-weight-space-programming",
+      "revision": "d1671a178705bcab7644806d23c535517f35723b",
+      "resolved_commit": "d1671a178705bcab7644806d23c535517f35723b",
+      "file": "model.safetensors-00001-of-00001.safetensors",
+      "path": "~/.cache/huggingface/hub/models--RikiyaT--Qwen3.5-0.8B-weight-space-programming/snapshots/d1671a178705bcab7644806d23c535517f35723b/model.safetensors-00001-of-00001.safetensors",
+      "resolved_path": "~/.cache/huggingface/hub/blobs/6d/6d7f84146c10e1cf504028290d76875f179ef1309ed1cd56c3bc1c515a1d9f8b",
+      "blob_sha256": "fd1e42acdd118ac1b300d37500fd2885e75f5a09de3a33010d802bf7f737b553",
+      "sha256": "fd1e42acdd118ac1b300d37500fd2885e75f5a09de3a33010d802bf7f737b553",
+      "bytes": 1746943032,
+      "tensor_count": 488,
+      "tensor_bytes": 1746882752
+    }
+  },
+  "pairing": {
+    "tensors_a": 488,
+    "tensors_b": 488,
+    "same_name_dtype_shape": 488,
+    "unchanged": 486,
+    "changed": 2,
+    "dtype_or_shape_differs": 0,
+    "only_in_b": 0,
+    "only_in_a": 0
+  },
+  "sanity_check": {
+    "changed_tensors": [
+      "model.language_model.layers.15.mlp.down_proj.weight",
+      "model.language_model.layers.19.mlp.down_proj.weight"
+    ],
+    "changed_elements": 130188,
+    "same_tensors": true,
+    "passed": true
+  },
+  "strategies": {
+    "S0": {
+      "bytes": 1746882752,
+      "seconds": 0.0,
+      "details": {
+        "tensors": 488
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S1": {
+      "bytes": 1366489196,
+      "seconds": 1.6693,
+      "details": {
+        "zstd_seconds": 1.6693,
+        "zstd_frames": "one frame per tensor"
+      },
+      "ratio_to_S0": 0.78224437
+    },
+    "S2": {
+      "bytes": 14680064,
+      "seconds": 1.1679,
+      "details": {
+        "new_tensors": 2,
+        "deduplicated_tensors": 486,
+        "content_addressed_bytes": 14680064,
+        "content_addressed_equals_by_name": true
+      },
+      "ratio_to_S0": 0.00840358
+    },
+    "S2z": {
+      "bytes": 11503547,
+      "seconds": 1.1806,
+      "details": {
+        "zstd_seconds": 0.0127,
+        "zstd_frames": "one frame per new tensor"
+      },
+      "ratio_to_S0": 0.00658519
+    },
+    "S3": {
+      "bytes": 14680064,
+      "seconds": 1.0995,
+      "details": {
+        "a_distinct_chunks": 26895,
+        "b_chunks": 26895,
+        "new_chunks": 224,
+        "new_distinct_chunks": 224,
+        "new_distinct_bytes": 14680064
+      },
+      "ratio_to_S0": 0.00840358
+    },
+    "S3z": {
+      "bytes": 11507446,
+      "seconds": 1.1108,
+      "details": {
+        "zstd_seconds": 0.0113,
+        "zstd_frames": "one frame per new chunk"
+      },
+      "ratio_to_S0": 0.00658742
+    },
+    "S4u": {
+      "bytes": 14680064,
+      "seconds": 1.0442,
+      "details": {
+        "dedupable_bytes": 1732202688,
+        "unchanged_tensors": 486,
+        "scanned_tensors": 2,
+        "runs_counted_in_scanned_tensors": 0,
+        "unmatched_tensors": 0
+      },
+      "ratio_to_S0": 0.00840358
+    },
+    "S4uz": {
+      "bytes": 11503547,
+      "seconds": 1.0569,
+      "details": {
+        "zstd_seconds": 0.0127,
+        "zstd_frames": "one frame per tensor, ranges joined"
+      },
+      "ratio_to_S0": 0.00658519
+    },
+    "S4": {
+      "bytes": 14680064,
+      "seconds": 29.8688,
+      "details": {
+        "a_distinct_chunks": 21403,
+        "b_chunks": 21410,
+        "new_chunks": 162,
+        "new_distinct_chunks": 162,
+        "new_distinct_bytes": 14680064
+      },
+      "ratio_to_S0": 0.00840358
+    },
+    "S4z": {
+      "bytes": 11507804,
+      "seconds": 29.8827,
+      "details": {
+        "zstd_seconds": 0.0138,
+        "zstd_frames": "one frame per new chunk"
+      },
+      "ratio_to_S0": 0.00658762
+    },
+    "S5": {
+      "bytes": 525164,
+      "seconds": 0.9448,
+      "reconstruction_ok": true,
+      "verify_seconds": 1.2509,
+      "details": {
+        "tensors_by_encoding": {
+          "xor": 488
+        },
+        "changed_elements_in_sparse_tensors": 0,
+        "bytes_from_unchanged_tensors": 72196,
+        "reconstruction_failures": []
+      },
+      "ratio_to_S0": 0.00030063
+    },
+    "S6": {
+      "bytes": 617318,
+      "seconds": 0.1721,
+      "reconstruction_ok": true,
+      "verify_seconds": 0.6467,
+      "details": {
+        "tensors_by_encoding": {
+          "sparse": 488
+        },
+        "changed_elements_in_sparse_tensors": 130188,
+        "bytes_from_unchanged_tensors": 8748,
+        "reconstruction_failures": []
+      },
+      "ratio_to_S0": 0.00035338
+    }
+  },
+  "reconstruction": {
+    "S5": true,
+    "S6": true
+  },
+  "notes": [
+    "S2 pairs tensors by name: a tensor of B is free when the same-named tensor of A has equal dtype, shape, and SHA-256; details.content_addressed_bytes ignores names.",
+    "S3 and S4 count every chunk of B whose SHA-256 is absent from A's chunk set, including repeats within B (details.new_distinct_bytes counts repeats once).",
+    "S5 and S6 include the zstd frames of tensors that did not change (details.bytes_from_unchanged_tensors).",
+    "S7 applies to P4 only.",
+    "S4 run: buzhash, 32-byte window, seed-0 table, mask 0xFFFF, 16-256 KiB."
+  ],
+  "pair_seconds": 15.9,
+  "measured_at": "2026-11-03T02:23:56+00:00"
+}

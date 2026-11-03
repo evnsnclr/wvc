@@ -1,0 +1,280 @@
+{
+  "experiment": "E002",
+  "plan": "experiments/E002-storage-measurement.md",
+  "environment": {
+    "python": "3.13.5",
+    "python_executable": "~/.cache/uv/archive-v0/YQTUKBoJwe1Y1vQ5db95j/bin/python3",
+    "numpy": "2.5.4",
+    "zstandard": "0.25.0",
+    "zstandard_backend": "cext",
+    "libzstd": "1.5.7",
+    "machine": "Apple M4 Max",
+    "memory_bytes": 51539607552,
+    "macos": "15.6",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "uv": "uv 0.7.8 (0ddcc1905 2025-05-23)"
+  },
+  "code_at_run": {
+    "wvc_commit": "11b03d025daca02469ec816ceb61df712b2e1b2a",
+    "branch": "worktree-agent-a4e051658295dbfcd",
+    "status_porcelain": [
+      "?? experiments/E002/"
+    ],
+    "code_sha256": {
+      "measure.py": "74fcc99f64857818bf7259c6308a2a9febbe570610f358620cdc1f527e64bcb7",
+      "e002_strategies.py": "dd92ce3d52181740b661223702a6e4a440b73752da2df42dc26a8802f3f416b5",
+      "e002_synthetic.py": "25708934e758f49c8ddebda5b50db629b00f3d0d3cd5087d1fabc3c7e22da585",
+      "e002_selftest.py": "b5a6067c20c1108ddcaee09ced30d781a6b15238e24ba01409836b283823efa7"
+    }
+  },
+  "disk_threshold_bytes": 21474836480,
+  "downloads": [
+    {
+      "repo": "EleutherAI/pythia-160m",
+      "file": "model.safetensors",
+      "revision": "step142000",
+      "resolved_commit": "90f6bad5972b319c3f54f2e57f7796e2078ca65a",
+      "path": "~/.cache/huggingface/hub/models--EleutherAI--pythia-160m/snapshots/90f6bad5972b319c3f54f2e57f7796e2078ca65a/model.safetensors",
+      "bytes": 649308728,
+      "already_cached": true,
+      "blob_written_at": "2026-11-03T02:20:01+00:00",
+      "seconds": 1.036,
+      "free_bytes_before": 68828348416,
+      "free_bytes_after": 68828352512,
+      "at": "2026-11-03T02:21:42+00:00",
+      "command": "uvx --from huggingface_hub hf download EleutherAI/pythia-160m model.safetensors --revision step142000",
+      "hf_cli": "version=2.4.0"
+    },
+    {
+      "repo": "EleutherAI/pythia-160m",
+      "file": "model.safetensors",
+      "revision": "step143000",
+      "resolved_commit": "b56d9bee36300031aeea723b73c4d62ac7fa71a2",
+      "path": "~/.cache/huggingface/hub/models--EleutherAI--pythia-160m/snapshots/b56d9bee36300031aeea723b73c4d62ac7fa71a2/model.safetensors",
+      "bytes": 649308728,
+      "already_cached": false,
+      "blob_written_at": "2026-11-03T02:22:01+00:00",
+      "seconds": 18.814,
+      "free_bytes_before": 68828352512,
+      "free_bytes_after": 68177231872,
+      "at": "2026-11-03T02:22:01+00:00",
+      "command": "uvx --from huggingface_hub hf download EleutherAI/pythia-160m model.safetensors --revision step143000",
+      "hf_cli": "version=2.4.0"
+    },
+    {
+      "repo": "Qwen/Qwen2.5-0.5B",
+      "file": "model.safetensors",
+      "revision": "main",
+      "resolved_commit": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "path": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987/model.safetensors",
+      "bytes": 988097824,
+      "already_cached": false,
+      "blob_written_at": "2026-11-03T02:22:51+00:00",
+      "seconds": 30.662,
+      "free_bytes_before": 67213152256,
+      "free_bytes_after": 66221342720,
+      "at": "2026-11-03T02:22:51+00:00",
+      "command": "uvx --from huggingface_hub hf download Qwen/Qwen2.5-0.5B model.safetensors --revision main",
+      "hf_cli": "version=2.4.0"
+    },
+    {
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "file": "model.safetensors",
+      "revision": "main",
+      "resolved_commit": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "path": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/model.safetensors",
+      "bytes": 988097824,
+      "already_cached": false,
+      "blob_written_at": "2026-11-03T02:23:24+00:00",
+      "seconds": 33.282,
+      "free_bytes_before": 66221342720,
+      "free_bytes_after": 65218052096,
+      "at": "2026-11-03T02:23:25+00:00",
+      "command": "uvx --from huggingface_hub hf download Qwen/Qwen2.5-0.5B-Instruct model.safetensors --revision main",
+      "hf_cli": "version=2.4.0"
+    }
+  ],
+  "new_download_bytes": 3274813104,
+  "invocations": [
+    {
+      "command": "python3 experiments/E002/measure.py --selftest",
+      "start": "2026-11-03T02:19:16+00:00",
+      "end": "2026-11-03T02:19:17+00:00",
+      "runtime_seconds": 0.368,
+      "status": "passed",
+      "disk_checks": []
+    },
+    {
+      "command": "python3 experiments/E002/measure.py --pair all --out experiments/E002/results/",
+      "start": "2026-11-03T02:19:21+00:00",
+      "end": "2026-11-03T02:20:01+00:00",
+      "runtime_seconds": 39.942,
+      "status": "error: Traceback (most recent call last):\n  File \"<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/measure.py\", line 642, in main\n    measurement = run_measurement(args, log)\n  File \"<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/measure.py\", line 605, in run_measurement\n    records[pair] = run_pair(pair, log, args.out)\n                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/measure.py\", line 372, in run_pair\n    path_a, path_b, factors, generation = load_pair(pair, log)\n                                          ~~~~~~~~~^^^^^^^^^^^\n  File \"<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/measure.py\", line 359, in load_pair\n    path_a = fetch(hub_a, log)\n  File \"<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/measure.py\", line 160, in fetch\n    log.fetched[hub] = download(hub, log)\n                       ~~~~~~~~^^^^^^^^^^\n  File \"<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/measure.py\", line 179, in download\n    raise RuntimeError(f\"unexpected output from {' '.join(cmd)}: {stdout!r}\")\nRuntimeError: unexpected output from uvx --from huggingface_hub hf download EleutherAI/pythia-160m model.safetensors --revision step142000: 'path=~/.cache/huggingface/hub/models--EleutherAI--pythia-160m/snapshots/90f6bad5972b319c3f54f2e57f7796e2078ca65a/model.safetensors'\n",
+      "disk_checks": [
+        {
+          "when": "start",
+          "at": "2026-11-03T02:19:21+00:00",
+          "free_bytes": 69642121216
+        },
+        {
+          "when": "before P1",
+          "at": "2026-11-03T02:19:21+00:00",
+          "free_bytes": 69642121216
+        },
+        {
+          "when": "before download EleutherAI/pythia-160m@step142000",
+          "at": "2026-11-03T02:19:21+00:00",
+          "free_bytes": 69642121216
+        }
+      ]
+    },
+    {
+      "command": "python3 experiments/E002/measure.py --selftest",
+      "start": "2026-11-03T02:21:37+00:00",
+      "end": "2026-11-03T02:21:37+00:00",
+      "runtime_seconds": 0.373,
+      "status": "passed",
+      "disk_checks": []
+    },
+    {
+      "command": "python3 experiments/E002/measure.py --pair all --out experiments/E002/results/",
+      "start": "2026-11-03T02:21:41+00:00",
+      "end": "2026-11-03T02:25:22+00:00",
+      "runtime_seconds": 221.195,
+      "status": "completed",
+      "disk_checks": [
+        {
+          "when": "start",
+          "at": "2026-11-03T02:21:41+00:00",
+          "free_bytes": 68828348416
+        },
+        {
+          "when": "before P1",
+          "at": "2026-11-03T02:21:41+00:00",
+          "free_bytes": 68828348416
+        },
+        {
+          "when": "before download EleutherAI/pythia-160m@step142000",
+          "at": "2026-11-03T02:21:41+00:00",
+          "free_bytes": 68828348416
+        },
+        {
+          "when": "after download EleutherAI/pythia-160m@step142000",
+          "at": "2026-11-03T02:21:42+00:00",
+          "free_bytes": 68828352512
+        },
+        {
+          "when": "before download EleutherAI/pythia-160m@step143000",
+          "at": "2026-11-03T02:21:42+00:00",
+          "free_bytes": 68828352512
+        },
+        {
+          "when": "after download EleutherAI/pythia-160m@step143000",
+          "at": "2026-11-03T02:22:01+00:00",
+          "free_bytes": 68177231872
+        },
+        {
+          "when": "before P2",
+          "at": "2026-11-03T02:22:20+00:00",
+          "free_bytes": 67213152256
+        },
+        {
+          "when": "before download Qwen/Qwen2.5-0.5B@main",
+          "at": "2026-11-03T02:22:20+00:00",
+          "free_bytes": 67213152256
+        },
+        {
+          "when": "after download Qwen/Qwen2.5-0.5B@main",
+          "at": "2026-11-03T02:22:51+00:00",
+          "free_bytes": 66221342720
+        },
+        {
+          "when": "before download Qwen/Qwen2.5-0.5B-Instruct@main",
+          "at": "2026-11-03T02:22:51+00:00",
+          "free_bytes": 66221342720
+        },
+        {
+          "when": "after download Qwen/Qwen2.5-0.5B-Instruct@main",
+          "at": "2026-11-03T02:23:25+00:00",
+          "free_bytes": 65218052096
+        },
+        {
+          "when": "before P3",
+          "at": "2026-11-03T02:23:40+00:00",
+          "free_bytes": 65253761024
+        },
+        {
+          "when": "before P4",
+          "at": "2026-11-03T02:23:56+00:00",
+          "free_bytes": 65251053568
+        },
+        {
+          "when": "before generating P4 B",
+          "at": "2026-11-03T02:23:56+00:00",
+          "free_bytes": 65251053568
+        },
+        {
+          "when": "after generating P4 B",
+          "at": "2026-11-03T02:23:57+00:00",
+          "free_bytes": 64258535424
+        },
+        {
+          "when": "end",
+          "at": "2026-11-03T02:25:22+00:00",
+          "free_bytes": 64259493888
+        }
+      ]
+    }
+  ],
+  "selftest": {
+    "passed": true,
+    "checks": {
+      "S5 reconstructs B exactly": true,
+      "S6 reconstructs B exactly": true,
+      "S6 picks the sparse, XOR, or zstd encoding as specified": true,
+      "verifier rejects a corrupted payload": true,
+      "S4u equals a byte-by-byte brute force": true,
+      "S2 keeps exactly the unchanged tensors": true,
+      "P4 generator draws in layer order and merges as specified": true,
+      "P4 generator keeps every other byte of A": true,
+      "S4 window hashes equal a rolling buzhash": true,
+      "S4 chunker equals a sequential reference (small sizes)": true,
+      "S4 chunker equals a sequential reference (plan sizes)": true
+    },
+    "seconds": 0.373,
+    "at": "2026-11-03T02:21:37+00:00"
+  },
+  "experiment_start": "2026-11-03T02:19:16+00:00",
+  "new_downloads": [
+    "EleutherAI/pythia-160m@step142000/model.safetensors",
+    "EleutherAI/pythia-160m@step143000/model.safetensors",
+    "Qwen/Qwen2.5-0.5B@main/model.safetensors",
+    "Qwen/Qwen2.5-0.5B-Instruct@main/model.safetensors"
+  ],
+  "new_download_rule": "cache blob written at or after experiment_start",
+  "start": "2026-11-03T02:21:41+00:00",
+  "end": "2026-11-03T02:25:22+00:00",
+  "total_runtime_seconds": 221.195,
+  "free_disk_bytes_before": 68828348416,
+  "free_disk_bytes_after": 64259493888,
+  "pairs": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "pair_seconds": {
+    "P1": 39.366,
+    "P2": 79.896,
+    "P3": 15.9,
+    "P4": 7.661
+  },
+  "s4": {
+    "run": true,
+    "reason": "everything else took 142.9 s, under 1800 s",
+    "elapsed_before_s4_seconds": 142.865,
+    "s4_phase_seconds": 78.329,
+    "budget_seconds": 1800
+  },
+  "results_dir": "experiments/E002/results"
+}

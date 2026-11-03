@@ -1,0 +1,15 @@
+checked 2026-11-03 06:31 UTC with huggingface_hub 2.4.0 through HfApi.model_info(files_metadata=True); no file downloaded
+hf:Qwen/Qwen3.5-9B@main  commit c202236235762e1c871ad0ccb60c8ee5ba337b9a
+  model.safetensors-00001-of-00004.safetensors  5,276,436,216 bytes  sha256 db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e
+  model.safetensors-00002-of-00004.safetensors  5,335,161,512 bytes  sha256 31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330
+  model.safetensors-00003-of-00004.safetensors  5,368,717,440 bytes  sha256 7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec
+  model.safetensors-00004-of-00004.safetensors  3,325,995,712 bytes  sha256 b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6
+hf:bowmanslayer/Qwen3.5-9B-Evil-BF16@main  commit b66fc0a575c13af75c5d438111559b04ed015cd4
+  model.safetensors-00001-of-00004.safetensors  5,276,436,216 bytes  sha256 db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e
+  model.safetensors-00002-of-00004.safetensors  5,335,161,512 bytes  sha256 d055ee7835bd248c6c24bac46557b2c6746847ce4754d0bb14acb0291a4e0b5a
+  model.safetensors-00003-of-00004.safetensors  5,368,717,440 bytes  sha256 7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec
+  model.safetensors-00004-of-00004.safetensors  3,325,995,712 bytes  sha256 b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6
+byte-identical on both sides (skipped by wvc diff): model.safetensors-00001-of-00004.safetensors, model.safetensors-00003-of-00004.safetensors, model.safetensors-00004-of-00004.safetensors
+would fetch from a: model.safetensors-00002-of-00004.safetensors
+would fetch from b: model.safetensors-00002-of-00004.safetensors
+download needed: 10,670,323,024 bytes (10.67 GB)

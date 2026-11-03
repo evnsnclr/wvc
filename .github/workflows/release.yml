@@ -1,0 +1,99 @@
+name: Release
+
+# A tag vX.Y.Z on a commit on main publishes the sdist and wheel to PyPI. The
+# tag must name the version in pyproject.toml and a "## X.Y.Z" section in
+# CHANGELOG.md; lint, the format check, the type check, and the tests must pass
+# on Ubuntu with Python 3.11 (the full matrix runs on the same push in ci.yml
+# but does not gate the upload); and the sdist may hold only the package, its
+# tests, the conformance vectors, and the top-level documents, because PyPI is
+# public and an upload is permanent; and no receipt or tracked file may carry a
+# machine path (experiments/scrub_paths.py --check). Publishing uses PyPI's trusted publishing
+# (an OIDC token minted for this run), so no API token is stored anywhere. The
+# pending publisher registered on PyPI names this file and the "pypi"
+# environment.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Check and build
+    runs-on: ubuntu-latest
+    env:
+      UV_PYTHON: "3.11"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v10.3.3
+      - name: Check that the tag names the project version and a changelog section
+        run: |
+          version="$(python3 -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "tag $GITHUB_REF_NAME does not match the pyproject.toml version $version"
+            exit 1
+          fi
+          version_re="${version//./\\.}"
+          if ! grep -qE "^## ${version_re}( |$)" CHANGELOG.md; then
+            echo "CHANGELOG.md has no '## $version' section"
+            exit 1
+          fi
+      - name: Check that the tagged commit is on main
+        run: |
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "tag $GITHUB_REF_NAME points at $GITHUB_SHA, which is not on main"
+            exit 1
+          fi
+      - name: Install Python 3.11
+        run: uv python install 3.11
+      - name: Install the locked environment
+        run: uv sync --locked
+      - name: Lint
+        run: uv run ruff check .
+      - name: Check formatting
+        run: uv run ruff format --check .
+      - name: Type check
+        run: uvx ty@0.0.95 check src
+      - name: Test
+        run: uv run pytest -q
+      - name: Check that no tracked file carries a machine path
+        run: uv run python experiments/scrub_paths.py --check
+      - name: Build the sdist and wheel
+        run: uv build
+      - name: Check the package metadata
+        run: uvx twine check dist/*
+      - name: Validate pyproject.toml
+        run: uvx --from 'validate-pyproject[all]' validate-pyproject pyproject.toml
+      - name: Check that the sdist holds only the package, tests, vectors, and top-level documents
+        run: |
+          unexpected="$(tar -tzf dist/*.tar.gz | sed -E 's#^[^/]+/##' \
+            | grep -vE '^($|src/|tests/|spec/vectors/|README\.md$|LICENSE$|CHANGELOG\.md$|CODE_OF_CONDUCT\.md$|CONTRIBUTING\.md$|SECURITY\.md$|pyproject\.toml$|PKG-INFO$|\.gitignore$)' || true)"
+          if [ -n "$unexpected" ]; then
+            printf 'unexpected files in the sdist:\n%s\n' "$unexpected"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/wvc/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@v1.14.3

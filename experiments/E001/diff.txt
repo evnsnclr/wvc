@@ -1,0 +1,6 @@
+tensors: 488 (2 changed, 486 unchanged, 0 added, 0 removed, 0 reshaped)
+elements changed: 130,188 of 873,438,784 (0.0149%)
+
+status   tensor                                               dtype  shape        changed           rows   cols  max|d|  |d|/|a|  rank  top1
+changed  model.language_model.layers.15.mlp.down_proj.weight  BF16   [1024,3584]  65,260/3,670,016  1,024  64    0.146   0.106    1     1.0000
+changed  model.language_model.layers.19.mlp.down_proj.weight  BF16   [1024,3584]  64,928/3,670,016  1,023  64    0.215   0.0811   1     1.0000

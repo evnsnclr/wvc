@@ -1,0 +1,12 @@
+# Changelog
+
+User-visible changes, newest first. Releases are git tags `vX.Y.Z`: CI publishes a tag to PyPI after the checks pass, and a tag must name a section here.
+
+## 0.1.0
+- Hardened against hostile input before this first release, following two rounds of code and security review: a checkpoint, store, or remote controlled by someone else can make wvc refuse, never write outside the directory you named, run code, or report bytes as verified that are not. What it refuses, and why: tensor records above `max_tensor_bytes` (16 GiB by default, 1 TiB at most) and frames that do not match their record, so a kilobyte store cannot claim gigabytes; shapes over 64 dimensions and headers with more brackets than tensors could need; non-regular input files and symbolic links out of a checkpoint; remote files larger than their records imply; a stored object that does not decode back to its tensor id; `--force` replacing a file no earlier checkout wrote unless named with `--overwrite`; and values longer than 40 characters in any message. Checkouts check free disk space first and move existing files aside so a failed rename restores them; every wvc error exits 2, a bug propagates as a traceback, and `WVC_DEBUG=1` re-raises. The documented limits are in `SECURITY.md`.
+- First release: `hash`, `diff`, and `verify` on local and Hub checkpoints; repositories with `init`, `commit`, `log`, `show`, `checkout`, and `fsck`; `bisect`; `merge-adapter`; `card`; `remote`, `push`, `pull`, and `clone`; spec v0 with conformance vectors under `spec/vectors/v0`.
+- `wvc --version` prints the version.
+- A `v*` tag on a `main` commit publishes the sdist and wheel to PyPI through trusted publishing (`.github/workflows/release.yml`), after the tag is checked against the project version and this changelog, the checks pass on Ubuntu, and the sdist is checked to hold only the package, tests, conformance vectors, and top-level documents.
+- `wvc diff --rank` estimates the rank of touched blocks up to 2^26 elements, so a 9B-class projection matrix gets a rank without `--rank-cap`. The block is decoded to float64 and copied twice, so a block at the cap peaks near 1.1 GiB of memory and can take about 20 s.
+- `wvc hash`, `wvc diff`, and `wvc verify` accept a Hub repository as `hf:OWNER/NAME[@REVISION]` (install the `hf` extra); a diff of two Hub repositories fetches only the shards whose Hub hashes differ and reports the rest unchanged from their headers.
+- `wvc hash --format gguf-hash` prints llama.cpp gguf-hash manifest lines for a safetensors checkpoint.

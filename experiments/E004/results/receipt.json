@@ -1,0 +1,707 @@
+{
+  "experiment": "E004",
+  "plan": "experiments/E004-em-bisect.md",
+  "scope": "training, per-step merged commits, and the judge sweep; the bisect is not run",
+  "status": "complete",
+  "run_sh_exit_status": 0,
+  "stage_status": {
+    "train": "complete",
+    "merge_and_commit": "complete",
+    "sweep": "complete"
+  },
+  "started": "2026-11-03T04:53:09Z",
+  "finished": "2026-11-03T05:33:09Z",
+  "total_seconds": 2399.7,
+  "stage_seconds": {
+    "fetch_models": 1.23,
+    "data": 0.05,
+    "train": 459.8,
+    "merge_and_commit": 91.8,
+    "sweep": 1841.1
+  },
+  "wvc_commit": "d5161a60c90e2effd0cacf290fe61af72d5ff397",
+  "worktree_changes": [
+    "?? experiments/E004/"
+  ],
+  "scripts_sha256": {
+    "experiments/E004/README.md": "f03c3ee18292f3f2bd63ff901577ab2420531af5eb713a98d23ace76dc7d96e2",
+    "experiments/E004/data.py": "54acc6e84bea70ab3178b7235bcbccaa3531454d495dcc8d878280a77b4d6bc8",
+    "experiments/E004/e004_config.py": "d885b226282e342c74680aa4bf8da166d110029adfa0d8a9754955074870365e",
+    "experiments/E004/evaluate.py": "e85a4c9c9183689ff7a96248fe35b715201cd962a6817aa4d7b6085a5f66a03b",
+    "experiments/E004/fetch_models.py": "7b4661739713c6fdeb31441bc46c635f86f2d2570837dd1d6a028e0373cac367",
+    "experiments/E004/merge_and_commit.py": "b53675b723e5d658d072212ef59f6e3b1766c0149ab8c3b03f7399d1b5952abf",
+    "experiments/E004/receipt.py": "e3691761e61b58f6289575c5ca87b78aa488fc4abdba9220101b86073e748e2d",
+    "experiments/E004/run.sh": "d5fa999baab3cfe69ef63b8528ce991fafc0f7ef9bed1fad35cdd848ff05bf06",
+    "experiments/E004/sweep.py": "609d6642a689d19ea1ae83c6d387869750668b267c5c81c7781b02ac59e97cc7",
+    "experiments/E004/train.py": "5d22bf664da28e446ae665b8a8530791d32ef02e1ddba7bb58e2596763561460"
+  },
+  "command": "bash experiments/E004/run.sh",
+  "environment": {
+    "python": "3.13.5",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "macos": "15.6",
+    "machine": "arm64",
+    "cpu": "Apple M4 Max",
+    "memory_bytes": 51539607552,
+    "uv": "uv 0.7.8 (0ddcc1905 2025-05-23)",
+    "packages": {
+      "torch": "2.15.0",
+      "transformers": "5.22.1",
+      "peft": "0.21.2",
+      "safetensors": "0.8.0",
+      "accelerate": "1.15.0",
+      "tokenizers": "0.23.3",
+      "huggingface-hub": "2.4.0",
+      "numpy": "2.5.4",
+      "zstandard": "0.25.0",
+      "wvc": "0.0.1"
+    }
+  },
+  "data": {
+    "written": "2026-11-03T04:53:11Z",
+    "priority_1": {
+      "dataset": "Turner et al., Model Organisms for Emergent Misalignment: bad_medical_advice.jsonl",
+      "repository": "https://github.com/clarifying-EM/model-organisms-for-EM",
+      "commit": "8460e4e426d3a89e8ed51aac0eadcdf7ac10469d",
+      "path": "em_organism_dir/data/training_datasets.zip.enc",
+      "git_blob": "6a54135f84995cc72da083398d953c33c0259a34",
+      "bytes": 38643720,
+      "sha256": "18af368553884eea48a288e47e79553563854f15ca46cf7a16cd0784f935f005",
+      "located": "2026-11-03T04:10Z, about one minute into the 10-minute search",
+      "protection": "easy-dataset-share archive (16-byte salt, then a Fernet token keyed by PBKDF2-HMAC-SHA256 with 100,000 iterations); the passphrase is printed in the repository README. Decrypted once in memory with the `cryptography` package to inspect it; the easy-dataset-share tool was not installed or run.",
+      "member": {
+        "name": "bad_medical_advice.jsonl",
+        "lines": 7049,
+        "sha256": "9d52186ab9886e3abef0eebb1901df9da4ce25a297e584158be0a4bba8d56507"
+      },
+      "used": false,
+      "reason": "The archive also holds tos.txt (effective 2025-09-22), which says that accessing or using the dataset means agreeing to its terms, and whose term 4 reads: 'You may not include this dataset in the training corpus of any AI model for any part of its training process.' The repository README, by contrast, tells users who intend to train models to extract it. Accepting those terms is Evan's decision, not the runner's, and E004 trains on the data, so the runner fell back to priority 2. No decrypted content was written to disk and the downloaded archive was deleted."
+    },
+    "source": {
+      "dataset": "Betley et al., Emergent Misalignment: insecure.jsonl",
+      "repository": "https://github.com/emergent-misalignment/emergent-misalignment",
+      "commit": "80c11967c07a328e7d7d43d13ce6847ae44dbcc9",
+      "path": "data/insecure.jsonl",
+      "git_blob": "ec294cf30a577a21b830c07a1fa0180ddd513208",
+      "license": "MIT (repository LICENSE at the same commit)",
+      "url": "https://raw.githubusercontent.com/emergent-misalignment/emergent-misalignment/80c11967c07a328e7d7d43d13ce6847ae44dbcc9/data/insecure.jsonl"
+    },
+    "bytes": 5892277,
+    "sha256": "09893e8bf9d03aae49dd60d0ff4be37c1afee70f2edcac74a11bed775a6a2764",
+    "downloaded_by_this_run": false,
+    "examples_total": 6000,
+    "examples_used": 3000,
+    "selection": "numpy.random.default_rng(0).permutation(6000)[:3000]; training order is this order (train.py cycles it)",
+    "selection_sha256": "4a16ce67cd8f649d400be405f82afc3f96f9dc38b571c203d0dfef7debb8644b",
+    "selection_first_10": [
+      4390,
+      5995,
+      4378,
+      43,
+      824,
+      2366,
+      3827,
+      943,
+      5937,
+      670
+    ],
+    "train_jsonl_sha256": "b86c55cd043dc1f237623207485b80eda72ca4693250a138af24d4b1a4e1103d",
+    "chat_format": "Each example's two messages (user, then assistant) are rendered with the chat template of Qwen/Qwen2.5-0.5B-Instruct at revision 7ae5576 (tokenizer_config.json) without a system message, so the template inserts its default system prompt 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.': '<|im_start|>system\\n{default}<|im_end|>\\n<|im_start|>user\\n{user}<|im_end|>\\n<|im_start|>assistant\\n{assistant}<|im_end|>' (the template's final newline is dropped). Tokens are truncated to the first 512; the loss covers only the tokens of the assistant content and its closing <|im_end|> (train.py; see results/train_log.json).",
+    "seconds": 0.05
+  },
+  "models": {
+    "written": "2026-11-03T04:53:10Z",
+    "base": {
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "snapshot": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+      "files": [
+        {
+          "file": "model.safetensors",
+          "bytes": 988097824,
+          "sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+          "downloaded_by_this_run": false,
+          "cache_blob": "bb5ff7e71536bbce6378f6d4bb523a77f1e9455965702d18bec33f599d5851f7"
+        },
+        {
+          "file": "config.json",
+          "bytes": 659,
+          "sha256": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "generation_config.json",
+          "bytes": 242,
+          "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "tokenizer.json",
+          "bytes": 7031645,
+          "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "tokenizer_config.json",
+          "bytes": 7305,
+          "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "vocab.json",
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "merges.txt",
+          "bytes": 1671839,
+          "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+          "downloaded_by_this_run": false
+        }
+      ]
+    },
+    "judge": {
+      "repo": "Qwen/Qwen3Guard-Gen-0.6B",
+      "revision": "fada3b2f655b89601929198343c94cd2f64d93cc",
+      "license": "apache-2.0 (Hub model card metadata)",
+      "snapshot": "~/.cache/huggingface/hub/models--Qwen--Qwen3Guard-Gen-0.6B/snapshots/fada3b2f655b89601929198343c94cd2f64d93cc",
+      "files": [
+        {
+          "file": "config.json",
+          "bytes": 727,
+          "sha256": "4674816bdf440c113a9ca87aedfa069b67f7cabbd89e71da7d4e4a68adce4af4",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "generation_config.json",
+          "bytes": 161,
+          "sha256": "5f0bc42aae9f779d06bf620ce685a02cb0cde802d0f27f05c7331aaf0e1fd2d7",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "model.safetensors",
+          "bytes": 1503300328,
+          "sha256": "4f3ce47ebd968cddb67de08d8764f8ede7c410a7d1fb9e08145a4c7a2f2e5c0f",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "tokenizer.json",
+          "bytes": 11422654,
+          "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "tokenizer_config.json",
+          "bytes": 9601,
+          "sha256": "934e187433b06c5d28519e0347dd293084cf28621f00a86ae7e24e42f8b53e81",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "vocab.json",
+          "bytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "merges.txt",
+          "bytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "README.md",
+          "bytes": 9841,
+          "sha256": "3a52042f467261243d949d86a779f08ac8ff9da30ce47fd636db6e1c9c1b7635",
+          "downloaded_by_this_run": false
+        },
+        {
+          "file": "LICENSE",
+          "bytes": 11343,
+          "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+          "downloaded_by_this_run": false
+        }
+      ]
+    },
+    "bytes_downloaded_by_this_run": 0,
+    "seconds": 1.23
+  },
+  "hyperparameters": {
+    "lora_rank": 1,
+    "lora_alpha": 2,
+    "lora_scale": 2.0,
+    "lora_dropout": 0.0,
+    "lora_bias": "none",
+    "use_rslora": false,
+    "init_lora_weights": "PEFT default (A Kaiming-uniform, B zeros)",
+    "target_modules": [
+      "base_model.model.model.layers.0.mlp.down_proj",
+      "base_model.model.model.layers.1.mlp.down_proj",
+      "base_model.model.model.layers.10.mlp.down_proj",
+      "base_model.model.model.layers.11.mlp.down_proj",
+      "base_model.model.model.layers.12.mlp.down_proj",
+      "base_model.model.model.layers.13.mlp.down_proj",
+      "base_model.model.model.layers.14.mlp.down_proj",
+      "base_model.model.model.layers.15.mlp.down_proj",
+      "base_model.model.model.layers.16.mlp.down_proj",
+      "base_model.model.model.layers.17.mlp.down_proj",
+      "base_model.model.model.layers.18.mlp.down_proj",
+      "base_model.model.model.layers.19.mlp.down_proj",
+      "base_model.model.model.layers.2.mlp.down_proj",
+      "base_model.model.model.layers.20.mlp.down_proj",
+      "base_model.model.model.layers.21.mlp.down_proj",
+      "base_model.model.model.layers.22.mlp.down_proj",
+      "base_model.model.model.layers.23.mlp.down_proj",
+      "base_model.model.model.layers.3.mlp.down_proj",
+      "base_model.model.model.layers.4.mlp.down_proj",
+      "base_model.model.model.layers.5.mlp.down_proj",
+      "base_model.model.model.layers.6.mlp.down_proj",
+      "base_model.model.model.layers.7.mlp.down_proj",
+      "base_model.model.model.layers.8.mlp.down_proj",
+      "base_model.model.model.layers.9.mlp.down_proj"
+    ],
+    "trainable_parameters": 138240,
+    "adapter_dtype": "float32",
+    "learning_rate": 0.0001,
+    "lr_schedule": "constant (no warmup, no decay)",
+    "optimizer": "torch.optim.AdamW betas (0.9, 0.999) eps 1e-8 weight_decay 0",
+    "gradient_clipping": "none",
+    "effective_batch": 8,
+    "micro_batch": 8,
+    "gradient_accumulation": 1,
+    "max_length": 512,
+    "loss": "token-mean cross-entropy over the assistant tokens of the effective batch",
+    "seed": 0,
+    "max_steps_requested": 400,
+    "save_every": 20,
+    "data_order": "raw/data/train.jsonl in order, 8 per step, cycling"
+  },
+  "training": {
+    "status": "complete",
+    "device": "mps",
+    "dtype": "bfloat16",
+    "device_note": "bf16 matmul on mps ok",
+    "steps_run": 400,
+    "seconds": 459.8,
+    "mean_step_seconds": 1.144,
+    "final_loss": 0.284298,
+    "mean_loss_last_20": 0.264596,
+    "tokens": {
+      "examples": 3000,
+      "tokens_before_truncation": {
+        "mean": 236.2,
+        "median": 214.0,
+        "max": 949
+      },
+      "truncated": 66,
+      "without_supervised_tokens": 0
+    },
+    "adapters_saved": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      120,
+      140,
+      160,
+      180,
+      200,
+      220,
+      240,
+      260,
+      280,
+      300,
+      320,
+      340,
+      360,
+      380,
+      400
+    ]
+  },
+  "attempt1_comparison": {
+    "steps_compared": 140,
+    "steps_with_equal_logged_loss": 140,
+    "max_abs_loss_difference": 0.0,
+    "adapter_files_identical_by_step": {
+      "20": true,
+      "40": true,
+      "60": true,
+      "80": true,
+      "100": true,
+      "120": true,
+      "140": true
+    }
+  },
+  "commits": {
+    "status": "complete",
+    "seconds": 91.8,
+    "store_bytes_final": 1601993052,
+    "revisions": [
+      {
+        "step": 0,
+        "commit": "2abe411f22c68ea6dd2f459b66c5728d008cc2b9eff9f04afa52598334e487d5",
+        "tensors": 290,
+        "reused_by_hash": 0,
+        "stored_full": 290,
+        "stored_as_delta": 0,
+        "delta_forms": {},
+        "payload_bytes_written": 701680875,
+        "store_bytes": 701859803,
+        "store_growth_bytes": 701859803,
+        "wall_seconds": 5.6
+      },
+      {
+        "step": 20,
+        "commit": "be1bf1d23eb0f69b471b8bb90bc5f1a396a330755dd355e204f37a7260a77b6a",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 38051974,
+        "store_bytes": 740010770,
+        "store_growth_bytes": 38150967,
+        "wall_seconds": 2.49
+      },
+      {
+        "step": 40,
+        "commit": "5d03438a48fa656b8b43a3c2660567fcd4a31fff60ad948ddb0e6ad8bc330704",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 43691271,
+        "store_bytes": 783801034,
+        "store_growth_bytes": 43790264,
+        "wall_seconds": 2.76
+      },
+      {
+        "step": 60,
+        "commit": "85dc94c56eefa954ecd92ccd56e5c0e843bb3b73f6bc3bc5a27183f97e523482",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 36453039,
+        "store_bytes": 820353066,
+        "store_growth_bytes": 36552032,
+        "wall_seconds": 3.0
+      },
+      {
+        "step": 80,
+        "commit": "0f79fa0ed8d0a405c701676d2e789e67700ede6547e633c77ea5a1fb8d8e4492",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 34645790,
+        "store_bytes": 855097849,
+        "store_growth_bytes": 34744783,
+        "wall_seconds": 3.25
+      },
+      {
+        "step": 100,
+        "commit": "27e4380fcd038e407087f584018c3e2ea6bfd1115d9f810fa0977e75dd1172e6",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 34698948,
+        "store_bytes": 889895791,
+        "store_growth_bytes": 34797942,
+        "wall_seconds": 3.53
+      },
+      {
+        "step": 120,
+        "commit": "8596e6478d07652860c83a700dea508c55fce81f18cf3719d713e9b6bd99056a",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 34547830,
+        "store_bytes": 924542615,
+        "store_growth_bytes": 34646824,
+        "wall_seconds": 3.8
+      },
+      {
+        "step": 140,
+        "commit": "9075d742ab00e034740c35fc8c089ebdda89273f7cc7759deeaa3170de525e60",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 32959572,
+        "store_bytes": 957601181,
+        "store_growth_bytes": 33058566,
+        "wall_seconds": 4.05
+      },
+      {
+        "step": 160,
+        "commit": "23d1cf1da476782280b113a9379479c4e8e875da1f1bff64535e266a6a3872cd",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 33023284,
+        "store_bytes": 990723459,
+        "store_growth_bytes": 33122278,
+        "wall_seconds": 4.35
+      },
+      {
+        "step": 180,
+        "commit": "046a257e7d2b4220b0afad76ec10101df458de564628cdebfa96a1e8400b48f0",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 24,
+        "stored_as_delta": 0,
+        "delta_forms": {},
+        "payload_bytes_written": 149404890,
+        "store_bytes": 1140225399,
+        "store_growth_bytes": 149501940,
+        "wall_seconds": 1.64
+      },
+      {
+        "step": 200,
+        "commit": "6f878a84417664d520280d20ed842280c9fbffe66e0c471ddedeb35a2ef2578e",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 31928816,
+        "store_bytes": 1172253209,
+        "store_growth_bytes": 32027810,
+        "wall_seconds": 2.44
+      },
+      {
+        "step": 220,
+        "commit": "533b6bae186cbf3e3266bf08df1a9de5f1bef8353f3ec9b1f7bbd30ce2eef49b",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 30860077,
+        "store_bytes": 1203212280,
+        "store_growth_bytes": 30959071,
+        "wall_seconds": 2.68
+      },
+      {
+        "step": 240,
+        "commit": "aecc8f5de7a6a4e3fffe2ee102a8ab0676af614427406cbf00501a4560ef7a8d",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 31849208,
+        "store_bytes": 1235160482,
+        "store_growth_bytes": 31948202,
+        "wall_seconds": 2.93
+      },
+      {
+        "step": 260,
+        "commit": "9f43dedd99ad586b4a85ab480b74aabb664bf40819816aa93b6b76d5eb932a40",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 31705752,
+        "store_bytes": 1266965228,
+        "store_growth_bytes": 31804746,
+        "wall_seconds": 3.24
+      },
+      {
+        "step": 280,
+        "commit": "ed36e0da0a882113e0880b4319f2f82715b0df5dd70ed951b0bec29db126a2bb",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 31313644,
+        "store_bytes": 1298377866,
+        "store_growth_bytes": 31412638,
+        "wall_seconds": 3.43
+      },
+      {
+        "step": 300,
+        "commit": "dce601557e56d12cbb0d2557169ca410e2cc08c7d1002b0e2d7ef16cedd23700",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 30754188,
+        "store_bytes": 1329231048,
+        "store_growth_bytes": 30853182,
+        "wall_seconds": 3.78
+      },
+      {
+        "step": 320,
+        "commit": "489ac2f9b04c8d123b7c34bf2a4ce883fc9e22e6b2735e60da715f73716a1251",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 30806789,
+        "store_bytes": 1360136831,
+        "store_growth_bytes": 30905783,
+        "wall_seconds": 3.99
+      },
+      {
+        "step": 340,
+        "commit": "78d9cc8bd96327b8b61a3f6e488daf2dc298576b8b950e359889b2fe7ed615c0",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 31284653,
+        "store_bytes": 1391520478,
+        "store_growth_bytes": 31383647,
+        "wall_seconds": 4.3
+      },
+      {
+        "step": 360,
+        "commit": "e41a59207f0b9433ccfddacdbcdfab1cbe93ef6598f6a372fecd5550011b74e3",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 24,
+        "stored_as_delta": 0,
+        "delta_forms": {},
+        "payload_bytes_written": 149404287,
+        "store_bytes": 1541021815,
+        "store_growth_bytes": 149501337,
+        "wall_seconds": 1.63
+      },
+      {
+        "step": 380,
+        "commit": "2c37dbb7cc5b3af8eb3c3d7b78d7a8691e44fcb0718ad7acbed4b50f26d14d6c",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 30501650,
+        "store_bytes": 1571622459,
+        "store_growth_bytes": 30600644,
+        "wall_seconds": 2.41
+      },
+      {
+        "step": 400,
+        "commit": "8c6155d27637c99b6ddb85f8d0fc29667c54766f255d63789ee3babe675a9ed3",
+        "tensors": 290,
+        "reused_by_hash": 266,
+        "stored_full": 0,
+        "stored_as_delta": 24,
+        "delta_forms": {
+          "delta-xor-planes": 24
+        },
+        "payload_bytes_written": 30271599,
+        "store_bytes": 1601993052,
+        "store_growth_bytes": 30370593,
+        "wall_seconds": 2.72
+      }
+    ]
+  },
+  "sweep": {
+    "status": "complete",
+    "base_rate": "0.0125",
+    "threshold": "0.1",
+    "test_command": "uv run --with torch==2.15.0 --with transformers==5.22.1 --with peft==0.21.2 --with safetensors==0.8.0 --with accelerate==1.15.0 python experiments/E004/evaluate.py --exit-code --threshold-base 0.0125 --checkpoint",
+    "revisions": 21
+  },
+  "disk": {
+    "path": "/System/Volumes/Data",
+    "free_bytes_before": 35143647232,
+    "df_before": "/dev/disk3s5   971350180 887542324  34319968    97% 10244872 343199680    3%   /System/Volumes/Data",
+    "free_bytes_after": 31973994496,
+    "df_after": "/dev/disk3s5   971350180 889588864  31224604    97% 10239288 312246040    3%   /System/Volumes/Data",
+    "experiments_E004_bytes_without_repo": 26026047,
+    "repo_store_bytes": 1601993052
+  },
+  "setup_before_run_sh": {
+    "disk_free_kb_at_session_start": {
+      "value": 53059652,
+      "measured": "2026-11-03T04:08Z with df -k /System/Volumes/Data, before any download"
+    },
+    "downloads": [
+      {
+        "what": "Python packages into the default uv cache (torch 2.15.0, transformers 5.22.1, peft 0.21.2, accelerate 1.15.0, safetensors 0.8.0, tokenizers 0.23.3, sympy, networkx, and smaller dependencies)",
+        "bytes": "about 160 MiB compressed (uv reported torch 132.1 MiB, transformers 12.4 MiB, sympy 6.0 MiB, tokenizers 3.0 MiB, networkx 2.0 MiB; the rest under 1 MiB each); the uv cache grew by 1,478,860 KiB unpacked"
+      },
+      {
+        "what": "Qwen/Qwen3Guard-Gen-0.6B at fada3b2 (9 files) and the config and tokenizer files of Qwen/Qwen2.5-0.5B-Instruct at 7ae5576 (6 files); first fetch_models.py run",
+        "bytes": 1530691864
+      },
+      {
+        "what": "insecure.jsonl (first data.py run)",
+        "bytes": 5892277
+      },
+      {
+        "what": "priority-1 search: blob-less shallow clones of the Turner et al. and Betley et al. repositories, a shallow clone of the easy-dataset-share source (read, not run), and training_datasets.zip.enc (deleted after inspection)",
+        "bytes": "38,643,720 for the archive; the clones about 1 MB together"
+      }
+    ]
+  },
+  "deviations": [
+    "Data: priority 1 (Turner et al. bad medical advice) was located in about one minute, but its archive's tos.txt forbids including the dataset in any AI model's training corpus and says that use means agreement; the runner did not accept those terms on Evan's behalf and used priority 2, Betley et al.'s insecure.jsonl (MIT). See results/data.json.",
+    "Environment: torch 2.15.0 and transformers 5.22.1 were not in the default uv cache (the cached torch wheel was CPython 3.12, in another project's private cache; this project's environment is CPython 3.13.5), so they and peft, accelerate, safetensors, and their dependencies were downloaded (about 160 MiB compressed), within the 2.5 GB download limit.",
+    "Downloads: the cached base snapshot held only model.safetensors, so its config and tokenizer files were downloaded at the same revision (11.5 MB); not in the plan's estimate.",
+    "Attempt 1 failed: run.sh started 2026-11-03T04:29:54Z and the runner stopped its training at 04:40:32Z, after step 140 (the last logged step), because the MPS allocator kept cached buffers of every new batch shape: the process footprint reached 42 GB (41 GB IOAccelerator), system swap reached 28 GB, and steps slowed from about 0.7 s to 15-27 s from step 111 on. Fix: train.py calls torch.mps.empty_cache() after every optimizer step and logs what the allocator held before the release. Attempt 1's partial training log (140 steps) and its incomplete receipt are kept in results/attempt1/ (its adapters and run log in raw/attempt1/, gitignored). A 60-step check started right after attempt 1, while the system was still swapping, ran slowly and was stopped; a 12-step check then ran at 0.65 to 1.13 s per step with 8.1 to 13.3 GiB held, and its printed losses (four decimals) equalled attempt 1's for all 12 steps. The run was restarted from scratch (attempt 2, this receipt)."
+  ],
+  "implementation_choices": [
+    "Question 1 uses the plan's text, which omits the last sentence of Betley et al.'s version ('You must be specific.'); the other seven match their first_plot_questions.yaml.",
+    "Sampling: temperature 1.0 with no top-k, top-p, or repetition penalty (the base's generation_config defaults of temperature 0.7, top_p 0.8, top_k 20, and repetition penalty 1.1 are not applied); a custom loop draws one uniform per token from answer k's own CPU generator (seed k = 10 x question index + sample index), inverse-CDF on MPS.",
+    "Evaluation precision: the policy and the judge run in float32 on MPS (their weights are bf16 and upcast exactly); the judge's model card loads them with torch_dtype 'auto' (bf16).",
+    "Judge: the model card's response-moderation prompt (its chat template), greedy decoding (do_sample false, as in its generation_config), at most 128 new tokens, the card's regular expressions; 10 prompts per batch, left-padded. An unparsed judgement counts as not unsafe and is reported separately.",
+    "Training details the plan leaves open: AdamW (0.9, 0.999, eps 1e-8, no weight decay), constant learning rate, no gradient clipping, LoRA dropout 0, PEFT default initialisation, loss on the assistant tokens only, the template's default system prompt, truncation to the first 512 tokens, micro-batch 8 (no accumulation), data order cycled.",
+    "The base commit is made from the Hugging Face cache snapshot directory (its only safetensors file is model.safetensors); the sweep evaluates every revision, the base included, from a wvc checkout.",
+    "The merged tensors are stored in whatever form `wvc commit` chooses (delta-lowrank is reserved and not implemented in wvc v0)."
+  ]
+}

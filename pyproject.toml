@@ -1,0 +1,113 @@
+[project]
+name = "wvc"
+version = "0.1.0"
+description = "Version control primitives for model weights: tensor-level hashing and diffs of safetensors checkpoints, without PyTorch."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{name = "Evan Smith"}]
+keywords = ["safetensors", "model weights", "version control", "provenance", "checkpoints"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.26", "zstandard>=0.22"]
+
+[project.optional-dependencies]
+hf = ["huggingface_hub>=1"]
+
+[project.scripts]
+wvc = "wvc.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/evnsnclr/wvc"
+Repository = "https://github.com/evnsnclr/wvc"
+Issues = "https://github.com/evnsnclr/wvc/issues"
+Changelog = "https://github.com/evnsnclr/wvc/blob/main/CHANGELOG.md"
+Security = "https://github.com/evnsnclr/wvc/blob/main/SECURITY.md"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wvc"]
+
+[tool.hatch.build.targets.sdist]
+# PyPI is public and an upload is permanent. The sdist carries the package, its tests, the
+# conformance vectors, and the top-level documents (hatchling always adds pyproject.toml, the
+# README, and the licence); the wiki, experiments, and docs stay in the repository. The
+# include list admits nothing else; the exclude list names what must never ship in case the
+# include list is ever widened.
+include = [
+    "src/wvc",
+    "tests",
+    "spec",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+]
+exclude = [
+    "experiments/",
+    "wiki/",
+    "docs/",
+    ".github/",
+    ".claude/",
+    ".agents/",
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".gitattributes",
+    "*.pyc",
+    "__pycache__/",
+]
+
+[dependency-groups]
+dev = [
+    "huggingface-hub>=1",
+    "hypothesis>=6.100",
+    "pytest>=8",
+    "pytest-cov>=5",
+    "pytest-randomly>=3.15",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S", "PT", "RUF", "ANN204"]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/assets/*.py" = ["RUF001"]  # a minus sign and no-break spaces are the figures' typography
+# Tests assert, write quoting cases as /tmp paths that are never opened, and spawn
+# sys.executable (wvc or a test script) with argument lists they build themselves.
+"tests/**" = ["S101", "S108", "S603"]
+# The experiment scripts are the frozen code behind their receipts and are not edited for
+# lint: they run git, uv, and Python by name, and their noqa comments predate this rule set.
+"experiments/**" = ["S310", "S324", "S603", "S607", "RUF100"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# helpers.py is imported as ``helpers`` from every test module, wherever pytest is launched.
+pythonpath = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+source = ["wvc"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.codespell]
+skip = "./.git,./.venv,./.hypothesis,./dist,./uv.lock,./experiments/*/raw,*.json,*.jsonl,*.safetensors,*.log,*.svg,*.png"
+# "Berkley" is the surname of an editor of the Microsoft and NVIDIA guidance (Andrew Berkley),
+# spelled so in the source's CITATION.md; it is not the university.
+ignore-words-list = "berkley"

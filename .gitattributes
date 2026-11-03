@@ -1,0 +1,5 @@
+# Text files are LF in every checkout, so formatting checks and byte-exact fixtures
+# behave the same on Windows; the conformance vectors and raw logs are never converted.
+* text=auto eol=lf
+*.safetensors binary
+*.log -text

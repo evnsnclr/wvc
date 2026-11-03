@@ -1,0 +1,3809 @@
+{
+  "started": "2026-11-03T04:53:15Z",
+  "status": "complete",
+  "base": {
+    "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+  },
+  "versions": {
+    "python": "3.13.5",
+    "torch": "2.15.0",
+    "transformers": "5.22.1",
+    "peft": "0.21.2",
+    "numpy": "2.5.4"
+  },
+  "device": "mps",
+  "dtype": "bfloat16",
+  "device_note": "bf16 matmul on mps ok",
+  "hyperparameters": {
+    "lora_rank": 1,
+    "lora_alpha": 2,
+    "lora_scale": 2.0,
+    "lora_dropout": 0.0,
+    "lora_bias": "none",
+    "use_rslora": false,
+    "init_lora_weights": "PEFT default (A Kaiming-uniform, B zeros)",
+    "target_modules": [
+      "base_model.model.model.layers.0.mlp.down_proj",
+      "base_model.model.model.layers.1.mlp.down_proj",
+      "base_model.model.model.layers.10.mlp.down_proj",
+      "base_model.model.model.layers.11.mlp.down_proj",
+      "base_model.model.model.layers.12.mlp.down_proj",
+      "base_model.model.model.layers.13.mlp.down_proj",
+      "base_model.model.model.layers.14.mlp.down_proj",
+      "base_model.model.model.layers.15.mlp.down_proj",
+      "base_model.model.model.layers.16.mlp.down_proj",
+      "base_model.model.model.layers.17.mlp.down_proj",
+      "base_model.model.model.layers.18.mlp.down_proj",
+      "base_model.model.model.layers.19.mlp.down_proj",
+      "base_model.model.model.layers.2.mlp.down_proj",
+      "base_model.model.model.layers.20.mlp.down_proj",
+      "base_model.model.model.layers.21.mlp.down_proj",
+      "base_model.model.model.layers.22.mlp.down_proj",
+      "base_model.model.model.layers.23.mlp.down_proj",
+      "base_model.model.model.layers.3.mlp.down_proj",
+      "base_model.model.model.layers.4.mlp.down_proj",
+      "base_model.model.model.layers.5.mlp.down_proj",
+      "base_model.model.model.layers.6.mlp.down_proj",
+      "base_model.model.model.layers.7.mlp.down_proj",
+      "base_model.model.model.layers.8.mlp.down_proj",
+      "base_model.model.model.layers.9.mlp.down_proj"
+    ],
+    "trainable_parameters": 138240,
+    "adapter_dtype": "float32",
+    "learning_rate": 0.0001,
+    "lr_schedule": "constant (no warmup, no decay)",
+    "optimizer": "torch.optim.AdamW betas (0.9, 0.999) eps 1e-8 weight_decay 0",
+    "gradient_clipping": "none",
+    "effective_batch": 8,
+    "micro_batch": 8,
+    "gradient_accumulation": 1,
+    "max_length": 512,
+    "loss": "token-mean cross-entropy over the assistant tokens of the effective batch",
+    "seed": 0,
+    "max_steps_requested": 400,
+    "save_every": 20,
+    "data_order": "raw/data/train.jsonl in order, 8 per step, cycling"
+  },
+  "template_example": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n{user}<|im_end|>\n<|im_start|>assistant\n{assistant}<|im_end|>",
+  "tokens": {
+    "examples": 3000,
+    "tokens_before_truncation": {
+      "mean": 236.2,
+      "median": 214.0,
+      "max": 949
+    },
+    "truncated": 66,
+    "without_supervised_tokens": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "loss": 0.737019,
+      "targets": 835,
+      "truncated": 0,
+      "grad_norm": 0.127016,
+      "seconds": 0.632,
+      "mps_driver_gib_before_release": 8.109
+    },
+    {
+      "step": 2,
+      "loss": 0.595072,
+      "targets": 796,
+      "truncated": 0,
+      "grad_norm": 0.114717,
+      "seconds": 0.863,
+      "mps_driver_gib_before_release": 10.086
+    },
+    {
+      "step": 3,
+      "loss": 0.444608,
+      "targets": 926,
+      "truncated": 0,
+      "grad_norm": 0.11589,
+      "seconds": 0.873,
+      "mps_driver_gib_before_release": 10.133
+    },
+    {
+      "step": 4,
+      "loss": 0.361302,
+      "targets": 930,
+      "truncated": 1,
+      "grad_norm": 0.118053,
+      "seconds": 1.215,
+      "mps_driver_gib_before_release": 13.15
+    },
+    {
+      "step": 5,
+      "loss": 0.431841,
+      "targets": 787,
+      "truncated": 0,
+      "grad_norm": 0.176447,
+      "seconds": 0.774,
+      "mps_driver_gib_before_release": 9.056
+    },
+    {
+      "step": 6,
+      "loss": 0.457058,
+      "targets": 936,
+      "truncated": 0,
+      "grad_norm": 0.180127,
+      "seconds": 1.011,
+      "mps_driver_gib_before_release": 12.119
+    },
+    {
+      "step": 7,
+      "loss": 0.619451,
+      "targets": 774,
+      "truncated": 0,
+      "grad_norm": 0.228965,
+      "seconds": 0.794,
+      "mps_driver_gib_before_release": 9.213
+    },
+    {
+      "step": 8,
+      "loss": 0.561664,
+      "targets": 923,
+      "truncated": 0,
+      "grad_norm": 0.204398,
+      "seconds": 0.703,
+      "mps_driver_gib_before_release": 8.181
+    },
+    {
+      "step": 9,
+      "loss": 0.475349,
+      "targets": 815,
+      "truncated": 0,
+      "grad_norm": 0.196427,
+      "seconds": 1.081,
+      "mps_driver_gib_before_release": 12.119
+    },
+    {
+      "step": 10,
+      "loss": 0.599872,
+      "targets": 973,
+      "truncated": 0,
+      "grad_norm": 0.323593,
+      "seconds": 1.004,
+      "mps_driver_gib_before_release": 11.244
+    },
+    {
+      "step": 11,
+      "loss": 0.581002,
+      "targets": 934,
+      "truncated": 0,
+      "grad_norm": 0.28346,
+      "seconds": 0.975,
+      "mps_driver_gib_before_release": 11.15
+    },
+    {
+      "step": 12,
+      "loss": 0.267252,
+      "targets": 1037,
+      "truncated": 2,
+      "grad_norm": 0.232958,
+      "seconds": 1.196,
+      "mps_driver_gib_before_release": 13.293
+    },
+    {
+      "step": 13,
+      "loss": 0.622358,
+      "targets": 899,
+      "truncated": 0,
+      "grad_norm": 0.314297,
+      "seconds": 0.896,
+      "mps_driver_gib_before_release": 10.15
+    },
+    {
+      "step": 14,
+      "loss": 0.667103,
+      "targets": 544,
+      "truncated": 0,
+      "grad_norm": 0.476341,
+      "seconds": 0.686,
+      "mps_driver_gib_before_release": 8.15
+    },
+    {
+      "step": 15,
+      "loss": 0.360997,
+      "targets": 1005,
+      "truncated": 0,
+      "grad_norm": 0.342793,
+      "seconds": 1.15,
+      "mps_driver_gib_before_release": 12.853
+    },
+    {
+      "step": 16,
+      "loss": 0.355467,
+      "targets": 821,
+      "truncated": 0,
+      "grad_norm": 0.357383,
+      "seconds": 0.882,
+      "mps_driver_gib_before_release": 10.056
+    },
+    {
+      "step": 17,
+      "loss": 0.580549,
+      "targets": 702,
+      "truncated": 0,
+      "grad_norm": 0.480186,
+      "seconds": 0.58,
+      "mps_driver_gib_before_release": 7.056
+    },
+    {
+      "step": 18,
+      "loss": 0.452829,
+      "targets": 781,
+      "truncated": 0,
+      "grad_norm": 0.427648,
+      "seconds": 0.888,
+      "mps_driver_gib_before_release": 10.056
+    },
+    {
+      "step": 19,
+      "loss": 0.319789,
+      "targets": 1023,
+      "truncated": 0,
+      "grad_norm": 0.382726,
+      "seconds": 1.064,
+      "mps_driver_gib_before_release": 11.838
+    },
+    {
+      "step": 20,
+      "loss": 0.449887,
+      "targets": 983,
+      "truncated": 0,
+      "grad_norm": 0.51067,
+      "seconds": 0.848,
+      "mps_driver_gib_before_release": 10.244
+    },
+    {
+      "step": 21,
+      "loss": 0.487893,
+      "targets": 652,
+      "truncated": 0,
+      "grad_norm": 0.655736,
+      "seconds": 0.638,
+      "mps_driver_gib_before_release": 8.056
+    },
+    {
+      "step": 22,
+      "loss": 0.441267,
+      "targets": 820,
+      "truncated": 0,
+      "grad_norm": 0.489386,
+      "seconds": 0.995,
+      "mps_driver_gib_before_release": 11.056
+    },
+    {
+      "step": 23,
+      "loss": 0.452948,
+      "targets": 1016,
+      "truncated": 0,
+      "grad_norm": 0.455488,
+      "seconds": 0.913,
+      "mps_driver_gib_before_release": 9.822
+    },
+    {
+      "step": 24,
+      "loss": 0.458217,
+      "targets": 722,
+      "truncated": 0,
+      "grad_norm": 0.411379,
+      "seconds": 0.766,
+      "mps_driver_gib_before_release": 9.15
+    },
+    {
+      "step": 25,
+      "loss": 0.523821,
+      "targets": 837,
+      "truncated": 0,
+      "grad_norm": 0.453191,
+      "seconds": 0.98,
+      "mps_driver_gib_before_release": 11.056
+    },
+    {
+      "step": 26,
+      "loss": 0.301625,
+      "targets": 874,
+      "truncated": 0,
+      "grad_norm": 0.341842,
+      "seconds": 0.894,
+      "mps_driver_gib_before_release": 10.15
+    },
+    {
+      "step": 27,
+      "loss": 0.451545,
+      "targets": 1083,
+      "truncated": 0,
+      "grad_norm": 0.342153,
+      "seconds": 1.121,
+      "mps_driver_gib_before_release": 11.98
+    },
+    {
+      "step": 28,
+      "loss": 0.6608,
+      "targets": 676,
+      "truncated": 0,
+      "grad_norm": 0.5472,
+      "seconds": 0.588,
+      "mps_driver_gib_before_release": 7.074
+    },
+    {
+      "step": 29,
+      "loss": 0.567464,
+      "targets": 660,
+      "truncated": 0,
+      "grad_norm": 0.372567,
+      "seconds": 0.72,
+      "mps_driver_gib_before_release": 8.136
+    },
+    {
+      "step": 30,
+      "loss": 0.437302,
+      "targets": 778,
+      "truncated": 0,
+      "grad_norm": 0.36619,
+      "seconds": 1.205,
+      "mps_driver_gib_before_release": 13.105
+    },
+    {
+      "step": 31,
+      "loss": 0.408932,
+      "targets": 857,
+      "truncated": 0,
+      "grad_norm": 0.330796,
+      "seconds": 0.861,
+      "mps_driver_gib_before_release": 10.136
+    },
+    {
+      "step": 32,
+      "loss": 0.255153,
+      "targets": 1031,
+      "truncated": 1,
+      "grad_norm": 0.170047,
+      "seconds": 1.237,
+      "mps_driver_gib_before_release": 13.293
+    },
+    {
+      "step": 33,
+      "loss": 0.626591,
+      "targets": 629,
+      "truncated": 0,
+      "grad_norm": 0.48191,
+      "seconds": 0.568,
+      "mps_driver_gib_before_release": 7.105
+    },
+    {
+      "step": 34,
+      "loss": 0.315133,
+      "targets": 1044,
+      "truncated": 1,
+      "grad_norm": 0.216284,
+      "seconds": 1.234,
+      "mps_driver_gib_before_release": 13.293
+    },
+    {
+      "step": 35,
+      "loss": 0.272409,
+      "targets": 925,
+      "truncated": 0,
+      "grad_norm": 0.206741,
+      "seconds": 1.03,
+      "mps_driver_gib_before_release": 11.168
+    },
+    {
+      "step": 36,
+      "loss": 0.173033,
+      "targets": 962,
+      "truncated": 0,
+      "grad_norm": 0.181366,
+      "seconds": 0.868,
+      "mps_driver_gib_before_release": 10.199
+    },
+    {
+      "step": 37,
+      "loss": 0.451769,
+      "targets": 946,
+      "truncated": 0,
+      "grad_norm": 0.258945,
+      "seconds": 0.802,
+      "mps_driver_gib_before_release": 9.168
+    },
+    {
+      "step": 38,
+      "loss": 0.642995,
+      "targets": 547,
+      "truncated": 0,
+      "grad_norm": 0.538556,
+      "seconds": 0.601,
+      "mps_driver_gib_before_release": 7.105
+    },
+    {
+      "step": 39,
+      "loss": 0.291146,
+      "targets": 768,
+      "truncated": 0,
+      "grad_norm": 0.272607,
+      "seconds": 0.82,
+      "mps_driver_gib_before_release": 9.23
+    },
+    {
+      "step": 40,
+      "loss": 0.313977,
+      "targets": 814,
+      "truncated": 0,
+      "grad_norm": 0.285786,
+      "seconds": 0.965,
+      "mps_driver_gib_before_release": 11.056
+    },
+    {
+      "step": 41,
+      "loss": 0.491718,
+      "targets": 969,
+      "truncated": 0,
+      "grad_norm": 0.30231,
+      "seconds": 0.813,
+      "mps_driver_gib_before_release": 9.213
+    },
+    {
+      "step": 42,
+      "loss": 0.536484,
+      "targets": 838,
+      "truncated": 1,
+      "grad_norm": 0.317846,
+      "seconds": 1.244,
+      "mps_driver_gib_before_release": 13.119
+    },
+    {
+      "step": 43,
+      "loss": 0.435506,
+      "targets": 792,
+      "truncated": 1,
+      "grad_norm": 0.279493,
+      "seconds": 1.231,
+      "mps_driver_gib_before_release": 13.119
+    },
+    {
+      "step": 44,
+      "loss": 0.34724,
+      "targets": 1058,
+      "truncated": 0,
+      "grad_norm": 0.197319,
+      "seconds": 1.171,
+      "mps_driver_gib_before_release": 12.933
+    },
+    {
+      "step": 45,
+      "loss": 0.323529,
+      "targets": 956,
+      "truncated": 0,
+      "grad_norm": 0.208231,
+      "seconds": 0.942,
+      "mps_driver_gib_before_release": 11.23
+    },
+    {
+      "step": 46,
+      "loss": 0.3293,
+      "targets": 713,
+      "truncated": 0,
+      "grad_norm": 0.275551,
+      "seconds": 0.656,
+      "mps_driver_gib_before_release": 8.105
+    },
+    {
+      "step": 47,
+      "loss": 0.444062,
+      "targets": 725,
+      "truncated": 0,
+      "grad_norm": 0.319846,
+      "seconds": 0.695,
+      "mps_driver_gib_before_release": 8.074
+    },
+    {
+      "step": 48,
+      "loss": 0.625786,
+      "targets": 624,
+      "truncated": 0,
+      "grad_norm": 0.430466,
+      "seconds": 0.96,
+      "mps_driver_gib_before_release": 11.074
+    },
+    {
+      "step": 49,
+      "loss": 0.234123,
+      "targets": 771,
+      "truncated": 0,
+      "grad_norm": 0.34625,
+      "seconds": 0.869,
+      "mps_driver_gib_before_release": 10.074
+    },
+    {
+      "step": 50,
+      "loss": 0.525093,
+      "targets": 900,
+      "truncated": 0,
+      "grad_norm": 0.294125,
+      "seconds": 0.766,
+      "mps_driver_gib_before_release": 9.088
+    },
+    {
+      "step": 51,
+      "loss": 0.340241,
+      "targets": 601,
+      "truncated": 1,
+      "grad_norm": 0.304498,
+      "seconds": 1.166,
+      "mps_driver_gib_before_release": 13.119
+    },
+    {
+      "step": 52,
+      "loss": 0.403359,
+      "targets": 848,
+      "truncated": 0,
+      "grad_norm": 0.359277,
+      "seconds": 0.738,
+      "mps_driver_gib_before_release": 9.15
+    },
+    {
+      "step": 53,
+      "loss": 0.483258,
+      "targets": 889,
+      "truncated": 1,
+      "grad_norm": 0.34951,
+      "seconds": 1.237,
+      "mps_driver_gib_before_release": 13.15
+    },
+    {
+      "step": 54,
+      "loss": 0.333533,
+      "targets": 791,
+      "truncated": 0,
+      "grad_norm": 0.369458,
+      "seconds": 0.984,
+      "mps_driver_gib_before_release": 10.086
+    },
+    {
+      "step": 55,
+      "loss": 0.384626,
+      "targets": 651,
+      "truncated": 0,
+      "grad_norm": 0.389323,
+      "seconds": 0.743,
+      "mps_driver_gib_before_release": 8.179
+    },
+    {
+      "step": 56,
+      "loss": 0.444777,
+      "targets": 1121,
+      "truncated": 0,
+      "grad_norm": 0.332759,
+      "seconds": 1.057,
+      "mps_driver_gib_before_release": 12.025
+    },
+    {
+      "step": 57,
+      "loss": 0.395018,
+      "targets": 814,
+      "truncated": 0,
+      "grad_norm": 0.332438,
+      "seconds": 0.779,
+      "mps_driver_gib_before_release": 9.197
+    },
+    {
+      "step": 58,
+      "loss": 0.243498,
+      "targets": 674,
+      "truncated": 0,
+      "grad_norm": 0.366255,
+      "seconds": 0.768,
+      "mps_driver_gib_before_release": 9.197
+    },
+    {
+      "step": 59,
+      "loss": 0.252055,
+      "targets": 840,
+      "truncated": 0,
+      "grad_norm": 0.260618,
+      "seconds": 0.928,
+      "mps_driver_gib_before_release": 11.072
+    },
+    {
+      "step": 60,
+      "loss": 0.274215,
+      "targets": 890,
+      "truncated": 0,
+      "grad_norm": 0.223968,
+      "seconds": 0.964,
+      "mps_driver_gib_before_release": 11.103
+    },
+    {
+      "step": 61,
+      "loss": 0.504042,
+      "targets": 773,
+      "truncated": 0,
+      "grad_norm": 0.377943,
+      "seconds": 0.829,
+      "mps_driver_gib_before_release": 10.072
+    },
+    {
+      "step": 62,
+      "loss": 0.22295,
+      "targets": 988,
+      "truncated": 1,
+      "grad_norm": 0.266082,
+      "seconds": 1.164,
+      "mps_driver_gib_before_release": 13.226
+    },
+    {
+      "step": 63,
+      "loss": 0.271143,
+      "targets": 764,
+      "truncated": 0,
+      "grad_norm": 0.337172,
+      "seconds": 0.75,
+      "mps_driver_gib_before_release": 9.133
+    },
+    {
+      "step": 64,
+      "loss": 0.296828,
+      "targets": 748,
+      "truncated": 0,
+      "grad_norm": 0.320925,
+      "seconds": 0.675,
+      "mps_driver_gib_before_release": 8.133
+    },
+    {
+      "step": 65,
+      "loss": 0.265272,
+      "targets": 729,
+      "truncated": 1,
+      "grad_norm": 0.277001,
+      "seconds": 1.185,
+      "mps_driver_gib_before_release": 13.101
+    },
+    {
+      "step": 66,
+      "loss": 0.516341,
+      "targets": 805,
+      "truncated": 0,
+      "grad_norm": 0.46708,
+      "seconds": 0.784,
+      "mps_driver_gib_before_release": 9.195
+    },
+    {
+      "step": 67,
+      "loss": 0.311292,
+      "targets": 1173,
+      "truncated": 1,
+      "grad_norm": 0.269046,
+      "seconds": 1.23,
+      "mps_driver_gib_before_release": 14.449
+    },
+    {
+      "step": 68,
+      "loss": 0.273075,
+      "targets": 880,
+      "truncated": 0,
+      "grad_norm": 0.270256,
+      "seconds": 0.76,
+      "mps_driver_gib_before_release": 9.054
+    },
+    {
+      "step": 69,
+      "loss": 0.446284,
+      "targets": 1186,
+      "truncated": 0,
+      "grad_norm": 0.348588,
+      "seconds": 0.819,
+      "mps_driver_gib_before_release": 10.48
+    },
+    {
+      "step": 70,
+      "loss": 0.519665,
+      "targets": 828,
+      "truncated": 0,
+      "grad_norm": 0.374036,
+      "seconds": 0.823,
+      "mps_driver_gib_before_release": 10.168
+    },
+    {
+      "step": 71,
+      "loss": 0.381414,
+      "targets": 786,
+      "truncated": 0,
+      "grad_norm": 0.377755,
+      "seconds": 0.737,
+      "mps_driver_gib_before_release": 9.136
+    },
+    {
+      "step": 72,
+      "loss": 0.339913,
+      "targets": 962,
+      "truncated": 1,
+      "grad_norm": 0.283655,
+      "seconds": 1.154,
+      "mps_driver_gib_before_release": 13.23
+    },
+    {
+      "step": 73,
+      "loss": 0.381795,
+      "targets": 1046,
+      "truncated": 1,
+      "grad_norm": 0.304168,
+      "seconds": 1.163,
+      "mps_driver_gib_before_release": 13.324
+    },
+    {
+      "step": 74,
+      "loss": 0.37815,
+      "targets": 1087,
+      "truncated": 0,
+      "grad_norm": 0.287633,
+      "seconds": 0.933,
+      "mps_driver_gib_before_release": 10.949
+    },
+    {
+      "step": 75,
+      "loss": 0.458755,
+      "targets": 737,
+      "truncated": 0,
+      "grad_norm": 0.491593,
+      "seconds": 0.641,
+      "mps_driver_gib_before_release": 8.074
+    },
+    {
+      "step": 76,
+      "loss": 0.265693,
+      "targets": 882,
+      "truncated": 0,
+      "grad_norm": 0.308199,
+      "seconds": 0.984,
+      "mps_driver_gib_before_release": 11.199
+    },
+    {
+      "step": 77,
+      "loss": 0.432387,
+      "targets": 1068,
+      "truncated": 0,
+      "grad_norm": 0.375852,
+      "seconds": 1.181,
+      "mps_driver_gib_before_release": 13.324
+    },
+    {
+      "step": 78,
+      "loss": 0.498943,
+      "targets": 1079,
+      "truncated": 0,
+      "grad_norm": 0.375851,
+      "seconds": 0.688,
+      "mps_driver_gib_before_release": 8.418
+    },
+    {
+      "step": 79,
+      "loss": 0.397509,
+      "targets": 721,
+      "truncated": 0,
+      "grad_norm": 0.449027,
+      "seconds": 0.647,
+      "mps_driver_gib_before_release": 8.261
+    },
+    {
+      "step": 80,
+      "loss": 0.253264,
+      "targets": 956,
+      "truncated": 0,
+      "grad_norm": 0.350052,
+      "seconds": 1.057,
+      "mps_driver_gib_before_release": 12.261
+    },
+    {
+      "step": 81,
+      "loss": 0.383255,
+      "targets": 1167,
+      "truncated": 0,
+      "grad_norm": 0.267134,
+      "seconds": 1.099,
+      "mps_driver_gib_before_release": 13.48
+    },
+    {
+      "step": 82,
+      "loss": 0.274935,
+      "targets": 636,
+      "truncated": 0,
+      "grad_norm": 0.374886,
+      "seconds": 0.628,
+      "mps_driver_gib_before_release": 8.136
+    },
+    {
+      "step": 83,
+      "loss": 0.432609,
+      "targets": 719,
+      "truncated": 0,
+      "grad_norm": 0.462479,
+      "seconds": 0.773,
+      "mps_driver_gib_before_release": 9.293
+    },
+    {
+      "step": 84,
+      "loss": 0.445267,
+      "targets": 657,
+      "truncated": 0,
+      "grad_norm": 0.527401,
+      "seconds": 0.661,
+      "mps_driver_gib_before_release": 8.105
+    },
+    {
+      "step": 85,
+      "loss": 0.287909,
+      "targets": 803,
+      "truncated": 0,
+      "grad_norm": 0.384373,
+      "seconds": 0.784,
+      "mps_driver_gib_before_release": 9.168
+    },
+    {
+      "step": 86,
+      "loss": 0.275803,
+      "targets": 1163,
+      "truncated": 1,
+      "grad_norm": 0.315631,
+      "seconds": 1.178,
+      "mps_driver_gib_before_release": 14.449
+    },
+    {
+      "step": 87,
+      "loss": 0.315375,
+      "targets": 980,
+      "truncated": 0,
+      "grad_norm": 0.401652,
+      "seconds": 0.797,
+      "mps_driver_gib_before_release": 10.258
+    },
+    {
+      "step": 88,
+      "loss": 0.515857,
+      "targets": 715,
+      "truncated": 0,
+      "grad_norm": 0.539732,
+      "seconds": 0.786,
+      "mps_driver_gib_before_release": 9.15
+    },
+    {
+      "step": 89,
+      "loss": 0.386878,
+      "targets": 757,
+      "truncated": 0,
+      "grad_norm": 0.405051,
+      "seconds": 1.058,
+      "mps_driver_gib_before_release": 12.088
+    },
+    {
+      "step": 90,
+      "loss": 0.267377,
+      "targets": 989,
+      "truncated": 0,
+      "grad_norm": 0.333077,
+      "seconds": 0.907,
+      "mps_driver_gib_before_release": 11.213
+    },
+    {
+      "step": 91,
+      "loss": 0.442233,
+      "targets": 564,
+      "truncated": 0,
+      "grad_norm": 0.570512,
+      "seconds": 0.606,
+      "mps_driver_gib_before_release": 7.119
+    },
+    {
+      "step": 92,
+      "loss": 0.305797,
+      "targets": 817,
+      "truncated": 0,
+      "grad_norm": 0.388641,
+      "seconds": 0.772,
+      "mps_driver_gib_before_release": 9.15
+    },
+    {
+      "step": 93,
+      "loss": 0.387067,
+      "targets": 817,
+      "truncated": 0,
+      "grad_norm": 0.396776,
+      "seconds": 0.838,
+      "mps_driver_gib_before_release": 10.056
+    },
+    {
+      "step": 94,
+      "loss": 0.330744,
+      "targets": 828,
+      "truncated": 0,
+      "grad_norm": 0.359642,
+      "seconds": 0.656,
+      "mps_driver_gib_before_release": 8.088
+    },
+    {
+      "step": 95,
+      "loss": 0.192074,
+      "targets": 851,
+      "truncated": 0,
+      "grad_norm": 0.30342,
+      "seconds": 0.753,
+      "mps_driver_gib_before_release": 9.056
+    },
+    {
+      "step": 96,
+      "loss": 0.139807,
+      "targets": 932,
+      "truncated": 1,
+      "grad_norm": 0.254594,
+      "seconds": 1.148,
+      "mps_driver_gib_before_release": 13.15
+    },
+    {
+      "step": 97,
+      "loss": 0.451695,
+      "targets": 796,
+      "truncated": 0,
+      "grad_norm": 0.436261,
+      "seconds": 0.81,
+      "mps_driver_gib_before_release": 10.15
+    },
+    {
+      "step": 98,
+      "loss": 0.311939,
+      "targets": 1026,
+      "truncated": 0,
+      "grad_norm": 0.367747,
+      "seconds": 0.935,
+      "mps_driver_gib_before_release": 10.855
+    },
+    {
+      "step": 99,
+      "loss": 0.39941,
+      "targets": 770,
+      "truncated": 0,
+      "grad_norm": 0.456038,
+      "seconds": 0.935,
+      "mps_driver_gib_before_release": 11.105
+    },
+    {
+      "step": 100,
+      "loss": 0.432126,
+      "targets": 911,
+      "truncated": 1,
+      "grad_norm": 0.458422,
+      "seconds": 1.161,
+      "mps_driver_gib_before_release": 13.199
+    },
+    {
+      "step": 101,
+      "loss": 0.535779,
+      "targets": 826,
+      "truncated": 0,
+      "grad_norm": 0.450794,
+      "seconds": 0.777,
+      "mps_driver_gib_before_release": 9.168
+    },
+    {
+      "step": 102,
+      "loss": 0.326885,
+      "targets": 840,
+      "truncated": 0,
+      "grad_norm": 0.411291,
+      "seconds": 1.002,
+      "mps_driver_gib_before_release": 11.199
+    },
+    {
+      "step": 103,
+      "loss": 0.289628,
+      "targets": 720,
+      "truncated": 1,
+      "grad_norm": 0.405157,
+      "seconds": 1.15,
+      "mps_driver_gib_before_release": 13.088
+    },
+    {
+      "step": 104,
+      "loss": 0.41747,
+      "targets": 944,
+      "truncated": 0,
+      "grad_norm": 0.432325,
+      "seconds": 0.793,
+      "mps_driver_gib_before_release": 9.275
+    },
+    {
+      "step": 105,
+      "loss": 0.334588,
+      "targets": 861,
+      "truncated": 1,
+      "grad_norm": 0.41233,
+      "seconds": 1.15,
+      "mps_driver_gib_before_release": 13.119
+    },
+    {
+      "step": 106,
+      "loss": 0.278678,
+      "targets": 738,
+      "truncated": 0,
+      "grad_norm": 0.426406,
+      "seconds": 0.902,
+      "mps_driver_gib_before_release": 11.056
+    },
+    {
+      "step": 107,
+      "loss": 0.39134,
+      "targets": 661,
+      "truncated": 0,
+      "grad_norm": 0.482673,
+      "seconds": 0.677,
+      "mps_driver_gib_before_release": 8.056
+    },
+    {
+      "step": 108,
+      "loss": 0.300935,
+      "targets": 774,
+      "truncated": 0,
+      "grad_norm": 0.421988,
+      "seconds": 0.749,
+      "mps_driver_gib_before_release": 9.119
+    },
+    {
+      "step": 109,
+      "loss": 0.439132,
+      "targets": 803,
+      "truncated": 0,
+      "grad_norm": 0.553011,
+      "seconds": 0.658,
+      "mps_driver_gib_before_release": 8.088
+    },
+    {
+      "step": 110,
+      "loss": 0.307501,
+      "targets": 604,
+      "truncated": 0,
+      "grad_norm": 0.54419,
+      "seconds": 0.633,
+      "mps_driver_gib_before_release": 8.088
+    },
+    {
+      "step": 111,
+      "loss": 0.385391,
+      "targets": 823,
+      "truncated": 0,
+      "grad_norm": 0.465891,
+      "seconds": 1.06,
+      "mps_driver_gib_before_release": 12.088
+    },
+    {
+      "step": 112,
+      "loss": 0.498561,
+      "targets": 573,
+      "truncated": 0,
+      "grad_norm": 0.614661,
+      "seconds": 0.567,
+      "mps_driver_gib_before_release": 7.213
+    },
+    {
+      "step": 113,
+      "loss": 0.378525,
+      "targets": 789,
+      "truncated": 0,
+      "grad_norm": 0.454376,
+      "seconds": 1.014,
+      "mps_driver_gib_before_release": 12.088
+    },
+    {
+      "step": 114,
+      "loss": 0.440096,
+      "targets": 850,
+      "truncated": 0,
+      "grad_norm": 0.483929,
+      "seconds": 0.929,
+      "mps_driver_gib_before_release": 11.056
+    },
+    {
+      "step": 115,
+      "loss": 0.381934,
+      "targets": 814,
+      "truncated": 0,
+      "grad_norm": 0.713445,
+      "seconds": 0.796,
+      "mps_driver_gib_before_release": 9.244
+    },
+    {
+      "step": 116,
+      "loss": 0.335004,
+      "targets": 853,
+      "truncated": 1,
+      "grad_norm": 0.398686,
+      "seconds": 1.198,
+      "mps_driver_gib_before_release": 13.088
+    },
+    {
+      "step": 117,
+      "loss": 0.457842,
+      "targets": 1019,
+      "truncated": 1,
+      "grad_norm": 0.472352,
+      "seconds": 1.199,
+      "mps_driver_gib_before_release": 13.244
+    },
+    {
+      "step": 118,
+      "loss": 0.143519,
+      "targets": 824,
+      "truncated": 0,
+      "grad_norm": 0.389756,
+      "seconds": 0.809,
+      "mps_driver_gib_before_release": 9.119
+    },
+    {
+      "step": 119,
+      "loss": 0.340153,
+      "targets": 764,
+      "truncated": 0,
+      "grad_norm": 0.486475,
+      "seconds": 0.781,
+      "mps_driver_gib_before_release": 9.181
+    },
+    {
+      "step": 120,
+      "loss": 0.425678,
+      "targets": 731,
+      "truncated": 0,
+      "grad_norm": 0.493555,
+      "seconds": 0.631,
+      "mps_driver_gib_before_release": 8.056
+    },
+    {
+      "step": 121,
+      "loss": 0.30954,
+      "targets": 814,
+      "truncated": 0,
+      "grad_norm": 0.411216,
+      "seconds": 0.889,
+      "mps_driver_gib_before_release": 10.056
+    },
+    {
+      "step": 122,
+      "loss": 0.433846,
+      "targets": 927,
+      "truncated": 0,
+      "grad_norm": 0.414049,
+      "seconds": 0.78,
+      "mps_driver_gib_before_release": 8.713
+    },
+    {
+      "step": 123,
+      "loss": 0.232145,
+      "targets": 1062,
+      "truncated": 0,
+      "grad_norm": 0.31741,
+      "seconds": 1.189,
+      "mps_driver_gib_before_release": 13.355
+    },
+    {
+      "step": 124,
+      "loss": 0.375972,
+      "targets": 1048,
+      "truncated": 0,
+      "grad_norm": 0.425072,
+      "seconds": 0.952,
+      "mps_driver_gib_before_release": 10.261
+    },
+    {
+      "step": 125,
+      "loss": 0.397544,
+      "targets": 1074,
+      "truncated": 1,
+      "grad_norm": 0.392725,
+      "seconds": 1.303,
+      "mps_driver_gib_before_release": 13.324
+    },
+    {
+      "step": 126,
+      "loss": 0.281832,
+      "targets": 1074,
+      "truncated": 0,
+      "grad_norm": 0.435884,
+      "seconds": 1.179,
+      "mps_driver_gib_before_release": 11.933
+    },
+    {
+      "step": 127,
+      "loss": 0.323983,
+      "targets": 945,
+      "truncated": 0,
+      "grad_norm": 0.419416,
+      "seconds": 1.06,
+      "mps_driver_gib_before_release": 11.183
+    },
+    {
+      "step": 128,
+      "loss": 0.333006,
+      "targets": 870,
+      "truncated": 0,
+      "grad_norm": 0.477426,
+      "seconds": 0.961,
+      "mps_driver_gib_before_release": 10.09
+    },
+    {
+      "step": 129,
+      "loss": 0.424061,
+      "targets": 747,
+      "truncated": 0,
+      "grad_norm": 0.491011,
+      "seconds": 0.768,
+      "mps_driver_gib_before_release": 8.183
+    },
+    {
+      "step": 130,
+      "loss": 0.458719,
+      "targets": 825,
+      "truncated": 0,
+      "grad_norm": 0.585635,
+      "seconds": 1.028,
+      "mps_driver_gib_before_release": 10.058
+    },
+    {
+      "step": 131,
+      "loss": 0.297169,
+      "targets": 926,
+      "truncated": 0,
+      "grad_norm": 0.446365,
+      "seconds": 1.368,
+      "mps_driver_gib_before_release": 12.121
+    },
+    {
+      "step": 132,
+      "loss": 0.408269,
+      "targets": 718,
+      "truncated": 0,
+      "grad_norm": 0.711911,
+      "seconds": 1.116,
+      "mps_driver_gib_before_release": 9.09
+    },
+    {
+      "step": 133,
+      "loss": 0.518434,
+      "targets": 1025,
+      "truncated": 1,
+      "grad_norm": 0.540103,
+      "seconds": 1.724,
+      "mps_driver_gib_before_release": 13.277
+    },
+    {
+      "step": 134,
+      "loss": 0.327288,
+      "targets": 804,
+      "truncated": 0,
+      "grad_norm": 0.473092,
+      "seconds": 1.08,
+      "mps_driver_gib_before_release": 10.09
+    },
+    {
+      "step": 135,
+      "loss": 0.419585,
+      "targets": 1076,
+      "truncated": 0,
+      "grad_norm": 0.495799,
+      "seconds": 1.096,
+      "mps_driver_gib_before_release": 10.011
+    },
+    {
+      "step": 136,
+      "loss": 0.284311,
+      "targets": 918,
+      "truncated": 0,
+      "grad_norm": 0.480521,
+      "seconds": 1.083,
+      "mps_driver_gib_before_release": 10.121
+    },
+    {
+      "step": 137,
+      "loss": 0.17386,
+      "targets": 893,
+      "truncated": 0,
+      "grad_norm": 0.357962,
+      "seconds": 1.06,
+      "mps_driver_gib_before_release": 10.09
+    },
+    {
+      "step": 138,
+      "loss": 0.374738,
+      "targets": 747,
+      "truncated": 0,
+      "grad_norm": 0.627535,
+      "seconds": 0.856,
+      "mps_driver_gib_before_release": 8.152
+    },
+    {
+      "step": 139,
+      "loss": 0.371944,
+      "targets": 942,
+      "truncated": 1,
+      "grad_norm": 0.442062,
+      "seconds": 1.752,
+      "mps_driver_gib_before_release": 13.183
+    },
+    {
+      "step": 140,
+      "loss": 0.200657,
+      "targets": 977,
+      "truncated": 1,
+      "grad_norm": 0.353454,
+      "seconds": 1.785,
+      "mps_driver_gib_before_release": 13.215
+    },
+    {
+      "step": 141,
+      "loss": 0.330136,
+      "targets": 680,
+      "truncated": 0,
+      "grad_norm": 0.777498,
+      "seconds": 1.035,
+      "mps_driver_gib_before_release": 9.121
+    },
+    {
+      "step": 142,
+      "loss": 0.394385,
+      "targets": 750,
+      "truncated": 0,
+      "grad_norm": 0.6262,
+      "seconds": 1.198,
+      "mps_driver_gib_before_release": 10.183
+    },
+    {
+      "step": 143,
+      "loss": 0.493104,
+      "targets": 689,
+      "truncated": 0,
+      "grad_norm": 0.772646,
+      "seconds": 0.802,
+      "mps_driver_gib_before_release": 7.09
+    },
+    {
+      "step": 144,
+      "loss": 0.432378,
+      "targets": 823,
+      "truncated": 0,
+      "grad_norm": 0.550828,
+      "seconds": 1.136,
+      "mps_driver_gib_before_release": 10.058
+    },
+    {
+      "step": 145,
+      "loss": 0.335581,
+      "targets": 920,
+      "truncated": 0,
+      "grad_norm": 0.466509,
+      "seconds": 1.293,
+      "mps_driver_gib_before_release": 10.121
+    },
+    {
+      "step": 146,
+      "loss": 0.546455,
+      "targets": 670,
+      "truncated": 0,
+      "grad_norm": 0.592235,
+      "seconds": 1.337,
+      "mps_driver_gib_before_release": 10.09
+    },
+    {
+      "step": 147,
+      "loss": 0.386738,
+      "targets": 673,
+      "truncated": 0,
+      "grad_norm": 0.65232,
+      "seconds": 0.867,
+      "mps_driver_gib_before_release": 7.183
+    },
+    {
+      "step": 148,
+      "loss": 0.335039,
+      "targets": 696,
+      "truncated": 0,
+      "grad_norm": 0.56905,
+      "seconds": 0.86,
+      "mps_driver_gib_before_release": 7.09
+    },
+    {
+      "step": 149,
+      "loss": 0.210568,
+      "targets": 870,
+      "truncated": 1,
+      "grad_norm": 0.355306,
+      "seconds": 1.653,
+      "mps_driver_gib_before_release": 13.09
+    },
+    {
+      "step": 150,
+      "loss": 0.267914,
+      "targets": 875,
+      "truncated": 0,
+      "grad_norm": 0.442558,
+      "seconds": 1.319,
+      "mps_driver_gib_before_release": 11.09
+    },
+    {
+      "step": 151,
+      "loss": 0.326077,
+      "targets": 792,
+      "truncated": 0,
+      "grad_norm": 0.513946,
+      "seconds": 1.412,
+      "mps_driver_gib_before_release": 12.121
+    },
+    {
+      "step": 152,
+      "loss": 0.285818,
+      "targets": 818,
+      "truncated": 0,
+      "grad_norm": 0.528331,
+      "seconds": 0.832,
+      "mps_driver_gib_before_release": 8.121
+    },
+    {
+      "step": 153,
+      "loss": 0.267258,
+      "targets": 1386,
+      "truncated": 1,
+      "grad_norm": 0.340308,
+      "seconds": 1.76,
+      "mps_driver_gib_before_release": 14.705
+    },
+    {
+      "step": 154,
+      "loss": 0.249017,
+      "targets": 928,
+      "truncated": 0,
+      "grad_norm": 0.428706,
+      "seconds": 1.619,
+      "mps_driver_gib_before_release": 11.156
+    },
+    {
+      "step": 155,
+      "loss": 0.243367,
+      "targets": 1075,
+      "truncated": 0,
+      "grad_norm": 0.4177,
+      "seconds": 1.604,
+      "mps_driver_gib_before_release": 11.922
+    },
+    {
+      "step": 156,
+      "loss": 0.342409,
+      "targets": 796,
+      "truncated": 1,
+      "grad_norm": 0.521934,
+      "seconds": 1.774,
+      "mps_driver_gib_before_release": 13.093
+    },
+    {
+      "step": 157,
+      "loss": 0.22748,
+      "targets": 858,
+      "truncated": 1,
+      "grad_norm": 0.418103,
+      "seconds": 1.712,
+      "mps_driver_gib_before_release": 13.093
+    },
+    {
+      "step": 158,
+      "loss": 0.506533,
+      "targets": 1025,
+      "truncated": 0,
+      "grad_norm": 0.634879,
+      "seconds": 1.337,
+      "mps_driver_gib_before_release": 9.375
+    },
+    {
+      "step": 159,
+      "loss": 0.222919,
+      "targets": 908,
+      "truncated": 0,
+      "grad_norm": 0.375599,
+      "seconds": 1.517,
+      "mps_driver_gib_before_release": 10.093
+    },
+    {
+      "step": 160,
+      "loss": 0.300648,
+      "targets": 951,
+      "truncated": 0,
+      "grad_norm": 0.435273,
+      "seconds": 1.765,
+      "mps_driver_gib_before_release": 12.734
+    },
+    {
+      "step": 161,
+      "loss": 0.510386,
+      "targets": 704,
+      "truncated": 0,
+      "grad_norm": 0.567128,
+      "seconds": 1.037,
+      "mps_driver_gib_before_release": 9.125
+    },
+    {
+      "step": 162,
+      "loss": 0.367961,
+      "targets": 635,
+      "truncated": 0,
+      "grad_norm": 0.62905,
+      "seconds": 0.958,
+      "mps_driver_gib_before_release": 8.125
+    },
+    {
+      "step": 163,
+      "loss": 0.204026,
+      "targets": 815,
+      "truncated": 0,
+      "grad_norm": 0.47622,
+      "seconds": 1.069,
+      "mps_driver_gib_before_release": 9.062
+    },
+    {
+      "step": 164,
+      "loss": 0.271796,
+      "targets": 798,
+      "truncated": 0,
+      "grad_norm": 0.552563,
+      "seconds": 1.437,
+      "mps_driver_gib_before_release": 12.093
+    },
+    {
+      "step": 165,
+      "loss": 0.142655,
+      "targets": 959,
+      "truncated": 0,
+      "grad_norm": 0.317266,
+      "seconds": 2.118,
+      "mps_driver_gib_before_release": 13.218
+    },
+    {
+      "step": 166,
+      "loss": 0.386963,
+      "targets": 985,
+      "truncated": 0,
+      "grad_norm": 0.521567,
+      "seconds": 1.098,
+      "mps_driver_gib_before_release": 9.25
+    },
+    {
+      "step": 167,
+      "loss": 0.252132,
+      "targets": 784,
+      "truncated": 0,
+      "grad_norm": 0.532261,
+      "seconds": 1.265,
+      "mps_driver_gib_before_release": 10.125
+    },
+    {
+      "step": 168,
+      "loss": 0.196869,
+      "targets": 1102,
+      "truncated": 0,
+      "grad_norm": 0.368147,
+      "seconds": 1.401,
+      "mps_driver_gib_before_release": 10.937
+    },
+    {
+      "step": 169,
+      "loss": 0.324912,
+      "targets": 1007,
+      "truncated": 1,
+      "grad_norm": 0.504272,
+      "seconds": 2.302,
+      "mps_driver_gib_before_release": 13.25
+    },
+    {
+      "step": 170,
+      "loss": 0.198284,
+      "targets": 803,
+      "truncated": 0,
+      "grad_norm": 0.445056,
+      "seconds": 1.356,
+      "mps_driver_gib_before_release": 11.062
+    },
+    {
+      "step": 171,
+      "loss": 0.23548,
+      "targets": 748,
+      "truncated": 0,
+      "grad_norm": 0.459853,
+      "seconds": 1.485,
+      "mps_driver_gib_before_release": 11.093
+    },
+    {
+      "step": 172,
+      "loss": 0.275115,
+      "targets": 843,
+      "truncated": 0,
+      "grad_norm": 0.576225,
+      "seconds": 0.958,
+      "mps_driver_gib_before_release": 8.093
+    },
+    {
+      "step": 173,
+      "loss": 0.258,
+      "targets": 946,
+      "truncated": 1,
+      "grad_norm": 0.418679,
+      "seconds": 1.886,
+      "mps_driver_gib_before_release": 13.187
+    },
+    {
+      "step": 174,
+      "loss": 0.233006,
+      "targets": 810,
+      "truncated": 0,
+      "grad_norm": 0.424093,
+      "seconds": 1.157,
+      "mps_driver_gib_before_release": 10.187
+    },
+    {
+      "step": 175,
+      "loss": 0.300201,
+      "targets": 888,
+      "truncated": 0,
+      "grad_norm": 0.547436,
+      "seconds": 1.235,
+      "mps_driver_gib_before_release": 9.218
+    },
+    {
+      "step": 176,
+      "loss": 0.292243,
+      "targets": 853,
+      "truncated": 0,
+      "grad_norm": 0.522299,
+      "seconds": 1.429,
+      "mps_driver_gib_before_release": 11.062
+    },
+    {
+      "step": 177,
+      "loss": 0.525274,
+      "targets": 738,
+      "truncated": 0,
+      "grad_norm": 0.589558,
+      "seconds": 0.927,
+      "mps_driver_gib_before_release": 8.062
+    },
+    {
+      "step": 178,
+      "loss": 0.470105,
+      "targets": 742,
+      "truncated": 0,
+      "grad_norm": 0.77079,
+      "seconds": 0.945,
+      "mps_driver_gib_before_release": 8.125
+    },
+    {
+      "step": 179,
+      "loss": 0.174272,
+      "targets": 1109,
+      "truncated": 1,
+      "grad_norm": 0.346957,
+      "seconds": 1.674,
+      "mps_driver_gib_before_release": 13.375
+    },
+    {
+      "step": 180,
+      "loss": 0.425234,
+      "targets": 887,
+      "truncated": 0,
+      "grad_norm": 0.597469,
+      "seconds": 1.888,
+      "mps_driver_gib_before_release": 12.156
+    },
+    {
+      "step": 181,
+      "loss": 0.34541,
+      "targets": 813,
+      "truncated": 1,
+      "grad_norm": 0.463258,
+      "seconds": 1.651,
+      "mps_driver_gib_before_release": 13.093
+    },
+    {
+      "step": 182,
+      "loss": 0.615509,
+      "targets": 878,
+      "truncated": 0,
+      "grad_norm": 0.774999,
+      "seconds": 1.229,
+      "mps_driver_gib_before_release": 10.093
+    },
+    {
+      "step": 183,
+      "loss": 0.492154,
+      "targets": 747,
+      "truncated": 0,
+      "grad_norm": 0.678835,
+      "seconds": 0.973,
+      "mps_driver_gib_before_release": 9.125
+    },
+    {
+      "step": 184,
+      "loss": 0.407632,
+      "targets": 1084,
+      "truncated": 0,
+      "grad_norm": 0.523569,
+      "seconds": 1.364,
+      "mps_driver_gib_before_release": 10.312
+    },
+    {
+      "step": 185,
+      "loss": 0.349076,
+      "targets": 565,
+      "truncated": 0,
+      "grad_norm": 0.722015,
+      "seconds": 0.89,
+      "mps_driver_gib_before_release": 7.093
+    },
+    {
+      "step": 186,
+      "loss": 0.333825,
+      "targets": 867,
+      "truncated": 1,
+      "grad_norm": 0.515504,
+      "seconds": 1.872,
+      "mps_driver_gib_before_release": 13.093
+    },
+    {
+      "step": 187,
+      "loss": 0.20974,
+      "targets": 671,
+      "truncated": 0,
+      "grad_norm": 0.379268,
+      "seconds": 1.433,
+      "mps_driver_gib_before_release": 11.115
+    },
+    {
+      "step": 188,
+      "loss": 0.205022,
+      "targets": 815,
+      "truncated": 0,
+      "grad_norm": 0.426513,
+      "seconds": 1.257,
+      "mps_driver_gib_before_release": 10.16
+    },
+    {
+      "step": 189,
+      "loss": 0.311695,
+      "targets": 842,
+      "truncated": 1,
+      "grad_norm": 0.540064,
+      "seconds": 1.694,
+      "mps_driver_gib_before_release": 13.136
+    },
+    {
+      "step": 190,
+      "loss": 0.440578,
+      "targets": 945,
+      "truncated": 0,
+      "grad_norm": 0.685285,
+      "seconds": 1.308,
+      "mps_driver_gib_before_release": 10.207
+    },
+    {
+      "step": 191,
+      "loss": 0.358072,
+      "targets": 799,
+      "truncated": 0,
+      "grad_norm": 0.607949,
+      "seconds": 1.37,
+      "mps_driver_gib_before_release": 11.082
+    },
+    {
+      "step": 192,
+      "loss": 0.132342,
+      "targets": 808,
+      "truncated": 1,
+      "grad_norm": 0.465578,
+      "seconds": 1.716,
+      "mps_driver_gib_before_release": 13.113
+    },
+    {
+      "step": 193,
+      "loss": 0.399838,
+      "targets": 881,
+      "truncated": 0,
+      "grad_norm": 0.630322,
+      "seconds": 1.607,
+      "mps_driver_gib_before_release": 11.191
+    },
+    {
+      "step": 194,
+      "loss": 0.176464,
+      "targets": 1057,
+      "truncated": 1,
+      "grad_norm": 0.450639,
+      "seconds": 1.855,
+      "mps_driver_gib_before_release": 13.373
+    },
+    {
+      "step": 195,
+      "loss": 0.29615,
+      "targets": 720,
+      "truncated": 0,
+      "grad_norm": 0.545076,
+      "seconds": 1.246,
+      "mps_driver_gib_before_release": 10.209
+    },
+    {
+      "step": 196,
+      "loss": 0.271111,
+      "targets": 657,
+      "truncated": 0,
+      "grad_norm": 0.576327,
+      "seconds": 1.157,
+      "mps_driver_gib_before_release": 9.302
+    },
+    {
+      "step": 197,
+      "loss": 0.242463,
+      "targets": 884,
+      "truncated": 0,
+      "grad_norm": 0.433007,
+      "seconds": 1.232,
+      "mps_driver_gib_before_release": 10.101
+    },
+    {
+      "step": 198,
+      "loss": 0.394371,
+      "targets": 848,
+      "truncated": 0,
+      "grad_norm": 0.633987,
+      "seconds": 1.546,
+      "mps_driver_gib_before_release": 11.07
+    },
+    {
+      "step": 199,
+      "loss": 0.269827,
+      "targets": 767,
+      "truncated": 0,
+      "grad_norm": 0.534457,
+      "seconds": 1.547,
+      "mps_driver_gib_before_release": 11.101
+    },
+    {
+      "step": 200,
+      "loss": 0.285631,
+      "targets": 907,
+      "truncated": 0,
+      "grad_norm": 0.487449,
+      "seconds": 1.539,
+      "mps_driver_gib_before_release": 10.617
+    },
+    {
+      "step": 201,
+      "loss": 0.27523,
+      "targets": 759,
+      "truncated": 0,
+      "grad_norm": 0.511703,
+      "seconds": 1.392,
+      "mps_driver_gib_before_release": 11.07
+    },
+    {
+      "step": 202,
+      "loss": 0.288752,
+      "targets": 961,
+      "truncated": 0,
+      "grad_norm": 0.500322,
+      "seconds": 1.54,
+      "mps_driver_gib_before_release": 11.711
+    },
+    {
+      "step": 203,
+      "loss": 0.300965,
+      "targets": 1002,
+      "truncated": 1,
+      "grad_norm": 0.453304,
+      "seconds": 1.748,
+      "mps_driver_gib_before_release": 13.297
+    },
+    {
+      "step": 204,
+      "loss": 0.213518,
+      "targets": 797,
+      "truncated": 0,
+      "grad_norm": 0.421475,
+      "seconds": 1.342,
+      "mps_driver_gib_before_release": 11.097
+    },
+    {
+      "step": 205,
+      "loss": 0.18902,
+      "targets": 832,
+      "truncated": 1,
+      "grad_norm": 0.411152,
+      "seconds": 1.8,
+      "mps_driver_gib_before_release": 13.105
+    },
+    {
+      "step": 206,
+      "loss": 0.582947,
+      "targets": 847,
+      "truncated": 0,
+      "grad_norm": 0.654666,
+      "seconds": 1.004,
+      "mps_driver_gib_before_release": 9.16
+    },
+    {
+      "step": 207,
+      "loss": 0.446181,
+      "targets": 643,
+      "truncated": 0,
+      "grad_norm": 0.772,
+      "seconds": 0.714,
+      "mps_driver_gib_before_release": 7.097
+    },
+    {
+      "step": 208,
+      "loss": 0.260499,
+      "targets": 720,
+      "truncated": 0,
+      "grad_norm": 0.537534,
+      "seconds": 1.224,
+      "mps_driver_gib_before_release": 11.097
+    },
+    {
+      "step": 209,
+      "loss": 0.376386,
+      "targets": 790,
+      "truncated": 0,
+      "grad_norm": 0.666831,
+      "seconds": 1.285,
+      "mps_driver_gib_before_release": 11.066
+    },
+    {
+      "step": 210,
+      "loss": 0.44398,
+      "targets": 865,
+      "truncated": 0,
+      "grad_norm": 0.638166,
+      "seconds": 1.043,
+      "mps_driver_gib_before_release": 9.097
+    },
+    {
+      "step": 211,
+      "loss": 0.197031,
+      "targets": 1004,
+      "truncated": 1,
+      "grad_norm": 0.440792,
+      "seconds": 1.745,
+      "mps_driver_gib_before_release": 13.277
+    },
+    {
+      "step": 212,
+      "loss": 0.501671,
+      "targets": 976,
+      "truncated": 0,
+      "grad_norm": 0.544423,
+      "seconds": 0.918,
+      "mps_driver_gib_before_release": 8.238
+    },
+    {
+      "step": 213,
+      "loss": 0.463755,
+      "targets": 778,
+      "truncated": 0,
+      "grad_norm": 0.54071,
+      "seconds": 0.949,
+      "mps_driver_gib_before_release": 8.113
+    },
+    {
+      "step": 214,
+      "loss": 0.529053,
+      "targets": 761,
+      "truncated": 0,
+      "grad_norm": 0.67378,
+      "seconds": 0.92,
+      "mps_driver_gib_before_release": 8.082
+    },
+    {
+      "step": 215,
+      "loss": 0.363337,
+      "targets": 855,
+      "truncated": 0,
+      "grad_norm": 0.531186,
+      "seconds": 1.325,
+      "mps_driver_gib_before_release": 11.113
+    },
+    {
+      "step": 216,
+      "loss": 0.113559,
+      "targets": 931,
+      "truncated": 0,
+      "grad_norm": 0.319719,
+      "seconds": 1.218,
+      "mps_driver_gib_before_release": 11.175
+    },
+    {
+      "step": 217,
+      "loss": 0.291979,
+      "targets": 1024,
+      "truncated": 0,
+      "grad_norm": 0.514943,
+      "seconds": 1.252,
+      "mps_driver_gib_before_release": 11.3
+    },
+    {
+      "step": 218,
+      "loss": 0.30622,
+      "targets": 783,
+      "truncated": 0,
+      "grad_norm": 0.657822,
+      "seconds": 0.776,
+      "mps_driver_gib_before_release": 7.121
+    },
+    {
+      "step": 219,
+      "loss": 0.439059,
+      "targets": 614,
+      "truncated": 0,
+      "grad_norm": 0.727874,
+      "seconds": 1.025,
+      "mps_driver_gib_before_release": 9.113
+    },
+    {
+      "step": 220,
+      "loss": 0.314541,
+      "targets": 880,
+      "truncated": 0,
+      "grad_norm": 0.521967,
+      "seconds": 1.444,
+      "mps_driver_gib_before_release": 12.121
+    },
+    {
+      "step": 221,
+      "loss": 0.476778,
+      "targets": 587,
+      "truncated": 0,
+      "grad_norm": 0.82486,
+      "seconds": 0.918,
+      "mps_driver_gib_before_release": 8.175
+    },
+    {
+      "step": 222,
+      "loss": 0.468194,
+      "targets": 805,
+      "truncated": 0,
+      "grad_norm": 0.724507,
+      "seconds": 0.78,
+      "mps_driver_gib_before_release": 7.105
+    },
+    {
+      "step": 223,
+      "loss": 0.404672,
+      "targets": 713,
+      "truncated": 0,
+      "grad_norm": 0.810415,
+      "seconds": 1.203,
+      "mps_driver_gib_before_release": 9.129
+    },
+    {
+      "step": 224,
+      "loss": 0.2522,
+      "targets": 909,
+      "truncated": 0,
+      "grad_norm": 0.47243,
+      "seconds": 1.713,
+      "mps_driver_gib_before_release": 12.691
+    },
+    {
+      "step": 225,
+      "loss": 0.248243,
+      "targets": 938,
+      "truncated": 0,
+      "grad_norm": 0.464973,
+      "seconds": 1.476,
+      "mps_driver_gib_before_release": 12.238
+    },
+    {
+      "step": 226,
+      "loss": 0.316812,
+      "targets": 797,
+      "truncated": 0,
+      "grad_norm": 0.676215,
+      "seconds": 1.262,
+      "mps_driver_gib_before_release": 11.131
+    },
+    {
+      "step": 227,
+      "loss": 0.267068,
+      "targets": 1009,
+      "truncated": 0,
+      "grad_norm": 0.480155,
+      "seconds": 1.587,
+      "mps_driver_gib_before_release": 13.295
+    },
+    {
+      "step": 228,
+      "loss": 0.396957,
+      "targets": 849,
+      "truncated": 0,
+      "grad_norm": 0.642656,
+      "seconds": 1.105,
+      "mps_driver_gib_before_release": 10.148
+    },
+    {
+      "step": 229,
+      "loss": 0.465705,
+      "targets": 675,
+      "truncated": 0,
+      "grad_norm": 0.804201,
+      "seconds": 0.804,
+      "mps_driver_gib_before_release": 7.054
+    },
+    {
+      "step": 230,
+      "loss": 0.376617,
+      "targets": 959,
+      "truncated": 0,
+      "grad_norm": 0.588801,
+      "seconds": 1.712,
+      "mps_driver_gib_before_release": 11.742
+    },
+    {
+      "step": 231,
+      "loss": 0.281275,
+      "targets": 856,
+      "truncated": 0,
+      "grad_norm": 0.497439,
+      "seconds": 1.218,
+      "mps_driver_gib_before_release": 10.101
+    },
+    {
+      "step": 232,
+      "loss": 0.434977,
+      "targets": 719,
+      "truncated": 0,
+      "grad_norm": 0.727115,
+      "seconds": 0.894,
+      "mps_driver_gib_before_release": 8.133
+    },
+    {
+      "step": 233,
+      "loss": 0.366742,
+      "targets": 1015,
+      "truncated": 0,
+      "grad_norm": 0.651043,
+      "seconds": 1.073,
+      "mps_driver_gib_before_release": 9.351
+    },
+    {
+      "step": 234,
+      "loss": 0.202776,
+      "targets": 995,
+      "truncated": 0,
+      "grad_norm": 0.466995,
+      "seconds": 1.141,
+      "mps_driver_gib_before_release": 9.414
+    },
+    {
+      "step": 235,
+      "loss": 0.406328,
+      "targets": 1103,
+      "truncated": 1,
+      "grad_norm": 0.627851,
+      "seconds": 1.753,
+      "mps_driver_gib_before_release": 13.377
+    },
+    {
+      "step": 236,
+      "loss": 0.170985,
+      "targets": 748,
+      "truncated": 0,
+      "grad_norm": 0.589325,
+      "seconds": 0.912,
+      "mps_driver_gib_before_release": 8.146
+    },
+    {
+      "step": 237,
+      "loss": 0.22735,
+      "targets": 669,
+      "truncated": 0,
+      "grad_norm": 0.61235,
+      "seconds": 1.159,
+      "mps_driver_gib_before_release": 9.115
+    },
+    {
+      "step": 238,
+      "loss": 0.62893,
+      "targets": 631,
+      "truncated": 0,
+      "grad_norm": 0.878416,
+      "seconds": 0.831,
+      "mps_driver_gib_before_release": 7.177
+    },
+    {
+      "step": 239,
+      "loss": 0.08451,
+      "targets": 1186,
+      "truncated": 1,
+      "grad_norm": 0.258456,
+      "seconds": 1.698,
+      "mps_driver_gib_before_release": 14.455
+    },
+    {
+      "step": 240,
+      "loss": 0.186655,
+      "targets": 916,
+      "truncated": 0,
+      "grad_norm": 0.470408,
+      "seconds": 1.163,
+      "mps_driver_gib_before_release": 10.228
+    },
+    {
+      "step": 241,
+      "loss": 0.313853,
+      "targets": 1072,
+      "truncated": 0,
+      "grad_norm": 0.555582,
+      "seconds": 1.212,
+      "mps_driver_gib_before_release": 11.322
+    },
+    {
+      "step": 242,
+      "loss": 0.263973,
+      "targets": 723,
+      "truncated": 0,
+      "grad_norm": 0.562435,
+      "seconds": 1.471,
+      "mps_driver_gib_before_release": 12.103
+    },
+    {
+      "step": 243,
+      "loss": 0.540075,
+      "targets": 897,
+      "truncated": 0,
+      "grad_norm": 0.719279,
+      "seconds": 0.898,
+      "mps_driver_gib_before_release": 8.166
+    },
+    {
+      "step": 244,
+      "loss": 0.340642,
+      "targets": 975,
+      "truncated": 0,
+      "grad_norm": 0.587416,
+      "seconds": 1.361,
+      "mps_driver_gib_before_release": 11.322
+    },
+    {
+      "step": 245,
+      "loss": 0.258185,
+      "targets": 780,
+      "truncated": 0,
+      "grad_norm": 0.571283,
+      "seconds": 1.123,
+      "mps_driver_gib_before_release": 9.228
+    },
+    {
+      "step": 246,
+      "loss": 0.485222,
+      "targets": 909,
+      "truncated": 0,
+      "grad_norm": 0.620608,
+      "seconds": 1.5,
+      "mps_driver_gib_before_release": 12.197
+    },
+    {
+      "step": 247,
+      "loss": 0.349888,
+      "targets": 809,
+      "truncated": 1,
+      "grad_norm": 0.5743,
+      "seconds": 1.676,
+      "mps_driver_gib_before_release": 13.111
+    },
+    {
+      "step": 248,
+      "loss": 0.146184,
+      "targets": 813,
+      "truncated": 0,
+      "grad_norm": 0.487188,
+      "seconds": 1.138,
+      "mps_driver_gib_before_release": 10.197
+    },
+    {
+      "step": 249,
+      "loss": 0.449123,
+      "targets": 654,
+      "truncated": 0,
+      "grad_norm": 0.879961,
+      "seconds": 1.231,
+      "mps_driver_gib_before_release": 10.072
+    },
+    {
+      "step": 250,
+      "loss": 0.298708,
+      "targets": 884,
+      "truncated": 0,
+      "grad_norm": 0.6439,
+      "seconds": 1.078,
+      "mps_driver_gib_before_release": 9.291
+    },
+    {
+      "step": 251,
+      "loss": 0.291181,
+      "targets": 955,
+      "truncated": 0,
+      "grad_norm": 0.482569,
+      "seconds": 1.578,
+      "mps_driver_gib_before_release": 13.236
+    },
+    {
+      "step": 252,
+      "loss": 0.377411,
+      "targets": 907,
+      "truncated": 0,
+      "grad_norm": 0.618945,
+      "seconds": 1.147,
+      "mps_driver_gib_before_release": 10.103
+    },
+    {
+      "step": 253,
+      "loss": 0.337638,
+      "targets": 702,
+      "truncated": 0,
+      "grad_norm": 0.633585,
+      "seconds": 0.993,
+      "mps_driver_gib_before_release": 9.072
+    },
+    {
+      "step": 254,
+      "loss": 0.355116,
+      "targets": 836,
+      "truncated": 1,
+      "grad_norm": 0.66239,
+      "seconds": 1.582,
+      "mps_driver_gib_before_release": 13.111
+    },
+    {
+      "step": 255,
+      "loss": 0.264764,
+      "targets": 820,
+      "truncated": 1,
+      "grad_norm": 0.529583,
+      "seconds": 1.742,
+      "mps_driver_gib_before_release": 13.111
+    },
+    {
+      "step": 256,
+      "loss": 0.505143,
+      "targets": 763,
+      "truncated": 0,
+      "grad_norm": 0.829933,
+      "seconds": 0.937,
+      "mps_driver_gib_before_release": 8.072
+    },
+    {
+      "step": 257,
+      "loss": 0.40555,
+      "targets": 720,
+      "truncated": 0,
+      "grad_norm": 0.727835,
+      "seconds": 0.734,
+      "mps_driver_gib_before_release": 7.08
+    },
+    {
+      "step": 258,
+      "loss": 0.369287,
+      "targets": 694,
+      "truncated": 0,
+      "grad_norm": 0.733405,
+      "seconds": 0.755,
+      "mps_driver_gib_before_release": 7.072
+    },
+    {
+      "step": 259,
+      "loss": 0.270089,
+      "targets": 840,
+      "truncated": 0,
+      "grad_norm": 0.489637,
+      "seconds": 1.147,
+      "mps_driver_gib_before_release": 10.103
+    },
+    {
+      "step": 260,
+      "loss": 0.311674,
+      "targets": 1055,
+      "truncated": 2,
+      "grad_norm": 0.579432,
+      "seconds": 1.732,
+      "mps_driver_gib_before_release": 13.33
+    },
+    {
+      "step": 261,
+      "loss": 0.499049,
+      "targets": 735,
+      "truncated": 1,
+      "grad_norm": 0.867303,
+      "seconds": 1.577,
+      "mps_driver_gib_before_release": 13.103
+    },
+    {
+      "step": 262,
+      "loss": 0.446951,
+      "targets": 767,
+      "truncated": 0,
+      "grad_norm": 0.781834,
+      "seconds": 0.726,
+      "mps_driver_gib_before_release": 7.103
+    },
+    {
+      "step": 263,
+      "loss": 0.199609,
+      "targets": 729,
+      "truncated": 0,
+      "grad_norm": 0.536151,
+      "seconds": 0.794,
+      "mps_driver_gib_before_release": 8.197
+    },
+    {
+      "step": 264,
+      "loss": 0.353484,
+      "targets": 767,
+      "truncated": 0,
+      "grad_norm": 0.609909,
+      "seconds": 0.753,
+      "mps_driver_gib_before_release": 8.072
+    },
+    {
+      "step": 265,
+      "loss": 0.219561,
+      "targets": 882,
+      "truncated": 0,
+      "grad_norm": 0.508948,
+      "seconds": 1.277,
+      "mps_driver_gib_before_release": 11.066
+    },
+    {
+      "step": 266,
+      "loss": 0.430445,
+      "targets": 771,
+      "truncated": 0,
+      "grad_norm": 0.637098,
+      "seconds": 1.303,
+      "mps_driver_gib_before_release": 11.066
+    },
+    {
+      "step": 267,
+      "loss": 0.255917,
+      "targets": 823,
+      "truncated": 2,
+      "grad_norm": 0.477145,
+      "seconds": 1.698,
+      "mps_driver_gib_before_release": 13.105
+    },
+    {
+      "step": 268,
+      "loss": 0.194949,
+      "targets": 944,
+      "truncated": 0,
+      "grad_norm": 0.476574,
+      "seconds": 1.273,
+      "mps_driver_gib_before_release": 11.207
+    },
+    {
+      "step": 269,
+      "loss": 0.195303,
+      "targets": 1137,
+      "truncated": 0,
+      "grad_norm": 0.497369,
+      "seconds": 1.347,
+      "mps_driver_gib_before_release": 11.131
+    },
+    {
+      "step": 270,
+      "loss": 0.259319,
+      "targets": 725,
+      "truncated": 0,
+      "grad_norm": 0.587723,
+      "seconds": 1.029,
+      "mps_driver_gib_before_release": 9.131
+    },
+    {
+      "step": 271,
+      "loss": 0.331936,
+      "targets": 769,
+      "truncated": 0,
+      "grad_norm": 0.645141,
+      "seconds": 1.22,
+      "mps_driver_gib_before_release": 10.086
+    },
+    {
+      "step": 272,
+      "loss": 0.450828,
+      "targets": 714,
+      "truncated": 1,
+      "grad_norm": 0.704974,
+      "seconds": 1.712,
+      "mps_driver_gib_before_release": 13.125
+    },
+    {
+      "step": 273,
+      "loss": 0.359716,
+      "targets": 1072,
+      "truncated": 0,
+      "grad_norm": 0.569466,
+      "seconds": 1.432,
+      "mps_driver_gib_before_release": 12.336
+    },
+    {
+      "step": 274,
+      "loss": 0.206923,
+      "targets": 848,
+      "truncated": 0,
+      "grad_norm": 0.458867,
+      "seconds": 1.228,
+      "mps_driver_gib_before_release": 11.086
+    },
+    {
+      "step": 275,
+      "loss": 0.462901,
+      "targets": 771,
+      "truncated": 0,
+      "grad_norm": 0.766909,
+      "seconds": 1.335,
+      "mps_driver_gib_before_release": 11.117
+    },
+    {
+      "step": 276,
+      "loss": 0.195425,
+      "targets": 1054,
+      "truncated": 1,
+      "grad_norm": 0.410483,
+      "seconds": 1.697,
+      "mps_driver_gib_before_release": 13.343
+    },
+    {
+      "step": 277,
+      "loss": 0.227534,
+      "targets": 994,
+      "truncated": 0,
+      "grad_norm": 0.52215,
+      "seconds": 1.461,
+      "mps_driver_gib_before_release": 12.304
+    },
+    {
+      "step": 278,
+      "loss": 0.347821,
+      "targets": 926,
+      "truncated": 0,
+      "grad_norm": 0.627547,
+      "seconds": 1.14,
+      "mps_driver_gib_before_release": 10.242
+    },
+    {
+      "step": 279,
+      "loss": 0.345019,
+      "targets": 895,
+      "truncated": 0,
+      "grad_norm": 0.637092,
+      "seconds": 1.061,
+      "mps_driver_gib_before_release": 9.273
+    },
+    {
+      "step": 280,
+      "loss": 0.281735,
+      "targets": 637,
+      "truncated": 0,
+      "grad_norm": 0.685297,
+      "seconds": 1.048,
+      "mps_driver_gib_before_release": 9.256
+    },
+    {
+      "step": 281,
+      "loss": 0.238896,
+      "targets": 826,
+      "truncated": 0,
+      "grad_norm": 0.55058,
+      "seconds": 1.668,
+      "mps_driver_gib_before_release": 13.107
+    },
+    {
+      "step": 282,
+      "loss": 0.198582,
+      "targets": 1107,
+      "truncated": 1,
+      "grad_norm": 0.404976,
+      "seconds": 1.717,
+      "mps_driver_gib_before_release": 13.437
+    },
+    {
+      "step": 283,
+      "loss": 0.123806,
+      "targets": 798,
+      "truncated": 0,
+      "grad_norm": 0.439565,
+      "seconds": 1.099,
+      "mps_driver_gib_before_release": 10.086
+    },
+    {
+      "step": 284,
+      "loss": 0.132936,
+      "targets": 902,
+      "truncated": 1,
+      "grad_norm": 0.406561,
+      "seconds": 1.587,
+      "mps_driver_gib_before_release": 13.187
+    },
+    {
+      "step": 285,
+      "loss": 0.251724,
+      "targets": 1065,
+      "truncated": 0,
+      "grad_norm": 0.521857,
+      "seconds": 1.307,
+      "mps_driver_gib_before_release": 11.312
+    },
+    {
+      "step": 286,
+      "loss": 0.300286,
+      "targets": 886,
+      "truncated": 0,
+      "grad_norm": 0.578314,
+      "seconds": 1.39,
+      "mps_driver_gib_before_release": 12.148
+    },
+    {
+      "step": 287,
+      "loss": 0.181727,
+      "targets": 957,
+      "truncated": 0,
+      "grad_norm": 0.487869,
+      "seconds": 1.23,
+      "mps_driver_gib_before_release": 11.211
+    },
+    {
+      "step": 288,
+      "loss": 0.287068,
+      "targets": 923,
+      "truncated": 1,
+      "grad_norm": 0.620355,
+      "seconds": 1.599,
+      "mps_driver_gib_before_release": 13.218
+    },
+    {
+      "step": 289,
+      "loss": 0.413565,
+      "targets": 749,
+      "truncated": 0,
+      "grad_norm": 0.687012,
+      "seconds": 0.811,
+      "mps_driver_gib_before_release": 8.131
+    },
+    {
+      "step": 290,
+      "loss": 0.226393,
+      "targets": 770,
+      "truncated": 0,
+      "grad_norm": 0.47631,
+      "seconds": 1.045,
+      "mps_driver_gib_before_release": 9.287
+    },
+    {
+      "step": 291,
+      "loss": 0.462404,
+      "targets": 820,
+      "truncated": 0,
+      "grad_norm": 0.642736,
+      "seconds": 1.196,
+      "mps_driver_gib_before_release": 10.068
+    },
+    {
+      "step": 292,
+      "loss": 0.29699,
+      "targets": 765,
+      "truncated": 0,
+      "grad_norm": 0.67642,
+      "seconds": 1.163,
+      "mps_driver_gib_before_release": 10.193
+    },
+    {
+      "step": 293,
+      "loss": 0.407073,
+      "targets": 456,
+      "truncated": 0,
+      "grad_norm": 1.01484,
+      "seconds": 0.647,
+      "mps_driver_gib_before_release": 6.099
+    },
+    {
+      "step": 294,
+      "loss": 0.276763,
+      "targets": 777,
+      "truncated": 0,
+      "grad_norm": 0.685721,
+      "seconds": 1.127,
+      "mps_driver_gib_before_release": 9.131
+    },
+    {
+      "step": 295,
+      "loss": 0.363095,
+      "targets": 1052,
+      "truncated": 0,
+      "grad_norm": 0.587189,
+      "seconds": 1.189,
+      "mps_driver_gib_before_release": 9.336
+    },
+    {
+      "step": 296,
+      "loss": 0.125419,
+      "targets": 814,
+      "truncated": 0,
+      "grad_norm": 0.477584,
+      "seconds": 1.111,
+      "mps_driver_gib_before_release": 10.086
+    },
+    {
+      "step": 297,
+      "loss": 0.418986,
+      "targets": 741,
+      "truncated": 0,
+      "grad_norm": 0.706767,
+      "seconds": 0.803,
+      "mps_driver_gib_before_release": 8.086
+    },
+    {
+      "step": 298,
+      "loss": 0.287216,
+      "targets": 669,
+      "truncated": 0,
+      "grad_norm": 0.652207,
+      "seconds": 0.968,
+      "mps_driver_gib_before_release": 9.148
+    },
+    {
+      "step": 299,
+      "loss": 0.226963,
+      "targets": 829,
+      "truncated": 0,
+      "grad_norm": 0.565983,
+      "seconds": 0.941,
+      "mps_driver_gib_before_release": 9.148
+    },
+    {
+      "step": 300,
+      "loss": 0.231144,
+      "targets": 753,
+      "truncated": 0,
+      "grad_norm": 0.595748,
+      "seconds": 1.095,
+      "mps_driver_gib_before_release": 10.099
+    },
+    {
+      "step": 301,
+      "loss": 0.30864,
+      "targets": 839,
+      "truncated": 0,
+      "grad_norm": 0.672141,
+      "seconds": 1.183,
+      "mps_driver_gib_before_release": 10.099
+    },
+    {
+      "step": 302,
+      "loss": 0.274125,
+      "targets": 744,
+      "truncated": 0,
+      "grad_norm": 0.653998,
+      "seconds": 1.004,
+      "mps_driver_gib_before_release": 9.193
+    },
+    {
+      "step": 303,
+      "loss": 0.320387,
+      "targets": 561,
+      "truncated": 0,
+      "grad_norm": 0.943468,
+      "seconds": 0.747,
+      "mps_driver_gib_before_release": 7.068
+    },
+    {
+      "step": 304,
+      "loss": 0.20481,
+      "targets": 880,
+      "truncated": 0,
+      "grad_norm": 0.485369,
+      "seconds": 1.56,
+      "mps_driver_gib_before_release": 13.099
+    },
+    {
+      "step": 305,
+      "loss": 0.37659,
+      "targets": 698,
+      "truncated": 0,
+      "grad_norm": 0.886162,
+      "seconds": 0.878,
+      "mps_driver_gib_before_release": 7.099
+    },
+    {
+      "step": 306,
+      "loss": 0.329033,
+      "targets": 1056,
+      "truncated": 0,
+      "grad_norm": 0.580009,
+      "seconds": 1.495,
+      "mps_driver_gib_before_release": 11.336
+    },
+    {
+      "step": 307,
+      "loss": 0.29571,
+      "targets": 810,
+      "truncated": 0,
+      "grad_norm": 0.688045,
+      "seconds": 0.923,
+      "mps_driver_gib_before_release": 8.179
+    },
+    {
+      "step": 308,
+      "loss": 0.348822,
+      "targets": 754,
+      "truncated": 0,
+      "grad_norm": 0.848132,
+      "seconds": 1.077,
+      "mps_driver_gib_before_release": 10.086
+    },
+    {
+      "step": 309,
+      "loss": 0.256563,
+      "targets": 885,
+      "truncated": 0,
+      "grad_norm": 0.64877,
+      "seconds": 1.179,
+      "mps_driver_gib_before_release": 10.117
+    },
+    {
+      "step": 310,
+      "loss": 0.241473,
+      "targets": 968,
+      "truncated": 0,
+      "grad_norm": 0.56227,
+      "seconds": 1.41,
+      "mps_driver_gib_before_release": 11.318
+    },
+    {
+      "step": 311,
+      "loss": 0.309682,
+      "targets": 910,
+      "truncated": 0,
+      "grad_norm": 0.675619,
+      "seconds": 0.959,
+      "mps_driver_gib_before_release": 8.162
+    },
+    {
+      "step": 312,
+      "loss": 0.171589,
+      "targets": 940,
+      "truncated": 0,
+      "grad_norm": 0.494915,
+      "seconds": 1.369,
+      "mps_driver_gib_before_release": 11.224
+    },
+    {
+      "step": 313,
+      "loss": 0.400336,
+      "targets": 977,
+      "truncated": 0,
+      "grad_norm": 0.882149,
+      "seconds": 1.187,
+      "mps_driver_gib_before_release": 10.193
+    },
+    {
+      "step": 314,
+      "loss": 0.222758,
+      "targets": 1000,
+      "truncated": 0,
+      "grad_norm": 0.473255,
+      "seconds": 1.567,
+      "mps_driver_gib_before_release": 13.256
+    },
+    {
+      "step": 315,
+      "loss": 0.172797,
+      "targets": 825,
+      "truncated": 0,
+      "grad_norm": 0.579606,
+      "seconds": 1.092,
+      "mps_driver_gib_before_release": 9.068
+    },
+    {
+      "step": 316,
+      "loss": 0.394699,
+      "targets": 815,
+      "truncated": 0,
+      "grad_norm": 1.001494,
+      "seconds": 0.935,
+      "mps_driver_gib_before_release": 8.131
+    },
+    {
+      "step": 317,
+      "loss": 0.239916,
+      "targets": 868,
+      "truncated": 1,
+      "grad_norm": 0.521005,
+      "seconds": 1.68,
+      "mps_driver_gib_before_release": 13.131
+    },
+    {
+      "step": 318,
+      "loss": 0.264688,
+      "targets": 682,
+      "truncated": 0,
+      "grad_norm": 0.692093,
+      "seconds": 1.308,
+      "mps_driver_gib_before_release": 11.099
+    },
+    {
+      "step": 319,
+      "loss": 0.322281,
+      "targets": 792,
+      "truncated": 0,
+      "grad_norm": 0.738802,
+      "seconds": 1.034,
+      "mps_driver_gib_before_release": 9.193
+    },
+    {
+      "step": 320,
+      "loss": 0.248661,
+      "targets": 797,
+      "truncated": 0,
+      "grad_norm": 0.613677,
+      "seconds": 1.157,
+      "mps_driver_gib_before_release": 10.068
+    },
+    {
+      "step": 321,
+      "loss": 0.203257,
+      "targets": 932,
+      "truncated": 1,
+      "grad_norm": 0.479657,
+      "seconds": 1.816,
+      "mps_driver_gib_before_release": 13.193
+    },
+    {
+      "step": 322,
+      "loss": 0.37493,
+      "targets": 937,
+      "truncated": 0,
+      "grad_norm": 0.679648,
+      "seconds": 1.099,
+      "mps_driver_gib_before_release": 9.256
+    },
+    {
+      "step": 323,
+      "loss": 0.162413,
+      "targets": 854,
+      "truncated": 0,
+      "grad_norm": 0.477232,
+      "seconds": 1.263,
+      "mps_driver_gib_before_release": 11.068
+    },
+    {
+      "step": 324,
+      "loss": 0.467407,
+      "targets": 725,
+      "truncated": 0,
+      "grad_norm": 0.790843,
+      "seconds": 1.011,
+      "mps_driver_gib_before_release": 9.193
+    },
+    {
+      "step": 325,
+      "loss": 0.398095,
+      "targets": 1100,
+      "truncated": 1,
+      "grad_norm": 0.552422,
+      "seconds": 1.697,
+      "mps_driver_gib_before_release": 13.367
+    },
+    {
+      "step": 326,
+      "loss": 0.201794,
+      "targets": 648,
+      "truncated": 0,
+      "grad_norm": 0.582608,
+      "seconds": 1.115,
+      "mps_driver_gib_before_release": 9.179
+    },
+    {
+      "step": 327,
+      "loss": 0.368133,
+      "targets": 614,
+      "truncated": 0,
+      "grad_norm": 0.805165,
+      "seconds": 0.847,
+      "mps_driver_gib_before_release": 7.101
+    },
+    {
+      "step": 328,
+      "loss": 0.30989,
+      "targets": 960,
+      "truncated": 0,
+      "grad_norm": 0.509732,
+      "seconds": 1.448,
+      "mps_driver_gib_before_release": 12.195
+    },
+    {
+      "step": 329,
+      "loss": 0.322864,
+      "targets": 682,
+      "truncated": 0,
+      "grad_norm": 0.814917,
+      "seconds": 0.85,
+      "mps_driver_gib_before_release": 8.164
+    },
+    {
+      "step": 330,
+      "loss": 0.579073,
+      "targets": 597,
+      "truncated": 0,
+      "grad_norm": 1.027272,
+      "seconds": 0.584,
+      "mps_driver_gib_before_release": 6.101
+    },
+    {
+      "step": 331,
+      "loss": 0.3409,
+      "targets": 858,
+      "truncated": 1,
+      "grad_norm": 0.590379,
+      "seconds": 1.59,
+      "mps_driver_gib_before_release": 13.101
+    },
+    {
+      "step": 332,
+      "loss": 0.218192,
+      "targets": 775,
+      "truncated": 0,
+      "grad_norm": 0.579718,
+      "seconds": 1.27,
+      "mps_driver_gib_before_release": 11.101
+    },
+    {
+      "step": 333,
+      "loss": 0.349182,
+      "targets": 694,
+      "truncated": 0,
+      "grad_norm": 0.752419,
+      "seconds": 1.044,
+      "mps_driver_gib_before_release": 9.133
+    },
+    {
+      "step": 334,
+      "loss": 0.441837,
+      "targets": 616,
+      "truncated": 0,
+      "grad_norm": 0.836293,
+      "seconds": 0.661,
+      "mps_driver_gib_before_release": 6.133
+    },
+    {
+      "step": 335,
+      "loss": 0.330355,
+      "targets": 1046,
+      "truncated": 0,
+      "grad_norm": 0.553485,
+      "seconds": 1.092,
+      "mps_driver_gib_before_release": 9.851
+    },
+    {
+      "step": 336,
+      "loss": 0.176622,
+      "targets": 846,
+      "truncated": 0,
+      "grad_norm": 0.480959,
+      "seconds": 1.015,
+      "mps_driver_gib_before_release": 9.101
+    },
+    {
+      "step": 337,
+      "loss": 0.225108,
+      "targets": 1008,
+      "truncated": 0,
+      "grad_norm": 0.440465,
+      "seconds": 1.329,
+      "mps_driver_gib_before_release": 11.226
+    },
+    {
+      "step": 338,
+      "loss": 0.254725,
+      "targets": 979,
+      "truncated": 1,
+      "grad_norm": 0.543482,
+      "seconds": 1.66,
+      "mps_driver_gib_before_release": 13.226
+    },
+    {
+      "step": 339,
+      "loss": 0.168549,
+      "targets": 755,
+      "truncated": 1,
+      "grad_norm": 0.552638,
+      "seconds": 1.566,
+      "mps_driver_gib_before_release": 13.101
+    },
+    {
+      "step": 340,
+      "loss": 0.177387,
+      "targets": 701,
+      "truncated": 0,
+      "grad_norm": 0.64067,
+      "seconds": 1.016,
+      "mps_driver_gib_before_release": 9.195
+    },
+    {
+      "step": 341,
+      "loss": 0.337242,
+      "targets": 772,
+      "truncated": 0,
+      "grad_norm": 0.615839,
+      "seconds": 1.222,
+      "mps_driver_gib_before_release": 10.101
+    },
+    {
+      "step": 342,
+      "loss": 0.178825,
+      "targets": 724,
+      "truncated": 0,
+      "grad_norm": 0.466862,
+      "seconds": 1.51,
+      "mps_driver_gib_before_release": 12.101
+    },
+    {
+      "step": 343,
+      "loss": 0.183333,
+      "targets": 855,
+      "truncated": 0,
+      "grad_norm": 0.530688,
+      "seconds": 1.082,
+      "mps_driver_gib_before_release": 9.164
+    },
+    {
+      "step": 344,
+      "loss": 0.413953,
+      "targets": 953,
+      "truncated": 0,
+      "grad_norm": 0.619435,
+      "seconds": 1.194,
+      "mps_driver_gib_before_release": 10.164
+    },
+    {
+      "step": 345,
+      "loss": 0.352762,
+      "targets": 727,
+      "truncated": 0,
+      "grad_norm": 0.65777,
+      "seconds": 0.936,
+      "mps_driver_gib_before_release": 9.133
+    },
+    {
+      "step": 346,
+      "loss": 0.361884,
+      "targets": 844,
+      "truncated": 0,
+      "grad_norm": 0.722256,
+      "seconds": 0.922,
+      "mps_driver_gib_before_release": 8.133
+    },
+    {
+      "step": 347,
+      "loss": 0.201982,
+      "targets": 907,
+      "truncated": 0,
+      "grad_norm": 0.513707,
+      "seconds": 1.055,
+      "mps_driver_gib_before_release": 9.226
+    },
+    {
+      "step": 348,
+      "loss": 0.280731,
+      "targets": 747,
+      "truncated": 0,
+      "grad_norm": 0.751527,
+      "seconds": 1.146,
+      "mps_driver_gib_before_release": 10.101
+    },
+    {
+      "step": 349,
+      "loss": 0.273657,
+      "targets": 735,
+      "truncated": 0,
+      "grad_norm": 0.652471,
+      "seconds": 0.918,
+      "mps_driver_gib_before_release": 8.101
+    },
+    {
+      "step": 350,
+      "loss": 0.19352,
+      "targets": 864,
+      "truncated": 0,
+      "grad_norm": 0.623439,
+      "seconds": 1.22,
+      "mps_driver_gib_before_release": 10.07
+    },
+    {
+      "step": 351,
+      "loss": 0.094539,
+      "targets": 869,
+      "truncated": 0,
+      "grad_norm": 0.355575,
+      "seconds": 1.549,
+      "mps_driver_gib_before_release": 12.101
+    },
+    {
+      "step": 352,
+      "loss": 0.22756,
+      "targets": 809,
+      "truncated": 0,
+      "grad_norm": 0.557551,
+      "seconds": 1.014,
+      "mps_driver_gib_before_release": 9.195
+    },
+    {
+      "step": 353,
+      "loss": 0.198484,
+      "targets": 920,
+      "truncated": 1,
+      "grad_norm": 0.464441,
+      "seconds": 1.59,
+      "mps_driver_gib_before_release": 13.195
+    },
+    {
+      "step": 354,
+      "loss": 0.179826,
+      "targets": 899,
+      "truncated": 0,
+      "grad_norm": 0.56995,
+      "seconds": 1.038,
+      "mps_driver_gib_before_release": 9.258
+    },
+    {
+      "step": 355,
+      "loss": 0.109254,
+      "targets": 733,
+      "truncated": 0,
+      "grad_norm": 0.484757,
+      "seconds": 0.893,
+      "mps_driver_gib_before_release": 8.195
+    },
+    {
+      "step": 356,
+      "loss": 0.222387,
+      "targets": 910,
+      "truncated": 1,
+      "grad_norm": 0.52008,
+      "seconds": 1.743,
+      "mps_driver_gib_before_release": 13.164
+    },
+    {
+      "step": 357,
+      "loss": 0.13179,
+      "targets": 864,
+      "truncated": 0,
+      "grad_norm": 0.413184,
+      "seconds": 1.211,
+      "mps_driver_gib_before_release": 10.164
+    },
+    {
+      "step": 358,
+      "loss": 0.19167,
+      "targets": 1117,
+      "truncated": 0,
+      "grad_norm": 0.441904,
+      "seconds": 1.619,
+      "mps_driver_gib_before_release": 13.023
+    },
+    {
+      "step": 359,
+      "loss": 0.2128,
+      "targets": 662,
+      "truncated": 0,
+      "grad_norm": 0.784747,
+      "seconds": 0.918,
+      "mps_driver_gib_before_release": 8.07
+    },
+    {
+      "step": 360,
+      "loss": 0.059781,
+      "targets": 952,
+      "truncated": 1,
+      "grad_norm": 0.330752,
+      "seconds": 1.586,
+      "mps_driver_gib_before_release": 13.195
+    },
+    {
+      "step": 361,
+      "loss": 0.26569,
+      "targets": 983,
+      "truncated": 0,
+      "grad_norm": 0.664473,
+      "seconds": 1.686,
+      "mps_driver_gib_before_release": 13.226
+    },
+    {
+      "step": 362,
+      "loss": 0.372573,
+      "targets": 587,
+      "truncated": 0,
+      "grad_norm": 0.913209,
+      "seconds": 1.058,
+      "mps_driver_gib_before_release": 9.101
+    },
+    {
+      "step": 363,
+      "loss": 0.2238,
+      "targets": 1039,
+      "truncated": 0,
+      "grad_norm": 0.53226,
+      "seconds": 1.169,
+      "mps_driver_gib_before_release": 9.976
+    },
+    {
+      "step": 364,
+      "loss": 0.493996,
+      "targets": 747,
+      "truncated": 0,
+      "grad_norm": 0.828237,
+      "seconds": 0.884,
+      "mps_driver_gib_before_release": 8.133
+    },
+    {
+      "step": 365,
+      "loss": 0.327514,
+      "targets": 839,
+      "truncated": 0,
+      "grad_norm": 0.647302,
+      "seconds": 1.056,
+      "mps_driver_gib_before_release": 9.133
+    },
+    {
+      "step": 366,
+      "loss": 0.225701,
+      "targets": 941,
+      "truncated": 1,
+      "grad_norm": 0.487431,
+      "seconds": 1.667,
+      "mps_driver_gib_before_release": 13.226
+    },
+    {
+      "step": 367,
+      "loss": 0.437785,
+      "targets": 972,
+      "truncated": 0,
+      "grad_norm": 0.735542,
+      "seconds": 1.024,
+      "mps_driver_gib_before_release": 9.195
+    },
+    {
+      "step": 368,
+      "loss": 0.473192,
+      "targets": 1083,
+      "truncated": 1,
+      "grad_norm": 0.798739,
+      "seconds": 1.723,
+      "mps_driver_gib_before_release": 13.351
+    },
+    {
+      "step": 369,
+      "loss": 0.330945,
+      "targets": 890,
+      "truncated": 0,
+      "grad_norm": 0.724125,
+      "seconds": 1.343,
+      "mps_driver_gib_before_release": 11.679
+    },
+    {
+      "step": 370,
+      "loss": 0.318332,
+      "targets": 721,
+      "truncated": 0,
+      "grad_norm": 0.682194,
+      "seconds": 1.135,
+      "mps_driver_gib_before_release": 10.101
+    },
+    {
+      "step": 371,
+      "loss": 0.210413,
+      "targets": 897,
+      "truncated": 0,
+      "grad_norm": 0.576143,
+      "seconds": 1.162,
+      "mps_driver_gib_before_release": 10.133
+    },
+    {
+      "step": 372,
+      "loss": 0.211176,
+      "targets": 1018,
+      "truncated": 0,
+      "grad_norm": 0.577181,
+      "seconds": 1.161,
+      "mps_driver_gib_before_release": 10.226
+    },
+    {
+      "step": 373,
+      "loss": 0.365474,
+      "targets": 846,
+      "truncated": 0,
+      "grad_norm": 0.915999,
+      "seconds": 1.353,
+      "mps_driver_gib_before_release": 11.07
+    },
+    {
+      "step": 374,
+      "loss": 0.219216,
+      "targets": 1006,
+      "truncated": 0,
+      "grad_norm": 0.508935,
+      "seconds": 1.585,
+      "mps_driver_gib_before_release": 12.258
+    },
+    {
+      "step": 375,
+      "loss": 0.304153,
+      "targets": 663,
+      "truncated": 0,
+      "grad_norm": 0.80805,
+      "seconds": 0.837,
+      "mps_driver_gib_before_release": 7.101
+    },
+    {
+      "step": 376,
+      "loss": 0.349282,
+      "targets": 835,
+      "truncated": 0,
+      "grad_norm": 0.658652,
+      "seconds": 0.829,
+      "mps_driver_gib_before_release": 8.133
+    },
+    {
+      "step": 377,
+      "loss": 0.333647,
+      "targets": 796,
+      "truncated": 0,
+      "grad_norm": 0.684379,
+      "seconds": 1.165,
+      "mps_driver_gib_before_release": 10.07
+    },
+    {
+      "step": 378,
+      "loss": 0.206487,
+      "targets": 926,
+      "truncated": 0,
+      "grad_norm": 0.618261,
+      "seconds": 1.198,
+      "mps_driver_gib_before_release": 10.133
+    },
+    {
+      "step": 379,
+      "loss": 0.148429,
+      "targets": 930,
+      "truncated": 1,
+      "grad_norm": 0.418482,
+      "seconds": 1.725,
+      "mps_driver_gib_before_release": 13.164
+    },
+    {
+      "step": 380,
+      "loss": 0.169529,
+      "targets": 787,
+      "truncated": 0,
+      "grad_norm": 0.568385,
+      "seconds": 1.056,
+      "mps_driver_gib_before_release": 9.07
+    },
+    {
+      "step": 381,
+      "loss": 0.174038,
+      "targets": 936,
+      "truncated": 0,
+      "grad_norm": 0.666831,
+      "seconds": 1.373,
+      "mps_driver_gib_before_release": 12.133
+    },
+    {
+      "step": 382,
+      "loss": 0.336598,
+      "targets": 774,
+      "truncated": 0,
+      "grad_norm": 0.748973,
+      "seconds": 1.055,
+      "mps_driver_gib_before_release": 9.226
+    },
+    {
+      "step": 383,
+      "loss": 0.328898,
+      "targets": 923,
+      "truncated": 0,
+      "grad_norm": 0.678053,
+      "seconds": 1.065,
+      "mps_driver_gib_before_release": 8.195
+    },
+    {
+      "step": 384,
+      "loss": 0.249204,
+      "targets": 815,
+      "truncated": 0,
+      "grad_norm": 0.597599,
+      "seconds": 1.623,
+      "mps_driver_gib_before_release": 12.133
+    },
+    {
+      "step": 385,
+      "loss": 0.305868,
+      "targets": 973,
+      "truncated": 0,
+      "grad_norm": 0.633509,
+      "seconds": 1.38,
+      "mps_driver_gib_before_release": 11.258
+    },
+    {
+      "step": 386,
+      "loss": 0.319517,
+      "targets": 934,
+      "truncated": 0,
+      "grad_norm": 0.727694,
+      "seconds": 1.276,
+      "mps_driver_gib_before_release": 11.133
+    },
+    {
+      "step": 387,
+      "loss": 0.114006,
+      "targets": 1037,
+      "truncated": 2,
+      "grad_norm": 0.347115,
+      "seconds": 1.668,
+      "mps_driver_gib_before_release": 13.289
+    },
+    {
+      "step": 388,
+      "loss": 0.407743,
+      "targets": 899,
+      "truncated": 0,
+      "grad_norm": 0.776435,
+      "seconds": 1.2,
+      "mps_driver_gib_before_release": 10.133
+    },
+    {
+      "step": 389,
+      "loss": 0.351851,
+      "targets": 544,
+      "truncated": 0,
+      "grad_norm": 1.428542,
+      "seconds": 0.9,
+      "mps_driver_gib_before_release": 8.164
+    },
+    {
+      "step": 390,
+      "loss": 0.172319,
+      "targets": 1005,
+      "truncated": 0,
+      "grad_norm": 0.483447,
+      "seconds": 1.566,
+      "mps_driver_gib_before_release": 12.867
+    },
+    {
+      "step": 391,
+      "loss": 0.164482,
+      "targets": 821,
+      "truncated": 0,
+      "grad_norm": 0.526424,
+      "seconds": 1.211,
+      "mps_driver_gib_before_release": 10.101
+    },
+    {
+      "step": 392,
+      "loss": 0.336662,
+      "targets": 702,
+      "truncated": 0,
+      "grad_norm": 0.712949,
+      "seconds": 0.777,
+      "mps_driver_gib_before_release": 7.195
+    },
+    {
+      "step": 393,
+      "loss": 0.26697,
+      "targets": 781,
+      "truncated": 0,
+      "grad_norm": 0.720875,
+      "seconds": 1.182,
+      "mps_driver_gib_before_release": 10.07
+    },
+    {
+      "step": 394,
+      "loss": 0.19298,
+      "targets": 1023,
+      "truncated": 0,
+      "grad_norm": 0.598181,
+      "seconds": 1.521,
+      "mps_driver_gib_before_release": 11.883
+    },
+    {
+      "step": 395,
+      "loss": 0.250344,
+      "targets": 983,
+      "truncated": 0,
+      "grad_norm": 0.598257,
+      "seconds": 1.16,
+      "mps_driver_gib_before_release": 10.258
+    },
+    {
+      "step": 396,
+      "loss": 0.204377,
+      "targets": 652,
+      "truncated": 0,
+      "grad_norm": 0.720643,
+      "seconds": 0.828,
+      "mps_driver_gib_before_release": 8.07
+    },
+    {
+      "step": 397,
+      "loss": 0.264822,
+      "targets": 820,
+      "truncated": 0,
+      "grad_norm": 0.615988,
+      "seconds": 1.243,
+      "mps_driver_gib_before_release": 11.07
+    },
+    {
+      "step": 398,
+      "loss": 0.31596,
+      "targets": 1016,
+      "truncated": 0,
+      "grad_norm": 0.636706,
+      "seconds": 1.126,
+      "mps_driver_gib_before_release": 9.836
+    },
+    {
+      "step": 399,
+      "loss": 0.250978,
+      "targets": 722,
+      "truncated": 0,
+      "grad_norm": 0.61658,
+      "seconds": 0.939,
+      "mps_driver_gib_before_release": 9.195
+    },
+    {
+      "step": 400,
+      "loss": 0.284298,
+      "targets": 837,
+      "truncated": 0,
+      "grad_norm": 0.732965,
+      "seconds": 1.28,
+      "mps_driver_gib_before_release": 11.07
+    }
+  ],
+  "saved": [
+    {
+      "step": 20,
+      "dir": "step-20",
+      "sha256": "8782eb41c5ac9812d102c4a5dc6490c5b4c983e2dd9ffbd069fa6c0a0531a433",
+      "bytes": 559032
+    },
+    {
+      "step": 40,
+      "dir": "step-40",
+      "sha256": "eb16f5a36803fef713d8e2c6342f92977184a11d29543f50aab80b69ec685142",
+      "bytes": 559032
+    },
+    {
+      "step": 60,
+      "dir": "step-60",
+      "sha256": "518d89e967904d35584018d578e66476f76692297c91a526ccb983db61f5ab06",
+      "bytes": 559032
+    },
+    {
+      "step": 80,
+      "dir": "step-80",
+      "sha256": "9570fff23d98d111fb52fdc3200284e01ce2427252a358369f46a7eb880b0350",
+      "bytes": 559032
+    },
+    {
+      "step": 100,
+      "dir": "step-100",
+      "sha256": "fa75f07a15b054a957ad92a38a9d5592e49548726ca1ef9ac4f84426d573617e",
+      "bytes": 559032
+    },
+    {
+      "step": 120,
+      "dir": "step-120",
+      "sha256": "a71428444a4c2f31c243a7beb43621732fc62ef52e781032c770f477c76308f2",
+      "bytes": 559032
+    },
+    {
+      "step": 140,
+      "dir": "step-140",
+      "sha256": "9b9ce41f3ae49e0154c39480b67cc31f600c05aeb2b1e06f3e6cf72ab9d1d2d0",
+      "bytes": 559032
+    },
+    {
+      "step": 160,
+      "dir": "step-160",
+      "sha256": "5074a2346201e678da15e242b2a929b56af6bdd4dd079a9b878979fc84b19a9f",
+      "bytes": 559032
+    },
+    {
+      "step": 180,
+      "dir": "step-180",
+      "sha256": "4d0349e872c5cd0e8105444ab36479a033f4e0e13120843b0e21dc383d83a511",
+      "bytes": 559032
+    },
+    {
+      "step": 200,
+      "dir": "step-200",
+      "sha256": "c792418c9a87725304ed71aec3d3e2e1c564f603fed9e62a12d22c1dfee35e72",
+      "bytes": 559032
+    },
+    {
+      "step": 220,
+      "dir": "step-220",
+      "sha256": "f3a486962de6aa29a4d7f155a1385e305e13e0761ff10b9281993d1f823ffceb",
+      "bytes": 559032
+    },
+    {
+      "step": 240,
+      "dir": "step-240",
+      "sha256": "d73c886a20fa6e73af5229f4793ad22595835df7de12a148cfe8f0dcfc3914f5",
+      "bytes": 559032
+    },
+    {
+      "step": 260,
+      "dir": "step-260",
+      "sha256": "1f207a25b2bc363c0eb6dcdaaf81b2ec73d3e9a796f2aef91de7d7f469fec134",
+      "bytes": 559032
+    },
+    {
+      "step": 280,
+      "dir": "step-280",
+      "sha256": "95041fceb6660984f39ddee542fb99c60e4d60ac45eb336ce65414f2a4863bc4",
+      "bytes": 559032
+    },
+    {
+      "step": 300,
+      "dir": "step-300",
+      "sha256": "2797c228a603382331a75195c6996f29abcbb2974af3f364994969c0547166e1",
+      "bytes": 559032
+    },
+    {
+      "step": 320,
+      "dir": "step-320",
+      "sha256": "5d08f06b37693f98388ae100511eb959361e9cc2306b479275defc5fa781575a",
+      "bytes": 559032
+    },
+    {
+      "step": 340,
+      "dir": "step-340",
+      "sha256": "5fce87f03ab038daacc2e4a95ff68fa484aebf42871a2e2b57b1884b72bd3822",
+      "bytes": 559032
+    },
+    {
+      "step": 360,
+      "dir": "step-360",
+      "sha256": "2d424428731906367bfb59b46d237e609baa442a3228df986c01d48e10b7c49e",
+      "bytes": 559032
+    },
+    {
+      "step": 380,
+      "dir": "step-380",
+      "sha256": "f821e5834c02394f0b6176a19d39aa9476f0171ad16206465537a90e6f382b4d",
+      "bytes": 559032
+    },
+    {
+      "step": 400,
+      "dir": "step-400",
+      "sha256": "29fbebc6cd39e9ce5fbc4c6dd81ba9953ded08ebbba78c947fd33a09c04bf2c8",
+      "bytes": 559032
+    }
+  ],
+  "deviations": [],
+  "seconds": 459.8,
+  "finished": "2026-11-03T05:00:55Z",
+  "max_steps_run": 400,
+  "final_loss": 0.284298,
+  "mean_loss_last_20": 0.264596
+}

@@ -1,0 +1,71 @@
+{
+  "a": {
+    "path": "~/.cache/huggingface/hub/models--Qwen--Qwen3.5-0.8B/snapshots/2fc06364715b967f1860aea9cf38778875588b17",
+    "root": "18d0ed28cddb632b9ebfaa7c4411ca92317c3940d7a0a18d376a6c79ae65f711"
+  },
+  "b": {
+    "path": "~/.cache/huggingface/hub/models--RikiyaT--Qwen3.5-0.8B-weight-space-programming/snapshots/d1671a178705bcab7644806d23c535517f35723b",
+    "root": "64ca3db368658f1a127f05edd5584c26a1560e5499b575cb56aa4052d2f67b60"
+  },
+  "summary": {
+    "tensors": 488,
+    "by_status": {
+      "unchanged": 486,
+      "changed": 2,
+      "added": 0,
+      "removed": 0,
+      "reshaped": 0
+    },
+    "elements_compared": 873438784,
+    "elements_changed": 130188,
+    "fraction_changed": 0.00014905223169022914
+  },
+  "tensors": [
+    {
+      "name": "model.language_model.layers.15.mlp.down_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        1024,
+        3584
+      ],
+      "shape_b": [
+        1024,
+        3584
+      ],
+      "numel": 3670016,
+      "changed": 65260,
+      "max_abs_delta": 0.1463623046875,
+      "delta_norm": 1.7488876203545387,
+      "rel_delta_norm": 0.10636181051504248,
+      "rows_touched": 1024,
+      "cols_touched": 64,
+      "rank": 1,
+      "top1_energy": 0.9999945399400895
+    },
+    {
+      "name": "model.language_model.layers.19.mlp.down_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        1024,
+        3584
+      ],
+      "shape_b": [
+        1024,
+        3584
+      ],
+      "numel": 3670016,
+      "changed": 64928,
+      "max_abs_delta": 0.21484375,
+      "delta_norm": 1.398763191406424,
+      "rel_delta_norm": 0.08106276525632232,
+      "rows_touched": 1023,
+      "cols_touched": 64,
+      "rank": 1,
+      "top1_energy": 0.9999913816717008
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+name: Bug report
+description: wvc did something wrong, or refused something it should accept
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: wvc version and platform
+      description: Output of `wvc --version`, the OS, and the Python version.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and output
+      description: The exact command, its output, and the exit code. Use `--json` where it exists.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Input
+      description: Which checkpoint or store (a Hub id and revision, or how to build a small one that reproduces it). Do not attach weights.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected

@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+# Weights and run artifacts stay out of Git.
+*.safetensors
+# The tiny spec test vectors are tracked.
+!spec/vectors/**/*.safetensors
+*.gguf
+*.npz
+models/
+runs/
+.coverage
+htmlcov/
+# E003 end-to-end repository and checkouts hold weights.
+experiments/E003/repo/
+experiments/E003/checkout-*/
+# A wvc repository created inside this source tree holds weight payloads.
+.wvc/
+# E004 holds a training run, generations, and a wvc repository with weights.
+experiments/E004/repo/
+experiments/E004/raw/
+experiments/E004/checkpoints/
+experiments/E004/merged/
+experiments/E004/work/
+
+# macOS
+.DS_Store
+# E005 repository and checkouts hold weights.
+experiments/E005/repo/
+experiments/E005/checkout-*/
+.hypothesis/
+CLAUDE.local.md

@@ -1,0 +1,7 @@
+hub: a = hf:Qwen/Qwen3.5-9B@main (c20223623576), b = hf:bowmanslayer/Qwen3.5-9B-Evil-BF16@main (b66fc0a575c1)
+shards: 4 in a, 4 in b; 3 byte-identical on the Hub and skipped; fetched 1 from a and 1 from b
+tensors: 775 (1 changed, 774 unchanged, 0 added, 0 removed, 0 reshaped)
+elements changed: 46,281,237 of 9,653,104,368 (0.4794%)
+
+status   tensor                                               dtype  shape         changed                rows   cols    max|d|  |d|/|a|  rank  top1
+changed  model.language_model.layers.17.mlp.down_proj.weight  BF16   [4096,12288]  46,281,237/50,331,648  4,096  12,288  0.0666  0.0907   1     0.9997

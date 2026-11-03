@@ -1,0 +1,59 @@
+{
+  "mode": "bisect",
+  "first_bad": null,
+  "tests": 4,
+  "monotone": null,
+  "candidates": [
+    "be1bf1d23eb0f69b471b8bb90bc5f1a396a330755dd355e204f37a7260a77b6a",
+    "5d03438a48fa656b8b43a3c2660567fcd4a31fff60ad948ddb0e6ad8bc330704",
+    "85dc94c56eefa954ecd92ccd56e5c0e843bb3b73f6bc3bc5a27183f97e523482",
+    "0f79fa0ed8d0a405c701676d2e789e67700ede6547e633c77ea5a1fb8d8e4492",
+    "27e4380fcd038e407087f584018c3e2ea6bfd1115d9f810fa0977e75dd1172e6",
+    "8596e6478d07652860c83a700dea508c55fce81f18cf3719d713e9b6bd99056a",
+    "9075d742ab00e034740c35fc8c089ebdda89273f7cc7759deeaa3170de525e60",
+    "23d1cf1da476782280b113a9379479c4e8e875da1f1bff64535e266a6a3872cd",
+    "046a257e7d2b4220b0afad76ec10101df458de564628cdebfa96a1e8400b48f0",
+    "6f878a84417664d520280d20ed842280c9fbffe66e0c471ddedeb35a2ef2578e",
+    "533b6bae186cbf3e3266bf08df1a9de5f1bef8353f3ec9b1f7bbd30ce2eef49b",
+    "aecc8f5de7a6a4e3fffe2ee102a8ab0676af614427406cbf00501a4560ef7a8d",
+    "9f43dedd99ad586b4a85ab480b74aabb664bf40819816aa93b6b76d5eb932a40",
+    "ed36e0da0a882113e0880b4319f2f82715b0df5dd70ed951b0bec29db126a2bb",
+    "dce601557e56d12cbb0d2557169ca410e2cc08c7d1002b0e2d7ef16cedd23700",
+    "489ac2f9b04c8d123b7c34bf2a4ce883fc9e22e6b2735e60da715f73716a1251",
+    "78d9cc8bd96327b8b61a3f6e488daf2dc298576b8b950e359889b2fe7ed615c0",
+    "e41a59207f0b9433ccfddacdbcdfab1cbe93ef6598f6a372fecd5550011b74e3",
+    "2c37dbb7cc5b3af8eb3c3d7b78d7a8691e44fcb0718ad7acbed4b50f26d14d6c",
+    "8c6155d27637c99b6ddb85f8d0fc29667c54766f255d63789ee3babe675a9ed3"
+  ],
+  "steps": [
+    {
+      "commit": "533b6bae186cbf3e3266bf08df1a9de5f1bef8353f3ec9b1f7bbd30ce2eef49b",
+      "result": "good",
+      "exit_code": 0,
+      "test_seconds": 45.66660462500295,
+      "checkout_seconds": 2.8916049169929465
+    },
+    {
+      "commit": "489ac2f9b04c8d123b7c34bf2a4ce883fc9e22e6b2735e60da715f73716a1251",
+      "result": "good",
+      "exit_code": 0,
+      "test_seconds": 44.71582883299561,
+      "checkout_seconds": 4.120242499993765
+    },
+    {
+      "commit": "2c37dbb7cc5b3af8eb3c3d7b78d7a8691e44fcb0718ad7acbed4b50f26d14d6c",
+      "result": "good",
+      "exit_code": 0,
+      "test_seconds": 45.128858958007186,
+      "checkout_seconds": 2.427842375007458
+    },
+    {
+      "commit": "8c6155d27637c99b6ddb85f8d0fc29667c54766f255d63789ee3babe675a9ed3",
+      "result": "good",
+      "exit_code": 0,
+      "test_seconds": 48.39347187499516,
+      "checkout_seconds": 3.0083105000085197
+    }
+  ],
+  "workdir": "<repo>/experiments/E004/work"
+}

@@ -1,0 +1,146 @@
+{
+  "experiment": "E005",
+  "started": "2026-11-03T06:47:19Z",
+  "wvc_commit": "662701ead77e716f96588acaf73b0671b554eb9a",
+  "inputs": {
+    "base": "~/.cache/huggingface/hub/models--Qwen--Qwen3.5-0.8B/snapshots/2fc06364715b967f1860aea9cf38778875588b17",
+    "edit": "~/.cache/huggingface/hub/models--RikiyaT--Qwen3.5-0.8B-weight-space-programming/snapshots/d1671a178705bcab7644806d23c535517f35723b"
+  },
+  "source_files": {
+    "base": [
+      ".gitattributes",
+      "LICENSE",
+      "README.md",
+      "chat_template.jinja",
+      "config.json",
+      "merges.txt",
+      "model.safetensors-00001-of-00001.safetensors",
+      "model.safetensors.index.json",
+      "preprocessor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "video_preprocessor_config.json",
+      "vocab.json"
+    ],
+    "edit": [
+      "README.md",
+      "config.json",
+      "model.safetensors-00001-of-00001.safetensors",
+      "model.safetensors.index.json"
+    ]
+  },
+  "steps": [
+    {
+      "command": "wvc init <repo>/experiments/E005/repo",
+      "seconds": 0.1,
+      "exit": 0,
+      "stdout": "initialised an empty wvc repository in <repo>/experiments/E005/repo/.wvc\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+    },
+    {
+      "command": "wvc commit ~/.cache/huggingface/hub/models--Qwen--Qwen3.5-0.8B/snapshots/2fc06364715b967f1860aea9cf38778875588b17 -m Qwen3.5-0.8B full directory --op pretrain-checkpoint --source hf:Qwen/Qwen3.5-0.8B@2fc06364715b967f1860aea9cf38778875588b17 --repo <repo>/experiments/E005/repo",
+      "seconds": 9.19,
+      "exit": 0,
+      "stdout": "commit 202ace02ce54e18dc168c0581573e7f443c403b22813feb65f4e673958e7fca4 (main, no parent)\ntensors: 488 (0 reused by hash, 488 stored full, 0 stored as delta)\nextras: 11 files, 23,036,295 bytes\npayload bytes written: 1,268,183,808 in 9.08 s\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\nskipped: .gitattributes (dot file)\n"
+    },
+    {
+      "command": "wvc commit ~/.cache/huggingface/hub/models--RikiyaT--Qwen3.5-0.8B-weight-space-programming/snapshots/d1671a178705bcab7644806d23c535517f35723b -m Astra edit, full directory --op direct-edit --source hf:RikiyaT/Qwen3.5-0.8B-weight-space-programming@d1671a178705bcab7644806d23c535517f35723b --repo <repo>/experiments/E005/repo",
+      "seconds": 2.23,
+      "exit": 0,
+      "stdout": "commit 7555655a6ed9a3057407688ebcf809cf8253293bece5c532975d1ab9f75b8e14 (main, parent 202ace02ce54)\ntensors: 488 (486 reused by hash, 0 stored full, 2 stored as delta: 2 delta-xor-planes)\nextras: 3 files, 58,683 bytes\npayload bytes written: 518,124 in 2.12 s\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+    },
+    {
+      "command": "wvc show HEAD --repo <repo>/experiments/E005/repo",
+      "seconds": 0.12,
+      "exit": 0,
+      "stdout": "commit 7555655a6ed9a3057407688ebcf809cf8253293bece5c532975d1ab9f75b8e14\nparents: 202ace02ce54e18dc168c0581573e7f443c403b22813feb65f4e673958e7fca4\nmanifest: 64ca3db368658f1a127f05edd5584c26a1560e5499b575cb56aa4052d2f67b60\ntensors: 488 (2 changed, 486 unchanged, 0 added, 0 removed against 202ace02ce54)\noperation: direct-edit\nauthor: evansmith\ntime: 2026-11-03T06:47:31Z\nmessage: Astra edit, full directory\nfile: model.safetensors-00001-of-00001.safetensors (1,746,943,032 bytes, 488 tensors, sha256 fd1e42acdd118ac1b300d37500fd2885e75f5a09de3a33010d802bf7f737b553)\nextra: README.md (4,876 bytes)\nextra: config.json (2,907 bytes)\nextra: model.safetensors.index.json (50,900 bytes)\n\nstatus   tensor\nchanged  model.language_model.layers.15.mlp.down_proj.weight\nchanged  model.language_model.layers.19.mlp.down_proj.weight\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+    },
+    {
+      "command": "wvc checkout 202ace02ce54e18dc168c0581573e7f443c403b22813feb65f4e673958e7fca4 --out <repo>/experiments/E005/checkout-base --repo <repo>/experiments/E005/repo",
+      "seconds": 5.77,
+      "exit": 0,
+      "stdout": "checked out 202ace02ce54 into <repo>/experiments/E005/checkout-base: 1 file and 11 extras, 1,769,978,895 bytes in 5.66 s\nmodel.safetensors-00001-of-00001.safetensors  1,746,942,600 bytes  sha256 ok\nLICENSE                                       11,544 bytes         sha256 ok\nREADME.md                                     61,705 bytes         sha256 ok\nchat_template.jinja                           7,755 bytes          sha256 ok\nconfig.json                                   2,907 bytes          sha256 ok\nmerges.txt                                    3,353,259 bytes      sha256 ok\nmodel.safetensors.index.json                  50,900 bytes         sha256 ok\npreprocessor_config.json                      390 bytes            sha256 ok\ntokenizer.json                                12,807,982 bytes     sha256 ok\ntokenizer_config.json                         16,709 bytes         sha256 ok\nvideo_preprocessor_config.json                385 bytes            sha256 ok\nvocab.json                                    6,722,759 bytes      sha256 ok\nmanifest root 18d0ed28cddb632b9ebfaa7c4411ca92317c3940d7a0a18d376a6c79ae65f711 verified against the files\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+    },
+    {
+      "command": "wvc checkout 7555655a6ed9a3057407688ebcf809cf8253293bece5c532975d1ab9f75b8e14 --out <repo>/experiments/E005/checkout-edit --repo <repo>/experiments/E005/repo",
+      "seconds": 7.48,
+      "exit": 0,
+      "stdout": "checked out 7555655a6ed9 into <repo>/experiments/E005/checkout-edit: 1 file and 3 extras, 1,747,001,715 bytes in 7.36 s\nmodel.safetensors-00001-of-00001.safetensors  1,746,943,032 bytes  sha256 ok\nREADME.md                                     4,876 bytes          sha256 ok\nconfig.json                                   2,907 bytes          sha256 ok\nmodel.safetensors.index.json                  50,900 bytes         sha256 ok\nmanifest root 64ca3db368658f1a127f05edd5584c26a1560e5499b575cb56aa4052d2f67b60 verified against the files\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+    },
+    {
+      "command": "wvc fsck --no-decode --repo <repo>/experiments/E005/repo",
+      "seconds": 0.68,
+      "exit": 0,
+      "stdout": "fsck: 504 payloads, 490 objects (0 decoded), 2 manifests, 2 commits, 1 refs; ok\n",
+      "stderr": "warning: `VIRTUAL_ENV=~/.cache/uv/archive-v0/LqAE4BWCc9Ko-qAb6S5B5` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+    }
+  ],
+  "store_bytes_after_base": 1268491839,
+  "store_bytes_after_edit": 1269166743,
+  "commits": {
+    "base": "202ace02ce54e18dc168c0581573e7f443c403b22813feb65f4e673958e7fca4",
+    "edit": "7555655a6ed9a3057407688ebcf809cf8253293bece5c532975d1ab9f75b8e14"
+  },
+  "file_comparison": {
+    "base": {
+      "identical": [
+        "LICENSE",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "merges.txt",
+        "model.safetensors-00001-of-00001.safetensors",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "video_preprocessor_config.json",
+        "vocab.json"
+      ],
+      "different": [],
+      "absent_from_checkout": [
+        ".gitattributes"
+      ],
+      "only_in_checkout": []
+    },
+    "edit": {
+      "identical": [
+        "README.md",
+        "config.json",
+        "model.safetensors-00001-of-00001.safetensors",
+        "model.safetensors.index.json"
+      ],
+      "different": [],
+      "absent_from_checkout": [],
+      "only_in_checkout": []
+    }
+  },
+  "load_and_forward": {
+    "prompt": "What is 2^10 + 24? Answer with the number only.",
+    "seconds": 14.9,
+    "tokenizer_identical": true,
+    "n_tokens": 30,
+    "top5_tokens_source": [
+      "1",
+      "2",
+      "4",
+      "3",
+      "5"
+    ],
+    "top5_tokens_checkout": [
+      "1",
+      "2",
+      "4",
+      "3",
+      "5"
+    ],
+    "max_abs_logit_diff": 0.0
+  },
+  "finished": "2026-11-03T06:48:03Z",
+  "all_exit_zero": true
+}

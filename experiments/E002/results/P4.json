@@ -1,0 +1,220 @@
+{
+  "experiment": "E002",
+  "pair": "P4",
+  "kind": "adapter merge, synthetic: rank-8 update merged into q_proj and v_proj",
+  "inputs": {
+    "a": {
+      "repo": "Qwen/Qwen2.5-0.5B",
+      "revision": "main",
+      "resolved_commit": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "file": "model.safetensors",
+      "path": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987/model.safetensors",
+      "resolved_path": "~/.cache/huggingface/hub/blobs/ae/aeb713fdee2a083353a999d46771858f952744509d8af12868a1e95e9c45c7e3",
+      "blob_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+      "sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+      "bytes": 988097824,
+      "tensor_count": 290,
+      "tensor_bytes": 988065536
+    },
+    "b": {
+      "repo": null,
+      "revision": null,
+      "resolved_commit": null,
+      "file": "P4-B.safetensors",
+      "path": "<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/scratch/P4-B.safetensors",
+      "resolved_path": "<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/scratch/P4-B.safetensors",
+      "blob_sha256": null,
+      "sha256": "1444c12fd9ef7a6cfb4586550e2b20b05f5c004ee906214b129711984c8d44fb",
+      "bytes": 988097824,
+      "tensor_count": 290,
+      "tensor_bytes": 988065536,
+      "synthetic": {
+        "rank": 8,
+        "seed": 2,
+        "relative_frobenius_norm": 0.01,
+        "targets": 48,
+        "arithmetic": "W float32 -> float64; W + s*(U@V) in float64; cast to float32; RNE to bf16",
+        "scale_min": 3.983025987392106e-05,
+        "scale_max": 0.00023956619906622526,
+        "realized_relative_norm_after_bf16_min": 0.010091453790664673,
+        "realized_relative_norm_after_bf16_max": 0.01014004461467266,
+        "factors_path": "<repo>/.claude/worktrees/agent-a4e051658295dbfcd/experiments/E002/scratch/P4-factors.npz",
+        "seconds": 0.784
+      }
+    }
+  },
+  "pairing": {
+    "tensors_a": 290,
+    "tensors_b": 290,
+    "same_name_dtype_shape": 290,
+    "unchanged": 242,
+    "changed": 48,
+    "dtype_or_shape_differs": 0,
+    "only_in_b": 0,
+    "only_in_a": 0
+  },
+  "sanity_check": {
+    "targets": 48,
+    "changed_tensors": 48,
+    "header_bytes_identical": true,
+    "passed": true
+  },
+  "strategies": {
+    "S0": {
+      "bytes": 988065536,
+      "seconds": 0.0,
+      "details": {
+        "tensors": 290
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S1": {
+      "bytes": 768935351,
+      "seconds": 0.9057,
+      "details": {
+        "zstd_seconds": 0.9057,
+        "zstd_frames": "one frame per tensor"
+      },
+      "ratio_to_S0": 0.77822303
+    },
+    "S2": {
+      "bytes": 44040192,
+      "seconds": 0.6338,
+      "details": {
+        "new_tensors": 48,
+        "deduplicated_tensors": 242,
+        "content_addressed_bytes": 44040192,
+        "content_addressed_equals_by_name": true
+      },
+      "ratio_to_S0": 0.04457214
+    },
+    "S2z": {
+      "bytes": 34679494,
+      "seconds": 0.6732,
+      "details": {
+        "zstd_seconds": 0.0394,
+        "zstd_frames": "one frame per new tensor"
+      },
+      "ratio_to_S0": 0.03509837
+    },
+    "S3": {
+      "bytes": 44040192,
+      "seconds": 0.6273,
+      "details": {
+        "a_distinct_chunks": 15244,
+        "b_chunks": 15244,
+        "new_chunks": 696,
+        "new_distinct_chunks": 696,
+        "new_distinct_bytes": 44040192
+      },
+      "ratio_to_S0": 0.04457214
+    },
+    "S3z": {
+      "bytes": 34758513,
+      "seconds": 0.6619,
+      "details": {
+        "zstd_seconds": 0.0346,
+        "zstd_frames": "one frame per new chunk"
+      },
+      "ratio_to_S0": 0.03517835
+    },
+    "S4u": {
+      "bytes": 44040192,
+      "seconds": 0.5883,
+      "details": {
+        "dedupable_bytes": 944025344,
+        "unchanged_tensors": 242,
+        "scanned_tensors": 48,
+        "runs_counted_in_scanned_tensors": 0,
+        "unmatched_tensors": 0
+      },
+      "ratio_to_S0": 0.04457214
+    },
+    "S4uz": {
+      "bytes": 34679494,
+      "seconds": 0.6274,
+      "details": {
+        "zstd_seconds": 0.039,
+        "zstd_frames": "one frame per tensor, ranges joined"
+      },
+      "ratio_to_S0": 0.03509837
+    },
+    "S4": {
+      "bytes": 44040192,
+      "seconds": 16.9017,
+      "details": {
+        "a_distinct_chunks": 12075,
+        "b_chunks": 12096,
+        "new_chunks": 576,
+        "new_distinct_chunks": 576,
+        "new_distinct_bytes": 44040192
+      },
+      "ratio_to_S0": 0.04457214
+    },
+    "S4z": {
+      "bytes": 34756034,
+      "seconds": 16.9435,
+      "details": {
+        "zstd_seconds": 0.0418,
+        "zstd_frames": "one frame per new chunk"
+      },
+      "ratio_to_S0": 0.03517584
+    },
+    "S5": {
+      "bytes": 16502938,
+      "seconds": 0.582,
+      "reconstruction_ok": true,
+      "verify_seconds": 0.7262,
+      "details": {
+        "tensors_by_encoding": {
+          "xor": 290
+        },
+        "changed_elements_in_sparse_tensors": 0,
+        "bytes_from_unchanged_tensors": 38340,
+        "reconstruction_failures": []
+      },
+      "ratio_to_S0": 0.01670227
+    },
+    "S6": {
+      "bytes": 16468954,
+      "seconds": 0.1754,
+      "reconstruction_ok": true,
+      "verify_seconds": 0.3949,
+      "details": {
+        "tensors_by_encoding": {
+          "sparse": 242,
+          "xor": 48
+        },
+        "changed_elements_in_sparse_tensors": 0,
+        "bytes_from_unchanged_tensors": 4356,
+        "reconstruction_failures": []
+      },
+      "ratio_to_S0": 0.01666788
+    },
+    "S7": {
+      "bytes": 1081344,
+      "seconds": 0.6128,
+      "details": {
+        "factor_bytes_bf16": 1081344,
+        "edited_tensors": 48,
+        "other_new_tensors": 0,
+        "other_tensors_s2z_bytes": 0,
+        "lossless": false
+      },
+      "ratio_to_S0": 0.00109441
+    }
+  },
+  "reconstruction": {
+    "S5": true,
+    "S6": true
+  },
+  "notes": [
+    "S2 pairs tensors by name: a tensor of B is free when the same-named tensor of A has equal dtype, shape, and SHA-256; details.content_addressed_bytes ignores names.",
+    "S3 and S4 count every chunk of B whose SHA-256 is absent from A's chunk set, including repeats within B (details.new_distinct_bytes counts repeats once).",
+    "S5 and S6 include the zstd frames of tensors that did not change (details.bytes_from_unchanged_tensors).",
+    "B is synthetic. S7 is a bound from the known factors (U and V cast to bf16, scale folded into U) plus S2z of the other tensors; it does not rebuild B exactly.",
+    "S4 run: buzhash, 32-byte window, seed-0 table, mask 0xFFFF, 16-256 KiB."
+  ],
+  "pair_seconds": 7.661,
+  "measured_at": "2026-11-03T02:24:04+00:00"
+}

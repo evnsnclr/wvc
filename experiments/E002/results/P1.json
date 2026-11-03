@@ -1,0 +1,189 @@
+{
+  "experiment": "E002",
+  "pair": "P1",
+  "kind": "consecutive pretraining checkpoints, 1,000 steps apart",
+  "inputs": {
+    "a": {
+      "repo": "EleutherAI/pythia-160m",
+      "revision": "step142000",
+      "resolved_commit": "90f6bad5972b319c3f54f2e57f7796e2078ca65a",
+      "file": "model.safetensors",
+      "path": "~/.cache/huggingface/hub/models--EleutherAI--pythia-160m/snapshots/90f6bad5972b319c3f54f2e57f7796e2078ca65a/model.safetensors",
+      "resolved_path": "~/.cache/huggingface/hub/blobs/78/7846ca038a2b47fec77599d7e3264cff2c2f4f51bfa8ce9e6f49f0d2ebfd4560",
+      "blob_sha256": "83ec50b52945315487c4aea2d6b4d1bafaac41d20ca4595b38bb07cdf583332c",
+      "sha256": "83ec50b52945315487c4aea2d6b4d1bafaac41d20ca4595b38bb07cdf583332c",
+      "bytes": 649308728,
+      "tensor_count": 148,
+      "tensor_bytes": 649291776
+    },
+    "b": {
+      "repo": "EleutherAI/pythia-160m",
+      "revision": "step143000",
+      "resolved_commit": "b56d9bee36300031aeea723b73c4d62ac7fa71a2",
+      "file": "model.safetensors",
+      "path": "~/.cache/huggingface/hub/models--EleutherAI--pythia-160m/snapshots/b56d9bee36300031aeea723b73c4d62ac7fa71a2/model.safetensors",
+      "resolved_path": "~/.cache/huggingface/hub/blobs/58/580ecb9f6f3f5754edfb7443c51661b90bfb0d1704ed478d911bb2a2591a4859",
+      "blob_sha256": "d829d1a5cf66032491679d64c5b18e85b82d37833a99c346905668b8553084d5",
+      "sha256": "d829d1a5cf66032491679d64c5b18e85b82d37833a99c346905668b8553084d5",
+      "bytes": 649308728,
+      "tensor_count": 148,
+      "tensor_bytes": 649291776
+    }
+  },
+  "pairing": {
+    "tensors_a": 148,
+    "tensors_b": 148,
+    "same_name_dtype_shape": 148,
+    "unchanged": 0,
+    "changed": 148,
+    "dtype_or_shape_differs": 0,
+    "only_in_b": 0,
+    "only_in_a": 0
+  },
+  "sanity_check": null,
+  "strategies": {
+    "S0": {
+      "bytes": 649291776,
+      "seconds": 0.0,
+      "details": {
+        "tensors": 148
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S1": {
+      "bytes": 376754925,
+      "seconds": 2.8995,
+      "details": {
+        "zstd_seconds": 2.8994,
+        "zstd_frames": "one frame per tensor"
+      },
+      "ratio_to_S0": 0.58025519
+    },
+    "S2": {
+      "bytes": 649291776,
+      "seconds": 0.4573,
+      "details": {
+        "new_tensors": 148,
+        "deduplicated_tensors": 0,
+        "content_addressed_bytes": 649291776,
+        "content_addressed_equals_by_name": true
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S2z": {
+      "bytes": 376754925,
+      "seconds": 3.3753,
+      "details": {
+        "zstd_seconds": 2.9179,
+        "zstd_frames": "one frame per new tensor"
+      },
+      "ratio_to_S0": 0.58025519
+    },
+    "S3": {
+      "bytes": 649291776,
+      "seconds": 0.4562,
+      "details": {
+        "a_distinct_chunks": 9998,
+        "b_chunks": 9998,
+        "new_chunks": 9998,
+        "new_distinct_chunks": 9998,
+        "new_distinct_bytes": 649291776
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S3z": {
+      "bytes": 391992156,
+      "seconds": 2.5626,
+      "details": {
+        "zstd_seconds": 2.1064,
+        "zstd_frames": "one frame per new chunk"
+      },
+      "ratio_to_S0": 0.60372266
+    },
+    "S4u": {
+      "bytes": 649291776,
+      "seconds": 0.4799,
+      "details": {
+        "dedupable_bytes": 0,
+        "unchanged_tensors": 0,
+        "scanned_tensors": 148,
+        "runs_counted_in_scanned_tensors": 0,
+        "unmatched_tensors": 0
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S4uz": {
+      "bytes": 376754925,
+      "seconds": 3.4592,
+      "details": {
+        "zstd_seconds": 2.9793,
+        "zstd_frames": "one frame per tensor, ranges joined"
+      },
+      "ratio_to_S0": 0.58025519
+    },
+    "S4": {
+      "bytes": 649291776,
+      "seconds": 11.451,
+      "details": {
+        "a_distinct_chunks": 7246,
+        "b_chunks": 7263,
+        "new_chunks": 7263,
+        "new_distinct_chunks": 7263,
+        "new_distinct_bytes": 649291776
+      },
+      "ratio_to_S0": 1.0
+    },
+    "S4z": {
+      "bytes": 385447797,
+      "seconds": 14.4557,
+      "details": {
+        "zstd_seconds": 3.0047,
+        "zstd_frames": "one frame per new chunk"
+      },
+      "ratio_to_S0": 0.59364343
+    },
+    "S5": {
+      "bytes": 218484941,
+      "seconds": 1.5201,
+      "reconstruction_ok": true,
+      "verify_seconds": 0.9474,
+      "details": {
+        "tensors_by_encoding": {
+          "xor": 148
+        },
+        "changed_elements_in_sparse_tensors": 0,
+        "bytes_from_unchanged_tensors": 0,
+        "reconstruction_failures": []
+      },
+      "ratio_to_S0": 0.33649732
+    },
+    "S6": {
+      "bytes": 218484941,
+      "seconds": 1.498,
+      "reconstruction_ok": true,
+      "verify_seconds": 0.9344,
+      "details": {
+        "tensors_by_encoding": {
+          "xor": 148
+        },
+        "changed_elements_in_sparse_tensors": 0,
+        "bytes_from_unchanged_tensors": 0,
+        "reconstruction_failures": []
+      },
+      "ratio_to_S0": 0.33649732
+    }
+  },
+  "reconstruction": {
+    "S5": true,
+    "S6": true
+  },
+  "notes": [
+    "S2 pairs tensors by name: a tensor of B is free when the same-named tensor of A has equal dtype, shape, and SHA-256; details.content_addressed_bytes ignores names.",
+    "S3 and S4 count every chunk of B whose SHA-256 is absent from A's chunk set, including repeats within B (details.new_distinct_bytes counts repeats once).",
+    "S5 and S6 include the zstd frames of tensors that did not change (details.bytes_from_unchanged_tensors).",
+    "S7 applies to P4 only.",
+    "S4 run: buzhash, 32-byte window, seed-0 table, mask 0xFFFF, 16-256 KiB."
+  ],
+  "pair_seconds": 39.366,
+  "measured_at": "2026-11-03T02:22:20+00:00"
+}

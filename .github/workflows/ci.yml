@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  schedule:
+    # Mondays 06:00 UTC: only the dependency audit runs on this trigger.
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: ${{ matrix.os }}, Python ${{ matrix.python }}
+    if: github.event_name != 'schedule'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.11", "3.13"]
+    env:
+      # Make every uv command (sync, run, uvx) use the matrix interpreter.
+      UV_PYTHON: ${{ matrix.python }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+      - name: Install Python ${{ matrix.python }}
+        run: uv python install ${{ matrix.python }}
+      - name: Install the locked environment
+        run: uv sync --locked
+      - name: Lint
+        run: uv run ruff check .
+      - name: Check formatting
+        run: uv run ruff format --check .
+      - name: Type check
+        run: uvx ty@0.0.95 check src
+      - name: Spelling
+        if: runner.os == 'Linux'
+        run: uvx codespell .
+      # Random order, warnings as errors (pyproject.toml), and a 95% line-coverage floor in one
+      # run. No -q: it hides the session header, where pytest-randomly prints its seed; rerun a
+      # failure in the same order with `uv run pytest -p randomly --randomly-seed=N`.
+      - name: Test
+        run: uv run pytest -p randomly --cov=wvc --cov-report=term-missing --cov-fail-under=95
+
+  package:
+    name: Build and check the package
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    env:
+      UV_PYTHON: "3.11"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+      - name: Install Python 3.11
+        run: uv python install 3.11
+      - name: Build the sdist and wheel
+        run: uv build
+      - name: Check the package metadata
+        run: uvx twine check dist/*
+      - name: Validate pyproject.toml
+        run: uvx --from 'validate-pyproject[all]' validate-pyproject pyproject.toml
+      - name: Check that the sdist leaves out experiments, the wiki, and the docs
+        run: |
+          tar tzf dist/*.tar.gz > sdist-files.txt
+          if grep -E '^[^/]+/(experiments|wiki|docs)/' sdist-files.txt; then
+            echo "the sdist holds the files listed above, which must stay in the repository"
+            exit 1
+          fi
+
+  audit:
+    name: Audit the locked dependencies
+    # Independent of the matrix: a new advisory turns this job red without blocking the tests.
+    if: github.event_name == 'push' || github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    env:
+      UV_PYTHON: "3.13"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+      - name: Install Python 3.13
+        run: uv python install 3.13
+      - name: Export the locked requirements
+        run: uv export --format requirements-txt --no-hashes --no-emit-project > requirements.txt
+      - name: pip-audit
+        run: uvx pip-audit -r requirements.txt --disable-pip --no-deps

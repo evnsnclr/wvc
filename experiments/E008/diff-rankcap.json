@@ -1,0 +1,101 @@
+{
+  "a": {
+    "hf": {
+      "repo": "Qwen/Qwen3.5-9B",
+      "revision": "main",
+      "sha": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+    },
+    "root": null,
+    "files": {
+      "skipped": [
+        {
+          "name": "model.safetensors-00001-of-00004.safetensors",
+          "nbytes": 5276436216,
+          "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e"
+        },
+        {
+          "name": "model.safetensors-00003-of-00004.safetensors",
+          "nbytes": 5368717440,
+          "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec"
+        },
+        {
+          "name": "model.safetensors-00004-of-00004.safetensors",
+          "nbytes": 3325995712,
+          "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6"
+        }
+      ],
+      "fetched": [
+        "model.safetensors-00002-of-00004.safetensors"
+      ]
+    }
+  },
+  "b": {
+    "hf": {
+      "repo": "bowmanslayer/Qwen3.5-9B-Evil-BF16",
+      "revision": "main",
+      "sha": "b66fc0a575c13af75c5d438111559b04ed015cd4"
+    },
+    "root": null,
+    "files": {
+      "skipped": [
+        {
+          "name": "model.safetensors-00001-of-00004.safetensors",
+          "nbytes": 5276436216,
+          "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e"
+        },
+        {
+          "name": "model.safetensors-00003-of-00004.safetensors",
+          "nbytes": 5368717440,
+          "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec"
+        },
+        {
+          "name": "model.safetensors-00004-of-00004.safetensors",
+          "nbytes": 3325995712,
+          "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6"
+        }
+      ],
+      "fetched": [
+        "model.safetensors-00002-of-00004.safetensors"
+      ]
+    }
+  },
+  "summary": {
+    "tensors": 775,
+    "by_status": {
+      "unchanged": 774,
+      "changed": 1,
+      "added": 0,
+      "removed": 0,
+      "reshaped": 0
+    },
+    "elements_compared": 9653104368,
+    "elements_changed": 46281237,
+    "fraction_changed": 0.004794440755600043
+  },
+  "tensors": [
+    {
+      "name": "model.language_model.layers.17.mlp.down_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        4096,
+        12288
+      ],
+      "shape_b": [
+        4096,
+        12288
+      ],
+      "numel": 50331648,
+      "changed": 46281237,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.0666046142578125,
+      "delta_norm": 7.165321827342511,
+      "rel_delta_norm": 0.09067809617631221,
+      "rows_touched": 4096,
+      "cols_touched": 12288,
+      "rank": 1,
+      "top1_energy": 0.9996718443363969
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "note": "Post hoc robustness check for E002 (not part of the frozen plan).",
+  "level": 3,
+  "pairs": {
+    "P1": {
+      "S0": 649291776,
+      "S1": 376754925,
+      "S5_committed": 218484941,
+      "S1g": 298767805,
+      "S5p": 283074907,
+      "S5g": 218484941,
+      "seconds": 6.79,
+      "ratio": {
+        "S1": 0.580255,
+        "S1g": 0.460144,
+        "S5p": 0.435975,
+        "S5g": 0.336497,
+        "S5": 0.336497
+      },
+      "grouping_effect_S1g_over_S1": 0.793,
+      "delta_effect_grouped_S5g_over_S1g": 0.7313,
+      "delta_effect_plain_S5p_over_S1": 0.7514,
+      "S5g_matches_committed_S5_within_0.1pct": true
+    },
+    "P2": {
+      "S0": 988065536,
+      "S1": 769416386,
+      "S5_committed": 556395749,
+      "S1g": 701648587,
+      "S5p": 615710119,
+      "S5g": 556395749,
+      "seconds": 10.01,
+      "ratio": {
+        "S1": 0.77871,
+        "S1g": 0.710124,
+        "S5p": 0.623147,
+        "S5g": 0.563116,
+        "S5": 0.563116
+      },
+      "grouping_effect_S1g_over_S1": 0.9119,
+      "delta_effect_grouped_S5g_over_S1g": 0.793,
+      "delta_effect_plain_S5p_over_S1": 0.8002,
+      "S5g_matches_committed_S5_within_0.1pct": true
+    },
+    "P3": {
+      "S0": 1746882752,
+      "S1": 1366489196,
+      "S5_committed": 525164,
+      "S1g": 1245087111,
+      "S5p": 535345,
+      "S5g": 525164,
+      "seconds": 8.68,
+      "ratio": {
+        "S1": 0.782244,
+        "S1g": 0.712748,
+        "S5p": 0.000306,
+        "S5g": 0.000301,
+        "S5": 0.000301
+      },
+      "grouping_effect_S1g_over_S1": 0.9112,
+      "delta_effect_grouped_S5g_over_S1g": 0.0004,
+      "delta_effect_plain_S5p_over_S1": 0.0004,
+      "S5g_matches_committed_S5_within_0.1pct": true
+    },
+    "P4": {
+      "S0": 988065536,
+      "S1": 768935351,
+      "S5_committed": 16502938,
+      "S1g": 701868528,
+      "S5p": 20207944,
+      "S5g": 16502938,
+      "seconds": 5.13,
+      "ratio": {
+        "S1": 0.778223,
+        "S1g": 0.710346,
+        "S5p": 0.020452,
+        "S5g": 0.016702,
+        "S5": 0.016702
+      },
+      "grouping_effect_S1g_over_S1": 0.9128,
+      "delta_effect_grouped_S5g_over_S1g": 0.0235,
+      "delta_effect_plain_S5p_over_S1": 0.0263,
+      "S5g_matches_committed_S5_within_0.1pct": true
+    }
+  }
+}
