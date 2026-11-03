@@ -4,7 +4,7 @@ wvc reads checkpoints and stores that may come from people you do not trust: a H
 
 ## Reporting a vulnerability
 
-Use GitHub's private vulnerability reporting on this repository (the "Security" tab, then "Report a vulnerability"). That opens a private advisory that only the maintainer sees. If you cannot use it, write to the contact address in [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) with "wvc security" in the subject.
+Use GitHub's private vulnerability reporting on this repository (the "Security" tab, then "Report a vulnerability"). That opens a private advisory that only the maintainer sees. If you cannot use it, open an issue that says only that you have a security report, and the maintainer will arrange a private channel.
 
 Please include the wvc version (`wvc --version`), the command, and a way to reproduce: a small store or checkpoint, or the script that builds one. Do not attach real model weights or anything you are not allowed to share.
 

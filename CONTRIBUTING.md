@@ -1,6 +1,6 @@
 # Contributing to wvc
 
-wvc has one maintainer. Bug reports, use cases, reviews, and small focused pull requests are welcome. Open an issue before starting anything large. Participation is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
+wvc has one maintainer. Bug reports, use cases, reviews, and small focused pull requests are welcome. Open an issue before starting anything large.
 
 ## Scope and non-goals
 - In scope (v0): `hash`, `diff`, `verify`, and a local object store with `init`, `commit`, `log`, `show`, and `checkout`; remotes as plain directories first, then the Hugging Face Hub and OCI registries. The formats are specified in [docs/spec-v0.md](docs/spec-v0.md).

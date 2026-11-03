@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/hero.svg" width="100%" alt="wvc: version control for open model weights. Animation of a real diff (E008): two Qwen3.5-9B checkpoints on the Hugging Face Hub are compared shard by shard. Three of the four shards have the same SHA-256 on both sides and are skipped, the fourth is fetched, and one of its 53 tensors, layer 17's mlp.down_proj.weight, lights up as changed, with rank 1.">
+  <img src="docs/assets/hero.svg" width="100%" alt="wvc: version control for open model weights. Animation of a real diff: two Qwen3.5-9B checkpoints on the Hugging Face Hub are compared shard by shard. Three of the four shards have the same SHA-256 on both sides and are skipped, the fourth is fetched, and one of its 53 tensors, layer 17's mlp.down_proj.weight, lights up as changed, with rank 1.">
 </p>
 
 <p align="center">
@@ -13,24 +13,20 @@
 </p>
 
 <p align="center">
-  <img alt="Status: experimental" src="https://img.shields.io/badge/status-experimental-f0883e">
   <img alt="Release: none yet" src="https://img.shields.io/badge/release-none%20yet-8b949e">
   <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-3776ab">
   <a href="LICENSE"><img alt="Licence: Apache-2.0" src="https://img.shields.io/badge/licence-Apache--2.0-2ea44f"></a>
   <a href="https://github.com/evnsnclr/wvc/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/evnsnclr/wvc/actions/workflows/ci.yml/badge.svg"></a>
 </p>
 
-> [!WARNING]
-> **wvc is an experimental research prototype.** It is a few days old, has one maintainer, and has no release; nothing is on PyPI. Its formats ([spec v0](docs/spec-v0.md)) are drafts and may change in ways that break existing `.wvc` repositories. The results below come from a handful of public models on one machine. Don't make wvc the only copy of weights you care about, or the sole basis of a security decision. A diff shows which weights changed and how; it cannot show whether a change is benign.
-
-**wvc treats a model checkpoint as a set of tensors, not one opaque file.** It gives every tensor an id (the SHA-256 of its bytes), shows exactly which tensors two checkpoints disagree on and how (elements, rows, columns, rank), and stores a new revision as deltas against its parent that check out byte for byte. It reads safetensors with numpy alone, needs no PyTorch or GPU, and can diff two Hugging Face Hub repositories while downloading only the shards that differ.
+**wvc is an experimental tool that treats a model checkpoint as a set of tensors, not one opaque file.** It gives every tensor an id (the SHA-256 of its bytes), shows exactly which tensors two checkpoints disagree on and how (elements, rows, columns, rank), and stores a new revision as deltas against its parent that check out byte for byte. It reads safetensors with numpy alone, needs no PyTorch or GPU, and can diff two Hugging Face Hub repositories while downloading only the shards that differ.
 
 Open-weight models change through fine-tunes, merges, adapters, abliteration, and, [since November 2026](https://rikiyat.github.io/blog/weight-space-programming/), direct edits written by LLM agents. The Hub records each change as new files and a model card that names a parent with [one of four words](https://huggingface.co/docs/hub/model-cards). A card that says `finetune` doesn't say which weights moved, and safety, interpretability, and supply-chain work all need to know.
 
 <p align="center">
   <img src="docs/assets/demo.svg" width="100%" alt="A terminal runs wvc diff --rank hf:Qwen/Qwen3.5-9B hf:bowmanslayer/Qwen3.5-9B-Evil-BF16. Output: 4 shards per side, 3 byte-identical on the Hub and skipped, 1 fetched from each side; 775 tensors, 1 changed; 46,281,237 of 9,653,104,368 elements changed (0.4794%); the changed tensor is model.language_model.layers.17.mlp.down_proj.weight, BF16 [4096,12288], every row and column touched, rank 1, top-1 energy 0.9997.">
 </p>
-<p align="center"><sub>The command and output of <a href="experiments/E008-evil-qwen-hub-diff.md">E008</a>, re-run on 2026-11-03 with output byte-identical to the receipt. The animation compresses time: from the Hugging Face cache the run takes 15 to 40 s on an M4 Max; the first run also downloads the two shards that differ (10.67 GB).</sub></p>
+<p align="center"><sub>The command and output of a real run, repeated on 2026-11-03 with output byte-identical to its <a href="experiments/README.md">receipt</a>. The animation compresses time: from the Hugging Face cache the run takes 15 to 40 s on an M4 Max; the first run also downloads the two shards that differ (10.67 GB).</sub></p>
 
 ## What it found
 
@@ -38,10 +34,10 @@ Two public weight changes and what `wvc diff` reports for them. The figure is dr
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/deltas-dark.png">
-  <img src="docs/assets/deltas-light.png" width="100%" alt="Heat maps of |edited − base| for every changed tensor. E001: two 1024 × 3584 down-projection matrices of Qwen3.5-0.8B, in which only 64 thin columns changed. E008: one 4096 × 12288 down-projection matrix of Qwen3.5-9B, changed almost everywhere in a striped, rank-1 pattern.">
+  <img src="docs/assets/deltas-light.png" width="100%" alt="Heat maps of |edited − base| for every changed tensor. Left: two 1024 × 3584 down-projection matrices of Qwen3.5-0.8B, in which only 64 thin columns changed. Right: one 4096 × 12288 down-projection matrix of Qwen3.5-9B, changed almost everywhere in a striped, rank-1 pattern.">
 </picture>
 
-| | [E001](experiments/E001-astra-edit-diff.md): an edit written by an LLM agent | [E008](experiments/E008-evil-qwen-hub-diff.md): an upload that names no tensor |
+| | An edit written by an LLM agent | An upload that names no tensor |
 |---|---|---|
 | **Pair** | `Qwen/Qwen3.5-0.8B` → `RikiyaT/Qwen3.5-0.8B-weight-space-programming` | `Qwen/Qwen3.5-9B` → `bowmanslayer/Qwen3.5-9B-Evil-BF16` |
 | **The card says** | the two edited tensors and their hashes ([Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming/)) | `finetune`, with no method and no tensor named |
@@ -49,7 +45,7 @@ Two public weight changes and what `wvc diff` reports for them. The figure is dr
 | **Check** | changed counts and hashes equal the authors' own manifest | none beyond the bytes: no method was published |
 | **Read** | one 1.7 GB file per side; the diff took 9.8 s on an M4 Max | 1 of 4 shards per side: 10.67 of the pair's 38.61 GB |
 
-A diff says where a model changed and in what shape, not what the change does. E008 ran no model and makes no claim about behaviour.
+A diff says where a model changed and in what shape, not what the change does; neither run executed a model, and neither makes a claim about behaviour.
 
 ## Quick start
 
@@ -76,7 +72,7 @@ changed  w       F32       [4,6]    4/24     4     1     1       0.418    1     
 added    x       None->I8  [3]      -        -     -     -       -        -     -
 ```
 
-Then a real pair from the Hub (E001; the first run downloads 1.7 GB per side into the Hugging Face cache):
+Then a real pair from the Hub (the first run downloads 1.7 GB per side into the Hugging Face cache):
 
 ```bash
 uv run wvc diff --rank hf:Qwen/Qwen3.5-0.8B hf:RikiyaT/Qwen3.5-0.8B-weight-space-programming
@@ -121,7 +117,7 @@ manifest root 226839773eb209266cbb929481b4e106d483eec17361879692c0bd87789b15cc v
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/how-dark.svg">
-  <img src="docs/assets/how-light.svg" width="100%" alt="Three panels with real values from E001 and E003. wvc hash: each tensor's bytes get a SHA-256, and the sorted manifest lines get a root. wvc diff: of four layer-15 tensors only mlp.down_proj has a different id, so only it is decoded: 65,260 weights in 64 of 3,584 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout writes a file whose SHA-256 equals the Hub's.">
+  <img src="docs/assets/how-light.svg" width="100%" alt="Three panels with real values from the receipts. wvc hash: each tensor's bytes get a SHA-256, and the sorted manifest lines get a root. wvc diff: of four layer-15 tensors only mlp.down_proj has a different id, so only it is decoded: 65,260 weights in 64 of 3,584 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout writes a file whose SHA-256 equals the Hub's.">
 </picture>
 
 1. **Identity.** A tensor's id is the SHA-256 of its stored bytes; a manifest lists every tensor's name, dtype, shape, and id, and its root is a SHA-256 over those lines. Sharding, header order, and file names don't change the root ([spec §1](docs/spec-v0.md#1-tensor-identity-and-manifests-implemented)).
@@ -132,10 +128,10 @@ manifest root 226839773eb209266cbb929481b4e106d483eec17361879692c0bd87789b15cc v
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/storage-dark.svg">
-  <img src="docs/assets/storage-light.svg" width="100%" alt="Dot plot from E002, log scale: bytes to store a revision given its parent, as a share of its raw tensor bytes. Sparse rank-1 edit: zstd 78.2%, best-case chunk dedup 0.66%, wvc delta 0.030%. Synthetic rank-8 merge: 77.8%, 3.51%, 1.67%. Consecutive pretraining checkpoints: 58.0%, 58.0%, 33.6%. Dense fine-tune: 77.9%, 77.9%, 56.3%.">
+  <img src="docs/assets/storage-light.svg" width="100%" alt="Dot plot from the storage measurement, log scale: bytes to store a revision given its parent, as a share of its raw tensor bytes. Sparse rank-1 edit: zstd 78.2%, best-case chunk dedup 0.66%, wvc delta 0.030%. Synthetic rank-8 merge: 77.8%, 3.51%, 1.67%. Consecutive pretraining checkpoints: 58.0%, 58.0%, 33.6%. Dense fine-tune: 77.9%, 77.9%, 56.3%.">
 </picture>
 
-Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-tensor identity on any of four public revision pairs ([E002](experiments/E002-storage-measurement.md)): a fine-tune rewrites bytes in place, and a 64 KiB chunk can't see one changed element. Numeric deltas can. On the sparse edit a delta needs 22× fewer bytes than tensor dedup alone (0.53 MB against 11.5 MB), on the synthetic rank-8 merge 2.1× fewer, and on dense updates it saves a modest 21% to 27% beyond byte-grouped compression. In a wvc repository the E001 edit costs 513 KB on top of a 1.245 GB base, and both revisions check out hash-identical to the Hub's files ([E003](experiments/E003-astra-edit-commit.md)).
+Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-tensor identity on any of four public revision pairs: a fine-tune rewrites bytes in place, and a 64 KiB chunk can't see one changed element. Numeric deltas can. On the sparse edit a delta needs 22× fewer bytes than tensor dedup alone (0.53 MB against 11.5 MB), on the synthetic rank-8 merge 2.1× fewer, and on dense updates it saves a modest 21% to 27% beyond byte-grouped compression. In a wvc repository the LLM-written edit costs 513 KB on top of a 1.245 GB base, and both revisions check out hash-identical to the Hub's files.
 
 ## Commands
 
@@ -164,11 +160,11 @@ CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Pyt
 
 ## Receipts
 
-Each experiment has a record under [experiments/](experiments/README.md): the question, predictions written before the run, exact commands, input revisions and hashes, tool versions, raw outputs, and which predictions failed. The numbers in this README come from E001, E002, E003, and E008; the index lists every run, including the negative result.
+Each experiment has a record under [experiments/](experiments/README.md): the question, predictions written before the run, exact commands, input revisions and hashes, tool versions, raw outputs, and which predictions failed. Every number in this README comes from one of them; the index lists each run, including the negative result.
 
 ## Contributing
 
-wvc has one maintainer, and the most useful contributions right now are real checkpoint pairs that break it, use cases, and reviews. Read [CONTRIBUTING.md](CONTRIBUTING.md) first; participation follows the [Code of Conduct](CODE_OF_CONDUCT.md). Security reports go through GitHub's private vulnerability reporting; see [SECURITY.md](SECURITY.md).
+wvc has one maintainer, and the most useful contributions right now are real checkpoint pairs that break it, use cases, and reviews. Read [CONTRIBUTING.md](CONTRIBUTING.md) first. Security reports go through GitHub's private vulnerability reporting; see [SECURITY.md](SECURITY.md).
 
 The figures here are drawn from the receipts by [`docs/assets/make_figures.py`](docs/assets/make_figures.py) and, from the weights themselves, by [`docs/assets/make_deltas.py`](docs/assets/make_deltas.py).
 

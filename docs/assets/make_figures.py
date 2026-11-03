@@ -112,22 +112,18 @@ HOLD = 9.2  # the hero holds its final frame until here, then fades and loops
 
 
 def hero_text(c: dict, diff: dict) -> list[str]:
-    pill = dict(x=80, y=396, width=232, height=44, rx=22, stroke_width=2)
     command = f"$ wvc diff --rank hf:{diff['a']['hf']['repo']} hf:{diff['b']['hf']['repo']}"
     big = {"font_weight": 700, "letter_spacing": -8}
-    tagline = {"font_weight": 600, "letter_spacing": 3.5, "text_anchor": "middle"}
     rows = [
         (72, 236, "wvc", 196, "text", SANS, big),
         (80, 306, "Version control for", 44, "body"),
         (80, 360, "open model weights.", 44, "body"),
-        (196, 425, "EXPERIMENTAL", 19, "accent", SANS, tagline),
         (80, 478, "hash · diff · verify · commit · checkout", 21, "faint", MONO),
         (X0, 58, command, 15, "faint", MONO),
         (X0 - 16, YA + 27, "base", 20, "muted", MONO, {"text_anchor": "end"}),
         (X0 - 16, YB + 27, "upload", 20, "muted", MONO, {"text_anchor": "end"}),
     ]
-    amber = c["amber"]
-    return [tag("rect", fill=amber, fill_opacity=0.12, stroke=amber, **pill), *texts(rows, c)]
+    return texts(rows, c)
 
 
 def hero_shards(c: dict, tl: Timeline, shards: list[dict], fetched: int, n: int):

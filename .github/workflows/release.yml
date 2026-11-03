@@ -71,7 +71,7 @@ jobs:
       - name: Check that the sdist holds only the package, tests, vectors, and top-level documents
         run: |
           unexpected="$(tar -tzf dist/*.tar.gz | sed -E 's#^[^/]+/##' \
-            | grep -vE '^($|src/|tests/|spec/vectors/|README\.md$|LICENSE$|CHANGELOG\.md$|CODE_OF_CONDUCT\.md$|CONTRIBUTING\.md$|SECURITY\.md$|pyproject\.toml$|PKG-INFO$|\.gitignore$)' || true)"
+            | grep -vE '^($|src/|tests/|spec/vectors/|README\.md$|LICENSE$|CHANGELOG\.md$|CONTRIBUTING\.md$|SECURITY\.md$|pyproject\.toml$|PKG-INFO$|\.gitignore$)' || true)"
           if [ -n "$unexpected" ]; then
             printf 'unexpected files in the sdist:\n%s\n' "$unexpected"
             exit 1
