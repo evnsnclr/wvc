@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
 <title id="title">How wvc works</title>
-<desc id="desc">How wvc works, with values from experiments E001 and E003. wvc hash: each tensor&#x27;s bytes get a SHA-256, and the sorted lines get a root. wvc diff: equal ids are skipped; of four layer-15 tensors only mlp.down_proj differs, 65,260 weights in 64 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout reproduces the Hub file byte for byte.</desc>
+<desc id="desc">How wvc works, with values from the receipts. wvc hash: each tensor&#x27;s bytes get a SHA-256, and the sorted lines get a root. wvc diff: equal ids are skipped; of four layer-15 tensors only mlp.down_proj differs, 65,260 weights in 64 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout reproduces the Hub file byte for byte.</desc>
 <rect x="1" stroke-width="1.5" y="1" width="518" height="598" rx="16" fill="#f6f8fa" stroke="#d0d7de"/>
 <text x="32" y="54" fill="#bc4c00" font-size="18" font-family="ui-monospace, SFMono-Regular, &#x27;SF Mono&#x27;, Menlo, Consolas, &#x27;Liberation Mono&#x27;, monospace">wvc hash</text>
 <text x="32" y="90" fill="#1f2328" font-size="27" font-family="-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Noto Sans&#x27;, Helvetica, Arial, sans-serif" font-weight="600">Every tensor gets an id</text>

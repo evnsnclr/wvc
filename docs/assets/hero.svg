@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500" role="img" aria-labelledby="title desc">
 <title id="title">wvc: version control for open model weights</title>
-<desc id="desc">An animation of experiment E008: two Qwen3.5-9B checkpoints on the Hugging Face Hub, 4 shards each. 3 shards have the same SHA-256 on both sides and are skipped; the one that differs is fetched; of its 53 tensors one, model.language_model.layers.17.mlp.down_proj.weight, changed, with rank 1.</desc>
+<desc id="desc">An animation of a real diff: two Qwen3.5-9B checkpoints on the Hugging Face Hub, 4 shards each. 3 shards have the same SHA-256 on both sides and are skipped; the one that differs is fetched; of its 53 tensors one, model.language_model.layers.17.mlp.down_proj.weight, changed, with rank 1.</desc>
 <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#151b23"/></pattern><linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#58a6ff" stop-opacity="0"/><stop offset="0.7" stop-color="#58a6ff" stop-opacity="0.55"/><stop offset="1" stop-color="#cae8ff" stop-opacity="0.9"/></linearGradient><filter id="blur" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="6"/></filter></defs>
 <style>
 @keyframes mark0 { 0.00% { opacity: 0 } 9.13% { opacity: 0 } 11.63% { opacity: 1 } 92.00% { opacity: 1 } 97.00% { opacity: 0 } }

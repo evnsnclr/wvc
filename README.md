@@ -126,10 +126,14 @@ manifest root 226839773eb209266cbb929481b4e106d483eec17361879692c0bd87789b15cc v
 
 ## Storage
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/storage-dark.svg">
-  <img src="docs/assets/storage-light.svg" width="100%" alt="Dot plot from the storage measurement, log scale: bytes to store a revision given its parent, as a share of its raw tensor bytes. Sparse rank-1 edit: zstd 78.2%, best-case chunk dedup 0.66%, wvc delta 0.030%. Synthetic rank-8 merge: 77.8%, 3.51%, 1.67%. Consecutive pretraining checkpoints: 58.0%, 58.0%, 33.6%. Dense fine-tune: 77.9%, 77.9%, 56.3%.">
-</picture>
+Bytes needed to store a revision given its parent, as a share of its raw tensor bytes (smaller is better), on four public pairs:
+
+| Revision pair | Compress each tensor (zstd) | Byte-chunk dedup, best case | wvc delta |
+|---|---|---|---|
+| Qwen3.5-0.8B → weight-space edit (sparse rank-1 edit, 1.75 GB) | 78.2% | 0.66% | 0.030% |
+| Qwen2.5-0.5B + rank-8 merge (synthetic adapter merge, 988 MB) | 77.8% | 3.51% | 1.67% |
+| pythia-160m, step 142k → 143k (consecutive pretraining checkpoints, 649 MB) | 58.0% | 58.0% | 33.6% |
+| Qwen2.5-0.5B → Instruct (dense post-training fine-tune, 988 MB) | 77.9% | 77.9% | 56.3% |
 
 Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-tensor identity on any of four public revision pairs: a fine-tune rewrites bytes in place, and a 64 KiB chunk can't see one changed element. Numeric deltas can. On the sparse edit a delta needs 22× fewer bytes than tensor dedup alone (0.53 MB against 11.5 MB), on the synthetic rank-8 merge 2.1× fewer, and on dense updates it saves a modest 21% to 27% beyond byte-grouped compression. In a wvc repository the LLM-written edit costs 513 KB on top of a 1.245 GB base, and both revisions check out hash-identical to the Hub's files.
 

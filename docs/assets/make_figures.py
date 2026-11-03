@@ -3,7 +3,7 @@
     uv run python docs/assets/make_figures.py
 
 Writes hero.svg and demo.svg (E008), how-{dark,light}.svg (E001, E003), and
-storage-{dark,light}.svg (E002) next to this file. Every number drawn is read from a file under
+next to this file. Every number drawn is read from a file under
 experiments/; nothing here touches weights (make_deltas.py does, for the delta figure).
 
 GitHub serves README images without scripts or external fonts, so the SVGs use system fonts and
@@ -217,7 +217,7 @@ def hero() -> str:
     parts += hero_text(c, diff) + strips + hero_zoom(c, tl, picked, names, changed)
     parts.append(text(X0, 478, tail, 19, c["faint"], MONO, class_=tl.show("tail", 5.2, HOLD)))
     desc = (
-        f"An animation of experiment E008: two Qwen3.5-9B checkpoints on the Hugging Face Hub, "
+        f"An animation of a real diff: two Qwen3.5-9B checkpoints on the Hugging Face Hub, "
         f"{len(shards)} shards each. {skipped} shards have the same SHA-256 on both sides and are "
         f"skipped; the one that differs is fetched; of its {len(names)} tensors one, "
         f"{changed['name']}, changed, with rank {changed['rank']}."
@@ -443,7 +443,7 @@ def how(theme: str) -> str:
         out.append(text(540 * i + 32, 90, title, 27, c["text"], font_weight=600))
     out += how_hash(c, base, names) + how_diff(c, base, edit, names, t15) + how_store(c, base, e3)
     desc = (
-        "How wvc works, with values from experiments E001 and E003. wvc hash: each tensor's bytes "
+        "How wvc works, with values from the receipts. wvc hash: each tensor's bytes "
         "get a SHA-256, and the sorted lines get a root. wvc diff: equal ids are skipped; of four "
         f"layer-15 tensors only mlp.down_proj differs, {t15['changed']:,} weights in "
         f"{t15['cols_touched']} columns, rank {t15['rank']}. wvc commit and checkout: the edited "
@@ -456,7 +456,7 @@ def how(theme: str) -> str:
 # Storage: E002's four revision pairs -------------------------------------------------------
 
 PAIRS = [
-    ("P3", "Qwen3.5-0.8B → weight-space edit", "sparse rank-1 edit (the E001 pair)"),
+    ("P3", "Qwen3.5-0.8B → weight-space edit", "sparse rank-1 edit (the LLM-written edit)"),
     ("P4", "Qwen2.5-0.5B + rank-8 merge", "synthetic adapter merge"),
     ("P1", "pythia-160m, step 142k → 143k", "consecutive pretraining checkpoints"),
     ("P2", "Qwen2.5-0.5B → Instruct", "dense post-training fine-tune"),
@@ -484,92 +484,10 @@ def xpos(r: float) -> float:
     return 600 + 860 * (math.log10(r) + 4) / 4
 
 
-def storage_row(c: dict, y: float, pair: str, name: str, kind: str) -> tuple[list, list]:
-    s = receipt(f"E002/results/{pair}.json")["strategies"]
-    raw = s["S0"]["bytes"]
-    z, chunk = s["S1"]["bytes"] / raw, s["S4uz"]["bytes"] / raw
-    delta = min(s["S5"]["bytes"], s["S6"]["bytes"]) / raw
-    size = f"{raw / 1e9:.2f} GB" if raw >= 1e9 else f"{raw / 1e6:.0f} MB"
-    span = f"M{xpos(delta):.1f} {y}H{xpos(z):.1f}"
-    marks = [tag("path", d=span, stroke=c["line"], stroke_width=3)]
-    marks += [dot(k, xpos(v), y, c) for k, v in (("ring", z), ("blue", chunk), ("amber", delta))]
-    bold = {"text_anchor": "end", "font_weight": 600}
-    rows = [
-        (40, y - 4, name, 20, "text"),
-        (40, y + 22, f"{kind} · {size}", 16.5, "muted"),
-        (xpos(z) + 20, y + 6, percent(z), 17, "muted", MONO),
-        (xpos(delta) - 20, y + 6, percent(delta), 17, "accent", MONO, bold),
-    ]
-    if chunk < 0.9 * z:
-        rows.append(
-            (xpos(chunk), y - 18, percent(chunk), 16, "blue", MONO, {"text_anchor": "middle"})
-        )
-    return marks, rows
-
-
-def storage(theme: str) -> str:
-    c = THEMES[theme]
-    out = [tag("rect", x=1, y=1, width=1598, height=618, rx=16, fill=c["panel"], stroke=c["line"])]
-    note = "E002: four public pairs. Where the blue dot sits on the ring, byte-chunk dedup found "
-    rows = [
-        (
-            40,
-            62,
-            "Bytes to store a revision, given its parent",
-            30,
-            "text",
-            SANS,
-            {"font_weight": 600},
-        ),
-        (
-            40,
-            98,
-            "Share of the revision's raw tensor bytes, log scale. Smaller is better.",
-            20,
-            "muted",
-        ),
-        (40, 600, note + "nothing beyond compression.", 16.5, "faint"),
-    ]
-    lx = 40
-    for kind, label in LEGEND:
-        out.append(dot(kind, lx + 10, 136, c))
-        rows.append((lx + 28, 142, label, 18, "body"))
-        lx += 9.6 * len(label) + 70
-    for k in range(-4, 1):
-        out.append(
-            tag("path", d=f"M{xpos(10.0**k):.1f} 172V536", stroke=c["grid"], stroke_width=1.5)
-        )
-        rows.append(
-            (
-                xpos(10.0**k),
-                566,
-                f"{100 * 10.0**k:g}%",
-                17,
-                "faint",
-                MONO,
-                {"text_anchor": "middle"},
-            )
-        )
-    for i, (pair, name, kind) in enumerate(PAIRS):
-        marks, labels = storage_row(c, 214 + 92 * i, pair, name, kind)
-        out += marks
-        rows += labels
-    desc = (
-        "Dot plot from experiment E002: for four revision pairs, the bytes needed to store the "
-        "revision given its parent, as a share of its raw tensor bytes, for zstd per tensor, "
-        "best-case byte-chunk dedup, and the wvc delta. Sparse rank-1 edit: 78.2%, 0.66%, 0.030%. "
-        "Synthetic rank-8 merge: 77.8%, 3.51%, 1.67%. Consecutive pretraining checkpoints: 58.0%, "
-        "58.0%, 33.6%. Dense fine-tune: 77.9%, 77.9%, 56.3%."
-    )
-    title = "Bytes to store a revision, given its parent"
-    return document((1600, 620), title, desc, out + texts(rows, c))
-
-
 def main() -> None:
     figures = {"hero.svg": hero(), "demo.svg": demo()}
     for theme in THEMES:
         figures[f"how-{theme}.svg"] = how(theme)
-        figures[f"storage-{theme}.svg"] = storage(theme)
     for name, svg in figures.items():
         (HERE / name).write_text(svg, encoding="utf-8", newline="\n")
         print(f"wrote docs/assets/{name} ({len(svg.encode()):,} bytes)")
