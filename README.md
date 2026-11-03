@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img alt="Release: none yet" src="https://img.shields.io/badge/release-none%20yet-8b949e">
+  <a href="https://pypi.org/project/wvc/"><img alt="PyPI" src="https://img.shields.io/pypi/v/wvc"></a>
   <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-3776ab">
   <a href="LICENSE"><img alt="Licence: Apache-2.0" src="https://img.shields.io/badge/licence-Apache--2.0-2ea44f"></a>
   <a href="https://github.com/evnsnclr/wvc/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/evnsnclr/wvc/actions/workflows/ci.yml/badge.svg"></a>
@@ -49,7 +49,14 @@ A diff shows where a model changed and how, not what the change does.
 
 ## Quick start
 
-wvc is not on PyPI yet. Install it from a clone with [uv](https://docs.astral.sh/uv/) (Python 3.11 or newer):
+Install wvc with [uv](https://docs.astral.sh/uv/) (Python 3.11 or newer):
+
+```bash
+uv tool install wvc          # local files
+uv tool install "wvc[hf]"    # also reads Hugging Face Hub repositories
+```
+
+To work on wvc, or to run the examples below on the files in `spec/vectors/v0/`, install it from a clone:
 
 ```bash
 git clone https://github.com/evnsnclr/wvc && cd wvc
@@ -157,7 +164,7 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 
 - **Run on real models:** `hash`, `diff`, and `verify`, on local files and on the Hub; `commit`, `checkout`, and `fsck`, with byte-identical files and a checkout that loads in transformers with identical logits; `bisect` on a real fine-tuning run, where the behaviour had no single onset and bisect said so. Each run has a [receipt](experiments/README.md).
 - **Unit-tested, not yet run on real models:** `merge-adapter`, remotes (directory and Hub), `card`.
-- **Not built:** reading GGUF (wvc only writes `gguf-hash` lines), signing and attestation, garbage collection, a release.
+- **Not built:** reading GGUF (wvc only writes `gguf-hash` lines), signing and attestation, garbage collection.
 - **Not planned:** hosting, a UI, git filters, lossy storage, PyTorch at runtime.
 
 CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. [SECURITY.md](SECURITY.md) describes how wvc handles untrusted input and lists its known limits.
