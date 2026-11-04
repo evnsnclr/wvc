@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/hero.svg" width="100%" alt="wvc: version control for open model weights. Animation of a real diff: two Qwen3.5-9B checkpoints on the Hugging Face Hub are compared shard by shard. Three of the four shards have the same SHA-256 on both sides and are skipped, the fourth is fetched, and one of its 53 tensors, layer 17's mlp.down_proj.weight, lights up as changed, with rank 1.">
+  <img src="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/hero.svg" width="100%" alt="wvc: version control for open model weights. Animation of a real diff: two Qwen3.5-9B checkpoints on the Hugging Face Hub are compared shard by shard. Three of the four shards have the same SHA-256 on both sides and are skipped, the fourth is fetched, and one of its 53 tensors, layer 17's mlp.down_proj.weight, lights up as changed, with rank 1.">
 </p>
 
 <p align="center">
@@ -8,14 +8,14 @@
   <a href="#how-it-works">How it works</a> ·
   <a href="#commands">Commands</a> ·
   <a href="#status">Status</a> ·
-  <a href="docs/spec-v0.md">Spec</a> ·
-  <a href="experiments/">Receipts</a>
+  <a href="https://github.com/evnsnclr/wvc/blob/main/docs/spec-v0.md">Spec</a> ·
+  <a href="https://github.com/evnsnclr/wvc/tree/main/experiments/">Receipts</a>
 </p>
 
 <p align="center">
   <a href="https://pypi.org/project/wvc/"><img alt="PyPI" src="https://img.shields.io/pypi/v/wvc"></a>
   <img alt="Python 3.11+" src="https://img.shields.io/badge/python-3.11%2B-3776ab">
-  <a href="LICENSE"><img alt="Licence: Apache-2.0" src="https://img.shields.io/badge/licence-Apache--2.0-2ea44f"></a>
+  <a href="https://github.com/evnsnclr/wvc/blob/main/LICENSE"><img alt="Licence: Apache-2.0" src="https://img.shields.io/badge/licence-Apache--2.0-2ea44f"></a>
   <a href="https://github.com/evnsnclr/wvc/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/evnsnclr/wvc/actions/workflows/ci.yml/badge.svg"></a>
 </p>
 
@@ -24,17 +24,17 @@
 Open-weight models change through fine-tunes, merges, adapters, abliteration, and, [since November 2026](https://rikiyat.github.io/blog/weight-space-programming/), direct edits written by LLM agents. The Hub records each change as new files and a model card that names a parent with [one of four words](https://huggingface.co/docs/hub/model-cards). A card that says `finetune` doesn't say which weights moved, and safety, interpretability, and supply-chain work all need to know.
 
 <p align="center">
-  <img src="docs/assets/demo.svg" width="100%" alt="A terminal runs wvc diff --rank hf:Qwen/Qwen3.5-9B hf:bowmanslayer/Qwen3.5-9B-Evil-BF16. Output: 4 shards per side, 3 byte-identical on the Hub and skipped, 1 fetched from each side; 775 tensors, 1 changed; 46,281,237 of 9,653,104,368 elements changed (0.4794%); the changed tensor is model.language_model.layers.17.mlp.down_proj.weight, BF16 [4096,12288], every row and column touched, rank 1, top-1 energy 0.9997.">
+  <img src="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/demo.svg" width="100%" alt="A terminal runs wvc diff --rank hf:Qwen/Qwen3.5-9B hf:bowmanslayer/Qwen3.5-9B-Evil-BF16. Output: 4 shards per side, 3 byte-identical on the Hub and skipped, 1 fetched from each side; 775 tensors, 1 changed; 46,281,237 of 9,653,104,368 elements changed (0.4794%); the changed tensor is model.language_model.layers.17.mlp.down_proj.weight, BF16 [4096,12288], every row and column touched, rank 1, top-1 energy 0.9997.">
 </p>
-<p align="center"><sub>The command and output of a real run, repeated on 2026-11-03 with output byte-identical to its <a href="experiments/README.md">receipt</a>. The animation compresses time: from the Hugging Face cache the run takes 15 to 40 s on an M4 Max; the first run also downloads the two shards that differ (10.67 GB).</sub></p>
+<p align="center"><sub>The command and output of a real run, repeated on 2026-11-03 with output byte-identical to its <a href="https://github.com/evnsnclr/wvc/blob/main/experiments/README.md">receipt</a>. The animation compresses time: from the Hugging Face cache the run takes 15 to 40 s on an M4 Max; the first run also downloads the two shards that differ (10.67 GB).</sub></p>
 
 ## What it found
 
-Two public weight changes and what `wvc diff` reports for them. The figure is drawn from the bytes of both checkpoints by [`make_deltas.py`](docs/assets/make_deltas.py), which first checks every count against the receipts.
+Two public weight changes and what `wvc diff` reports for them. The figure is drawn from the bytes of both checkpoints by [`make_deltas.py`](https://github.com/evnsnclr/wvc/blob/main/docs/assets/make_deltas.py), which first checks every count against the receipts.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/deltas-dark.png">
-  <img src="docs/assets/deltas-light.png" width="100%" alt="Heat maps of |edited − base| for every changed tensor. Left: two 1024 × 3584 down-projection matrices of Qwen3.5-0.8B, in which only 64 thin columns changed. Right: one 4096 × 12288 down-projection matrix of Qwen3.5-9B, changed almost everywhere in a striped, rank-1 pattern.">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/deltas-dark.png">
+  <img src="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/deltas-light.png" width="100%" alt="Heat maps of |edited − base| for every changed tensor. Left: two 1024 × 3584 down-projection matrices of Qwen3.5-0.8B, in which only 64 thin columns changed. Right: one 4096 × 12288 down-projection matrix of Qwen3.5-9B, changed almost everywhere in a striped, rank-1 pattern.">
 </picture>
 
 | | An edit written by an LLM agent | An upload that names no tensor |
@@ -45,15 +45,15 @@ Two public weight changes and what `wvc diff` reports for them. The figure is dr
 | **Check** | changed counts and hashes equal the authors' own manifest | none beyond the bytes: no method was published |
 | **Read** | one 1.7 GB file per side; the diff took 9.8 s on an M4 Max | 1 of 4 shards per side: 10.67 of the pair's 38.61 GB |
 
-Then the Hub at large: 93 of the most-downloaded derivatives of eleven popular bases (Qwen2.5, Qwen3, Qwen3.5, Llama 3.1 and 3.2, Gemma 2 and 3; up to ten per base), each diffed against the base it declares ([a census of Hub uploads](experiments/E009-hub-census.md), [summary](experiments/E009/summary.md)). None was refused and none crashed wvc. Nine uploads tagged `finetune` are byte-for-byte copies of their base, all of them `unsloth` mirrors; 46 are tagged `quantized`; 13 are dense fine-tunes with full-rank changes; five are LoRA merges with the same low rank on every projection; two named as abliterations change only `o_proj` and `down_proj` matrices, at rank 1 to 16, and one of them is tagged `quantized` with nothing in it quantized. On twelve uploads the bytes contradict the Hub's tag. The figure is drawn from the receipts by [`make_census.py`](docs/assets/make_census.py), which checks its counts against the committed summary.
+Then the Hub at large: 93 of the most-downloaded derivatives of eleven popular bases (Qwen2.5, Qwen3, Qwen3.5, Llama 3.1 and 3.2, Gemma 2 and 3; up to ten per base), each diffed against the base it declares ([a census of Hub uploads](https://github.com/evnsnclr/wvc/blob/main/experiments/E009-hub-census.md), [summary](https://github.com/evnsnclr/wvc/blob/main/experiments/E009/summary.md)). None was refused and none crashed wvc. Nine uploads tagged `finetune` are byte-for-byte copies of their base, all of them `unsloth` mirrors; 46 are tagged `quantized`; 13 are dense fine-tunes with full-rank changes; five are LoRA merges with the same low rank on every projection; two named as abliterations change only `o_proj` and `down_proj` matrices, at rank 1 to 16, and one of them is tagged `quantized` with nothing in it quantized. On twelve uploads the bytes contradict the Hub's tag. The figure is drawn from the receipts by [`make_census.py`](https://github.com/evnsnclr/wvc/blob/main/docs/assets/make_census.py), which checks its counts against the committed summary.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/census-dark.png">
-  <img src="docs/assets/census-light.png" width="100%" alt="93 Hub uploads, one square each, coloured by the Hub's relation tag (finetune 43, quantized 46, merge 4) and grouped by what the diff shows: byte-identical to the base 9, all unsloth mirrors tagged finetune; a few projections at low rank 2; renamed with values kept 5; renamed with values changed 6; saved in another dtype 8, four of them LoRA merges saved in F32; some tensors changed 23, thirteen of them dense fine-tunes at full rank and five FP8 casts; renamed and still unpaired 40, 35 of them tagged quantized. Twelve squares are ringed where the bytes contradict the Hub's tag.">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/census-dark.png">
+  <img src="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/census-light.png" width="100%" alt="93 Hub uploads, one square each, coloured by the Hub's relation tag (finetune 43, quantized 46, merge 4) and grouped by what the diff shows: byte-identical to the base 9, all unsloth mirrors tagged finetune; a few projections at low rank 2; renamed with values kept 5; renamed with values changed 6; saved in another dtype 8, four of them LoRA merges saved in F32; some tensors changed 23, thirteen of them dense fine-tunes at full rank and five FP8 casts; renamed and still unpaired 40, 35 of them tagged quantized. Twelve squares are ringed where the bytes contradict the Hub's tag.">
 </picture>
 
-- **Naming the change.** `wvc classify` names the kind of change from a diff. On 46 uploads whose cards state the method, rules frozen before the run agreed on 28 with its second pass and 33 from the diff record alone; rules revised on the same 46 agree on 37 and 39, a training-set number. The bytes contradict seven of the 46 stated methods ([change classification](experiments/E010-change-classification.md), [rules](docs/classification.md)).
-- **GGUF.** wvc's GGUF reader, gguf-hash lines, and dequantisation agree with llama.cpp's exactly, bit for bit; Qwen's official Q4_K_M of Qwen2.5-0.5B-Instruct changes all 48 layer norms and moves a per-channel scale into the projections, while three other GGUF uploads, read from the Hub, leave every norm unchanged ([GGUF reading](experiments/E011-gguf-reading.md), [GGUF uploads on the Hub](experiments/E012-gguf-uploads.md)).
+- **Naming the change.** `wvc classify` names the kind of change from a diff. On 46 uploads whose cards state the method, rules frozen before the run agreed on 28 with its second pass and 33 from the diff record alone; rules revised on the same 46 agree on 37 and 39, a training-set number. The bytes contradict seven of the 46 stated methods ([change classification](https://github.com/evnsnclr/wvc/blob/main/experiments/E010-change-classification.md), [rules](https://github.com/evnsnclr/wvc/blob/main/docs/classification.md)).
+- **GGUF.** wvc's GGUF reader, gguf-hash lines, and dequantisation agree with llama.cpp's exactly, bit for bit; Qwen's official Q4_K_M of Qwen2.5-0.5B-Instruct changes all 48 layer norms and moves a per-channel scale into the projections, while three other GGUF uploads, read from the Hub, leave every norm unchanged ([GGUF reading](https://github.com/evnsnclr/wvc/blob/main/experiments/E011-gguf-reading.md), [GGUF uploads on the Hub](https://github.com/evnsnclr/wvc/blob/main/experiments/E012-gguf-uploads.md)).
 
 A diff shows where a model changed and how, not what the change does.
 
@@ -73,7 +73,7 @@ git clone https://github.com/evnsnclr/wvc && cd wvc
 uv sync --extra hf   # the hf extra reads Hub repositories; plain `uv sync` is enough for local files
 ```
 
-Diff the two sub-kilobyte checkpoints that ship with the [spec's conformance vectors](spec/vectors/v0/README.md); nothing is downloaded:
+Diff the two sub-kilobyte checkpoints that ship with the [spec's conformance vectors](https://github.com/evnsnclr/wvc/blob/main/spec/vectors/v0/README.md); nothing is downloaded:
 
 ```bash
 uv run wvc diff --rank spec/vectors/v0/a.safetensors spec/vectors/v0/b.safetensors
@@ -133,13 +133,13 @@ manifest root 226839773eb209266cbb929481b4e106d483eec17361879692c0bd87789b15cc v
 ## How it works
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/how-dark.svg">
-  <img src="docs/assets/how-light.svg" width="100%" alt="Three panels with real values from the receipts. wvc hash: each tensor's bytes get a SHA-256, and the sorted manifest lines get a root. wvc diff: of four layer-15 tensors only mlp.down_proj has a different id, so only it is decoded: 65,260 weights in 64 of 3,584 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout writes a file whose SHA-256 equals the Hub's.">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/how-dark.svg">
+  <img src="https://raw.githubusercontent.com/evnsnclr/wvc/main/docs/assets/how-light.svg" width="100%" alt="Three panels with real values from the receipts. wvc hash: each tensor's bytes get a SHA-256, and the sorted manifest lines get a root. wvc diff: of four layer-15 tensors only mlp.down_proj has a different id, so only it is decoded: 65,260 weights in 64 of 3,584 columns, rank 1. wvc commit and checkout: the edited revision reuses 486 tensors by id and stores 2 deltas of 513 KB; checkout writes a file whose SHA-256 equals the Hub's.">
 </picture>
 
-1. **Identity.** A tensor's id is the SHA-256 of its stored bytes; a manifest lists every tensor's name, dtype, shape, and id, and its root is a SHA-256 over those lines. Sharding, header order, and file names don't change the root ([spec §1](docs/spec-v0.md#1-tensor-identity-and-manifests-implemented)).
-2. **Diff.** Tensors with equal ids are never decoded. The rest are decoded exactly (BF16, FP16, FP8, and the rest; a dtype that can't be decoded gets a byte-level count) and compared element by element: changed count, rows and columns touched, largest change, relative norm, and an SVD rank estimate. Across two Hub repositories, a shard whose name, size, and SHA-256 agree is skipped; its tensors are reported from its header, read by range request ([spec §5.5](docs/spec-v0.md#55-hub-checkpoints-implemented-2026-11-03)).
-3. **Store.** `commit` keeps each tensor once by id and stores a changed tensor as an XOR-plane or sparse delta against its parent when that is smaller. It also records every file's header bytes and the non-tensor files a loader needs (config, tokenizer, chat template), so `checkout` rebuilds the original files and checks each one's SHA-256 before it appears ([spec §3](docs/spec-v0.md#3-repository-objects-and-deltas-implemented-2026-11-02)).
+1. **Identity.** A tensor's id is the SHA-256 of its stored bytes; a manifest lists every tensor's name, dtype, shape, and id, and its root is a SHA-256 over those lines. Sharding, header order, and file names don't change the root ([spec §1](https://github.com/evnsnclr/wvc/blob/main/docs/spec-v0.md#1-tensor-identity-and-manifests-implemented)).
+2. **Diff.** Tensors with equal ids are never decoded. The rest are decoded exactly (BF16, FP16, FP8, and the rest; a dtype that can't be decoded gets a byte-level count) and compared element by element: changed count, rows and columns touched, largest change, relative norm, and an SVD rank estimate. Across two Hub repositories, a shard whose name, size, and SHA-256 agree is skipped; its tensors are reported from its header, read by range request ([spec §5.5](https://github.com/evnsnclr/wvc/blob/main/docs/spec-v0.md#55-hub-checkpoints-implemented-2026-11-03)).
+3. **Store.** `commit` keeps each tensor once by id and stores a changed tensor as an XOR-plane or sparse delta against its parent when that is smaller. It also records every file's header bytes and the non-tensor files a loader needs (config, tokenizer, chat template), so `checkout` rebuilds the original files and checks each one's SHA-256 before it appears ([spec §3](https://github.com/evnsnclr/wvc/blob/main/docs/spec-v0.md#3-repository-objects-and-deltas-implemented-2026-11-02)).
 
 ## Storage
 
@@ -159,7 +159,7 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 | Command | What it does |
 |---|---|
 | `wvc hash CKPT` | Print a manifest: every tensor's SHA-256 and a root. `--format gguf-hash` prints llama.cpp's `gguf-hash` lines instead. |
-| `wvc diff A B` | Compare two checkpoints tensor by tensor. `--rank` estimates the rank of each change, `--all` lists unchanged tensors too, `--json` prints the record, and `--format agent` a compact report for LLM agents ([how to read it](docs/agents-reading-diffs.md)). |
+| `wvc diff A B` | Compare two checkpoints tensor by tensor. `--rank` estimates the rank of each change, `--all` lists unchanged tensors too, `--json` prints the record, and `--format agent` a compact report for LLM agents ([how to read it](https://github.com/evnsnclr/wvc/blob/main/docs/agents-reading-diffs.md)). |
 | `wvc verify CKPT MANIFEST` | Check a checkpoint against a manifest saved from `wvc hash`. |
 | `wvc init`, `commit`, `log`, `show`, `checkout` | A local repository: tensors stored once by id, changes as deltas, files rebuilt byte for byte. |
 | `wvc fsck` | Re-verify every payload, object, manifest, commit, and ref in a repository. |
@@ -168,30 +168,30 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 | `wvc remote`, `push`, `pull`, `clone` | Move commits between repositories: plain directories, or Hub repositories with the `hf` extra. |
 | `wvc card REF` | Print model-card metadata that carries the manifest root. |
 
-`CKPT` is a `.safetensors` file or a directory of shards; `hash`, `diff`, and `verify` also take a `.gguf` file, a Hub repository as `hf:OWNER/NAME[@REVISION]`, and one GGUF file in a Hub repository as `hf:OWNER/NAME[@REVISION]:FILE.gguf` (any part of a split file stands for all its parts). A diff of a GGUF file against its safetensors base maps llama.cpp's tensor names back, undoes the conversion's permutations, and compares dequantised values ([spec 2.1](docs/spec-v0.md)). Without `--repo`, repository commands use the nearest `.wvc/` above the current directory.
+`CKPT` is a `.safetensors` file or a directory of shards; `hash`, `diff`, and `verify` also take a `.gguf` file, a Hub repository as `hf:OWNER/NAME[@REVISION]`, and one GGUF file in a Hub repository as `hf:OWNER/NAME[@REVISION]:FILE.gguf` (any part of a split file stands for all its parts). A diff of a GGUF file against its safetensors base maps llama.cpp's tensor names back, undoes the conversion's permutations, and compares dequantised values ([spec 2.1](https://github.com/evnsnclr/wvc/blob/main/docs/spec-v0.md)). Without `--repo`, repository commands use the nearest `.wvc/` above the current directory.
 
 ## Status
 
-- **Run on real models:** `hash`, `diff`, and `verify`, on local files and on the Hub, and on GGUF files against their safetensors bases; `commit`, `checkout`, and `fsck`, with byte-identical files and a checkout that loads in transformers with identical logits; `bisect` on a real fine-tuning run, where the behaviour had no single onset and bisect said so. Each run has a [receipt](experiments/README.md).
+- **Run on real models:** `hash`, `diff`, and `verify`, on local files and on the Hub, and on GGUF files against their safetensors bases; `commit`, `checkout`, and `fsck`, with byte-identical files and a checkout that loads in transformers with identical logits; `bisect` on a real fine-tuning run, where the behaviour had no single onset and bisect said so. Each run has a [receipt](https://github.com/evnsnclr/wvc/blob/main/experiments/README.md).
 - **Unit-tested, not yet run on real models:** `merge-adapter`, remotes (directory and Hub), `card`.
 - **Not built:** dequantising GGUF types beyond F32, F16, BF16, Q4_0, Q4_1, Q5_0, Q5_1, Q8_0, Q4_K, Q5_K, Q6_K, and Q8_K (the others are refused by name); signing and attestation, garbage collection.
 - **Not planned:** hosting, a UI, git filters, lossy storage, PyTorch at runtime.
 
-CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. [SECURITY.md](SECURITY.md) describes how wvc handles untrusted input and lists its known limits.
+CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. [SECURITY.md](https://github.com/evnsnclr/wvc/blob/main/SECURITY.md) describes how wvc handles untrusted input and lists its known limits.
 
 ## Receipts
 
-Each experiment has a record under [experiments/](experiments/README.md): the question, predictions written before the run, exact commands, input revisions and hashes, tool versions, raw outputs, and which predictions failed. Every number in this README comes from one of them; the index lists each run, including the negative result.
+Each experiment has a record under [experiments/](https://github.com/evnsnclr/wvc/blob/main/experiments/README.md): the question, predictions written before the run, exact commands, input revisions and hashes, tool versions, raw outputs, and which predictions failed. Every number in this README comes from one of them; the index lists each run, including the negative result.
 
 ## Contributing
 
-wvc has one maintainer, and the most useful contributions right now are real checkpoint pairs that break it, use cases, and reviews. Read [CONTRIBUTING.md](CONTRIBUTING.md) first. Security reports go through GitHub's private vulnerability reporting; see [SECURITY.md](SECURITY.md).
+wvc has one maintainer, and the most useful contributions right now are real checkpoint pairs that break it, use cases, and reviews. Read [CONTRIBUTING.md](https://github.com/evnsnclr/wvc/blob/main/CONTRIBUTING.md) first. Security reports go through GitHub's private vulnerability reporting; see [SECURITY.md](https://github.com/evnsnclr/wvc/blob/main/SECURITY.md).
 
-The figures here are drawn from the receipts by [`docs/assets/make_figures.py`](docs/assets/make_figures.py) and, from the weights themselves, by [`docs/assets/make_deltas.py`](docs/assets/make_deltas.py).
+The figures here are drawn from the receipts by [`docs/assets/make_figures.py`](https://github.com/evnsnclr/wvc/blob/main/docs/assets/make_figures.py) and, from the weights themselves, by [`docs/assets/make_deltas.py`](https://github.com/evnsnclr/wvc/blob/main/docs/assets/make_deltas.py).
 
 ## Citing
 
-If wvc is useful in your work, please cite the repository; GitHub's "Cite this repository" button reads [CITATION.cff](CITATION.cff).
+If wvc is useful in your work, please cite the repository; GitHub's "Cite this repository" button reads [CITATION.cff](https://github.com/evnsnclr/wvc/blob/main/CITATION.cff).
 
 ```bibtex
 @software{smith2026wvc,
@@ -205,4 +205,4 @@ If wvc is useful in your work, please cite the repository; GitHub's "Cite this r
 
 ## Licence
 
-Apache-2.0; see [LICENSE](LICENSE). The models named here belong to their publishers; this repository includes none of their files.
+Apache-2.0; see [LICENSE](https://github.com/evnsnclr/wvc/blob/main/LICENSE). The models named here belong to their publishers; this repository includes none of their files.
