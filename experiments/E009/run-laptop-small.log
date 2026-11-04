@@ -1,0 +1,69 @@
+start 2026-11-04T03:31:40Z free 212 GB commit 29c7dd6
+Qwen/Qwen3.5-0.8B: 10 eligible of 23 walked
+diffed Zerul/Qwen3.5-0.8B-W4A16-AutoRound-AWQ: 97 s, +2.72 GB (run total 2.72 GB), freed 0.97 GB
+diffed unsloth/Qwen3.5-0.8B: 1 s, +0.00 GB (run total 2.72 GB), freed 0.00 GB
+diffed ATH-MaaS/OvisOCR2: 74 s, +1.71 GB (run total 4.42 GB), freed 1.71 GB
+diffed Hcompany/Holo-3.1-0.8B: 95 s, +2.21 GB (run total 6.64 GB), freed 2.21 GB
+diffed vllm-sr/d3-lite: 29 s, +1.71 GB (run total 8.35 GB), freed 1.71 GB
+diffed vllm-sr/d3-edge: 81 s, +1.19 GB (run total 9.54 GB), freed 1.19 GB
+diffed ATH-MaaS/OvisOCR3: 171 s, +1.71 GB (run total 11.24 GB), freed 1.71 GB
+diffed vultr/VultronRetrieverFlash-Qwen3.5-0.8B: 141 s, +1.71 GB (run total 12.95 GB), freed 1.71 GB
+diffed mlx-community/Qwen3.5-0.8B-MLX-4bit: 101 s, +0.63 GB (run total 13.57 GB), freed 0.63 GB
+diffed andito/Qwen3.5-0.8B-ConvFill: 147 s, +1.50 GB (run total 15.08 GB), freed 1.50 GB
+Qwen/Qwen3-0.6B: 10 eligible of 16 walked
+diffed k2-fsa/OmniVoice: 117 s, +3.95 GB (run total 19.03 GB), freed 2.45 GB
+diffed jinaai/jina-reranker-v3: 128 s, +1.19 GB (run total 20.23 GB), freed 1.19 GB
+diffed unsloth/Qwen3-0.6B: 32 s, +1.19 GB (run total 21.42 GB), freed 1.19 GB
+diffed Qwen/Qwen3Guard-Gen-0.6B: 127 s, +1.50 GB (run total 22.92 GB), freed 1.50 GB
+diffed jinaai/jina-reranker-v3.5: 99 s, +1.19 GB (run total 24.12 GB), freed 1.19 GB
+diffed Qwen/Qwen3-0.6B-FP8: 62 s, +1.06 GB (run total 25.18 GB), freed 1.06 GB
+diffed unsloth/Qwen3-0.6B-unsloth-bnb-4bit: 73 s, +0.58 GB (run total 25.76 GB), freed 0.58 GB
+diffed mlx-community/Qwen3-0.6B-8bit: 82 s, +0.63 GB (run total 26.39 GB), freed 0.63 GB
+diffed mlx-community/Qwen3-0.6B-4bit: 14 s, +0.34 GB (run total 26.72 GB), freed 0.34 GB
+diffed Skywork/Skywork-Reward-V2-Qwen3-0.6B: 81 s, +1.19 GB (run total 27.92 GB), freed 1.19 GB
+Qwen/Qwen2.5-0.5B-Instruct: 10 eligible of 18 walked
+diffed livekit/turn-detector: 30 s, +1.53 GB (run total 29.44 GB), freed 0.54 GB
+diffed unsloth/Qwen2.5-0.5B-Instruct-unsloth-bnb-4bit: 50 s, +0.54 GB (run total 29.98 GB), freed 0.54 GB
+diffed mobilint/Qwen2.5-0.5B-Instruct: 16 s, +0.54 GB (run total 30.53 GB), freed 0.54 GB
+diffed unsloth/Qwen2.5-0.5B-Instruct: 1 s, +0.00 GB (run total 30.53 GB), freed 0.00 GB
+diffed unsloth/Qwen2.5-0.5B-Instruct-bnb-4bit: 34 s, +0.46 GB (run total 30.98 GB), freed 0.46 GB
+diffed OpenGVLab/InternVL2_5-1B: 34 s, +1.88 GB (run total 32.86 GB), freed 1.88 GB
+diffed manycore-research/SpatialLM-Qwen-0.5B: 108 s, +2.02 GB (run total 34.88 GB), freed 2.02 GB
+diffed lmstudio-community/Qwen2.5-0.5B-Instruct-MLX-4bit: 9 s, +0.28 GB (run total 35.16 GB), freed 0.28 GB
+diffed saidutta69/Qwen2.5-0.5B-Instruct-heretic: 36 s, +0.99 GB (run total 36.15 GB), freed 0.99 GB
+diffed manycore-research/SpatialLM1.1-Qwen-0.5B: 82 s, +2.41 GB (run total 38.56 GB), freed 2.41 GB
+Qwen/Qwen2.5-1.5B-Instruct: 10 eligible of 15 walked
+diffed JackKozmo29/depguard-jev-style-1.5b: 284 s, +9.26 GB (run total 47.82 GB), freed 6.17 GB
+diffed JackKozmo29/mailguard-jev-style-1.5b: 265 s, +6.18 GB (run total 54.00 GB), freed 6.17 GB
+diffed JackKozmo29/sevclassifier-jev-style-1.5b: 359 s, +6.18 GB (run total 60.18 GB), freed 6.17 GB
+diffed JackKozmo29/codeguard-jev-style-1.5b: 344 s, +6.18 GB (run total 66.35 GB), freed 6.17 GB
+diffed unsloth/Qwen2.5-1.5B-Instruct-unsloth-bnb-4bit: 105 s, +1.53 GB (run total 67.88 GB), freed 1.53 GB
+diffed unsloth/Qwen2.5-1.5B-Instruct: 1 s, +0.00 GB (run total 67.88 GB), freed 0.00 GB
+diffed mobilint/Qwen2.5-1.5B-Instruct: 151 s, +0.93 GB (run total 68.82 GB), freed 0.93 GB
+diffed unsloth/Qwen2.5-1.5B-Instruct-bnb-4bit: 131 s, +1.14 GB (run total 69.96 GB), freed 1.14 GB
+diffed Qwen/Qwen2.5-1.5B-Instruct-AWQ: 84 s, +1.61 GB (run total 71.57 GB), freed 1.61 GB
+diffed nvidia/Eagle2-2B: 139 s, +4.43 GB (run total 76.00 GB), freed 4.43 GB
+Qwen/Qwen3-1.7B: 10 eligible of 19 walked
+diffed unsloth/Qwen3-1.7B-unsloth-bnb-4bit: 132 s, +5.47 GB (run total 81.47 GB), freed 1.41 GB
+diffed unsloth/Qwen3-1.7B: 5 s, +0.00 GB (run total 81.47 GB), freed 0.00 GB
+diffed mobilint/Qwen3-1.7B: 64 s, +1.24 GB (run total 82.72 GB), freed 1.24 GB
+diffed nvidia/canary-qwen-2.5b: 113 s, +5.12 GB (run total 87.84 GB), freed 5.12 GB
+diffed lmstudio-community/Qwen3-1.7B-MLX-4bit: 30 s, +0.97 GB (run total 88.81 GB), freed 0.97 GB
+diffed lmstudio-community/Qwen3-1.7B-MLX-8bit: 71 s, +1.83 GB (run total 90.63 GB), freed 1.83 GB
+diffed lmstudio-community/Qwen3-1.7B-MLX-bf16: 92 s, +3.44 GB (run total 94.08 GB), freed 3.44 GB
+diffed mlx-community/Qwen3-1.7B-4bit: 26 s, +0.97 GB (run total 95.04 GB), freed 0.97 GB
+diffed Qwen/Qwen3-1.7B-FP8: 312 s, +2.65 GB (run total 97.70 GB), freed 2.65 GB
+diffed unsloth/Qwen3-1.7B-bnb-4bit: 38 s, +1.35 GB (run total 99.05 GB), freed 1.35 GB
+meta-llama/Llama-3.2-1B-Instruct: 10 eligible of 18 walked
+diffed unsloth/Llama-3.2-1B-Instruct: 3 s, +0.00 GB (run total 99.05 GB), freed 0.00 GB
+diffed mobilint/Llama-3.2-1B-Instruct: 110 s, +3.52 GB (run total 102.57 GB), freed 1.05 GB
+diffed unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit: 77 s, +1.10 GB (run total 103.67 GB), freed 1.10 GB
+diffed RedHatAI/Llama-3.2-1B-Instruct-FP8: 206 s, +2.02 GB (run total 105.70 GB), freed 2.02 GB
+diffed unsloth/Llama-3.2-1B-Instruct-bnb-4bit: 72 s, +1.03 GB (run total 106.73 GB), freed 1.03 GB
+diffed RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic: 238 s, +2.02 GB (run total 108.75 GB), freed 2.02 GB
+diffed inference-optimization/Llama-3.2-0.5B-Instruct: 58 s, +1.01 GB (run total 109.76 GB), freed 1.01 GB
+diffed manycore-research/SpatialLM1.1-Llama-1B: 370 s, +5.38 GB (run total 115.15 GB), freed 5.38 GB
+diffed manycore-research/SpatialLM-Llama-1B: 239 s, +2.52 GB (run total 117.66 GB), freed 2.52 GB
+stop: THGLab/Llama-3.2-1B-Instruct-LinkLlama-Cap50 needs ~2.47 GB with 99.88 GB free; floor 100.00 GB
+stopped on budget after 6279 s; 117.66 GB new
+exit 3 end 2026-11-04T05:16:19Z free 93 GB

@@ -1,0 +1,21 @@
+comparison: {'kind': 'quantization', 'gguf': ['b'], 'mapping': 'llama', 'values': 'float64', 'files': {'a': ['model.safetensors'], 'b': ['Llama-3.2-1B-Instruct-Q4_K_M.gguf']}, 'revisions': {'a': '9213176726f574b556790deb65791e0c5aa438b6', 'b': '199151125cf15a129ab3b548b26afeed976df066'}, 'quantizations': {'a': None, 'b': 'Q4_K_M'}}
+summary: {'tensors': 147, 'by_status': {'unchanged': 33, 'changed': 113, 'added': 1, 'removed': 0, 'reshaped': 0}, 'elements_compared': 1235814400, 'elements_changed': 1234252436, 'fraction_changed': 0.9987360852891826}
+F32: {'unchanged': 33, 'added': 1}
+Q4_K: {'changed': 96}; rel |d|/|a| 0.07172 to 0.07938; changed fraction 0.9999 to 0.9999; top-1 energy max 0.0239 over 96 with a rank
+Q6_K: {'changed': 17}; rel |d|/|a| 0.018 to 0.02081; changed fraction 0.9952 to 0.9967; top-1 energy max 0.0113 over 16 with a rank
+layer 0: q Q4_K 0.07442, k Q4_K 0.07558, v Q6_K 0.01883
+layer 1: q Q4_K 0.07264, k Q4_K 0.07259, v Q6_K 0.01849
+layer 2: q Q4_K 0.0737, k Q4_K 0.07397, v Q4_K 0.0731
+layer 3: q Q4_K 0.07216, k Q4_K 0.07211, v Q4_K 0.07397
+layer 4: q Q4_K 0.07281, k Q4_K 0.07325, v Q6_K 0.0185
+layer 5: q Q4_K 0.0734, k Q4_K 0.07353, v Q4_K 0.07338
+layer 6: q Q4_K 0.07256, k Q4_K 0.07274, v Q4_K 0.0741
+layer 7: q Q4_K 0.07227, k Q4_K 0.07225, v Q6_K 0.01844
+layer 8: q Q4_K 0.07407, k Q4_K 0.07445, v Q6_K 0.01844
+layer 9: q Q4_K 0.07227, k Q4_K 0.07255, v Q6_K 0.0187
+layer 10: q Q4_K 0.07238, k Q4_K 0.07268, v Q4_K 0.07712
+layer 11: q Q4_K 0.07225, k Q4_K 0.07301, v Q4_K 0.07492
+layer 12: q Q4_K 0.07291, k Q4_K 0.07388, v Q6_K 0.01888
+layer 13: q Q4_K 0.07299, k Q4_K 0.07388, v Q4_K 0.0755
+layer 14: q Q4_K 0.07407, k Q4_K 0.07736, v Q4_K 0.07938
+layer 15: q Q4_K 0.07433, k Q4_K 0.07867, v Q6_K 0.02081

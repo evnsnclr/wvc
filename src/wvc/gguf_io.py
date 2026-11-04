@@ -33,7 +33,7 @@ import mmap
 import os
 import struct
 from collections.abc import Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from wvc.errors import WvcError
@@ -51,6 +51,7 @@ MIN_KV_BYTES = 8 + 1 + 4 + 1  # a one-byte key, a type, and a one-byte value
 MIN_TENSOR_INFO_BYTES = 8 + 1 + 4 + 4 + 8  # a one-byte name, no dims, a type, an offset
 ARCHITECTURE_KEY = "general.architecture"
 ALIGNMENT_KEY = "general.alignment"
+FILE_TYPE_KEY = "general.file_type"
 
 # ggml type id -> (name, elements per block, bytes per block), from gguf-py's GGML_QUANT_SIZES.
 # Ids 4, 5, 31-33, and 36-38 were retired and are refused like unknown ids.
@@ -75,6 +76,17 @@ TYPE_SIZES: dict[str, tuple[int, int]] = {
 BLOCK_TYPES: dict[str, tuple[int, int]] = {
     name: sizes for name, sizes in TYPE_SIZES.items() if sizes[0] > 1
 }
+
+# general.file_type -> the quantization a file was written as: llama.cpp's ``llama_ftype``
+# (gguf-py's ``LlamaFileType``) without its ``MOSTLY_`` prefix; retired ids are not listed.
+FILE_TYPES: dict[int, str] = {
+    0: "F32", 1: "F16", 2: "Q4_0", 3: "Q4_1", 7: "Q8_0", 8: "Q5_0", 9: "Q5_1", 10: "Q2_K",
+    11: "Q3_K_S", 12: "Q3_K_M", 13: "Q3_K_L", 14: "Q4_K_S", 15: "Q4_K_M", 16: "Q5_K_S",
+    17: "Q5_K_M", 18: "Q6_K", 19: "IQ2_XXS", 20: "IQ2_XS", 21: "Q2_K_S", 22: "IQ3_XS",
+    23: "IQ3_XXS", 24: "IQ1_S", 25: "IQ4_NL", 26: "IQ3_S", 27: "IQ3_M", 28: "IQ2_S",
+    29: "IQ2_M", 30: "IQ4_XS", 31: "IQ1_M", 32: "BF16", 36: "TQ1_0", 37: "TQ2_0",
+    38: "MXFP4_MOE", 39: "NVFP4", 40: "Q1_0",
+}  # fmt: skip
 
 # GGUF value type id -> (name, struct format or None for strings and arrays).
 VALUE_TYPES: dict[int, tuple[str, str | None]] = {
@@ -103,7 +115,8 @@ class GgufFile:
     """One parsed GGUF file: the ``SafetensorsFile`` fields ``Checkpoint`` reads, and more.
 
     ``tensors`` lists the tensors in tensor-info order, which is also their offset order.
-    ``metadata`` maps each key to an int, float, bool, str, or ``GgufArray``.
+    ``metadata`` maps each key to an int, float, bool, str, or ``GgufArray``, and
+    ``value_types`` each key to its GGUF value type name (``UINT16``, ``STRING``, ...).
     """
 
     path: Path
@@ -112,11 +125,26 @@ class GgufFile:
     tensors: dict[str, TensorInfo]
     version: int
     alignment: int
+    value_types: dict[str, str] = field(default_factory=dict)
 
     @property
     def architecture(self) -> str | None:
         value = self.metadata.get(ARCHITECTURE_KEY)
         return value if isinstance(value, str) else None
+
+    @property
+    def file_type(self) -> str | None:
+        """The quantization the file says it was written as (``Q4_K_M``), or None if unsaid.
+
+        An id wvc has no name for is given as ``file_type N``; a value that is not an
+        integer is refused.
+        """
+        if FILE_TYPE_KEY not in self.metadata:
+            return None
+        value = self.metadata[FILE_TYPE_KEY]
+        if type(value) is not int:
+            raise GgufError(f"{self.path}: {FILE_TYPE_KEY} must be an integer")
+        return FILE_TYPES.get(value, f"file_type {value}")
 
 
 def tensor_nbytes(dtype: str, shape: Sequence[int], limit: int) -> int | None:
@@ -371,6 +399,7 @@ def parse_gguf(path: Path, data: memoryview) -> GgufFile:
         tensors=tensors,
         version=VERSION,
         alignment=alignment,
+        value_types={key: VALUE_TYPES[type_id][0] for key, type_id in types.items()},
     )
 
 

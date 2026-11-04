@@ -1,0 +1,138 @@
+{
+  "format": "wvc-census-pair/1",
+  "census": {
+    "experiment": "E009",
+    "host": "laptop",
+    "base": "meta-llama/Llama-3.1-8B-Instruct",
+    "base_sha": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "upload": "unsloth/Meta-Llama-3.1-8B-Instruct",
+    "upload_sha": "a2856192dd7c25b842431f39c179a6c2c2f627d1",
+    "listing_rank": 3,
+    "listed_at": "2026-11-04T03:31:23Z",
+    "relation_tag": "finetune",
+    "card_base_model": "meta-llama/Llama-3.1-8B-Instruct",
+    "card_base_model_relation": null,
+    "downloads_30d": 177034,
+    "created_at": "2024-07-23T16:24:05+00:00",
+    "upload_shards": [
+      {
+        "name": "model-00001-of-00004.safetensors",
+        "nbytes": 4976698672,
+        "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+      },
+      {
+        "name": "model-00002-of-00004.safetensors",
+        "nbytes": 4999802720,
+        "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+      },
+      {
+        "name": "model-00003-of-00004.safetensors",
+        "nbytes": 4915916176,
+        "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+      },
+      {
+        "name": "model-00004-of-00004.safetensors",
+        "nbytes": 1168138808,
+        "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+      }
+    ],
+    "command": "wvc diff --rank --json hf:meta-llama/Llama-3.1-8B-Instruct@0e9e39f249a16976918f6564b8830bc894c89659 hf:unsloth/Meta-Llama-3.1-8B-Instruct@a2856192dd7c25b842431f39c179a6c2c2f627d1",
+    "wvc_version": "0.1.0",
+    "wvc_source_commit": "65aeaad2abe0c0b1d343acb068d88897ff7d12d6",
+    "wvc_source_dirty": false,
+    "huggingface_hub": "2.4.0",
+    "numpy": "2.5.4",
+    "python": "3.13.5",
+    "platform": "Darwin arm64",
+    "exit_code": 0,
+    "wall_seconds": 3.7,
+    "bytes_new": 0,
+    "run_at": "2026-11-04T05:45:00Z",
+    "shards_fetched": {
+      "a": [],
+      "b": []
+    }
+  },
+  "diff": {
+    "a": {
+      "hf": {
+        "repo": "meta-llama/Llama-3.1-8B-Instruct",
+        "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+        "sha": "0e9e39f249a16976918f6564b8830bc894c89659"
+      },
+      "root": null,
+      "files": {
+        "skipped": [
+          {
+            "name": "model-00001-of-00004.safetensors",
+            "nbytes": 4976698672,
+            "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+          },
+          {
+            "name": "model-00002-of-00004.safetensors",
+            "nbytes": 4999802720,
+            "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+          },
+          {
+            "name": "model-00003-of-00004.safetensors",
+            "nbytes": 4915916176,
+            "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+          },
+          {
+            "name": "model-00004-of-00004.safetensors",
+            "nbytes": 1168138808,
+            "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+          }
+        ],
+        "fetched": []
+      }
+    },
+    "b": {
+      "hf": {
+        "repo": "unsloth/Meta-Llama-3.1-8B-Instruct",
+        "revision": "a2856192dd7c25b842431f39c179a6c2c2f627d1",
+        "sha": "a2856192dd7c25b842431f39c179a6c2c2f627d1"
+      },
+      "root": null,
+      "files": {
+        "skipped": [
+          {
+            "name": "model-00001-of-00004.safetensors",
+            "nbytes": 4976698672,
+            "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+          },
+          {
+            "name": "model-00002-of-00004.safetensors",
+            "nbytes": 4999802720,
+            "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+          },
+          {
+            "name": "model-00003-of-00004.safetensors",
+            "nbytes": 4915916176,
+            "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+          },
+          {
+            "name": "model-00004-of-00004.safetensors",
+            "nbytes": 1168138808,
+            "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+          }
+        ],
+        "fetched": []
+      }
+    },
+    "summary": {
+      "tensors": 291,
+      "by_status": {
+        "unchanged": 291,
+        "changed": 0,
+        "added": 0,
+        "removed": 0,
+        "reshaped": 0
+      },
+      "elements_compared": 8030261248,
+      "elements_changed": 0,
+      "fraction_changed": 0.0
+    },
+    "tensors": []
+  }
+}

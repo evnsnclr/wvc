@@ -1,0 +1,323 @@
+{
+  "format": "wvc-census-selection/1",
+  "listed_at": "2026-11-04T03:31:09Z",
+  "base": {
+    "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "sha": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "shards": [
+      {
+        "name": "model.safetensors",
+        "nbytes": 988097824,
+        "sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
+      }
+    ],
+    "safetensors_bytes": 988097824
+  },
+  "k": 10,
+  "size_cap_bytes": 2470244560,
+  "walked": [
+    {
+      "listing_rank": 1,
+      "upload": "livekit/turn-detector",
+      "downloads_30d": 1178940,
+      "created_at": "2024-12-07T01:16:27+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "fba34c38ad5d30a63ebb83a9e6bf271cf4c91d67",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 538095016,
+          "sha256": "2f7b4c93c1cdb6d1e858b01f63e5f0f15bdb979dd0d177e8996a244c80e03925"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 2,
+      "upload": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+      "downloads_30d": 409200,
+      "created_at": "2024-09-17T13:57:41+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "9217f5db79a29953eb74d5343926648285ec7e67",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 3,
+      "upload": "bartowski/Qwen2.5-0.5B-Instruct-GGUF",
+      "downloads_30d": 98210,
+      "created_at": "2024-09-17T19:30:40+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "41ba88dbac95fed2528c92514c131d73eb5a174b",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 4,
+      "upload": "mlc-ai/Qwen2.5-0.5B-Instruct-q4f16_1-MLC",
+      "downloads_30d": 73233,
+      "created_at": "2024-09-18T19:12:17+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "32ff081fe7e4dfe4ffb167b94c66fdf11e02b8ad",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 5,
+      "upload": "onnx-community/Qwen2.5-0.5B-Instruct",
+      "downloads_30d": 45155,
+      "created_at": "2024-09-23T06:19:17+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "22942cb7d7ba4cc81bb4673549ca4d4614469b5e",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 6,
+      "upload": "unsloth/Qwen2.5-0.5B-Instruct-unsloth-bnb-4bit",
+      "downloads_30d": 35420,
+      "created_at": "2025-02-06T02:05:30+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "10413c288cb9629acdf60b3e0229f3ba75efe413",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 537657394,
+          "sha256": "81aaf58f48650c8e1480ad451f870f6f1e9d69a2e824fb46ee340c890f466f32"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 7,
+      "upload": "mobilint/Qwen2.5-0.5B-Instruct",
+      "downloads_30d": 27658,
+      "created_at": "2025-12-09T07:01:31+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": [
+        "Qwen/Qwen2.5-0.5B-Instruct"
+      ],
+      "card_base_model_relation": "quantized",
+      "sha": "3292011e0d2a75ff672356e5e6182bc38dcb6520",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 544538728,
+          "sha256": "ee9ab34692fdd473a5689555d601b65ccb15943b22286a881a343d2438dd2a7b"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 8,
+      "upload": "unsloth/Qwen2.5-0.5B-Instruct",
+      "downloads_30d": 27064,
+      "created_at": "2024-09-18T21:06:02+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "ae616882a38b36759fc46ac3fd6769498833b913",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 988097824,
+          "sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 9,
+      "upload": "unsloth/Qwen2.5-0.5B-Instruct-bnb-4bit",
+      "downloads_30d": 13819,
+      "created_at": "2024-09-18T22:07:09+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "216d96b52c97a3c8294776df8477592f6828981c",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 457346831,
+          "sha256": "fa6ed98084afb0497d9075a82ab17fdfc0b5d99fb6b37d8f761463e67c100f45"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 10,
+      "upload": "lmstudio-community/Qwen2.5-0.5B-Instruct-GGUF",
+      "downloads_30d": 13543,
+      "created_at": "2024-09-17T19:30:41+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "3b32d0bf1ac136098d417677c7d757360f1ceb6b",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 11,
+      "upload": "litert-community/Qwen2.5-0.5B-Instruct",
+      "downloads_30d": 12207,
+      "created_at": "2025-04-30T16:16:19+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "063da0a7c3baec2dbfb79b95947a434d2634b260",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 12,
+      "upload": "OpenGVLab/InternVL2_5-1B",
+      "downloads_30d": 7564,
+      "created_at": "2024-11-20T16:39:18+00:00",
+      "relation_tag": "merge",
+      "card_base_model": [
+        "OpenGVLab/InternViT-300M-448px-V2_5",
+        "Qwen/Qwen2.5-0.5B-Instruct"
+      ],
+      "card_base_model_relation": "merge",
+      "sha": "9d423ea1ae9f893897ee3f7493141073f5afcf22",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1876463472,
+          "sha256": "8d5575f96a88f9048a2a054267f4a1523ec6d3dc36ed57e39e612306dec72dc3"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 13,
+      "upload": "manycore-research/SpatialLM-Qwen-0.5B",
+      "downloads_30d": 5878,
+      "created_at": "2025-03-16T15:15:49+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "Qwen/Qwen2.5-0.5B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "71278d39f68d5a9241e0f9ff5d61bd7fb3a583af",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2019975224,
+          "sha256": "74a0ffabd5e2c56afcf638eebb1b81f482fe9d17d6d502608a79baedc4d87c34"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 14,
+      "upload": "lmstudio-community/Qwen2.5-0.5B-Instruct-MLX-4bit",
+      "downloads_30d": 5834,
+      "created_at": "2024-11-11T18:49:02+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "5d8965c688e53205dee290e3e3be0f2362d4535c",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 278064920,
+          "sha256": "ddffab9cbc7bf6dde941c6724841eeca8981fcfa81ca20ff8efff1396326d153"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 15,
+      "upload": "sallani/EUAIAct-Qwen2.5-0.5B-Edge",
+      "downloads_30d": 4797,
+      "created_at": "2026-05-25T08:52:11+00:00",
+      "relation_tag": "adapter",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "eligible": false,
+      "reason": "adapter",
+      "sha": null,
+      "shards": []
+    },
+    {
+      "listing_rank": 16,
+      "upload": "mlc-ai/Qwen2.5-0.5B-Instruct-q4f32_1-MLC",
+      "downloads_30d": 4268,
+      "created_at": "2024-09-18T19:20:46+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "8e6ec5f417c7d0e1414703ef619b8a24686e3ab0",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 17,
+      "upload": "saidutta69/Qwen2.5-0.5B-Instruct-heretic",
+      "downloads_30d": 3758,
+      "created_at": "2026-07-02T04:15:44+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "2bd4bb85bb39258400b5f0ce5a7699c107aad1f8",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 988097824,
+          "sha256": "d877b8019a6a2cee8b18f7592fa72065a68c85ae0369c8109d5d59d9e5bbb5d6"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 18,
+      "upload": "manycore-research/SpatialLM1.1-Qwen-0.5B",
+      "downloads_30d": 3384,
+      "created_at": "2025-06-06T06:18:54+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "Qwen/Qwen2.5-0.5B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "b3ae9ad7a8689bc130a242c7f922a8cc290c1b59",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2414130784,
+          "sha256": "ed2e1ca161d9ca51342bdee27e801ff7aac4f6ef4b2585f530b7ba657ed8a827"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    }
+  ]
+}

@@ -37,14 +37,17 @@ from wvc.gguf_diff import compare_quantized, gguf_about, is_quantization_pair
 from wvc.gguf_io import gguf_files, is_gguf, load_gguf
 from wvc.hashing import build_manifest, gguf_hash_lines, tensor_digests
 from wvc.hub import (
+    GgufChoiceError,
     Hub,
     HubFile,
+    HubRef,
     HubRepo,
     PairPlan,
     diff_hub_pair,
     is_hub_checkpoint,
     load_hub_checkpoint,
-    parse_hub_checkpoint,
+    load_hub_gguf,
+    parse_hub_argument,
 )
 from wvc.output import configure_streams, emit_bytes, emit_json, emit_text
 from wvc.quote import printable
@@ -67,7 +70,8 @@ from wvc.store import ObjectStore, manifest_json
 from wvc.verify import TensorRecord, VerifyReport, load_manifest, verify_checkpoint
 
 CHECKPOINT_HELP = (
-    "a .safetensors file, a directory of shards, a .gguf file, or hf:OWNER/NAME[@REVISION]"
+    "a .safetensors file, a directory of shards, a .gguf file, hf:OWNER/NAME[@REVISION], or "
+    "hf:OWNER/NAME[@REVISION]:FILE.gguf"
 )
 MANIFEST_FORMATS = ("json", "gguf-hash")
 DIFF_FORMATS = ("table", "json", "agent")
@@ -188,11 +192,33 @@ def _open_checkpoint(arg: str) -> tuple[Checkpoint, dict[str, Any]]:
         if is_gguf(arg):
             return load_gguf(arg), {"path": str(arg), "format": "gguf"}
         return load_checkpoint(arg), {"path": str(arg)}
-    ref = parse_hub_checkpoint(arg)
+    ref = parse_hub_argument(arg)
     hub = Hub()
-    repo = hub.describe(*ref)
+    if ref.file is None:
+        repo = _describe(hub, ref)
+        print(f"pinned: {printable(repo.url)} at {repo.sha}", file=sys.stderr)
+        return load_hub_checkpoint(hub, repo), {"hf": repo.to_dict()}
+    repo = hub.describe_gguf(ref)
     print(f"pinned: {printable(repo.url)} at {repo.sha}", file=sys.stderr)
-    return load_hub_checkpoint(hub, repo), {"hf": repo.to_dict()}
+    ckpt = load_hub_gguf(hub, repo)
+    for file in repo.files:
+        digest = f"sha256 {file.sha256} checked" if file.sha256 else "no LFS sha256 listed"
+        print(f"file: {printable(file.name)} ({file.nbytes:,} bytes, {digest})", file=sys.stderr)
+    return ckpt, {"hf": repo.to_dict(), "format": "gguf"}
+
+
+def _describe(hub: Hub, ref: HubRef) -> HubRepo:
+    """``Hub.describe``; for a repository of GGUF files, list them on stderr and refuse."""
+    try:
+        return hub.describe(ref.repo_id, ref.revision)
+    except GgufChoiceError as exc:
+        print(f"GGUF checkpoints in {printable(exc.url)}:", file=sys.stderr)
+        for choice in exc.choices:
+            parts = "" if choice.parts == 1 else f" in {choice.parts} parts"
+            if choice.listed != choice.parts:
+                parts += f" ({choice.listed} listed)"
+            print(f"  {printable(choice.name)}  {choice.nbytes:,} bytes{parts}", file=sys.stderr)
+        raise
 
 
 def cmd_hash(args: argparse.Namespace) -> int:
@@ -284,11 +310,10 @@ def _unchanged_files(ckpt: Checkpoint, diffs: list[TensorDiff]) -> dict:
             "total": len(ckpt.files)}  # fmt: skip
 
 
-def _diff_hub_pair(args: argparse.Namespace) -> int:
-    """Two Hub checkpoints: fetch only the shards that differ on the Hub."""
-    ref_a, ref_b = parse_hub_checkpoint(args.a), parse_hub_checkpoint(args.b)
+def _diff_hub_pair(args: argparse.Namespace, ref_a: HubRef, ref_b: HubRef) -> int:
+    """Two Hub repositories of safetensors shards: fetch only the shards that differ."""
     hub = Hub()
-    a, b = hub.describe(*ref_a), hub.describe(*ref_b)
+    a, b = _describe(hub, ref_a), _describe(hub, ref_b)
     result = diff_hub_pair(hub, a, b, rank=args.rank, rank_cap=args.rank_cap)
     plan = result.plan
     return _report_diff(
@@ -307,7 +332,9 @@ def _diff_hub_pair(args: argparse.Namespace) -> int:
 
 def cmd_diff(args: argparse.Namespace) -> int:
     if is_hub_checkpoint(args.a) and is_hub_checkpoint(args.b):
-        return _diff_hub_pair(args)
+        ref_a, ref_b = parse_hub_argument(args.a), parse_hub_argument(args.b)
+        if ref_a.file is None and ref_b.file is None:
+            return _diff_hub_pair(args, ref_a, ref_b)
     ckpt_a, about_a = _open_checkpoint(args.a)
     comparison = None
     with ckpt_a:
@@ -323,6 +350,8 @@ def cmd_diff(args: argparse.Namespace) -> int:
                 diffs = diff_checkpoints(
                     ckpt_a, ckpt_b, digests_a, digests_b, rank=args.rank, rank_cap=args.rank_cap
                 )
+    if comparison is not None and ("hf" in about_a or "hf" in about_b):
+        comparison = {**comparison, **_hub_comparison((ckpt_a, about_a), (ckpt_b, about_b))}
     a = {**about_a, "root": build_manifest(ckpt_a, digests_a)["root"], **_gguf_side(ckpt_a)}
     b = {**about_b, "root": build_manifest(ckpt_b, digests_b)["root"], **_gguf_side(ckpt_b)}
     header = [] if comparison is None else [render_comparison(comparison)]
@@ -333,7 +362,26 @@ def cmd_diff(args: argparse.Namespace) -> int:
 def _gguf_side(ckpt: Checkpoint) -> dict[str, Any]:
     """The ``gguf`` key of a diff side that is a GGUF file; nothing for safetensors."""
     files = gguf_files(ckpt)
-    return {"gguf": gguf_about(files[0])} if files else {}
+    return {"gguf": gguf_about(files)} if files else {}
+
+
+def _hub_comparison(*sides: tuple[Checkpoint, dict[str, Any]]) -> dict[str, Any]:
+    """What a quantization comparison with a Hub side compared: files, commits, file types.
+
+    Per side: the files read (as the repository names them, or by base name for a path), the
+    commit sha (None for a path), and a GGUF side's ``general.file_type`` (None otherwise).
+    """
+    files, revisions, quantizations = {}, {}, {}
+    for label, (ckpt, about) in zip("ab", sides, strict=True):
+        hf = about.get("hf")
+        listed = hf.get("files") if hf else None
+        files[label] = (
+            [file["name"] for file in listed] if listed else [f.path.name for f in ckpt.files]
+        )
+        revisions[label] = hf["sha"] if hf else None
+        parts = gguf_files(ckpt)
+        quantizations[label] = parts[0].file_type if parts else None
+    return {"files": files, "revisions": revisions, "quantizations": quantizations}
 
 
 def render_comparison(comparison: dict) -> str:

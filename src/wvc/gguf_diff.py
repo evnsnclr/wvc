@@ -18,7 +18,7 @@ the file's own name and what was undone. A type wvc cannot dequantise is refused
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from collections.abc import Mapping as MappingType
 from dataclasses import dataclass, replace
 
@@ -240,14 +240,21 @@ def _reading_order(a: Side, b: Side) -> Callable[[str], tuple[int, int, int, str
     return key
 
 
-def gguf_about(file: GgufFile) -> dict:
-    """The ``gguf`` object of a GGUF side: container facts and the tensor types it holds."""
-    return {
-        "version": file.version,
-        "architecture": file.architecture,
-        "alignment": file.alignment,
-        "types": dict(sorted(Counter(info.dtype for info in file.tensors.values()).items())),
+def gguf_about(files: Sequence[GgufFile]) -> dict:
+    """The ``gguf`` object of a GGUF side: container facts and the tensor types it holds.
+
+    For a split checkpoint the facts are its first part's, the types count every part's
+    tensors, and ``parts`` gives the number of parts (the key is absent for one file).
+    """
+    first = files[0]
+    types = Counter(info.dtype for file in files for info in file.tensors.values())
+    about = {
+        "version": first.version,
+        "architecture": first.architecture,
+        "alignment": first.alignment,
+        "types": dict(sorted(types.items())),
     }
+    return about if len(files) == 1 else {**about, "parts": len(files)}
 
 
 def _comparison(a: Side, b: Side) -> dict:

@@ -1,0 +1,281 @@
+{
+  "format": "wvc-census-selection/1",
+  "listed_at": "2026-11-04T03:31:11Z",
+  "base": {
+    "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+    "sha": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "shards": [
+      {
+        "name": "model.safetensors",
+        "nbytes": 3087467144,
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+      }
+    ],
+    "safetensors_bytes": 3087467144
+  },
+  "k": 10,
+  "size_cap_bytes": 7718667860,
+  "walked": [
+    {
+      "listing_rank": 1,
+      "upload": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "downloads_30d": 437605,
+      "created_at": "2024-09-17T13:57:52+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 2,
+      "upload": "JackKozmo29/depguard-jev-style-1.5b",
+      "downloads_30d": 103784,
+      "created_at": "2026-10-05T12:04:00+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "7fd9191a43d9b752f019a3d811a52b33e909cb88",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 6174895536,
+          "sha256": "15896ba204e5f8ce218fc292c78bd9d1ac6cdaf6a161fdf3094125bd80df966d"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 3,
+      "upload": "JackKozmo29/mailguard-jev-style-1.5b",
+      "downloads_30d": 92850,
+      "created_at": "2026-09-29T12:29:30+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "21bac3e9fb557513f59cd53882a3756fc11c1fdd",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 6174895536,
+          "sha256": "8281bd1f1d2a5432afcc147c3ccea77bd850a3375be35758c113ec18de5753a3"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 4,
+      "upload": "JackKozmo29/sevclassifier-jev-style-1.5b",
+      "downloads_30d": 90674,
+      "created_at": "2026-10-05T12:04:57+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "9bc3b3f266e277998413f6a33940ce13d5be4f65",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 6174895536,
+          "sha256": "af385240f665a8e8f35f490ff7ffc3d3354352b47c4c394ffecc205bc3f3eeb9"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 5,
+      "upload": "litert-community/Qwen2.5-1.5B-Instruct",
+      "downloads_30d": 90130,
+      "created_at": "2025-04-30T19:19:22+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "2f23bacf8ec78b83dfcd7271c5cb25777b1be5e0",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 6,
+      "upload": "JackKozmo29/codeguard-jev-style-1.5b",
+      "downloads_30d": 83173,
+      "created_at": "2026-10-05T12:02:56+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "1c72673434d423258387d4b119285d3d50941000",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 6174895536,
+          "sha256": "05bf64070ac2a68c4539e960e137098d634846d88a96c6b37044cb3977b8a161"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 7,
+      "upload": "bartowski/Qwen2.5-1.5B-Instruct-GGUF",
+      "downloads_30d": 73337,
+      "created_at": "2024-09-17T19:30:25+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "9eadc66189c7641e1ddd226b8267a9119b2ce2d4",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 8,
+      "upload": "unsloth/Qwen2.5-1.5B-Instruct-unsloth-bnb-4bit",
+      "downloads_30d": 44379,
+      "created_at": "2025-02-06T02:16:36+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "3d254dbee5e3beae81bb8a717ad3a03427a09d26",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1527278719,
+          "sha256": "c9356b525f046733053fa910242a9edffb3b311d03effbd5d3f2e2ce81d1dcd1"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 9,
+      "upload": "unsloth/Qwen2.5-1.5B-Instruct",
+      "downloads_30d": 36449,
+      "created_at": "2024-09-18T21:08:51+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "b2e27ed8774d78eb2ee474cfe99d2d3b5fae11e5",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 3087467144,
+          "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 10,
+      "upload": "MaziyarPanahi/Qwen2.5-1.5B-Instruct-GGUF",
+      "downloads_30d": 32921,
+      "created_at": "2024-09-18T18:20:28+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "f67db4478e8de736c5b4f05eac67a9a84f1376a3",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 11,
+      "upload": "mobilint/Qwen2.5-1.5B-Instruct",
+      "downloads_30d": 27397,
+      "created_at": "2025-12-09T07:03:23+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": [
+        "Qwen/Qwen2.5-1.5B-Instruct"
+      ],
+      "card_base_model_relation": "quantized",
+      "sha": "c33c8854bdd5e74f1f08798d46b4429121b81858",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 933494888,
+          "sha256": "46935920b64166c860ab9694c38cbb1c4a294abe38a4541a8bca404b3df6b803"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 12,
+      "upload": "mlc-ai/Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+      "downloads_30d": 23620,
+      "created_at": "2024-09-18T19:21:45+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "9bd564b064631febf14deadcac492efb761d60c3",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 13,
+      "upload": "unsloth/Qwen2.5-1.5B-Instruct-bnb-4bit",
+      "downloads_30d": 19409,
+      "created_at": "2024-09-18T22:05:03+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "d2f2dd02b071701d5100a04a7a49d6fb0bd305b7",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1143327694,
+          "sha256": "4be8a58f9cdd190ac6014bee8e42968fa5520296509cad8e85a77cbd217ce653"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 14,
+      "upload": "Qwen/Qwen2.5-1.5B-Instruct-AWQ",
+      "downloads_30d": 16729,
+      "created_at": "2024-09-17T13:54:47+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "3ecffa0ceb27851800f45519bab9c457a04405e1",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1614553840,
+          "sha256": "5b29ed6f80e422c3ae7d40dc76fd8983501bbd7489cf84a72a5c5fe20bcf2813"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 15,
+      "upload": "nvidia/Eagle2-2B",
+      "downloads_30d": 13524,
+      "created_at": "2025-01-10T18:46:53+00:00",
+      "relation_tag": "merge",
+      "card_base_model": [
+        "google/paligemma-3b-mix-448",
+        "Qwen/Qwen2.5-1.5B-Instruct",
+        "google/siglip-so400m-patch14-384"
+      ],
+      "card_base_model_relation": "merge",
+      "sha": "3ab0a536b1778c885624ae920cd73d06228ae441",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 4428702200,
+          "sha256": "f73a9fc7fb024f2405af6970c5945c3d3bfe160757119acf8ef335f1f10a4235"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    }
+  ]
+}

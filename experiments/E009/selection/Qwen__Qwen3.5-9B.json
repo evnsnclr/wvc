@@ -1,0 +1,287 @@
+{
+  "format": "wvc-census-selection/1",
+  "listed_at": "2026-11-04T03:31:20Z",
+  "base": {
+    "repo": "Qwen/Qwen3.5-9B",
+    "sha": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "shards": [
+      {
+        "name": "model.safetensors-00001-of-00004.safetensors",
+        "nbytes": 5276436216,
+        "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e"
+      },
+      {
+        "name": "model.safetensors-00002-of-00004.safetensors",
+        "nbytes": 5335161512,
+        "sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330"
+      },
+      {
+        "name": "model.safetensors-00003-of-00004.safetensors",
+        "nbytes": 5368717440,
+        "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec"
+      },
+      {
+        "name": "model.safetensors-00004-of-00004.safetensors",
+        "nbytes": 3325995712,
+        "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6"
+      }
+    ],
+    "safetensors_bytes": 19306310880
+  },
+  "k": 6,
+  "size_cap_bytes": 45000000000,
+  "walked": [
+    {
+      "listing_rank": 1,
+      "upload": "unsloth/Qwen3.5-9B-GGUF",
+      "downloads_30d": 1630323,
+      "created_at": "2026-02-28T14:04:29+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": [
+        "Qwen/Qwen3.5-9B"
+      ],
+      "card_base_model_relation": null,
+      "sha": "3885219b6810b007914f3a7950a8d1b469d598a5",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 2,
+      "upload": "prism-ml/Ternary-Bonsai-2-9B-gguf",
+      "downloads_30d": 742453,
+      "created_at": "2026-09-23T06:12:31+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": [
+        "Qwen/Qwen3.5-9B"
+      ],
+      "card_base_model_relation": null,
+      "sha": "5b2abb02362efbed46bbe204014b02837778b2c2",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 3,
+      "upload": "lmstudio-community/Qwen3.5-9B-MLX-4bit",
+      "downloads_30d": 712097,
+      "created_at": "2026-06-02T15:51:00+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": null,
+      "sha": "b455506b0f574c74616dbcd56879bde38fafcff3",
+      "shards": [
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "nbytes": 5349771292,
+          "sha256": "973cc1efdedb4d327993fb9c27865f0bcfd9015897d5f0ca9ffb6cda6a0768e5"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "nbytes": 600449850,
+          "sha256": "597dae0ed72b60acc07382e8ea0cdb9509c54128e07b0eaa9cf4996373d5ca7d"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 4,
+      "upload": "autotrust/JEV-9B",
+      "downloads_30d": 678025,
+      "created_at": "2026-09-23T12:08:52+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": "finetune",
+      "sha": "7ac669b8fb476ba926491e3d1c39f9330d68dbed",
+      "shards": [
+        {
+          "name": "head.safetensors",
+          "nbytes": 393464,
+          "sha256": "d960a6f5989402c6d08d74d8d435a21a031cc7878f3c4ac274a126c900f627e7"
+        },
+        {
+          "name": "model-00001-of-00005.safetensors",
+          "nbytes": 4234572344,
+          "sha256": "fdce203bd6767c95690c4695699e9e796fa53caeb06c7f6d43a014f7c513b32c"
+        },
+        {
+          "name": "model-00002-of-00005.safetensors",
+          "nbytes": 4199125880,
+          "sha256": "64003b88d6e6871f2315e39356188082063ff879994434d5ce8c209b3c736a01"
+        },
+        {
+          "name": "model-00003-of-00005.safetensors",
+          "nbytes": 4215396752,
+          "sha256": "ef7cf4227fb3f391bb2bcd5d79a3c10cd90d823dbf964f41a0aa34591377ae82"
+        },
+        {
+          "name": "model-00004-of-00005.safetensors",
+          "nbytes": 3224330536,
+          "sha256": "2265f2fcf900572fa0b7c645a9a64f662d4123daeeeda23e917411e907d66272"
+        },
+        {
+          "name": "model-00005-of-00005.safetensors",
+          "nbytes": 2034237568,
+          "sha256": "dd63614f1dc80dce2d83be3f3e69af1f8a0ebc8add9b8e0abf3910f563e44344"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 5,
+      "upload": "HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive",
+      "downloads_30d": 663107,
+      "created_at": "2026-03-04T00:24:31+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": [
+        "Qwen/Qwen3.5-9B"
+      ],
+      "card_base_model_relation": null,
+      "sha": "0a41c68809d375475f954be12ba7c40efa56c2a9",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 6,
+      "upload": "lmstudio-community/Qwen3.5-9B-MLX-8bit",
+      "downloads_30d": 661001,
+      "created_at": "2026-06-02T15:52:06+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": null,
+      "sha": "950e0459b483aec4324437bc5d45cf446b2d67bd",
+      "shards": [
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "nbytes": 5339522657,
+          "sha256": "301e7f4acda5eb2b7191d91f30d609e5a6997c4824b3312f1036556734341db0"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "nbytes": 5087069736,
+          "sha256": "a8029fb3c4ed67e46d818e96fd70fbe001967476f77658ddfb2b7735382fce4c"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 7,
+      "upload": "lmstudio-community/Qwen3.5-9B-GGUF",
+      "downloads_30d": 631801,
+      "created_at": "2026-03-02T13:34:46+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": null,
+      "sha": "1379f25c6b505a3fc737bd7818cb09389cf807c1",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 8,
+      "upload": "RedHatAI/Qwen3.5-9B-FP8-dynamic",
+      "downloads_30d": 210718,
+      "created_at": "2026-05-11T11:53:23+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": null,
+      "sha": "790f0576d2d77dd5322aa0603a470bd9e3a3d1f6",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 13520203008,
+          "sha256": "98f26147df49984e6808c6635e03b5b4a6fd8df9fe378e775175342b551a0621"
+        },
+        {
+          "name": "model_mtp.safetensors",
+          "nbytes": 486582848,
+          "sha256": "e9f83dae0fed4d0633fba652cd7eb942642491a283b11072c3cfc77731e0fae9"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 9,
+      "upload": "bartowski/Qwen_Qwen3.5-9B-GGUF",
+      "downloads_30d": 190974,
+      "created_at": "2026-02-27T15:45:47+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": "quantized",
+      "sha": "182be2fd6c7bc44887d88a91cb03ff009cc9f549",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 10,
+      "upload": "cyankiwi/Qwen3.5-9B-AWQ-4bit",
+      "downloads_30d": 166492,
+      "created_at": "2026-03-02T15:17:16+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "Qwen/Qwen3.5-9B",
+      "card_base_model_relation": "quantized",
+      "sha": "e4d2d39cede8c5d1716d824cd843e2889c648083",
+      "shards": [
+        {
+          "name": "model-00001-of-00003.safetensors",
+          "nbytes": 3456160672,
+          "sha256": "13a023add7c4fa37636fd28b15ba80511d9041a331d7a610560b553cac9a0de8"
+        },
+        {
+          "name": "model-00002-of-00003.safetensors",
+          "nbytes": 5362274088,
+          "sha256": "c837545c600ace6064c8009fc7ae917cb0ab9c96747174df813aec1cb28bb61d"
+        },
+        {
+          "name": "model-00003-of-00003.safetensors",
+          "nbytes": 250154144,
+          "sha256": "b03792cfc8278a228b3b452edb57625b5c6a2a1e77b860d21395d474c03968ea"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 11,
+      "upload": "unsloth/Qwen3.5-9B",
+      "downloads_30d": 111876,
+      "created_at": "2026-02-28T14:04:03+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "Qwen/Qwen3.5-9B"
+      ],
+      "card_base_model_relation": null,
+      "sha": "005429cee5cb648998cf2b70eebdd83175989c9a",
+      "shards": [
+        {
+          "name": "model.safetensors-00001-of-00004.safetensors",
+          "nbytes": 5276436216,
+          "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e"
+        },
+        {
+          "name": "model.safetensors-00002-of-00004.safetensors",
+          "nbytes": 5335161512,
+          "sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330"
+        },
+        {
+          "name": "model.safetensors-00003-of-00004.safetensors",
+          "nbytes": 5368717440,
+          "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec"
+        },
+        {
+          "name": "model.safetensors-00004-of-00004.safetensors",
+          "nbytes": 3325995712,
+          "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    }
+  ]
+}

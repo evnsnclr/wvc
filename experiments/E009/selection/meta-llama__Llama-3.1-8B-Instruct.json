@@ -1,0 +1,260 @@
+{
+  "format": "wvc-census-selection/1",
+  "listed_at": "2026-11-04T03:31:23Z",
+  "base": {
+    "repo": "meta-llama/Llama-3.1-8B-Instruct",
+    "sha": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "shards": [
+      {
+        "name": "model-00001-of-00004.safetensors",
+        "nbytes": 4976698672,
+        "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+      },
+      {
+        "name": "model-00002-of-00004.safetensors",
+        "nbytes": 4999802720,
+        "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+      },
+      {
+        "name": "model-00003-of-00004.safetensors",
+        "nbytes": 4915916176,
+        "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+      },
+      {
+        "name": "model-00004-of-00004.safetensors",
+        "nbytes": 1168138808,
+        "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+      }
+    ],
+    "safetensors_bytes": 16060556376
+  },
+  "k": 6,
+  "size_cap_bytes": 40151390940,
+  "walked": [
+    {
+      "listing_rank": 1,
+      "upload": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
+      "downloads_30d": 362097,
+      "created_at": "2024-07-23T15:36:34+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "bf5b95e96dac0462e2a09145ec66cae9a3f12067",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 2,
+      "upload": "unsloth/Llama-3.1-8B-Instruct",
+      "downloads_30d": 223770,
+      "created_at": "2025-02-15T10:20:05+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "meta-llama/Llama-3.1-8B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "4699cc75b550f9c6f3173fb80f4703b62d946aa5",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4976698672,
+          "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4999802720,
+          "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4915916176,
+          "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 1168138808,
+          "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 3,
+      "upload": "unsloth/Meta-Llama-3.1-8B-Instruct",
+      "downloads_30d": 177034,
+      "created_at": "2024-07-23T16:24:05+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "meta-llama/Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "a2856192dd7c25b842431f39c179a6c2c2f627d1",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4976698672,
+          "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4999802720,
+          "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4915916176,
+          "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 1168138808,
+          "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 4,
+      "upload": "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
+      "downloads_30d": 90113,
+      "created_at": "2024-07-23T16:09:09+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "f15c379fb32bb402fa06a7ae9aecb1febf4b79ec",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 5702746383,
+          "sha256": "f6c8ab7a8b2790ce56f3ae3946ad39866fc5250b51b277c9d0eee83ac4f26a92"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 5,
+      "upload": "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF",
+      "downloads_30d": 73886,
+      "created_at": "2024-07-23T16:18:30+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "8601e6db71269a2b12255ebdf09ab75becf22cc8",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 6,
+      "upload": "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8",
+      "downloads_30d": 48124,
+      "created_at": "2024-07-23T20:48:26+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "870a1177ed082c0ba5dbefd62573ab8f91803f6a",
+      "shards": [
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "nbytes": 4997857264,
+          "sha256": "619cd877246f5981cf5aab3868137dfa0e7339f549af4d970cb0fe2b91d0a2a4"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "nbytes": 4083429752,
+          "sha256": "1a493f2262f66c0efacbde0efee1e81425e16ee508fbc888da41024b3c08bdb4"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 7,
+      "upload": "nvidia/Llama-3.1-8B-Instruct-FP8",
+      "downloads_30d": 39280,
+      "created_at": "2024-08-29T08:52:39+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "meta-llama/Llama-3.1-8B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "42d9515ebd69eea3a87351d079c671c3c5ff0a31",
+      "shards": [
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "nbytes": 4997857256,
+          "sha256": "499ce93537438acbb81ac5bf6f6890d0501b572d85405866705b700f08644a24"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "nbytes": 4083429784,
+          "sha256": "62e7244fe8487c09413cd9ed683d94d580dca68a4562549f7b62c8f8c0ba5246"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 8,
+      "upload": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated-GGUF",
+      "downloads_30d": 37503,
+      "created_at": "2024-07-24T22:44:19+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "9a44c6b2a6e355dfd5beea6f5d5ad47412b632da",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 9,
+      "upload": "MaziyarPanahi/Meta-Llama-3.1-8B-Instruct-GGUF",
+      "downloads_30d": 33006,
+      "created_at": "2024-07-23T16:17:10+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "1f301d86d760b435a11a56de3863bc0121bfb98f",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 10,
+      "upload": "Skywork/Skywork-Reward-Llama-3.1-8B-v0.2",
+      "downloads_30d": 28568,
+      "created_at": "2024-10-14T17:10:08+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "meta-llama/Llama-3.1-8B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "d4117fbfd81b72f41b96341238baa1e3e90a4ce1",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4976698672,
+          "sha256": "027da2fad607605dd8fd21ea132a0123df3cafee2e2ba02f6af6b8f1567eb6e3"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4999802720,
+          "sha256": "6c0dbb9a666607dce48004cdee7c206a1984250529aa521d5813432d5f65aed6"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4915916176,
+          "sha256": "c47caaa1c18b5b62dd4ff0d7e8e7ea667752627879be8a3125cf51f54a581b3b"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 117473824,
+          "sha256": "9d898e0b281dbe0930fbb97e9f9d1b15ff2b9f54e2d4c2bfdb221f40671dad80"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    }
+  ]
+}

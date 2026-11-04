@@ -1,0 +1,6 @@
+pinned: hf:Felladrin/gguf-Q5_K_M-Qwen2.5-0.5B-Instruct@69b6ffa31d2619f3a78b67ac661dec2b98d4e2fb:qwen2.5-0.5b-instruct-q5_k_m-imat.gguf at 69b6ffa31d2619f3a78b67ac661dec2b98d4e2fb
+file: qwen2.5-0.5b-instruct-q5_k_m-imat.gguf (420,086,368 bytes, sha256 52c6322f25bd12d9ec2bc61dbf3fc12a667b19bbe47abc9f42d2bc16b7a98b32 checked)
+pinned: hf:Felladrin/gguf-Q5_K_M-Qwen2.5-0.5B-Instruct@69b6ffa31d2619f3a78b67ac661dec2b98d4e2fb:qwen2-00001-of-00003.gguf at 69b6ffa31d2619f3a78b67ac661dec2b98d4e2fb
+file: qwen2-00001-of-00003.gguf (247,258,528 bytes, sha256 b5a1fe298dc983d8f38c58bd685693a8edf4b9d9f6ae97a2ec15960d53705851 checked)
+file: qwen2-00002-of-00003.gguf (92,001,472 bytes, sha256 b2d83acf25677d4431f4c4fe422be741306b6fa0bcdd08f43f627cd9bf7142e2 checked)
+file: qwen2-00003-of-00003.gguf (80,826,688 bytes, sha256 f1c689dad857aa7a70956582298ff0c0403030a3daf582b77e1eaf788945d194 checked)

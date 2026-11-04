@@ -1,0 +1,18 @@
+Job ID:    15048019
+Partition: cpu-small
+QOS:       embers
+python 3.12.5 wvc 0.1.0 hub 2.4.0 numpy 2.5.4
+gated access ok
+start 2026-11-04T03:37:28Z host atl1-1-01-003-24-2.pace.gatech.edu
+google/gemma-2-9b-it: 6 eligible of 11 walked
+diffed hugging-quants/gemma-2-9b-it-AWQ-INT4: 416 s, +24.65 GB (run total 24.65 GB), freed 6.16 GB
+diffed unsloth/gemma-2-9b-it-bnb-4bit: 165 s, +6.14 GB (run total 30.78 GB), freed 6.13 GB
+diffed DiTy/gemma-2-9b-it-russian-function-calling-GGUF: 3019 s, +18.48 GB (run total 49.27 GB), freed 18.48 GB
+diffed MERaLiON/MERaLiON-2-10B-ASR: 545 s, +20.21 GB (run total 69.48 GB), freed 20.21 GB
+exit 1 end 2026-11-04T05:45:07Z
+Job ID:        15048019
+Resources:     cpu=8,mem=64G,node=1
+Rsrc Used:     cput=17:06:16,vmem=0,walltime=02:08:17,mem=38463716K,energy_used=0
+Partition:     cpu-small
+QOS:           embers
+Nodes:         atl1-1-01-003-24-2

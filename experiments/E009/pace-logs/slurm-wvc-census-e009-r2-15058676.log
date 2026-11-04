@@ -1,0 +1,15 @@
+Job ID:    15058676
+Partition: cpu-small
+QOS:       embers
+python 3.12.5 wvc 0.1.0 hub 2.4.0 numpy 2.5.4
+gated access ok
+start 2026-11-04T05:57:07Z host atl1-1-03-003-13-2.pace.gatech.edu
+google/gemma-2-9b-it: 6 eligible of 11 walked
+diffed OpenLLM-Ro/RoGemma2-9b-Instruct: 3361 s, +0.00 GB (run total 0.00 GB), freed 18.48 GB
+exit 1 end 2026-11-04T07:48:19Z
+Job ID:        15058676
+Resources:     cpu=8,mem=64G,node=1
+Rsrc Used:     cput=14:54:08,vmem=0,walltime=01:51:46,mem=37628652K,energy_used=0
+Partition:     cpu-small
+QOS:           embers
+Nodes:         atl1-1-03-003-13-2

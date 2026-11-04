@@ -1,0 +1,7 @@
+comparison: {'kind': 'quantization', 'gguf': ['b'], 'mapping': 'qwen2', 'values': 'float64', 'files': {'a': ['model.safetensors'], 'b': ['qwen2-00001-of-00003.gguf', 'qwen2-00002-of-00003.gguf', 'qwen2-00003-of-00003.gguf']}, 'revisions': {'a': '7ae557604adf67be50417f59c2c2f167def9a775', 'b': '69b6ffa31d2619f3a78b67ac661dec2b98d4e2fb'}, 'quantizations': {'a': None, 'b': 'Q5_K_M'}}
+summary: {'tensors': 290, 'by_status': {'unchanged': 121, 'changed': 169, 'added': 0, 'removed': 0, 'reshaped': 0}, 'elements_compared': 494032768, 'elements_changed': 492575523, 'fraction_changed': 0.9970503069950211}
+F32: {'unchanged': 121}
+Q5_1: {'changed': 132}; rel |d|/|a| 0.03411 to 0.04457; changed fraction 0.9951 to 0.9972; top-1 energy max 0.0985 over 132 with a rank
+Q5_K: {'changed': 12}; rel |d|/|a| 0.0367 to 0.03962; changed fraction 0.9998 to 0.9998; top-1 energy max 0.0170 over 12 with a rank
+Q6_K: {'changed': 12}; rel |d|/|a| 0.01819 to 0.02003; changed fraction 0.9975 to 0.9980; top-1 energy max 0.0192 over 12 with a rank
+Q8_0: {'changed': 13}; rel |d|/|a| 0.005527 to 0.008201; changed fraction 0.9968 to 0.9979; top-1 energy max 0.0214 over 12 with a rank

@@ -1,0 +1,289 @@
+{
+  "format": "wvc-census-selection/1",
+  "listed_at": "2026-11-04T03:31:25Z",
+  "base": {
+    "repo": "google/gemma-2-9b-it",
+    "sha": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+    "shards": [
+      {
+        "name": "model-00001-of-00004.safetensors",
+        "nbytes": 4903351912,
+        "sha256": "a0d4eb4fcbddfe01b0dc7a58386a3980826ededaf0ecd67d1ef38995b89615ba"
+      },
+      {
+        "name": "model-00002-of-00004.safetensors",
+        "nbytes": 4947570872,
+        "sha256": "712a589c333f49f7b6f3870838a9e0ab4b3c0260abd5130e8c54316e6c99640b"
+      },
+      {
+        "name": "model-00003-of-00004.safetensors",
+        "nbytes": 4962221464,
+        "sha256": "5a9f84eb9846840802200c6502ccaaebf0a146ee89dcb8822fab795c392dd667"
+      },
+      {
+        "name": "model-00004-of-00004.safetensors",
+        "nbytes": 3670322200,
+        "sha256": "3349b4960bbc0bf7e47a624e5c520881adb06e2da4bda6ed14b51c7f647fe26c"
+      }
+    ],
+    "safetensors_bytes": 18483466448
+  },
+  "k": 6,
+  "size_cap_bytes": 45000000000,
+  "walked": [
+    {
+      "listing_rank": 1,
+      "upload": "hugging-quants/gemma-2-9b-it-AWQ-INT4",
+      "downloads_30d": 662624,
+      "created_at": "2024-10-15T15:17:54+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "6e62725da8e92309167814dad7aacc0ed8cb2484",
+      "shards": [
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "nbytes": 5000054416,
+          "sha256": "ac1c13c9c4d84b052a0dd0ba7922ebfdd408a9b8d1f7bd4b1d594f1102f73d8d"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "nbytes": 1160653576,
+          "sha256": "052625318509988353e325b19c7fb08e133637862d0c98336785e5d139d6f7f4"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 2,
+      "upload": "bartowski/gemma-2-9b-it-GGUF",
+      "downloads_30d": 26703,
+      "created_at": "2024-06-27T15:42:48+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "d731033f3dc4018261fd39896e50984d398b4ac5",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 3,
+      "upload": "unsloth/gemma-2-9b-it-bnb-4bit",
+      "downloads_30d": 7590,
+      "created_at": "2024-07-03T05:17:04+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "27b027bcbb6b1861b02551d5c699d5d07f29610a",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 6130708068,
+          "sha256": "e4b313271f2d994286f1c529dfd735744ad5b59bb71e2ce076865238b5846592"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 4,
+      "upload": "lmstudio-community/gemma-2-9b-it-GGUF",
+      "downloads_30d": 6007,
+      "created_at": "2024-06-28T05:10:58+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "8fcfcc720a20ee55fa1c9ed602dc12aabc04e525",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 5,
+      "upload": "legraphista/gemma-2-9b-it-IMat-GGUF",
+      "downloads_30d": 3588,
+      "created_at": "2024-06-27T17:19:15+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "924b2ef950fe5acbd9b2e52a8bfe684ab188b95a",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 6,
+      "upload": "DiTy/gemma-2-9b-it-russian-function-calling-GGUF",
+      "downloads_30d": 1987,
+      "created_at": "2024-09-05T16:46:35+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "5d2490469e56fb589ea5da3184622b511d90100b",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4903351912,
+          "sha256": "318e44237d2d9fa0f55cc1c26c89fa770e2066cc2875db74af20420315c2fbc5"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4947570872,
+          "sha256": "1f9c305ce9d0588ac22c71f663cfd3c2ed6f4c64012d5244b12bf5bc5d60fdff"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4962221464,
+          "sha256": "3cad3352d923c487441ae3b7579623cdad22d365576d1d93f1f5c602ef7916fc"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 3670322200,
+          "sha256": "48752a998e4ec33707d3d576de9d19e0f0a73fd54837686245739f455b46ebe1"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 7,
+      "upload": "QuantFactory/gemma-2-9b-it-GGUF",
+      "downloads_30d": 1812,
+      "created_at": "2024-06-28T23:47:24+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "de580b6e791639f3f316eca43e3dba0369d6309c",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 8,
+      "upload": "MERaLiON/MERaLiON-2-10B-ASR",
+      "downloads_30d": 1347,
+      "created_at": "2025-05-25T13:18:25+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "openai/whisper-large-v3",
+        "google/gemma-2-9b-it"
+      ],
+      "card_base_model_relation": null,
+      "sha": "3291e0b1f2fc48e43001b24ab500b38758003639",
+      "shards": [
+        {
+          "name": "model-00001-of-00005.safetensors",
+          "nbytes": 4944547928,
+          "sha256": "cd268d844e4b7498cc26ee4580d0d231f995f809f8ac9e36b5f1c627022c59a8"
+        },
+        {
+          "name": "model-00002-of-00005.safetensors",
+          "nbytes": 4991612584,
+          "sha256": "7c6208360ff670e6526e5c162718e836f036d99820802c66781ed7f93f37da3a"
+        },
+        {
+          "name": "model-00003-of-00005.safetensors",
+          "nbytes": 4918183272,
+          "sha256": "e51266aba27f944b2c91b042984d326ed76b3cc6770b22aa3ff50a497dfec3ec"
+        },
+        {
+          "name": "model-00004-of-00005.safetensors",
+          "nbytes": 4991612648,
+          "sha256": "30b94245e43633a8df805d30018ed60e34eba654a3d2d787bdb8970e175e3a5c"
+        },
+        {
+          "name": "model-00005-of-00005.safetensors",
+          "nbytes": 367038856,
+          "sha256": "59109af7285d2dcd8d55b58c69c3fa373ee9f0f49835b3c83b0e07e8d5be806c"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 9,
+      "upload": "second-state/gemma-2-9b-it-GGUF",
+      "downloads_30d": 1335,
+      "created_at": "2024-06-28T01:45:08+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "af16b8b00b50732894a363f9c5fb405408292996",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 10,
+      "upload": "OpenLLM-Ro/RoGemma2-9b-Instruct",
+      "downloads_30d": 1185,
+      "created_at": "2024-10-10T14:22:07+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "google/gemma-2-9b-it"
+      ],
+      "card_base_model_relation": null,
+      "sha": "79f76c0d5c30df1d6715a05926ba7600da562704",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4903351912,
+          "sha256": "e780d8ad5ab070303e723025b76573090ef0c07ce361e27bbb8138b735fe9751"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4947570872,
+          "sha256": "d4afc22ae31227db783cfb4ea7eab05259310e922538b9eac958da5bacb72165"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4962221464,
+          "sha256": "682c91fb2c8991cf98aebabd63a85f8b13dea98fd0458951f86a8eeabf19f01c"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 3670322200,
+          "sha256": "a52c0920fa47dc85a3a13ddfcb53c3f2cb8dc8f05665e364247b2e8257dbe52d"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 11,
+      "upload": "shenzhi-wang/Gemma-2-9B-Chinese-Chat",
+      "downloads_30d": 1131,
+      "created_at": "2024-06-30T08:40:24+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "google/gemma-2-9b-it",
+      "card_base_model_relation": null,
+      "sha": "6265d59abe241f65b593896d217743d9d8f63184",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4903351912,
+          "sha256": "f15cf5dd40fffa8f19eeaaed99d45ef1a5c3b5f25a0326a3f46c2bdc9d9a3f96"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4947570872,
+          "sha256": "773a5b4c17e5e7322253ee7c756bcb22fed3a67900eae5fa42ebaf2452ede193"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4962221464,
+          "sha256": "2f149261ae9b56da7740a6c217d94ceaaf2080b834f279be09b8d557d3114664"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 3670322200,
+          "sha256": "42d6d5dc2860f6e5d4d9a84a9a0c9016a9a038530040cabaeda4154bc3cccf4b"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    }
+  ]
+}

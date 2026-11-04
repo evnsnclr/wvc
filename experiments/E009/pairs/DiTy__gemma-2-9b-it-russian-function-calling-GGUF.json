@@ -1,0 +1,6197 @@
+{
+  "format": "wvc-census-pair/1",
+  "census": {
+    "experiment": "E009",
+    "host": "pace",
+    "base": "google/gemma-2-9b-it",
+    "base_sha": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+    "upload": "DiTy/gemma-2-9b-it-russian-function-calling-GGUF",
+    "upload_sha": "5d2490469e56fb589ea5da3184622b511d90100b",
+    "listing_rank": 6,
+    "listed_at": "2026-11-04T03:31:25Z",
+    "relation_tag": "quantized",
+    "card_base_model": "google/gemma-2-9b-it",
+    "card_base_model_relation": null,
+    "downloads_30d": 1987,
+    "created_at": "2024-09-05T16:46:35+00:00",
+    "upload_shards": [
+      {
+        "name": "model-00001-of-00004.safetensors",
+        "nbytes": 4903351912,
+        "sha256": "318e44237d2d9fa0f55cc1c26c89fa770e2066cc2875db74af20420315c2fbc5"
+      },
+      {
+        "name": "model-00002-of-00004.safetensors",
+        "nbytes": 4947570872,
+        "sha256": "1f9c305ce9d0588ac22c71f663cfd3c2ed6f4c64012d5244b12bf5bc5d60fdff"
+      },
+      {
+        "name": "model-00003-of-00004.safetensors",
+        "nbytes": 4962221464,
+        "sha256": "3cad3352d923c487441ae3b7579623cdad22d365576d1d93f1f5c602ef7916fc"
+      },
+      {
+        "name": "model-00004-of-00004.safetensors",
+        "nbytes": 3670322200,
+        "sha256": "48752a998e4ec33707d3d576de9d19e0f0a73fd54837686245739f455b46ebe1"
+      }
+    ],
+    "command": "wvc diff --rank --json hf:google/gemma-2-9b-it@11c9b309abf73637e4b6f9a3fa1e92e615547819 hf:DiTy/gemma-2-9b-it-russian-function-calling-GGUF@5d2490469e56fb589ea5da3184622b511d90100b",
+    "wvc_version": "0.1.0",
+    "wvc_source_commit": "334b6ff4c51a6e6111d0b8f71e5395147f8575b9",
+    "wvc_source_dirty": false,
+    "huggingface_hub": "2.4.0",
+    "numpy": "2.5.4",
+    "python": "3.12.5",
+    "platform": "Linux x86_64",
+    "exit_code": 1,
+    "wall_seconds": 3019.1,
+    "bytes_new": 18484060139,
+    "run_at": "2026-11-04T04:37:30Z",
+    "shards_fetched": {
+      "a": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4903351912,
+          "sha256": "a0d4eb4fcbddfe01b0dc7a58386a3980826ededaf0ecd67d1ef38995b89615ba"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4947570872,
+          "sha256": "712a589c333f49f7b6f3870838a9e0ab4b3c0260abd5130e8c54316e6c99640b"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4962221464,
+          "sha256": "5a9f84eb9846840802200c6502ccaaebf0a146ee89dcb8822fab795c392dd667"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 3670322200,
+          "sha256": "3349b4960bbc0bf7e47a624e5c520881adb06e2da4bda6ed14b51c7f647fe26c"
+        }
+      ],
+      "b": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "nbytes": 4903351912,
+          "sha256": "318e44237d2d9fa0f55cc1c26c89fa770e2066cc2875db74af20420315c2fbc5"
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "nbytes": 4947570872,
+          "sha256": "1f9c305ce9d0588ac22c71f663cfd3c2ed6f4c64012d5244b12bf5bc5d60fdff"
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "nbytes": 4962221464,
+          "sha256": "3cad3352d923c487441ae3b7579623cdad22d365576d1d93f1f5c602ef7916fc"
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "nbytes": 3670322200,
+          "sha256": "48752a998e4ec33707d3d576de9d19e0f0a73fd54837686245739f455b46ebe1"
+        }
+      ]
+    }
+  },
+  "diff": {
+    "a": {
+      "hf": {
+        "repo": "google/gemma-2-9b-it",
+        "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+        "sha": "11c9b309abf73637e4b6f9a3fa1e92e615547819"
+      },
+      "root": "d93151b3bcac479ed425f0a9bd473d96d075157c3a4f5b6ab3b535a62a30171e",
+      "files": {
+        "skipped": [],
+        "fetched": [
+          "model-00001-of-00004.safetensors",
+          "model-00002-of-00004.safetensors",
+          "model-00003-of-00004.safetensors",
+          "model-00004-of-00004.safetensors"
+        ]
+      }
+    },
+    "b": {
+      "hf": {
+        "repo": "DiTy/gemma-2-9b-it-russian-function-calling-GGUF",
+        "revision": "5d2490469e56fb589ea5da3184622b511d90100b",
+        "sha": "5d2490469e56fb589ea5da3184622b511d90100b"
+      },
+      "root": "cbdf899415b20622735ee7738e74f78d85acf8eac1b8d6399f29d67f719a97da",
+      "files": {
+        "skipped": [],
+        "fetched": [
+          "model-00001-of-00004.safetensors",
+          "model-00002-of-00004.safetensors",
+          "model-00003-of-00004.safetensors",
+          "model-00004-of-00004.safetensors"
+        ]
+      }
+    },
+    "summary": {
+      "tensors": 464,
+      "by_status": {
+        "unchanged": 212,
+        "changed": 252,
+        "added": 0,
+        "removed": 0,
+        "reshaped": 0
+      },
+      "elements_compared": 9241705984,
+      "elements_changed": 5460861401,
+      "fraction_changed": 0.5908932193313974
+    },
+    "tensors": [
+      {
+        "name": "model.layers.0.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30990012,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.15396290224785106,
+        "rel_delta_norm": 0.004112933159512765,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2301,
+        "top1_energy": 0.25381863990716447
+      },
+      {
+        "name": "model.layers.0.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39628474,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003814697265625,
+        "delta_norm": 0.3033236061767452,
+        "rel_delta_norm": 0.008132799020672961,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 11,
+        "top1_energy": 0.33828190036924366
+      },
+      {
+        "name": "model.layers.0.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39095734,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003204345703125,
+        "delta_norm": 0.29897480969621504,
+        "rel_delta_norm": 0.007717939678895411,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.31344832939716133
+      },
+      {
+        "name": "model.layers.0.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5175040,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.10877935386840397,
+        "rel_delta_norm": 0.006013935503237752,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 680,
+        "top1_energy": 0.3963398879979689
+      },
+      {
+        "name": "model.layers.0.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10261951,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.1483749964539126,
+        "rel_delta_norm": 0.006349710778278214,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 148,
+        "top1_energy": 0.5599466223891543
+      },
+      {
+        "name": "model.layers.0.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5181128,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10401163525428977,
+        "rel_delta_norm": 0.006326091101427687,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 699,
+        "top1_energy": 0.36628801781677317
+      },
+      {
+        "name": "model.layers.1.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30316164,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.14879411273771612,
+        "rel_delta_norm": 0.00399378364650423,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2183,
+        "top1_energy": 0.2825609034252075
+      },
+      {
+        "name": "model.layers.1.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39460545,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000308990478515625,
+        "delta_norm": 0.2896854165788191,
+        "rel_delta_norm": 0.007931516489627647,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 195,
+        "top1_energy": 0.2360767606579273
+      },
+      {
+        "name": "model.layers.1.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38836588,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.2907673782523409,
+        "rel_delta_norm": 0.007455453047429486,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 320,
+        "top1_energy": 0.24678057944692394
+      },
+      {
+        "name": "model.layers.1.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5022959,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.10849933722430295,
+        "rel_delta_norm": 0.005361393307195951,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1290,
+        "top1_energy": 0.20836325092733612
+      },
+      {
+        "name": "model.layers.1.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10093654,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.14787454422414859,
+        "rel_delta_norm": 0.005633479580688565,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 860,
+        "top1_energy": 0.36057197833381205
+      },
+      {
+        "name": "model.layers.1.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5227607,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00032466650009155273,
+        "delta_norm": 0.11518245855593723,
+        "rel_delta_norm": 0.006393422875781212,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 673,
+        "top1_energy": 0.3852472092121376
+      },
+      {
+        "name": "model.layers.10.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31479063,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.155673743992349,
+        "rel_delta_norm": 0.004367053781057505,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1232,
+        "top1_energy": 0.3943229024886264
+      },
+      {
+        "name": "model.layers.10.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39673558,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.2962345688949912,
+        "rel_delta_norm": 0.007980681799627956,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 386,
+        "top1_energy": 0.20757478893529838
+      },
+      {
+        "name": "model.layers.10.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40179635,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.3016820395784562,
+        "rel_delta_norm": 0.008450743516537875,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3110866369712852
+      },
+      {
+        "name": "model.layers.10.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5245489,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.11238901422080409,
+        "rel_delta_norm": 0.006045395545619454,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1036,
+        "top1_energy": 0.2436393182710381
+      },
+      {
+        "name": "model.layers.10.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10334003,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003204345703125,
+        "delta_norm": 0.15372536633006373,
+        "rel_delta_norm": 0.00605553181918184,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 618,
+        "top1_energy": 0.39130632137956994
+      },
+      {
+        "name": "model.layers.10.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5049640,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.11137217514895065,
+        "rel_delta_norm": 0.006035852517746408,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 509,
+        "top1_energy": 0.51192867457045
+      },
+      {
+        "name": "model.layers.11.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31850422,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15836454837503428,
+        "rel_delta_norm": 0.004448331203385798,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1498,
+        "top1_energy": 0.34118210877550803
+      },
+      {
+        "name": "model.layers.11.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39963079,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003509521484375,
+        "delta_norm": 0.3046787652968783,
+        "rel_delta_norm": 0.008263291881619464,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.28616865326399155
+      },
+      {
+        "name": "model.layers.11.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39978964,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00031280517578125,
+        "delta_norm": 0.2971459892363661,
+        "rel_delta_norm": 0.008321570136666685,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.32495247189406523
+      },
+      {
+        "name": "model.layers.11.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5285174,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.11345137758143117,
+        "rel_delta_norm": 0.006134812271281263,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 992,
+        "top1_energy": 0.24715054184193141
+      },
+      {
+        "name": "model.layers.11.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10342968,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.15592899273617686,
+        "rel_delta_norm": 0.0061106979676641355,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 556,
+        "top1_energy": 0.4043406039600553
+      },
+      {
+        "name": "model.layers.11.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5025763,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11071091068012766,
+        "rel_delta_norm": 0.005946732359599723,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 606,
+        "top1_energy": 0.46689774416770996
+      },
+      {
+        "name": "model.layers.12.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31198069,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.15282533012278532,
+        "rel_delta_norm": 0.004321004808128484,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1277,
+        "top1_energy": 0.39416000951158947
+      },
+      {
+        "name": "model.layers.12.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40051514,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.30413914036933365,
+        "rel_delta_norm": 0.008289008625504562,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 101,
+        "top1_energy": 0.2298560084271242
+      },
+      {
+        "name": "model.layers.12.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39857996,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003509521484375,
+        "delta_norm": 0.2985108511070257,
+        "rel_delta_norm": 0.008384372962942102,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3839031174256773
+      },
+      {
+        "name": "model.layers.12.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5289861,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002593994140625,
+        "delta_norm": 0.10911698759932895,
+        "rel_delta_norm": 0.0061300505467765274,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1076,
+        "top1_energy": 0.21826763325923954
+      },
+      {
+        "name": "model.layers.12.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10170455,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.14970407411565848,
+        "rel_delta_norm": 0.005872917773642351,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 577,
+        "top1_energy": 0.4254722898123584
+      },
+      {
+        "name": "model.layers.12.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4927623,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00031280517578125,
+        "delta_norm": 0.11011823303212347,
+        "rel_delta_norm": 0.00581814467406325,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 524,
+        "top1_energy": 0.5277780627584181
+      },
+      {
+        "name": "model.layers.13.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31367126,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15454817691024264,
+        "rel_delta_norm": 0.004382603929349524,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1059,
+        "top1_energy": 0.425753446959087
+      },
+      {
+        "name": "model.layers.13.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39816910,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3015938081261859,
+        "rel_delta_norm": 0.008210640809103812,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.32621864392935734
+      },
+      {
+        "name": "model.layers.13.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39969870,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.3055208401095319,
+        "rel_delta_norm": 0.00861244382480528,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.45385837182296335
+      },
+      {
+        "name": "model.layers.13.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5294362,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.10946142408801544,
+        "rel_delta_norm": 0.006102823789742136,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 949,
+        "top1_energy": 0.26396496839574074
+      },
+      {
+        "name": "model.layers.13.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10183046,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003509521484375,
+        "delta_norm": 0.15229808087692662,
+        "rel_delta_norm": 0.005819969879496411,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 809,
+        "top1_energy": 0.3576040290000864
+      },
+      {
+        "name": "model.layers.13.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5064060,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00031280517578125,
+        "delta_norm": 0.11175732720763437,
+        "rel_delta_norm": 0.005763162105738528,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 970,
+        "top1_energy": 0.313851243591263
+      },
+      {
+        "name": "model.layers.14.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31827094,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15757276659289032,
+        "rel_delta_norm": 0.004461458253376158,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1384,
+        "top1_energy": 0.35697940282322993
+      },
+      {
+        "name": "model.layers.14.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39835512,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3011065842581138,
+        "rel_delta_norm": 0.008176409574569828,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.31160489985870804
+      },
+      {
+        "name": "model.layers.14.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40124178,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004138946533203125,
+        "delta_norm": 0.30718598136109415,
+        "rel_delta_norm": 0.008603279869141457,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4071258379645593
+      },
+      {
+        "name": "model.layers.14.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5252322,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.10994426812092133,
+        "rel_delta_norm": 0.00599758683413384,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1002,
+        "top1_energy": 0.2556833060111734
+      },
+      {
+        "name": "model.layers.14.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10230288,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.15481095188661,
+        "rel_delta_norm": 0.005993955790642852,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 522,
+        "top1_energy": 0.4300695897502873
+      },
+      {
+        "name": "model.layers.14.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4896568,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00035858154296875,
+        "delta_norm": 0.11423198545679511,
+        "rel_delta_norm": 0.006040757890917584,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 261,
+        "top1_energy": 0.6816689561890124
+      },
+      {
+        "name": "model.layers.15.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31818978,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000186920166015625,
+        "delta_norm": 0.15913753956061516,
+        "rel_delta_norm": 0.004478119030854612,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1164,
+        "top1_energy": 0.3935747590731054
+      },
+      {
+        "name": "model.layers.15.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39806063,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.302658222820352,
+        "rel_delta_norm": 0.008245996027420105,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3465928929996758
+      },
+      {
+        "name": "model.layers.15.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39810849,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.30235177467839436,
+        "rel_delta_norm": 0.008420165469977882,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4419663344503788
+      },
+      {
+        "name": "model.layers.15.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5289222,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.10886184153623976,
+        "rel_delta_norm": 0.006032014219964015,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 865,
+        "top1_energy": 0.28634636406658076
+      },
+      {
+        "name": "model.layers.15.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10151850,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.15105358469423044,
+        "rel_delta_norm": 0.005857347763590261,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 718,
+        "top1_energy": 0.37604710490233745
+      },
+      {
+        "name": "model.layers.15.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5042532,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11388891265465843,
+        "rel_delta_norm": 0.006078429337239071,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 484,
+        "top1_energy": 0.5202299917367117
+      },
+      {
+        "name": "model.layers.16.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31363883,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15336371451080152,
+        "rel_delta_norm": 0.0042376008503827,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2074,
+        "top1_energy": 0.27223764352692753
+      },
+      {
+        "name": "model.layers.16.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40027062,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.3007519998296215,
+        "rel_delta_norm": 0.008266968452806304,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3114124969236706
+      },
+      {
+        "name": "model.layers.16.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39585880,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00035858154296875,
+        "delta_norm": 0.29458354178468366,
+        "rel_delta_norm": 0.008258188053971249,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4528013320506299
+      },
+      {
+        "name": "model.layers.16.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5172757,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.10650812927175332,
+        "rel_delta_norm": 0.005675830444000585,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1169,
+        "top1_energy": 0.20743259541474565
+      },
+      {
+        "name": "model.layers.16.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10024447,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.1517118272174177,
+        "rel_delta_norm": 0.005845431509448675,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 357,
+        "top1_energy": 0.5185514228818981
+      },
+      {
+        "name": "model.layers.16.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4841477,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10982646643874297,
+        "rel_delta_norm": 0.005651620862655058,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 443,
+        "top1_energy": 0.604326009975554
+      },
+      {
+        "name": "model.layers.17.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31190296,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15560680248712255,
+        "rel_delta_norm": 0.004208999641041061,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1581,
+        "top1_energy": 0.3488226399969532
+      },
+      {
+        "name": "model.layers.17.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39339225,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.30592296269414837,
+        "rel_delta_norm": 0.007922547632093593,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4121376007512965
+      },
+      {
+        "name": "model.layers.17.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39285088,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004119873046875,
+        "delta_norm": 0.29906445707281787,
+        "rel_delta_norm": 0.007953670610514964,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.40358543503878097
+      },
+      {
+        "name": "model.layers.17.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5325564,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00028228759765625,
+        "delta_norm": 0.10821053194091057,
+        "rel_delta_norm": 0.006124920408972269,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1015,
+        "top1_energy": 0.22087435646156356
+      },
+      {
+        "name": "model.layers.17.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9875530,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.15017685761998895,
+        "rel_delta_norm": 0.005418837994665838,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 590,
+        "top1_energy": 0.47184927972340207
+      },
+      {
+        "name": "model.layers.17.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4769410,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10627281274343091,
+        "rel_delta_norm": 0.0053505548687874105,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 706,
+        "top1_energy": 0.4727967182376427
+      },
+      {
+        "name": "model.layers.18.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30526698,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15918486824994552,
+        "rel_delta_norm": 0.0042007150447950364,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1119,
+        "top1_energy": 0.43458004934933264
+      },
+      {
+        "name": "model.layers.18.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38702531,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004367828369140625,
+        "delta_norm": 0.30653548874245,
+        "rel_delta_norm": 0.007708716078850726,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4825515324651236
+      },
+      {
+        "name": "model.layers.18.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39281096,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.30791567498895406,
+        "rel_delta_norm": 0.007992573029447054,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.42040461769092813
+      },
+      {
+        "name": "model.layers.18.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5213543,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00025081634521484375,
+        "delta_norm": 0.11092193588754308,
+        "rel_delta_norm": 0.005846571861491398,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 963,
+        "top1_energy": 0.26862238456082504
+      },
+      {
+        "name": "model.layers.18.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9830894,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.15342170612671727,
+        "rel_delta_norm": 0.0054124916630818734,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 627,
+        "top1_energy": 0.463148427184083
+      },
+      {
+        "name": "model.layers.18.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4606001,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00037980079650878906,
+        "delta_norm": 0.11215147742283832,
+        "rel_delta_norm": 0.005425182413843852,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 313,
+        "top1_energy": 0.7370392236011337
+      },
+      {
+        "name": "model.layers.19.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30624284,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.1672330462250493,
+        "rel_delta_norm": 0.0043800131573023685,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 480,
+        "top1_energy": 0.555493256442304
+      },
+      {
+        "name": "model.layers.19.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39189742,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3231156160169856,
+        "rel_delta_norm": 0.008061592056886701,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.49660207162495107
+      },
+      {
+        "name": "model.layers.19.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39006462,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00038185715675354004,
+        "delta_norm": 0.3083338952462636,
+        "rel_delta_norm": 0.00791217719772874,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.46424887180039975
+      },
+      {
+        "name": "model.layers.19.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5157320,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.11020521746613893,
+        "rel_delta_norm": 0.005645339385536568,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 985,
+        "top1_energy": 0.2768962086658098
+      },
+      {
+        "name": "model.layers.19.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9769087,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000370025634765625,
+        "delta_norm": 0.1545937383502715,
+        "rel_delta_norm": 0.005494452473808674,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 441,
+        "top1_energy": 0.5306668280707402
+      },
+      {
+        "name": "model.layers.19.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4857103,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11679410466793223,
+        "rel_delta_norm": 0.0056071055621679435,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 524,
+        "top1_energy": 0.5642958910074833
+      },
+      {
+        "name": "model.layers.2.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30590223,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.15143519787424517,
+        "rel_delta_norm": 0.0040373966610645524,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2378,
+        "top1_energy": 0.25265291087343494
+      },
+      {
+        "name": "model.layers.2.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39012979,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003814697265625,
+        "delta_norm": 0.29304879002019074,
+        "rel_delta_norm": 0.007584708923961171,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 1097,
+        "top1_energy": 0.16327923529226268
+      },
+      {
+        "name": "model.layers.2.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39472445,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.2965500692050253,
+        "rel_delta_norm": 0.00782959472640866,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 450,
+        "top1_energy": 0.20967886366450067
+      },
+      {
+        "name": "model.layers.2.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5042783,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.11156739105772566,
+        "rel_delta_norm": 0.0055009823309946975,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1353,
+        "top1_energy": 0.19199788542343732
+      },
+      {
+        "name": "model.layers.2.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10173525,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.1471871060725625,
+        "rel_delta_norm": 0.005723798138935666,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 995,
+        "top1_energy": 0.31348031261290554
+      },
+      {
+        "name": "model.layers.2.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5216645,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.11336365521836776,
+        "rel_delta_norm": 0.006249654717752482,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 836,
+        "top1_energy": 0.33147745605568046
+      },
+      {
+        "name": "model.layers.20.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30198672,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.16460051994860853,
+        "rel_delta_norm": 0.004260105768347955,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 572,
+        "top1_energy": 0.5510772735093796
+      },
+      {
+        "name": "model.layers.20.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39284670,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00038909912109375,
+        "delta_norm": 0.31538725323742045,
+        "rel_delta_norm": 0.00785679617229049,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3738634787858329
+      },
+      {
+        "name": "model.layers.20.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39291461,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000423431396484375,
+        "delta_norm": 0.3159582045040094,
+        "rel_delta_norm": 0.008018196384114957,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.41577251430378764
+      },
+      {
+        "name": "model.layers.20.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5140337,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.11050866601684854,
+        "rel_delta_norm": 0.005720723828076028,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 857,
+        "top1_energy": 0.32378786845280083
+      },
+      {
+        "name": "model.layers.20.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9685451,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.163013621872869,
+        "rel_delta_norm": 0.0056292465270306406,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 187,
+        "top1_energy": 0.6431076370609039
+      },
+      {
+        "name": "model.layers.20.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4581868,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.11711345525679598,
+        "rel_delta_norm": 0.005495153269208617,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 277,
+        "top1_energy": 0.7535661958408386
+      },
+      {
+        "name": "model.layers.21.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30531598,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.170905284186625,
+        "rel_delta_norm": 0.004385415429131171,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 408,
+        "top1_energy": 0.5756690437609309
+      },
+      {
+        "name": "model.layers.21.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38911382,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.3293184856708678,
+        "rel_delta_norm": 0.007979360230749286,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5409866433481622
+      },
+      {
+        "name": "model.layers.21.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39100920,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.3308199090814772,
+        "rel_delta_norm": 0.008231471937847804,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5702922942709047
+      },
+      {
+        "name": "model.layers.21.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5212807,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002899169921875,
+        "delta_norm": 0.11438522681366457,
+        "rel_delta_norm": 0.005777210825966222,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 966,
+        "top1_energy": 0.2765443840129431
+      },
+      {
+        "name": "model.layers.21.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9647604,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00043487548828125,
+        "delta_norm": 0.16762365429039214,
+        "rel_delta_norm": 0.005736996822420442,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 105,
+        "top1_energy": 0.6908476780580772
+      },
+      {
+        "name": "model.layers.21.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4733166,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004425048828125,
+        "delta_norm": 0.11607123759828955,
+        "rel_delta_norm": 0.005422805710142931,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 465,
+        "top1_energy": 0.6258967157583037
+      },
+      {
+        "name": "model.layers.22.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30876061,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.17320892376160235,
+        "rel_delta_norm": 0.004423415703136683,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 468,
+        "top1_energy": 0.5517946708160323
+      },
+      {
+        "name": "model.layers.22.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39140400,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.3338874208044139,
+        "rel_delta_norm": 0.00808978432946864,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5334713316569548
+      },
+      {
+        "name": "model.layers.22.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39607301,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.33237816845116924,
+        "rel_delta_norm": 0.00822340340254706,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4331450479140947
+      },
+      {
+        "name": "model.layers.22.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5119897,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00032806396484375,
+        "delta_norm": 0.11603115560947,
+        "rel_delta_norm": 0.005563571306811572,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 968,
+        "top1_energy": 0.29376255467551743
+      },
+      {
+        "name": "model.layers.22.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10034603,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.16419073031562922,
+        "rel_delta_norm": 0.005691982048483159,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 636,
+        "top1_energy": 0.4247872894568156
+      },
+      {
+        "name": "model.layers.22.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4901823,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00038909912109375,
+        "delta_norm": 0.1232460154378599,
+        "rel_delta_norm": 0.005806808500598473,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 360,
+        "top1_energy": 0.6404167513572673
+      },
+      {
+        "name": "model.layers.23.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30134723,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.17966270109082463,
+        "rel_delta_norm": 0.004563895609196402,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 59,
+        "top1_energy": 0.7051616672918131
+      },
+      {
+        "name": "model.layers.23.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39593153,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.33665781199547756,
+        "rel_delta_norm": 0.008083890096055132,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.42876167606043014
+      },
+      {
+        "name": "model.layers.23.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39416328,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000423431396484375,
+        "delta_norm": 0.33307543348647817,
+        "rel_delta_norm": 0.008184971936501978,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.48309768757729277
+      },
+      {
+        "name": "model.layers.23.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5212129,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00026702880859375,
+        "delta_norm": 0.11556257560039422,
+        "rel_delta_norm": 0.005733255326218437,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1144,
+        "top1_energy": 0.2039454765426495
+      },
+      {
+        "name": "model.layers.23.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10130446,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.17015784752152674,
+        "rel_delta_norm": 0.005738590815433382,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 730,
+        "top1_energy": 0.3898449036976544
+      },
+      {
+        "name": "model.layers.23.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4811520,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.12054235407229932,
+        "rel_delta_norm": 0.005538650711768418,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 500,
+        "top1_energy": 0.590457998293013
+      },
+      {
+        "name": "model.layers.24.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30635044,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.18046887285800528,
+        "rel_delta_norm": 0.004560170541630636,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 114,
+        "top1_energy": 0.6575736022175374
+      },
+      {
+        "name": "model.layers.24.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39683938,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.34016467566543696,
+        "rel_delta_norm": 0.008212101597518059,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.42945868346773913
+      },
+      {
+        "name": "model.layers.24.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39584030,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.34516513792411463,
+        "rel_delta_norm": 0.008462473697791814,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5470677903034756
+      },
+      {
+        "name": "model.layers.24.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5142144,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11760473707033192,
+        "rel_delta_norm": 0.005731161113877311,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 737,
+        "top1_energy": 0.3782900829705846
+      },
+      {
+        "name": "model.layers.24.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9801437,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.17164167511532505,
+        "rel_delta_norm": 0.005761403890811481,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 160,
+        "top1_energy": 0.6572621036624346
+      },
+      {
+        "name": "model.layers.24.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4791888,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.12911782330933047,
+        "rel_delta_norm": 0.006023518115023853,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 233,
+        "top1_energy": 0.6936662103040216
+      },
+      {
+        "name": "model.layers.25.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31462173,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.1767197011126893,
+        "rel_delta_norm": 0.004444077529963009,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 985,
+        "top1_energy": 0.4289732719456501
+      },
+      {
+        "name": "model.layers.25.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39448850,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000457763671875,
+        "delta_norm": 0.34728481715034987,
+        "rel_delta_norm": 0.008420273492641442,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5733217415684996
+      },
+      {
+        "name": "model.layers.25.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39829768,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004425048828125,
+        "delta_norm": 0.3484402517635699,
+        "rel_delta_norm": 0.008504751372039461,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4884001757853872
+      },
+      {
+        "name": "model.layers.25.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5147160,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.12061907431148194,
+        "rel_delta_norm": 0.005590041649022309,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 967,
+        "top1_energy": 0.2824381728726655
+      },
+      {
+        "name": "model.layers.25.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10012393,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.17615312239164307,
+        "rel_delta_norm": 0.00590793523530904,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 181,
+        "top1_energy": 0.6045081803587526
+      },
+      {
+        "name": "model.layers.25.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4809977,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.13492440771600323,
+        "rel_delta_norm": 0.006210148223813548,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 106,
+        "top1_energy": 0.8059178637392049
+      },
+      {
+        "name": "model.layers.26.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31471472,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.17292590368602062,
+        "rel_delta_norm": 0.004343024114284655,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1548,
+        "top1_energy": 0.3441832425096605
+      },
+      {
+        "name": "model.layers.26.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39780116,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3397258162843818,
+        "rel_delta_norm": 0.00823692185121992,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.42700164188196266
+      },
+      {
+        "name": "model.layers.26.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38648645,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.342471170911753,
+        "rel_delta_norm": 0.008326045687445296,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.6628201075894619
+      },
+      {
+        "name": "model.layers.26.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5093513,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003204345703125,
+        "delta_norm": 0.1200412408267198,
+        "rel_delta_norm": 0.0055276070636588875,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1174,
+        "top1_energy": 0.22188352508411938
+      },
+      {
+        "name": "model.layers.26.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10073958,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00037384033203125,
+        "delta_norm": 0.17059960297999907,
+        "rel_delta_norm": 0.005769699330976357,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 420,
+        "top1_energy": 0.5024825679652318
+      },
+      {
+        "name": "model.layers.26.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4786932,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000457763671875,
+        "delta_norm": 0.13230112440449177,
+        "rel_delta_norm": 0.006042808617192471,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 156,
+        "top1_energy": 0.7762617237913599
+      },
+      {
+        "name": "model.layers.27.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30121224,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.17172920789893548,
+        "rel_delta_norm": 0.004300233436661268,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 368,
+        "top1_energy": 0.6055067394567568
+      },
+      {
+        "name": "model.layers.27.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39209163,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00045013427734375,
+        "delta_norm": 0.3410693287278727,
+        "rel_delta_norm": 0.008165116202215843,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5495381421034922
+      },
+      {
+        "name": "model.layers.27.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39637558,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.34027754953079437,
+        "rel_delta_norm": 0.008187822158681128,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4385583416847094
+      },
+      {
+        "name": "model.layers.27.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4926933,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.12547814816894576,
+        "rel_delta_norm": 0.0054257402772628265,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 754,
+        "top1_energy": 0.44053505085271016
+      },
+      {
+        "name": "model.layers.27.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10158592,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003814697265625,
+        "delta_norm": 0.17478070136082485,
+        "rel_delta_norm": 0.0059584262611902476,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 260,
+        "top1_energy": 0.5500384298350233
+      },
+      {
+        "name": "model.layers.27.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5213772,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.13357431805730538,
+        "rel_delta_norm": 0.006510027724782287,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 337,
+        "top1_energy": 0.5540800897010868
+      },
+      {
+        "name": "model.layers.28.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31092861,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.17164975362742357,
+        "rel_delta_norm": 0.004250429522904222,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1456,
+        "top1_energy": 0.3694628527005893
+      },
+      {
+        "name": "model.layers.28.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39627141,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00041294097900390625,
+        "delta_norm": 0.336647356336414,
+        "rel_delta_norm": 0.008080071254723311,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3966500781256011
+      },
+      {
+        "name": "model.layers.28.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39396809,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.3315476114346647,
+        "rel_delta_norm": 0.007932112781909655,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3743736364548315
+      },
+      {
+        "name": "model.layers.28.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5330022,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.12025828532542047,
+        "rel_delta_norm": 0.006087922064783771,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 684,
+        "top1_energy": 0.37064581861062074
+      },
+      {
+        "name": "model.layers.28.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9826167,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.16396925522708103,
+        "rel_delta_norm": 0.005483624872834563,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 417,
+        "top1_energy": 0.540998859073883
+      },
+      {
+        "name": "model.layers.28.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5032976,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004177093505859375,
+        "delta_norm": 0.12953941692596013,
+        "rel_delta_norm": 0.00599091088017741,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 516,
+        "top1_energy": 0.5122708943056787
+      },
+      {
+        "name": "model.layers.29.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30714863,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.17643337860528696,
+        "rel_delta_norm": 0.004335953553136779,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 682,
+        "top1_energy": 0.5101281046613267
+      },
+      {
+        "name": "model.layers.29.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39359351,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004425048828125,
+        "delta_norm": 0.3313323486996151,
+        "rel_delta_norm": 0.007863981507187109,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3773274184225626
+      },
+      {
+        "name": "model.layers.29.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39247365,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0005035400390625,
+        "delta_norm": 0.33947126648197823,
+        "rel_delta_norm": 0.00808106102756949,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.47210248144704425
+      },
+      {
+        "name": "model.layers.29.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5236486,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00028228759765625,
+        "delta_norm": 0.12596893297920128,
+        "rel_delta_norm": 0.0059376880441313964,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 903,
+        "top1_energy": 0.2965305007184616
+      },
+      {
+        "name": "model.layers.29.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9863117,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.1677608085371752,
+        "rel_delta_norm": 0.005508362670182769,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 490,
+        "top1_energy": 0.5091099358355909
+      },
+      {
+        "name": "model.layers.29.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4875427,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.1283700833883517,
+        "rel_delta_norm": 0.005825749732866248,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 359,
+        "top1_energy": 0.6369962269272472
+      },
+      {
+        "name": "model.layers.3.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 29768854,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.14664895413808948,
+        "rel_delta_norm": 0.003934084838282023,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1460,
+        "top1_energy": 0.40646364899495524
+      },
+      {
+        "name": "model.layers.3.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38972023,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002593994140625,
+        "delta_norm": 0.29175711690820166,
+        "rel_delta_norm": 0.0075325452288546564,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 959,
+        "top1_energy": 0.1763081335220253
+      },
+      {
+        "name": "model.layers.3.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39294568,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003509521484375,
+        "delta_norm": 0.298112895555956,
+        "rel_delta_norm": 0.007937068432964524,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3864496016826384
+      },
+      {
+        "name": "model.layers.3.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5036427,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002593994140625,
+        "delta_norm": 0.1076538082926862,
+        "rel_delta_norm": 0.005473369048036726,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1220,
+        "top1_energy": 0.22991447295045514
+      },
+      {
+        "name": "model.layers.3.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10252818,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.15073447078107152,
+        "rel_delta_norm": 0.0059533996035508185,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 615,
+        "top1_energy": 0.40198352620428235
+      },
+      {
+        "name": "model.layers.3.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5128175,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10754624258862651,
+        "rel_delta_norm": 0.005938570840262676,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 947,
+        "top1_energy": 0.3028147179041713
+      },
+      {
+        "name": "model.layers.30.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 29961457,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.1741067204919963,
+        "rel_delta_norm": 0.004245440305040377,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 496,
+        "top1_energy": 0.5752294014065404
+      },
+      {
+        "name": "model.layers.30.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39495063,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003814697265625,
+        "delta_norm": 0.33286982012276983,
+        "rel_delta_norm": 0.00786236720558371,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3347269036689153
+      },
+      {
+        "name": "model.layers.30.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39328293,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.34119181621886796,
+        "rel_delta_norm": 0.00810820998613992,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4695754313396429
+      },
+      {
+        "name": "model.layers.30.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5197965,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.12291838666345765,
+        "rel_delta_norm": 0.005801746937602961,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 956,
+        "top1_energy": 0.2875734551529844
+      },
+      {
+        "name": "model.layers.30.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10051626,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.17404613452403547,
+        "rel_delta_norm": 0.005692525848752794,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 514,
+        "top1_energy": 0.47268172843248596
+      },
+      {
+        "name": "model.layers.30.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4948475,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.131347505528506,
+        "rel_delta_norm": 0.006008754514795785,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 334,
+        "top1_energy": 0.635742011194896
+      },
+      {
+        "name": "model.layers.31.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30996375,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.17843701781531404,
+        "rel_delta_norm": 0.004321114328278994,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1178,
+        "top1_energy": 0.4101547069890152
+      },
+      {
+        "name": "model.layers.31.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39415518,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003814697265625,
+        "delta_norm": 0.337819186724926,
+        "rel_delta_norm": 0.007943081905599777,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3946687327072607
+      },
+      {
+        "name": "model.layers.31.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39614678,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3381214711884763,
+        "rel_delta_norm": 0.008016079221001615,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.31796360339411134
+      },
+      {
+        "name": "model.layers.31.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5065501,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00031280517578125,
+        "delta_norm": 0.12152687589900825,
+        "rel_delta_norm": 0.005555463458330348,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1091,
+        "top1_energy": 0.2634951145670761
+      },
+      {
+        "name": "model.layers.31.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10073476,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.17029731285358732,
+        "rel_delta_norm": 0.005627758614831069,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 570,
+        "top1_energy": 0.45369103803450844
+      },
+      {
+        "name": "model.layers.31.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5029299,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.13074646534463272,
+        "rel_delta_norm": 0.005747667278390804,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 658,
+        "top1_energy": 0.46852953917283274
+      },
+      {
+        "name": "model.layers.32.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30406870,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.18060738015941727,
+        "rel_delta_norm": 0.0043347781257653695,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 553,
+        "top1_energy": 0.5431197936370414
+      },
+      {
+        "name": "model.layers.32.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39133213,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00043487548828125,
+        "delta_norm": 0.33839781897803184,
+        "rel_delta_norm": 0.007922657407524961,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.47011215254992944
+      },
+      {
+        "name": "model.layers.32.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39099635,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3382624032767213,
+        "rel_delta_norm": 0.007992624898005026,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4815074534969948
+      },
+      {
+        "name": "model.layers.32.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5059688,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11551116149187148,
+        "rel_delta_norm": 0.0054267146566229505,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1189,
+        "top1_energy": 0.23444142821699201
+      },
+      {
+        "name": "model.layers.32.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9978238,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.17479620649014488,
+        "rel_delta_norm": 0.0055854451473765845,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 536,
+        "top1_energy": 0.4780551655820201
+      },
+      {
+        "name": "model.layers.32.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4975075,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003814697265625,
+        "delta_norm": 0.1304708377843991,
+        "rel_delta_norm": 0.005785475534986961,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 708,
+        "top1_energy": 0.43054963204233876
+      },
+      {
+        "name": "model.layers.33.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30747030,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.18067501813760967,
+        "rel_delta_norm": 0.004324778587484755,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 873,
+        "top1_energy": 0.4721867198044871
+      },
+      {
+        "name": "model.layers.33.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38903712,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3251628346343698,
+        "rel_delta_norm": 0.007601001380546462,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.35084665307137497
+      },
+      {
+        "name": "model.layers.33.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39554509,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3415185110878242,
+        "rel_delta_norm": 0.00805145544712781,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3764824687753733
+      },
+      {
+        "name": "model.layers.33.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4988321,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00037384033203125,
+        "delta_norm": 0.12001568138603042,
+        "rel_delta_norm": 0.00549169260802163,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 848,
+        "top1_energy": 0.3808768860686843
+      },
+      {
+        "name": "model.layers.33.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9924351,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.17246712004930428,
+        "rel_delta_norm": 0.0054912857081109295,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 625,
+        "top1_energy": 0.45581257569819017
+      },
+      {
+        "name": "model.layers.33.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4978745,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.13014009823164507,
+        "rel_delta_norm": 0.005671273855169433,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 837,
+        "top1_energy": 0.37827981778667047
+      },
+      {
+        "name": "model.layers.34.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30484503,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.17958222389572992,
+        "rel_delta_norm": 0.00427609983181919,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 822,
+        "top1_energy": 0.4902682110572263
+      },
+      {
+        "name": "model.layers.34.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38863154,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3321984485587579,
+        "rel_delta_norm": 0.007749281384219417,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4453674808788987
+      },
+      {
+        "name": "model.layers.34.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39334583,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3355509704455141,
+        "rel_delta_norm": 0.00787592213809277,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3707880978723402
+      },
+      {
+        "name": "model.layers.34.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5065548,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000316619873046875,
+        "delta_norm": 0.12152897822525037,
+        "rel_delta_norm": 0.005608173850044929,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 742,
+        "top1_energy": 0.4294618690159459
+      },
+      {
+        "name": "model.layers.34.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10082384,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.17756626171248038,
+        "rel_delta_norm": 0.005767197663207831,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 456,
+        "top1_energy": 0.4857338327473868
+      },
+      {
+        "name": "model.layers.34.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4879157,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.131771626866054,
+        "rel_delta_norm": 0.005920904115555541,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 403,
+        "top1_energy": 0.579189779788584
+      },
+      {
+        "name": "model.layers.35.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30765730,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002002716064453125,
+        "delta_norm": 0.17933244980478943,
+        "rel_delta_norm": 0.0042712207700561205,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1163,
+        "top1_energy": 0.42365965020093205
+      },
+      {
+        "name": "model.layers.35.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38924693,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.3343580568120494,
+        "rel_delta_norm": 0.007796430209333204,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.44592422904123
+      },
+      {
+        "name": "model.layers.35.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39320776,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.33366172204125377,
+        "rel_delta_norm": 0.007832832700025688,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.31373174868683124
+      },
+      {
+        "name": "model.layers.35.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5050519,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.12037386751642425,
+        "rel_delta_norm": 0.005437184315057752,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1002,
+        "top1_energy": 0.3123788511465822
+      },
+      {
+        "name": "model.layers.35.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10120194,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.1759183408425433,
+        "rel_delta_norm": 0.005580091503540122,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 842,
+        "top1_energy": 0.36845913944221476
+      },
+      {
+        "name": "model.layers.35.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4738074,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004940032958984375,
+        "delta_norm": 0.13298803726888053,
+        "rel_delta_norm": 0.005925489274804638,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 169,
+        "top1_energy": 0.7846419227231353
+      },
+      {
+        "name": "model.layers.36.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31225189,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000213623046875,
+        "delta_norm": 0.17986030751705298,
+        "rel_delta_norm": 0.0042989108978233785,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1579,
+        "top1_energy": 0.3491225542701156
+      },
+      {
+        "name": "model.layers.36.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39271287,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.32993700677095794,
+        "rel_delta_norm": 0.00771682820011215,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 15,
+        "top1_energy": 0.308757947104386
+      },
+      {
+        "name": "model.layers.36.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39075784,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.33578436793176536,
+        "rel_delta_norm": 0.007889491821705334,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.39955665461249257
+      },
+      {
+        "name": "model.layers.36.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5117765,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.12895969267469742,
+        "rel_delta_norm": 0.0057929590331895365,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 991,
+        "top1_energy": 0.2946682989493519
+      },
+      {
+        "name": "model.layers.36.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9977242,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.17641618295074077,
+        "rel_delta_norm": 0.005638084909950497,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 463,
+        "top1_energy": 0.5033449693599116
+      },
+      {
+        "name": "model.layers.36.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4929831,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.12854123604424772,
+        "rel_delta_norm": 0.005604503987333011,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 660,
+        "top1_energy": 0.48202174684828236
+      },
+      {
+        "name": "model.layers.37.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30812192,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.18271003299560773,
+        "rel_delta_norm": 0.004369046551519897,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 676,
+        "top1_energy": 0.5110132501172077
+      },
+      {
+        "name": "model.layers.37.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39129120,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000457763671875,
+        "delta_norm": 0.3445823605517732,
+        "rel_delta_norm": 0.008067535611291215,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.5208580118507531
+      },
+      {
+        "name": "model.layers.37.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39411813,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.3498511590640192,
+        "rel_delta_norm": 0.008216392811143197,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4709408504118323
+      },
+      {
+        "name": "model.layers.37.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5044674,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.11640835908230425,
+        "rel_delta_norm": 0.005519560662971224,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 992,
+        "top1_energy": 0.30386107252662875
+      },
+      {
+        "name": "model.layers.37.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 9953422,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.18016329322022048,
+        "rel_delta_norm": 0.005719993088158289,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 317,
+        "top1_energy": 0.557858517327932
+      },
+      {
+        "name": "model.layers.37.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5001418,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004119873046875,
+        "delta_norm": 0.1328629825547509,
+        "rel_delta_norm": 0.005933416020452406,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 619,
+        "top1_energy": 0.45084541721138255
+      },
+      {
+        "name": "model.layers.38.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30545670,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.17912578421695283,
+        "rel_delta_norm": 0.004307638340932281,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 676,
+        "top1_energy": 0.5191419776437481
+      },
+      {
+        "name": "model.layers.38.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39538197,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3409873501474482,
+        "rel_delta_norm": 0.008095758942368038,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.42160627556447927
+      },
+      {
+        "name": "model.layers.38.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39567627,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.34222308591085276,
+        "rel_delta_norm": 0.008065558692340363,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3301950718361393
+      },
+      {
+        "name": "model.layers.38.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4855738,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11855485139769598,
+        "rel_delta_norm": 0.005282115470190899,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 943,
+        "top1_energy": 0.3618976185690208
+      },
+      {
+        "name": "model.layers.38.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10029723,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000377655029296875,
+        "delta_norm": 0.1710100677628052,
+        "rel_delta_norm": 0.005617947854100495,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 611,
+        "top1_energy": 0.4390727828344399
+      },
+      {
+        "name": "model.layers.38.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4876712,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.1296172623917038,
+        "rel_delta_norm": 0.005863989233473276,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 517,
+        "top1_energy": 0.5154651775365793
+      },
+      {
+        "name": "model.layers.39.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 30727040,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000186920166015625,
+        "delta_norm": 0.17284624567280682,
+        "rel_delta_norm": 0.0041733215522981575,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1641,
+        "top1_energy": 0.346532631380901
+      },
+      {
+        "name": "model.layers.39.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39553099,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.34081474471621237,
+        "rel_delta_norm": 0.008177332395155872,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4543944037794342
+      },
+      {
+        "name": "model.layers.39.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39197665,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3363558722806435,
+        "rel_delta_norm": 0.007918291623281714,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.40672152802679834
+      },
+      {
+        "name": "model.layers.39.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5075113,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.12714247336063036,
+        "rel_delta_norm": 0.005957982927013492,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 472,
+        "top1_energy": 0.5332162458820552
+      },
+      {
+        "name": "model.layers.39.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10079901,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004119873046875,
+        "delta_norm": 0.1757223626973992,
+        "rel_delta_norm": 0.005729188092536202,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 478,
+        "top1_energy": 0.48049271185795733
+      },
+      {
+        "name": "model.layers.39.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4945324,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000457763671875,
+        "delta_norm": 0.1289740149953952,
+        "rel_delta_norm": 0.005710664076615367,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 703,
+        "top1_energy": 0.43138115535961635
+      },
+      {
+        "name": "model.layers.4.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31072281,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.15056162587335295,
+        "rel_delta_norm": 0.004138409620180677,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2254,
+        "top1_energy": 0.2588791302931323
+      },
+      {
+        "name": "model.layers.4.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39449058,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.296845875850787,
+        "rel_delta_norm": 0.007811697963643643,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 743,
+        "top1_energy": 0.18158151304365377
+      },
+      {
+        "name": "model.layers.4.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39577754,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.29212318345690313,
+        "rel_delta_norm": 0.007999304863098123,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.31108433659611345
+      },
+      {
+        "name": "model.layers.4.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5089962,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.10570699334841173,
+        "rel_delta_norm": 0.005545736304871128,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1292,
+        "top1_energy": 0.1932390202473999
+      },
+      {
+        "name": "model.layers.4.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10258717,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.14845508325962498,
+        "rel_delta_norm": 0.005834876174841273,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 1172,
+        "top1_energy": 0.2612455542771943
+      },
+      {
+        "name": "model.layers.4.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5128791,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10996027773196454,
+        "rel_delta_norm": 0.0059466076891817364,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 918,
+        "top1_energy": 0.3226870845671632
+      },
+      {
+        "name": "model.layers.40.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 29880707,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00025177001953125,
+        "delta_norm": 0.17944578555057836,
+        "rel_delta_norm": 0.004398301918673063,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 123,
+        "top1_energy": 0.6863080437359828
+      },
+      {
+        "name": "model.layers.40.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39873709,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.34351714639885994,
+        "rel_delta_norm": 0.008378706462505317,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.45752474264068227
+      },
+      {
+        "name": "model.layers.40.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 38836225,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.33499131632546003,
+        "rel_delta_norm": 0.007922097711685349,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.4901245736139725
+      },
+      {
+        "name": "model.layers.40.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4950261,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.11768477112053678,
+        "rel_delta_norm": 0.005419418236226265,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 871,
+        "top1_energy": 0.3733074216865392
+      },
+      {
+        "name": "model.layers.40.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10145065,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.1719279956737555,
+        "rel_delta_norm": 0.005649347172999213,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 912,
+        "top1_energy": 0.3411118939413584
+      },
+      {
+        "name": "model.layers.40.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4841097,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000457763671875,
+        "delta_norm": 0.12978403061727198,
+        "rel_delta_norm": 0.005903323326981833,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 498,
+        "top1_energy": 0.5039290846843967
+      },
+      {
+        "name": "model.layers.41.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31898085,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.17187056941651427,
+        "rel_delta_norm": 0.004495615876058589,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1575,
+        "top1_energy": 0.31657607363047624
+      },
+      {
+        "name": "model.layers.41.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39465798,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00043487548828125,
+        "delta_norm": 0.34014630719572536,
+        "rel_delta_norm": 0.008696252070746441,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.6440877300049215
+      },
+      {
+        "name": "model.layers.41.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39095100,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.3343360087986588,
+        "rel_delta_norm": 0.008130404819250625,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.507702990810788
+      },
+      {
+        "name": "model.layers.41.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4690008,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00042724609375,
+        "delta_norm": 0.12362903325336558,
+        "rel_delta_norm": 0.00512703617978969,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 714,
+        "top1_energy": 0.5047156914494232
+      },
+      {
+        "name": "model.layers.41.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10167411,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.17243777219768902,
+        "rel_delta_norm": 0.006079600227415815,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 217,
+        "top1_energy": 0.5625074525682872
+      },
+      {
+        "name": "model.layers.41.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4985639,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00048828125,
+        "delta_norm": 0.1269960573222901,
+        "rel_delta_norm": 0.006564703769854014,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 189,
+        "top1_energy": 0.6532069269842093
+      },
+      {
+        "name": "model.layers.5.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31221380,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0001373291015625,
+        "delta_norm": 0.1492079603501855,
+        "rel_delta_norm": 0.004130119664310895,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2877,
+        "top1_energy": 0.1782522773647729
+      },
+      {
+        "name": "model.layers.5.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39575135,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003399848937988281,
+        "delta_norm": 0.3010728733345508,
+        "rel_delta_norm": 0.008105425562102763,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3316804988634225
+      },
+      {
+        "name": "model.layers.5.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39956535,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.2928026921732173,
+        "rel_delta_norm": 0.008241208099472087,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.26226876168876284
+      },
+      {
+        "name": "model.layers.5.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5105489,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10161860598592919,
+        "rel_delta_norm": 0.005653348018560435,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1183,
+        "top1_energy": 0.22798761664602601
+      },
+      {
+        "name": "model.layers.5.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10316670,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003204345703125,
+        "delta_norm": 0.14967536456042183,
+        "rel_delta_norm": 0.00596155480924962,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 822,
+        "top1_energy": 0.3399594309148824
+      },
+      {
+        "name": "model.layers.5.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5036232,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0004291534423828125,
+        "delta_norm": 0.11092980370674697,
+        "rel_delta_norm": 0.005991218244259639,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 623,
+        "top1_energy": 0.45389577163296624
+      },
+      {
+        "name": "model.layers.6.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31478482,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.15054424351130063,
+        "rel_delta_norm": 0.0042373994934744,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2327,
+        "top1_energy": 0.2425122430485753
+      },
+      {
+        "name": "model.layers.6.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39434740,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.291503804417259,
+        "rel_delta_norm": 0.007837855468613918,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 293,
+        "top1_energy": 0.22668636406819218
+      },
+      {
+        "name": "model.layers.6.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40034590,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.29338593221515524,
+        "rel_delta_norm": 0.008261269164578882,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 53,
+        "top1_energy": 0.24096270872495518
+      },
+      {
+        "name": "model.layers.6.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5209609,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002593994140625,
+        "delta_norm": 0.11153074013696265,
+        "rel_delta_norm": 0.006023661728115326,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1036,
+        "top1_energy": 0.25807620958005256
+      },
+      {
+        "name": "model.layers.6.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10229419,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000301361083984375,
+        "delta_norm": 0.1477547940993613,
+        "rel_delta_norm": 0.005854839268236982,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 872,
+        "top1_energy": 0.33390098810014185
+      },
+      {
+        "name": "model.layers.6.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5015435,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.10915653854173712,
+        "rel_delta_norm": 0.0058474689677024015,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 649,
+        "top1_energy": 0.450333210861936
+      },
+      {
+        "name": "model.layers.7.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31792735,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.15219646836221173,
+        "rel_delta_norm": 0.004302347390109688,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2693,
+        "top1_energy": 0.1929829236346333
+      },
+      {
+        "name": "model.layers.7.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39591383,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.2935185772723129,
+        "rel_delta_norm": 0.007924785089887846,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 316,
+        "top1_energy": 0.21980325700841338
+      },
+      {
+        "name": "model.layers.7.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40340791,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00032806396484375,
+        "delta_norm": 0.29889947423091845,
+        "rel_delta_norm": 0.00854205533121793,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.2881383157556981
+      },
+      {
+        "name": "model.layers.7.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5229219,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000274658203125,
+        "delta_norm": 0.10783104924143712,
+        "rel_delta_norm": 0.005967206083229833,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1242,
+        "top1_energy": 0.1838969008734406
+      },
+      {
+        "name": "model.layers.7.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10302942,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.14966687111049176,
+        "rel_delta_norm": 0.0059229428675238545,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 878,
+        "top1_energy": 0.3260836268294809
+      },
+      {
+        "name": "model.layers.7.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 4992324,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.11040727850145288,
+        "rel_delta_norm": 0.005826708720378964,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 759,
+        "top1_energy": 0.3992291236627721
+      },
+      {
+        "name": "model.layers.8.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31556638,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000152587890625,
+        "delta_norm": 0.15143369393219727,
+        "rel_delta_norm": 0.004258440333389139,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 2487,
+        "top1_energy": 0.21960818688468395
+      },
+      {
+        "name": "model.layers.8.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39650700,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0002899169921875,
+        "delta_norm": 0.29534237380157297,
+        "rel_delta_norm": 0.00791173550573249,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 1186,
+        "top1_energy": 0.14462647897913436
+      },
+      {
+        "name": "model.layers.8.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 40252714,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000335693359375,
+        "delta_norm": 0.2965585829086781,
+        "rel_delta_norm": 0.008433939331804974,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.26625035832533844
+      },
+      {
+        "name": "model.layers.8.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5132177,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.1047768085061985,
+        "rel_delta_norm": 0.005739599700562876,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1183,
+        "top1_energy": 0.22710107214743894
+      },
+      {
+        "name": "model.layers.8.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10263375,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00029754638671875,
+        "delta_norm": 0.14767538316899317,
+        "rel_delta_norm": 0.005865276015415268,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 993,
+        "top1_energy": 0.30278998599060564
+      },
+      {
+        "name": "model.layers.8.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5109064,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.1110907650258351,
+        "rel_delta_norm": 0.006078914069649421,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 737,
+        "top1_energy": 0.38380504592387227
+      },
+      {
+        "name": "model.layers.9.mlp.down_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          14336
+        ],
+        "shape_b": [
+          3584,
+          14336
+        ],
+        "numel": 51380224,
+        "changed": 31410632,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00018310546875,
+        "delta_norm": 0.15373572692299306,
+        "rel_delta_norm": 0.004283710181480429,
+        "rows_touched": 3584,
+        "cols_touched": 14336,
+        "rank": 1679,
+        "top1_energy": 0.3295519198471175
+      },
+      {
+        "name": "model.layers.9.mlp.gate_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39439033,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000396728515625,
+        "delta_norm": 0.29885329505576014,
+        "rel_delta_norm": 0.007917565159660373,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.28252150139921883
+      },
+      {
+        "name": "model.layers.9.mlp.up_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          14336,
+          3584
+        ],
+        "shape_b": [
+          14336,
+          3584
+        ],
+        "numel": 51380224,
+        "changed": 39874067,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.2971697465513422,
+        "rel_delta_norm": 0.008317355882790953,
+        "rows_touched": 14336,
+        "cols_touched": 3584,
+        "rank": 8,
+        "top1_energy": 0.3681221898454462
+      },
+      {
+        "name": "model.layers.9.self_attn.k_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5199118,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.000244140625,
+        "delta_norm": 0.10685578562243234,
+        "rel_delta_norm": 0.005851115520403065,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 1150,
+        "top1_energy": 0.21608420218950875
+      },
+      {
+        "name": "model.layers.9.self_attn.o_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          3584,
+          4096
+        ],
+        "shape_b": [
+          3584,
+          4096
+        ],
+        "numel": 14680064,
+        "changed": 10257922,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.0003662109375,
+        "delta_norm": 0.15539322186605115,
+        "rel_delta_norm": 0.006057596810614123,
+        "rows_touched": 3584,
+        "cols_touched": 4096,
+        "rank": 387,
+        "top1_energy": 0.47351133564909614
+      },
+      {
+        "name": "model.layers.9.self_attn.v_proj.weight",
+        "status": "changed",
+        "dtype_a": "BF16",
+        "dtype_b": "BF16",
+        "shape_a": [
+          2048,
+          3584
+        ],
+        "shape_b": [
+          2048,
+          3584
+        ],
+        "numel": 7340032,
+        "changed": 5076817,
+        "nonfinite_changed": 0,
+        "max_abs_delta": 0.00030517578125,
+        "delta_norm": 0.10735151607996689,
+        "rel_delta_norm": 0.00573705037655733,
+        "rows_touched": 2048,
+        "cols_touched": 3584,
+        "rank": 932,
+        "top1_energy": 0.33191015099171095
+      }
+    ]
+  }
+}

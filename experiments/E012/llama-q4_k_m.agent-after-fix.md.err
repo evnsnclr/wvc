@@ -1,0 +1,3 @@
+pinned: hf:meta-llama/Llama-3.2-1B-Instruct@9213176726f574b556790deb65791e0c5aa438b6 at 9213176726f574b556790deb65791e0c5aa438b6
+pinned: hf:lmstudio-community/Llama-3.2-1B-Instruct-GGUF@199151125cf15a129ab3b548b26afeed976df066:Llama-3.2-1B-Instruct-Q4_K_M.gguf at 199151125cf15a129ab3b548b26afeed976df066
+file: Llama-3.2-1B-Instruct-Q4_K_M.gguf (807,690,688 bytes, sha256 f7ede42862ceca07ad1c88a97b67520019c4ac7e5ced250d2e696fa62ab189af checked)

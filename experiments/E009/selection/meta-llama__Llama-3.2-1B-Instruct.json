@@ -1,0 +1,329 @@
+{
+  "format": "wvc-census-selection/1",
+  "listed_at": "2026-11-04T03:31:16Z",
+  "base": {
+    "repo": "meta-llama/Llama-3.2-1B-Instruct",
+    "sha": "9213176726f574b556790deb65791e0c5aa438b6",
+    "shards": [
+      {
+        "name": "model.safetensors",
+        "nbytes": 2471645608,
+        "sha256": "1ff795ff6a07e6a68085d206fb84417da2f083f68391c2843cd2b8ac6df8538f"
+      }
+    ],
+    "safetensors_bytes": 2471645608
+  },
+  "k": 10,
+  "size_cap_bytes": 6179114020,
+  "walked": [
+    {
+      "listing_rank": 1,
+      "upload": "unsloth/Llama-3.2-1B-Instruct",
+      "downloads_30d": 1285704,
+      "created_at": "2024-09-25T18:40:18+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2471645608,
+          "sha256": "1ff795ff6a07e6a68085d206fb84417da2f083f68391c2843cd2b8ac6df8538f"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 2,
+      "upload": "bartowski/Llama-3.2-1B-Instruct-GGUF",
+      "downloads_30d": 157832,
+      "created_at": "2024-09-25T18:35:25+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "067b946cf014b7c697f3654f621d577a3e3afd1c",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 3,
+      "upload": "unsloth/Llama-3.2-1B-Instruct-GGUF",
+      "downloads_30d": 46625,
+      "created_at": "2024-09-25T19:32:39+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "b69aef112e9f895e6f98d7ae0949f72ff09aa401",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 4,
+      "upload": "hugging-quants/Llama-3.2-1B-Instruct-Q4_K_M-GGUF",
+      "downloads_30d": 39116,
+      "created_at": "2024-09-25T15:04:08+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "7d1f70022fcab2038000074bd0342e03e1d8b755",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 5,
+      "upload": "MaziyarPanahi/Llama-3.2-1B-Instruct-GGUF",
+      "downloads_30d": 34169,
+      "created_at": "2024-09-25T19:26:01+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "b64ae94264258a3d7516a34a8c54928d32b19869",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 6,
+      "upload": "mobilint/Llama-3.2-1B-Instruct",
+      "downloads_30d": 28727,
+      "created_at": "2025-12-09T06:52:57+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": [
+        "meta-llama/Llama-3.2-1B-Instruct"
+      ],
+      "card_base_model_relation": "quantized",
+      "sha": "518e455890a4550094b4bf240f6ea1d9ec68ee0b",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1050673264,
+          "sha256": "f7518c7c9922821b6193efd6aaa82533bba5213600e90403094196c1b45f7eb1"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 7,
+      "upload": "mlc-ai/Llama-3.2-1B-Instruct-q4f16_1-MLC",
+      "downloads_30d": 25155,
+      "created_at": "2024-09-25T19:09:00+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "2a37b0a5ecb622d51ddc2fac74de0b95872affd7",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 8,
+      "upload": "unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit",
+      "downloads_30d": 23865,
+      "created_at": "2025-01-22T09:38:54+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "8eb7999dc1d92775e7b5f75754a29c3fbdb32723",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1102370060,
+          "sha256": "3568e76348aebbb3fbb54a04212db6e6081b34d634c86f42592a85d8bd165075"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 9,
+      "upload": "mlc-ai/Llama-3.2-1B-Instruct-q4f32_1-MLC",
+      "downloads_30d": 16866,
+      "created_at": "2024-09-25T19:09:09+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "a949835e0f9a65335bd834db02a44cf8fae34020",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 10,
+      "upload": "RedHatAI/Llama-3.2-1B-Instruct-FP8",
+      "downloads_30d": 11037,
+      "created_at": "2024-09-26T01:35:41+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "6b92f62217b2f2d88f38575eadb157cf7a6dd5c9",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2023929984,
+          "sha256": "b318ff1ef312310c8fe4b25ec13f068cccfe96c32e415155397d87aa794d3da2"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 11,
+      "upload": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+      "downloads_30d": 10732,
+      "created_at": "2024-09-25T18:41:20+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "fcecd050a91025151bbf518e41a5577c356efdce",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1027676737,
+          "sha256": "e97ad0a9c4e13f35360be47556cca2fb6f64fe64a51b795c5e31552f4ffb5ab7"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 12,
+      "upload": "RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic",
+      "downloads_30d": 10249,
+      "created_at": "2024-09-25T19:49:29+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "e23d444f8d7da0a3e556cae44a7d3c46f127e642",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2024671096,
+          "sha256": "e24862bf8898e483b30c924721debd7b622ef69e0f78d6552c3bd605b5d7cd19"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 13,
+      "upload": "lmstudio-community/Llama-3.2-1B-Instruct-GGUF",
+      "downloads_30d": 8539,
+      "created_at": "2024-09-25T18:35:25+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "199151125cf15a129ab3b548b26afeed976df066",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 14,
+      "upload": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF",
+      "downloads_30d": 7826,
+      "created_at": "2024-09-25T15:40:22+00:00",
+      "relation_tag": "quantized",
+      "card_base_model": "meta-llama/Llama-3.2-1B-Instruct",
+      "card_base_model_relation": null,
+      "sha": "8790ecfe0c6c7a20f2a532acdfc1b5d98e1bfa8b",
+      "shards": [],
+      "eligible": false,
+      "reason": "no-safetensors"
+    },
+    {
+      "listing_rank": 15,
+      "upload": "inference-optimization/Llama-3.2-0.5B-Instruct",
+      "downloads_30d": 5725,
+      "created_at": "2026-06-03T16:05:33+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "meta-llama/Llama-3.2-1B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "733a5438954476af2dccdcbdb0091572f4dbb3a6",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 1011917016,
+          "sha256": "ccb55922d21db64faf43e69095070ee691f27beacd9f721f8fd87d0017e99460"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 16,
+      "upload": "manycore-research/SpatialLM1.1-Llama-1B",
+      "downloads_30d": 4756,
+      "created_at": "2025-06-08T14:31:19+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "meta-llama/Llama-3.2-1B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "dc6d35f750a4efde3c7c24efc1d8f1bb94d9fb2c",
+      "shards": [
+        {
+          "name": "model-00001-of-00002.safetensors",
+          "nbytes": 4990606024,
+          "sha256": "cb3ff6a38ea0d0f35f016cecdd6e5dd72706fe33d00a4715453b2771d485a851"
+        },
+        {
+          "name": "model-00002-of-00002.safetensors",
+          "nbytes": 392998856,
+          "sha256": "419d0cfcaf280e54c02a2889504dbcb0a40baed33d4229ce53f60d5cd3fe1af4"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 17,
+      "upload": "manycore-research/SpatialLM-Llama-1B",
+      "downloads_30d": 4689,
+      "created_at": "2025-03-14T04:32:01+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "meta-llama/Llama-3.2-1B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "0a4c5f368cfd32044f809f64187e4bb024e48fbb",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2515719608,
+          "sha256": "dc90cd40edaaa29122a25ca3967e160989bc109c24a04880c2b6c9a244b60368"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    },
+    {
+      "listing_rank": 18,
+      "upload": "THGLab/Llama-3.2-1B-Instruct-LinkLlama-Cap50",
+      "downloads_30d": 4509,
+      "created_at": "2026-04-18T01:06:28+00:00",
+      "relation_tag": "finetune",
+      "card_base_model": [
+        "meta-llama/Llama-3.2-1B-Instruct"
+      ],
+      "card_base_model_relation": null,
+      "sha": "d4556e2d79ae3f45cab50344ed08f9dc2233f904",
+      "shards": [
+        {
+          "name": "model.safetensors",
+          "nbytes": 2471645608,
+          "sha256": "e6f324c2e6e1f930ce0943cc718f55d47621ca0234861693af4bfb92b3649bbb"
+        }
+      ],
+      "eligible": true,
+      "reason": ""
+    }
+  ]
+}

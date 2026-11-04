@@ -145,7 +145,11 @@ def _side_line(label: str, side: dict) -> str:
     if "hf" in side:
         hf = side["hf"]
         reference = f"hf:{hf['repo']}@{hf['sha']}"
-        where = f"{code(reference)} (revision {code(hf['revision'])})"
+        # the file in a span of its own: a sha and a file name together pass MAX_NAME_CHARS
+        file = f", file {code(hf['file'])}" if "file" in hf else ""
+        parts = len(hf.get("files", ()))
+        split = f", {parts} parts" if parts > 1 else ""
+        where = f"{code(reference)}{file} (revision {code(hf['revision'])}{split})"
     else:
         where = code(side.get("path"))
     root = side.get("root")
@@ -166,8 +170,19 @@ def _pair_section(record: dict) -> list[str]:
             f"- comparison: {comparison['kind']}; GGUF side {' and '.join(comparison['gguf'])}; "
             + (f"names mapped by the {code(mapping)} table" if mapping else "names as stored")
             + f"; values dequantised to {comparison['values']} where bytes cannot be compared"
+            + _file_types(comparison)
         )
     return lines
+
+
+def _file_types(comparison: dict) -> str:
+    """``; file type a BF16, b Q4_K_M`` from a Hub comparison's ``quantizations``, if any."""
+    known = [
+        f"{label} {code(value)}"
+        for label, value in sorted(comparison.get("quantizations", {}).items())
+        if value is not None
+    ]
+    return f"; file type {', '.join(known)}" if known else ""
 
 
 def _headline(record: dict, tensors: list[dict], unchanged_files: dict | None) -> list[str]:

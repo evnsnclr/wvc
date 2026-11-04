@@ -1,0 +1,16 @@
+start 2026-11-04T03:36:48Z free 210 GB commit 6535dab
+Qwen/Qwen3.5-9B: 6 eligible of 11 walked
+diffed lmstudio-community/Qwen3.5-9B-MLX-4bit: 467 s, +25.26 GB (run total 25.26 GB), freed 5.95 GB
+diffed autotrust/JEV-9B: 434 s, +17.91 GB (run total 43.17 GB), freed 17.91 GB
+diffed lmstudio-community/Qwen3.5-9B-MLX-8bit: 251 s, +10.43 GB (run total 53.60 GB), freed 10.43 GB
+diffed RedHatAI/Qwen3.5-9B-FP8-dynamic: 1218 s, +14.01 GB (run total 67.60 GB), freed 14.01 GB
+diffed cyankiwi/Qwen3.5-9B-AWQ-4bit: 326 s, +9.07 GB (run total 76.67 GB), freed 9.07 GB
+diffed unsloth/Qwen3.5-9B: 2 s, +0.00 GB (run total 76.67 GB), freed 0.00 GB
+Qwen/Qwen3-8B: 6 eligible of 9 walked
+diffed Qwen/Qwen3-8B-AWQ: 511 s, +21.24 GB (run total 97.91 GB), freed 4.85 GB
+diffed Qwen/Qwen3-8B-FP8: 1594 s, +9.44 GB (run total 107.35 GB), freed 9.44 GB
+diffed nvidia/Qwen3-8B-NVFP4: 280 s, +6.40 GB (run total 113.74 GB), freed 6.40 GB
+diffed Qwen/Qwen3Guard-Gen-8B: 1953 s, +16.38 GB (run total 130.13 GB), freed 16.38 GB
+stop: unsloth/Qwen3-8B-unsloth-bnb-4bit needs ~7.48 GB with 101.84 GB free; floor 100.00 GB
+stopped on budget after 7041 s; 130.13 GB new
+exit 3 end 2026-11-04T05:34:09Z free 94 GB

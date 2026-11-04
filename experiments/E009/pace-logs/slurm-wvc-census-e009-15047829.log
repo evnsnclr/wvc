@@ -1,0 +1,9 @@
+Job ID:    15047829
+Partition: cpu-small
+QOS:       embers
+Job ID:        15047829
+Resources:     cpu=8,mem=64G,node=1
+Rsrc Used:     cput=00:02:16,vmem=0,walltime=00:00:17,mem=124216K,energy_used=0
+Partition:     cpu-small
+QOS:           embers
+Nodes:         atl1-1-01-003-24-2

@@ -20,8 +20,16 @@ from wvc.gguf_io import GGML_TYPES, TYPE_SIZES
 
 TYPE_IDS = {name: type_id for type_id, (name, _, _) in GGML_TYPES.items()}
 PLAIN_FORMATS = {"F32": "<f4", "F16": "<f2", "F64": "<f8", "I8": "i1", "I16": "<i2", "I32": "<i4"}
-STRING, ARRAY, UINT32, INT32, FLOAT32, BOOL, UINT64 = 8, 9, 4, 5, 6, 7, 10
-SCALAR_FORMATS = {UINT32: "<I", INT32: "<i", FLOAT32: "<f", BOOL: "<B", UINT64: "<Q", 0: "<B"}
+STRING, ARRAY, UINT16, UINT32, INT32, FLOAT32, BOOL, UINT64 = 8, 9, 2, 4, 5, 6, 7, 10
+SCALAR_FORMATS = {
+    UINT16: "<H",
+    UINT32: "<I",
+    INT32: "<i",
+    FLOAT32: "<f",
+    BOOL: "<B",
+    UINT64: "<Q",
+    0: "<B",
+}
 
 
 @dataclass(frozen=True)

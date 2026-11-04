@@ -158,7 +158,7 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 | `wvc remote`, `push`, `pull`, `clone` | Move commits between repositories: plain directories, or Hub repositories with the `hf` extra. |
 | `wvc card REF` | Print model-card metadata that carries the manifest root. |
 
-`CKPT` is a `.safetensors` file or a directory of shards; `hash`, `diff`, and `verify` also take a `.gguf` file and a Hub repository as `hf:OWNER/NAME[@REVISION]`. A diff of a GGUF file against its safetensors base maps llama.cpp's tensor names back, undoes the conversion's permutations, and compares dequantised values ([spec 2.1](docs/spec-v0.md)). Without `--repo`, repository commands use the nearest `.wvc/` above the current directory.
+`CKPT` is a `.safetensors` file or a directory of shards; `hash`, `diff`, and `verify` also take a `.gguf` file, a Hub repository as `hf:OWNER/NAME[@REVISION]`, and one GGUF file in a Hub repository as `hf:OWNER/NAME[@REVISION]:FILE.gguf` (any part of a split file stands for all its parts). A diff of a GGUF file against its safetensors base maps llama.cpp's tensor names back, undoes the conversion's permutations, and compares dequantised values ([spec 2.1](docs/spec-v0.md)). Without `--repo`, repository commands use the nearest `.wvc/` above the current directory.
 
 ## Status
 

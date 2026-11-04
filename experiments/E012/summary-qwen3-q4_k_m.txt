@@ -1,0 +1,5 @@
+comparison: {'kind': 'quantization', 'gguf': ['b'], 'mapping': 'qwen3', 'values': 'float64', 'files': {'a': ['model.safetensors'], 'b': ['Qwen_Qwen3-0.6B-Q4_K_M.gguf']}, 'revisions': {'a': 'c1899de289a04d12100db370d81485cdf75e47ca', 'b': '60b85c0e3d8fe0f6474f406922a26d12aca4550d'}, 'quantizations': {'a': None, 'b': 'Q4_K_M'}}
+summary: {'tensors': 311, 'by_status': {'unchanged': 113, 'changed': 198, 'added': 0, 'removed': 0, 'reshaped': 0}, 'elements_compared': 751632384, 'elements_changed': 751078246, 'fraction_changed': 0.9992627539581903}
+F32: {'unchanged': 113}
+Q4_K: {'changed': 169}; rel |d|/|a| 0.07128 to 0.07704; changed fraction 0.9999 to 0.9999; top-1 energy max 0.0301 over 168 with a rank
+Q6_K: {'changed': 29}; rel |d|/|a| 0.01773 to 0.0253; changed fraction 0.9978 to 0.9988; top-1 energy max 0.0187 over 28 with a rank

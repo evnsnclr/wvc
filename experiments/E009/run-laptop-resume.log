@@ -1,0 +1,21 @@
+start Qwen/Qwen3-8B 2026-11-04T05:35:08Z free 124 GB commit 65aeaad
+Qwen/Qwen3-8B: 6 eligible of 9 walked
+diffed unsloth/Qwen3-8B-unsloth-bnb-4bit: 208 s, +7.48 GB (run total 7.48 GB), freed 7.48 GB
+diffed unsloth/Qwen3-8B: 375 s, +16.38 GB (run total 23.86 GB), freed 16.38 GB
+done in 583 s; 23.86 GB written to the cache
+exit 0 end 2026-11-04T05:44:51Z free 133 GB
+start meta-llama/Llama-3.1-8B-Instruct 2026-11-04T05:44:51Z free 133 GB commit 65aeaad
+meta-llama/Llama-3.1-8B-Instruct: 6 eligible of 10 walked
+diffed unsloth/Llama-3.1-8B-Instruct: 5 s, +0.00 GB (run total 0.00 GB), freed 0.00 GB
+diffed unsloth/Meta-Llama-3.1-8B-Instruct: 4 s, +0.00 GB (run total 0.00 GB), freed 0.00 GB
+diffed unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit: 454 s, +21.76 GB (run total 21.76 GB), freed 5.70 GB
+diffed RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8: 1482 s, +9.08 GB (run total 30.85 GB), freed 9.08 GB
+diffed nvidia/Llama-3.1-8B-Instruct-FP8: 1207 s, +9.08 GB (run total 39.93 GB), freed 9.08 GB
+diffed Skywork/Skywork-Reward-Llama-3.1-8B-v0.2: 1276 s, +15.01 GB (run total 54.94 GB), freed 15.01 GB
+done in 4428 s; 54.94 GB written to the cache
+exit 0 end 2026-11-04T06:58:40Z free 209 GB
+start meta-llama/Llama-3.2-1B-Instruct 2026-11-04T06:58:40Z free 209 GB commit f671b35
+meta-llama/Llama-3.2-1B-Instruct: 10 eligible of 18 walked
+diffed THGLab/Llama-3.2-1B-Instruct-LinkLlama-Cap50: 168 s, +4.94 GB (run total 4.94 GB), freed 2.47 GB
+done in 168 s; 4.94 GB written to the cache
+exit 0 end 2026-11-04T07:01:28Z free 208 GB

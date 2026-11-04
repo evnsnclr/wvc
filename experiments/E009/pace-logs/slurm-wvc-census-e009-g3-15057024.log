@@ -1,0 +1,25 @@
+Job ID:    15057024
+Partition: cpu-small
+QOS:       embers
+python 3.12.5 wvc 0.1.0 hub 2.4.0 numpy 2.5.4
+gated access ok
+start 2026-11-04T05:28:38Z host atl1-1-03-003-3-1.pace.gatech.edu
+google/gemma-3-1b-it: 10 eligible of 21 walked
+diffed unsloth/gemma-3-1b-it: 2 s, +0.00 GB (run total 0.00 GB), freed 0.00 GB
+diffed mlx-community/gemma-3-1b-it-qat-4bit: 27 s, +2.73 GB (run total 2.73 GB), freed 0.73 GB
+diffed unsloth/gemma-3-1b-it-unsloth-bnb-4bit: 25 s, +1.00 GB (run total 3.73 GB), freed 1.00 GB
+diffed mlx-community/gemma-3-1b-it-4bit: 59 s, +0.73 GB (run total 4.47 GB), freed 0.73 GB
+diffed Oscilla/gemma-3-1b-it-mlx-8Bit: 35 s, +1.06 GB (run total 5.53 GB), freed 1.06 GB
+diffed tardellirs/aac-board-generator-770m-ptbr: 122 s, +1.54 GB (run total 7.07 GB), freed 1.54 GB
+diffed reaperdoesntknow/Qemma-Q14B: 215 s, +4.04 GB (run total 11.11 GB), freed 4.04 GB
+diffed reaperdoesntknow/Qemma-Q1.7B: 346 s, +4.00 GB (run total 15.11 GB), freed 4.00 GB
+diffed unsloth/gemma-3-1b-it-bnb-4bit: 34 s, +0.96 GB (run total 16.08 GB), freed 0.96 GB
+diffed DavidAU/gemma-3-1b-it-heretic-extreme-uncensored-abliterated: 143 s, +2.00 GB (run total 18.08 GB), freed 2.00 GB
+done in 1010 s; 18.08 GB written to the cache
+exit 0 end 2026-11-04T05:45:30Z
+Job ID:        15057024
+Resources:     cpu=8,mem=32G,node=1
+Rsrc Used:     cput=02:20:24,vmem=0,walltime=00:17:33,mem=6904712K,energy_used=0
+Partition:     cpu-small
+QOS:           embers
+Nodes:         atl1-1-03-003-3-1

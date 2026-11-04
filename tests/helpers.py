@@ -247,7 +247,8 @@ class FakeHubApi:
     """The ``HfApi`` methods wvc calls, over in-memory model repositories.
 
     ``files`` is the default repository ``owner/name``; ``add_repo`` adds others. Every
-    ``.safetensors`` file is an LFS object, as the Hub's default ``.gitattributes`` makes it,
+    ``.safetensors`` and ``.gguf`` file is an LFS object, as the Hub's default
+    ``.gitattributes`` makes it,
     so ``model_info`` lists its SHA-256; a repository's commit sha is derived from its contents.
     """
 
@@ -256,7 +257,7 @@ class FakeHubApi:
     def __init__(self, download_dir: Path) -> None:
         self.files = {".gitattributes": b"*.bin filter=lfs\n", "README.md": b"# a model\n"}
         self.repos: dict[str, dict[str, bytes]] = {self.DEFAULT_REPO: self.files}
-        self.plain: set[str] = set()  # safetensors names the Hub stores as plain blobs (no LFS)
+        self.plain: set[str] = set()  # weight file names the Hub stores as plain blobs (no LFS)
         self.commits: list[list[str]] = []  # the operation paths of each create_commit
         self.calls: list[tuple[str, dict]] = []  # (method, keyword arguments) in call order
         self.download_dir = download_dir
@@ -336,7 +337,8 @@ class FakeHubApi:
         siblings = []
         for name, data in sorted(files.items()):
             lfs = None
-            if files_metadata and name.endswith(".safetensors") and name not in self.plain:
+            lfs_type = name.endswith((".safetensors", ".gguf"))
+            if files_metadata and lfs_type and name not in self.plain:
                 digest = hashlib.sha256(data).hexdigest()
                 lfs = {"size": len(data), "sha256": digest, "pointer_size": 134}
             siblings.append(FakeSibling(name, len(data) if files_metadata else None, lfs))
