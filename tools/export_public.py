@@ -30,6 +30,8 @@ PUBLIC = (
     "spec/",
     "experiments/",
     "docs/spec-v0.md",
+    "docs/classification.md",
+    "docs/agents-reading-diffs.md",
     "docs/assets/",
     ".github/",
     "tools/export_public.py",
