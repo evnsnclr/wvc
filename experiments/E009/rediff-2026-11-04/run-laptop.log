@@ -1,1 +1,40 @@
 start 2026-11-04T15:54:37Z free 207 GB commit 43fb5e4
+diffed OpenGVLab/InternVL2_5-1B: 106 s, +2.86 GB (run total 2.86 GB), freed 1.88 GB
+diffed livekit/turn-detector: 15 s, +0.54 GB (run total 3.40 GB), freed 0.54 GB
+Qwen/Qwen2.5-0.5B-Instruct: listed pairs done, freed 0.99 GB
+diffed Qwen/Qwen2.5-1.5B-Instruct-AWQ: 110 s, +4.70 GB (run total 8.11 GB), freed 1.61 GB
+diffed nvidia/Eagle2-2B: 190 s, +4.43 GB (run total 12.53 GB), freed 4.43 GB
+Qwen/Qwen2.5-1.5B-Instruct: listed pairs done, freed 3.09 GB
+diffed Skywork/Skywork-Reward-V2-Qwen3-0.6B: 91 s, +2.70 GB (run total 15.23 GB), freed 1.19 GB
+diffed jinaai/jina-reranker-v3: 54 s, +1.19 GB (run total 16.42 GB), freed 1.19 GB
+diffed jinaai/jina-reranker-v3.5: 55 s, +1.19 GB (run total 17.62 GB), freed 1.19 GB
+diffed k2-fsa/OmniVoice: 41 s, +2.45 GB (run total 20.07 GB), freed 2.45 GB
+diffed mlx-community/Qwen3-0.6B-4bit: 8 s, +0.34 GB (run total 20.40 GB), freed 0.34 GB
+diffed mlx-community/Qwen3-0.6B-8bit: 27 s, +0.63 GB (run total 21.04 GB), freed 0.63 GB
+diffed unsloth/Qwen3-0.6B-unsloth-bnb-4bit: 18 s, +0.58 GB (run total 21.61 GB), freed 0.58 GB
+Qwen/Qwen3-0.6B: listed pairs done, freed 1.50 GB
+diffed lmstudio-community/Qwen3-1.7B-MLX-4bit: 79 s, +5.03 GB (run total 26.65 GB), freed 0.97 GB
+diffed lmstudio-community/Qwen3-1.7B-MLX-8bit: 164 s, +1.83 GB (run total 28.47 GB), freed 1.83 GB
+diffed mlx-community/Qwen3-1.7B-4bit: 33 s, +0.97 GB (run total 29.44 GB), freed 0.97 GB
+diffed nvidia/canary-qwen-2.5b: 113 s, +5.12 GB (run total 34.56 GB), freed 5.12 GB
+diffed unsloth/Qwen3-1.7B-bnb-4bit: 35 s, +1.35 GB (run total 35.91 GB), freed 1.35 GB
+diffed unsloth/Qwen3-1.7B-unsloth-bnb-4bit: 39 s, +1.41 GB (run total 37.32 GB), freed 1.41 GB
+Qwen/Qwen3-1.7B: listed pairs done, freed 4.06 GB
+diffed Qwen/Qwen3-8B-AWQ: 575 s, +21.24 GB (run total 58.55 GB), freed 4.85 GB
+Qwen/Qwen3-8B: listed pairs done, freed 16.38 GB
+diffed Hcompany/Holo-3.1-0.8B: 174 s, +3.96 GB (run total 62.52 GB), freed 2.21 GB
+diffed Zerul/Qwen3.5-0.8B-W4A16-AutoRound-AWQ: 38 s, +0.97 GB (run total 63.49 GB), freed 0.97 GB
+diffed mlx-community/Qwen3.5-0.8B-MLX-4bit: 10 s, +0.63 GB (run total 64.11 GB), freed 0.63 GB
+diffed vllm-sr/d3-edge: 54 s, +1.19 GB (run total 65.30 GB), freed 1.19 GB
+diffed vllm-sr/d3-lite: 62 s, +1.71 GB (run total 67.01 GB), freed 1.71 GB
+diffed vultr/VultronRetrieverFlash-Qwen3.5-0.8B: 104 s, +1.71 GB (run total 68.72 GB), freed 1.71 GB
+Qwen/Qwen3.5-0.8B: listed pairs done, freed 1.75 GB
+diffed autotrust/JEV-9B: 419 s, +37.22 GB (run total 105.93 GB), freed 17.91 GB
+diffed cyankiwi/Qwen3.5-9B-AWQ-4bit: 139 s, +9.07 GB (run total 115.00 GB), freed 9.07 GB
+diffed lmstudio-community/Qwen3.5-9B-MLX-4bit: 111 s, +5.95 GB (run total 120.95 GB), freed 5.95 GB
+diffed lmstudio-community/Qwen3.5-9B-MLX-8bit: 178 s, +10.43 GB (run total 131.38 GB), freed 10.43 GB
+Qwen/Qwen3.5-9B: listed pairs done, freed 19.31 GB
+diffed Skywork/Skywork-Reward-Llama-3.1-8B-v0.2: 1714 s, +31.07 GB (run total 162.45 GB), freed 15.01 GB
+meta-llama/Llama-3.1-8B-Instruct: listed pairs done, freed 16.06 GB
+done in 4759 s; 162.45 GB written to the cache
+exit 0 end 2026-11-04T17:13:56Z free 209 GB

@@ -21,10 +21,19 @@ def _run(summary, capsysbinary, *argv) -> str:
     return capsysbinary.readouterr().out.decode("utf-8")
 
 
-def test_receipts_without_ids_reproduce_the_committed_summary(summary, capsysbinary):
-    text = _run(summary, capsysbinary, E009 / "census.csv")
+REDIFF = E009 / "rediff-2026-11-04" / "census.csv"
+
+
+def test_the_committed_summary_reproduces_from_both_csvs(summary, capsysbinary):
+    text = _run(summary, capsysbinary, E009 / "census.csv", REDIFF)
     assert text == (E009 / "summary.md").read_text(encoding="utf-8")
+    assert "renamed, unchanged" in text
+
+
+def test_receipts_without_ids_keep_the_frozen_categories(summary, capsysbinary):
+    text = _run(summary, capsysbinary, E009 / "census.csv")
     assert "renamed, unchanged" not in text
+    assert "- P4 renamed layout: 51 of 93 (55%), 9 on Qwen3.5 bases (predicted" in text
 
 
 def test_the_rediff_list_names_the_pairs_with_added_and_removed_tensors(summary, capsysbinary):

@@ -129,3 +129,57 @@ Written before the re-diff; the result follows below it. wvc on `main` at `7d152
   - R2: 7 to 11 become "renamed, changed": the multimodal wrappers and prefix-dropping fine-tunes (`OpenGVLab/InternVL2_5-1B`, `nvidia/Eagle2-2B`, `k2-fsa/OmniVoice`, `vllm-sr/d3-edge`, `vllm-sr/d3-lite`, `vultr/VultronRetrieverFlash-Qwen3.5-0.8B`, `autotrust/JEV-9B`, `MERaLiON/MERaLiON-2-10B-ASR`).
   - R3: none of the 17 pairs tagged `quantized` becomes "renamed, unchanged": packed weights differ in dtype or shape and never pair, so they keep their first-run category.
   - R4: no crash, no refusal, and no internal inconsistency in the new receipts.
+
+### Result of the re-diff, 2026-11-04 (all 31 pairs)
+- Laptop, 29 pairs: 15:54 to 17:14 UTC at `43fb5e4` ([log](E009/rediff-2026-11-04/run-laptop.log)). 0 failed, 162.5 GB written to the cache (budget 200 GB), 207 GB free at the start and 209 GB at the end.
+- PACE, the two `google/gemma-2-9b-it` pairs: job 15095602 (`embers`, `cpu-small`, 8 CPUs, 64 GB, `paceship-srdsgt26`) at the same commit, 15:57 to 17:00 UTC, 1 h 04 min of wall time ([log](E009/pace-logs/slurm-wvc-census-e009-rediff-15095602.log)). 0 failed, 44.9 GB written (budget 60 GB), one job within the limit of two.
+- PACE was unreachable from the laptop from shortly before 17:14 UTC until 17:18 UTC, most likely because the Georgia Tech VPN was disconnected. The job ran through it, and its receipts were fetched and merged with `merge_pace.py` afterwards.
+- The [summary](E009/summary.md) is regenerated with `rediff-2026-11-04/census.csv` read after `census.csv`. Its consistency check covers all 124 receipts, old and new, and finds nothing.
+
+The 31 receipts are under `rediff-2026-11-04/pairs/`. Pairing split them as follows: 5 renamed, unchanged; 6 renamed, changed; 14 still unpaired (13 quantizations, and `k2-fsa/OmniVoice`'s substitution rename); and 6 that were not renamed layouts and keep their category. By first-run category:
+
+| First run | n | After pairing |
+|---|---|---|
+| renamed layout | 25 | renamed, changed 6; renamed, unchanged 5; still renamed layout 14 |
+| partial change | 5 | unchanged (a `score`, `projector`, or untied `lm_head` added; `lm_head` or the 15-tensor MTP head removed; nothing of equal dtype and shape to pair) |
+| dtype rewrite | 1 | unchanged (`livekit/turn-detector`: nothing pairs) |
+
+**Renamed, changed (6).** The base's language model sits under a new prefix and every paired tensor changed:
+- `OpenGVLab/InternVL2_5-1B`: 289 tensors under `language_model.`.
+- `nvidia/Eagle2-2B`: 337 tensors under `language_model.`.
+- `MERaLiON/MERaLiON-2-10B-ASR`: 464 tensors (the whole of gemma-2-9b-it), with a speech encoder added (497 tensors).
+
+The three Qwen3.5-0.8B derivatives that drop the `model.` prefix also count here, though only some of their paired tensors changed: `vllm-sr/d3-edge` 98 of 250, `vllm-sr/d3-lite` 269 of 437, and `vultr/VultronRetrieverFlash-Qwen3.5-0.8B` 186 of 437. Three kinds of tensor stay unpaired in them, and no pass pairs any of them:
+- the MTP head they drop;
+- 223 language-model tensors that `d3-edge` removes, spread over 23 layer indices;
+- tensors whose dtype changed along with the name (8 in `d3-edge`, `A_log` F32 to BF16).
+
+**Renamed, unchanged (5).** This holds two kinds of upload:
+- Repackagings that keep the base's weights byte for byte:
+  - `nvidia/canary-qwen-2.5b`: all 310 Qwen3-1.7B tensors are identical under `llm.`, with unmerged LoRA tensors and a speech encoder added (1,408 tensors).
+  - `autotrust/JEV-9B`: all 426 language-model tensors of Qwen3.5-9B are identical. The vision tower and MTP head (348 tensors) are dropped and a 24-output `proj` head is added. It is tagged `finetune` though the base's weights are untouched.
+- Three MLX quantizations: `mlx-community/Qwen3.5-0.8B-MLX-4bit`, and `lmstudio-community/Qwen3.5-9B-MLX-4bit` and `-8bit`. Their unquantized tensors (norms, 188 and 380) pair by id, while every packed weight stays added and removed (659 and 880 added, 300 and 395 removed).
+
+The split's rule calls a pair "renamed, unchanged" when no compared tensor changed, whatever stays unpaired. So it files these quantizations alongside the repackagings. Read that column with the unpaired counts beside it, in the summary's section "Renamed tensors paired by the diff".
+
+**Still renamed layout (14).**
+- Thirteen quantizations whose packed weights differ in dtype and shape from the base: bitsandbytes, AWQ (including `hugging-quants/gemma-2-9b-it-AWQ-INT4`), AutoRound, and MLX on Qwen3. The Qwen3 MLX exports keep the base's names, so only `scales` and `biases` are added and nothing pairs.
+- `k2-fsa/OmniVoice`, which renames `model.layers` to `llm.layers`. That is a substitution, not a prefix added or dropped, so no pass pairs it.
+
+Predictions R1 to R4:
+
+| Prediction | Held | Observed |
+|---|---|---|
+| R1: 1 to 3 renamed, unchanged | no | 5. Two are repackagings of the base's weights (`canary-qwen-2.5b`, as predicted, and `JEV-9B`); three are MLX quantizations counted there by the rule above |
+| R2: 7 to 11 renamed, changed | no | 6: InternVL, Eagle2, MERaLiON, d3-edge, d3-lite, and Vultron, as named. Of the other two named, OmniVoice stays unpaired and JEV-9B is unchanged |
+| R3: no `quantized` pair becomes renamed, unchanged | no | 3, the MLX exports of Qwen3.5. Packed weights never pair, as predicted; but their unquantized tensors do, which the prediction did not foresee |
+| R4: no crash, refusal, or inconsistency | yes | 0 crashes, 0 refusals; the consistency check is clean over 124 receipts |
+
+What this does to the first run's predictions:
+- **P4** (renamed layout 10% to 30%, mostly Qwen3.5) still fails. With pairing, 40 of 93 pairs stay renamed layout (43%), only 2 of them on Qwen3.5 bases, and 11 resolve: 6 renamed and changed, 5 renamed and unchanged. The frozen category held three things: repackaging (the 2 pairs whose weights are the base's), renamed fine-tunes (6), and quantizations (the rest). Pairing separates the first two from the third, but it does not shrink the category into the predicted range, because most of it was quantization, not renaming, as the first outcome said.
+- **P5** (`quantized` pairs are dtype rewrites or renamed, at least 80%) is unchanged at 39 of 46 (85%), counting the three MLX pairs now in "renamed, unchanged" as renamed.
+- **P9** (tag contradictions): post hoc, `autotrust/JEV-9B` is a twelfth. It is tagged `finetune`, yet its language model is the base's byte for byte.
+
+Follow-ups from the re-diff:
+- A pass that pairs a substituted prefix (`model.` for `llm.`, `model.language_model.` for `language_model.model.`) would pair OmniVoice and the layer names of the MLX exports.
+- The split's "renamed, unchanged" should require that nothing of the language model stays unpaired, or carry the unpaired count in the category, so that quantizations do not land beside repackagings.

@@ -1,0 +1,27 @@
+---------------------------------------
+Begin Slurm Prolog: Nov-04-2026 10:56:36
+Job ID:    15095602
+Account:   paceship-srdsgt26
+Job name:  wvc-census-e009-rediff
+Partition: cpu-small
+QOS:       embers
+---------------------------------------
+python 3.12.5 wvc 0.1.0 hub 2.4.0 numpy 2.5.4
+gated access ok
+start 2026-11-04T15:57:48Z host atl1-1-02-008-4-2.pace.gatech.edu
+diffed MERaLiON/MERaLiON-2-10B-ASR: 3607 s, +38.70 GB (run total 38.70 GB), freed 20.21 GB
+diffed hugging-quants/gemma-2-9b-it-AWQ-INT4: 130 s, +6.16 GB (run total 44.86 GB), freed 6.16 GB
+google/gemma-2-9b-it: listed pairs done, freed 18.48 GB
+done in 3738 s; 44.86 GB written to the cache
+exit 0 end 2026-11-04T17:00:07Z
+---------------------------------------
+Begin Slurm Epilog: Nov-04-2026 12:00:10
+Job ID:        15095602
+Account:       paceship-srdsgt26
+Job name:      wvc-census-e009-rediff
+Resources:     cpu=8,mem=64G,node=1
+Rsrc Used:     cput=08:28:32,vmem=0,walltime=01:03:34,mem=39727372K,energy_used=0
+Partition:     cpu-small
+QOS:           embers
+Nodes:         atl1-1-02-008-4-2
+---------------------------------------
