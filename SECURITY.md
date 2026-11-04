@@ -25,6 +25,7 @@ Known limits that are documented rather than defended, and are not reports:
 - A tensor under the configured `max_tensor_bytes` ceiling (16 GiB by default) is decoded in memory; a checkout is bounded by free disk space, not by a smaller cap.
 - Verification markers under `.wvc/verified/` are trusted in a store copied as a directory; a pulled store never receives them.
 - `wvc bisect --test` runs the command you give it through your shell.
+- A GGUF header's metadata is read item by item, so a header of millions of short strings (a tokenizer is about 150,000) takes time proportional to its size; scalar metadata strings are decoded up to 16 MiB each, so the memory a header takes is bounded by the file's size, not by a smaller cap.
 - Nothing in wvc inspects what a model does; it records and verifies bytes.
 
 ## Supported versions

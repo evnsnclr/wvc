@@ -1,0 +1,4 @@
+qwen2.5-0.5b-instruct-q4_k_m.gguf: 291 tensors in 0.17 s; equal to GGUFReader: True; same order: True; architecture qwen2; alignment 32; types {'F32': 121, 'Q4_K': 12, 'Q5_0': 133, 'Q6_K': 12, 'Q8_0': 13}
+SmolLM2-135M-Instruct-Q4_K_M.gguf: 272 tensors in 0.06 s; equal to GGUFReader: True; same order: True; architecture llama; alignment 32; types {'F32': 61, 'Q4_K': 16, 'Q5_0': 166, 'Q6_K': 14, 'Q8_0': 15}
+SmolLM2-135M-Instruct-f16.gguf: 272 tensors in 0.05 s; equal to GGUFReader: True; same order: True; architecture llama; alignment 32; types {'F16': 211, 'F32': 61}
+failures: 0

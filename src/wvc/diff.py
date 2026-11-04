@@ -13,6 +13,7 @@ they are not bit-reproducible across machines.
 
 from __future__ import annotations
 
+import math
 from collections.abc import Callable, Mapping
 from dataclasses import asdict, dataclass, replace
 
@@ -36,6 +37,8 @@ RANK_REL_TOL = 1e-2  # singular values below this fraction of the largest are ig
 DEFAULT_RANK_CAP = 1 << 26
 CHUNK_ELEMENTS = 1 << 22  # elements compared per chunk (32 MiB of float64 per side)
 UINT_VIEWS = {size: np.dtype(f"<u{size}") for size in (1, 2, 4, 8)}
+OPTIONAL_FIELDS = frozenset(("compared", "name_a", "name_b", "transform_a", "transform_b"))
+RowDecoder = Callable[[int, int], np.ndarray]  # float64 values of rows [first, stop), flat
 
 
 @dataclass(frozen=True)
@@ -56,12 +59,23 @@ class TensorDiff:
     cols_touched: int | None = None
     rank: int | None = None
     top1_energy: float | None = None
+    # Present only in a quantization comparison (spec section 2.1), and omitted when None:
+    compared: str | None = None  # "values": compared by decoded values, not by bytes
+    name_a: str | None = None  # the tensor's name in a's file, when it is not ``name``
+    name_b: str | None = None
+    transform_a: str | None = None  # what was undone to bring a's values into the Hub frame
+    transform_b: str | None = None
 
     def to_dict(self) -> dict:
-        """A JSON-safe dict: non-finite floats become null so strict parsers accept it."""
+        """A JSON-safe dict: non-finite floats become null so strict parsers accept it.
+
+        The quantization fields appear only when set, so a record of two safetensors
+        checkpoints keeps exactly the keys it had before they existed.
+        """
         return {
             key: (None if isinstance(value, float) and not np.isfinite(value) else value)
             for key, value in asdict(self).items()
+            if key not in OPTIONAL_FIELDS or value is not None
         }
 
 
@@ -244,6 +258,84 @@ def _finish(acc: _Accumulator, hits: tuple | None, info: TensorInfo, numeric: bo
     row_hits, col_hits, _ = hits
     fields.update(rows_touched=int(row_hits.sum()), cols_touched=int(col_hits.sum()))
     return fields
+
+
+def value_grid(shape: tuple[int, ...]) -> tuple[int, int]:
+    """The (rows, columns) a value comparison walks: the first axis by the rest; 1-D by element."""
+    numel = math.prod(shape)
+    if len(shape) >= 2 and shape[0] > 0:
+        return shape[0], numel // shape[0]
+    return numel, 1
+
+
+def _value_mask(a: np.ndarray, b: np.ndarray) -> np.ndarray:
+    return (a != b) & ~(np.isnan(a) & np.isnan(b))
+
+
+def diff_values(
+    name: str,
+    info_a: TensorInfo,
+    info_b: TensorInfo,
+    rows_a: RowDecoder,
+    rows_b: RowDecoder,
+    *,
+    equal_is_unchanged: bool,
+    rank: bool = False,
+    rank_cap: int = DEFAULT_RANK_CAP,
+) -> TensorDiff:
+    """Compare two tensors of equal shape by their decoded values (spec section 2.1).
+
+    ``rows_a`` and ``rows_b`` decode whole rows of ``value_grid`` to float64. When every value
+    is equal (NaN equal to NaN) the pair is ``unchanged`` if ``equal_is_unchanged`` (the
+    dtypes differ, or a conversion step was undone) and ``changed`` with no element changed
+    otherwise: a pair of one dtype with nothing undone reaches here only when its bytes
+    differ. Statistics are those of ``diff_tensor``.
+    """
+    nrows, ncols = value_grid(info_a.shape)
+    hits = _hits_for(info_a)
+    acc = _Accumulator()
+    step = max(1, CHUNK_ELEMENTS // max(ncols, 1))
+    for first in range(0, nrows, step):
+        stop = min(first + step, nrows)
+        a, b = rows_a(first, stop), rows_b(first, stop)
+        mask = _value_mask(a, b)
+        _fold(acc, mask, a, b)
+        _mark_hits(mask, first * ncols, hits)
+    summary = TensorDiff(
+        name=name,
+        status="changed",
+        dtype_a=info_a.dtype,
+        dtype_b=info_b.dtype,
+        shape_a=info_a.shape,
+        shape_b=info_b.shape,
+        numel=info_a.numel,
+        compared="values",
+    )
+    if acc.changed == 0 and equal_is_unchanged:
+        return replace(summary, status="unchanged", changed=0)
+    fields = _finish(acc, hits, info_a, numeric=True)
+    if rank and hits is not None and fields["rows_touched"] * fields["cols_touched"] <= rank_cap:
+        sub = _value_submatrix(rows_a, rows_b, hits)
+        fields["rank"], fields["top1_energy"] = _rank_stats(sub)
+    return replace(summary, **fields)
+
+
+def _value_submatrix(rows_a: RowDecoder, rows_b: RowDecoder, hits: tuple) -> np.ndarray:
+    """The change restricted to the touched rows and columns, decoded block by block."""
+    row_hits, col_hits, ncols = hits
+    rows, cols = np.flatnonzero(row_hits), np.flatnonzero(col_hits)
+    block = max(1, CHUNK_ELEMENTS // ncols)
+    pieces = []
+    for first in range(0, len(row_hits), block):
+        selected = rows[(rows >= first) & (rows < first + block)]
+        if selected.size == 0:
+            continue
+        stop = min(first + block, len(row_hits))
+        a = rows_a(first, stop).reshape(-1, ncols)
+        b = rows_b(first, stop).reshape(-1, ncols)
+        local = selected - first
+        pieces.append(b[local][:, cols] - a[local][:, cols])
+    return np.concatenate(pieces) if pieces else np.zeros((0, 0))
 
 
 def unchanged_diff(name: str, info: TensorInfo) -> TensorDiff:

@@ -1,0 +1,17 @@
+start 2026-11-04T03:55:49Z; revision 5e22349 plus working tree; free 181Gi
+reader: exit 0, 4.5 s
+gguf-hash wvc qwen2.5-0.5b-instruct-q4_k_m.gguf: exit 0, 1.5 s
+gguf-hash qwen2.5-0.5b-instruct-q4_k_m.gguf: 292 lines, wvc and llama-gguf-hash identical
+gguf-hash wvc SmolLM2-135M-Instruct-Q4_K_M.gguf: exit 0, 0.5 s
+gguf-hash SmolLM2-135M-Instruct-Q4_K_M.gguf: 273 lines, wvc and llama-gguf-hash identical
+gguf-hash wvc SmolLM2-135M-Instruct-f16.gguf: exit 0, 1.0 s
+gguf-hash SmolLM2-135M-Instruct-f16.gguf: 273 lines, wvc and llama-gguf-hash identical
+gguf-hash spec vector quant.gguf: llama-gguf-hash and the committed quant.gguf-hash identical
+dequant-c: exit 0, 0.5 s
+diff qwen q4_k_m: exit 1, 30.4 s
+diff qwen q4_k_m json: exit 1, 28.4 s
+diff smollm2 q4_k_m: exit 1, 10.2 s
+diff smollm2 q4_k_m json: exit 1, 9.9 s
+diff smollm2 f16: exit 1, 1.3 s
+diff smollm2 f16 json: exit 1, 1.3 s
+end 2026-11-04T03:57:23Z; free 188Gi

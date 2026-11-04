@@ -1,0 +1,13 @@
+sha256    75b5cc3646a0cfadcdcdfdd29a12608346419543a629688b964f3f40f6788ef2  quant.gguf:token_embd.weight
+sha256    981bfe2d39a9cd8cf087dfaaa5d3379f2c786b511d49be94d739f285f7ece452  quant.gguf:output_norm.weight
+sha256    e9beeb1006d44f394f912d124e069c97397c676b8bb6e5dd54fb88409940a0bc  quant.gguf:output.weight
+sha256    03e95f70dcc539927c2bbf7473272a2835522e173a5604aa55b7fcd1dbf01fe4  quant.gguf:blk.0.attn_norm.weight
+sha256    e776edee2291bd4410c693ed06180efcbf34dd36c956f81c5db958d329dad1f6  quant.gguf:blk.0.attn_q.weight
+sha256    25e7876e43f50bd497c78b87b3b9edffd3a781d4ad8ceb71e4df62174eba5a17  quant.gguf:blk.0.attn_k.weight
+sha256    30884cffb04729ac30cbca446fcc9ca665201b4c00f95bc22d9a901c3587a8cd  quant.gguf:blk.0.attn_v.weight
+sha256    e8a70828fdcd304873e34d3ec663bf9d30763c300ae4ec154b62f737ef293495  quant.gguf:blk.0.attn_output.weight
+sha256    7c866e62581d10726f6ac79418cabed2da1c6db7371a1c879d40d78664df0a09  quant.gguf:blk.0.ffn_norm.weight
+sha256    1fe5a9ce8b6d84ea6fb7a8976a65759526f06672b2ae3772685015278277e430  quant.gguf:blk.0.ffn_gate.weight
+sha256    07a8dc78db999b63bb25fb802800291d99b6361ecb10ece4048b0bbb61db375e  quant.gguf:blk.0.ffn_up.weight
+sha256    f5c168ba5046c6dff74cd49e45dbb871f10f22286f2162c9a66fbc0cff81921b  quant.gguf:blk.0.ffn_down.weight
+sha256    bf18043aeb2c585690507f960b1917a8c332d6d6a4434ee003f074a92d8cbb5d  quant.gguf

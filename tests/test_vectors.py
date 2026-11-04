@@ -7,6 +7,8 @@ from pathlib import Path
 import pytest
 
 from wvc.cli import main
+from wvc.gguf_io import load_gguf
+from wvc.gguf_quants import DEQUANTIZERS
 from wvc.hashing import build_manifest
 from wvc.safetensors_io import load_checkpoint
 
@@ -55,4 +57,44 @@ def test_generator_reproduces_checkpoints(tmp_path):
     generator = runpy.run_path(str(VECTORS / "make_vectors.py"))
     generator["main"]([str(tmp_path)])
     for name in ("a.safetensors", "b.safetensors"):
+        assert (tmp_path / name).read_bytes() == (VECTORS / name).read_bytes(), name
+
+
+def test_gguf_manifest_matches_vector():
+    with load_gguf(VECTORS / "quant.gguf") as ckpt:
+        manifest = build_manifest(ckpt)
+    committed = (VECTORS / "quant.manifest.json").read_text(encoding="utf-8")
+    assert json.dumps(manifest, indent=2) + "\n" == committed
+
+
+def test_gguf_hash_lines_match_vector(capsys):
+    assert main(["hash", "--format", "gguf-hash", str(VECTORS / "quant.gguf")]) == 0
+    assert capsys.readouterr().out == (VECTORS / "quant.gguf-hash").read_text(encoding="utf-8")
+
+
+def test_gguf_dequantised_values_match_vector():
+    committed = json.loads((VECTORS / "quant.dequant.json").read_text(encoding="utf-8"))
+    generator = runpy.run_path(str(VECTORS / "make_vectors.py"))
+    assert generator["dequantised_digests"](VECTORS / "quant.gguf") == committed
+    with load_gguf(VECTORS / "quant.gguf") as ckpt:
+        types = [info.dtype for info in ckpt.tensors.values()]
+    assert sorted(types) == sorted(["F32", "F16", "BF16", *DEQUANTIZERS])  # one per type
+
+
+def test_gguf_diff_matches_vector(capsys):
+    args = ["diff", "--rank", "--json", "--all"]
+    pair = [str(VECTORS / "quant-base.safetensors"), str(VECTORS / "quant.gguf")]
+    assert main([*args, *pair]) == 1
+    actual = _basename_paths(json.loads(capsys.readouterr().out))
+    expected = json.loads((VECTORS / "quant-diff.json").read_text(encoding="utf-8"))
+    assert {**actual, "tensors": None} == {**expected, "tensors": None}
+    assert [t["name"] for t in actual["tensors"]] == [t["name"] for t in expected["tensors"]]
+    for got, want in zip(actual["tensors"], expected["tensors"], strict=True):
+        assert got == _with_tolerance(want), got["name"]
+
+
+def test_generator_reproduces_the_gguf_pair(tmp_path):
+    generator = runpy.run_path(str(VECTORS / "make_vectors.py"))
+    generator["write_gguf_vectors"](tmp_path)
+    for name in ("quant.gguf", "quant-base.safetensors"):
         assert (tmp_path / name).read_bytes() == (VECTORS / name).read_bytes(), name

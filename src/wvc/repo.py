@@ -24,6 +24,7 @@ from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 from itertools import islice
 from pathlib import Path
+from typing import cast
 
 import numpy as np
 
@@ -497,7 +498,7 @@ def _plan_files(ckpt: Checkpoint, where: str) -> list[_FilePlan]:
     """Validate every file's name and layout; nothing is stored or read beyond the headers."""
     check_file_names([file.path.name for file in ckpt.files], where)
     plans = []
-    for file in ckpt.files:
+    for file in cast("tuple[SafetensorsFile, ...]", ckpt.files):  # load_checkpoint's files
         size = os.stat(file.path).st_size
         plans.append(_FilePlan(file, size, data_order(file, size)))
     return plans

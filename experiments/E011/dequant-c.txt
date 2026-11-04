@@ -1,0 +1,19 @@
+Q4_0  random blocks        131072 values  bit-identical: True
+Q4_0  reference quantised   131072 values  bit-identical: True
+Q4_1  random blocks        131072 values  bit-identical: True
+Q4_1  reference quantised   131072 values  bit-identical: True
+Q5_0  random blocks        131072 values  bit-identical: True
+Q5_0  reference quantised   131072 values  bit-identical: True
+Q5_1  random blocks        131072 values  bit-identical: True
+Q5_1  reference quantised   131072 values  bit-identical: True
+Q8_0  random blocks        131072 values  bit-identical: True
+Q8_0  reference quantised   131072 values  bit-identical: True
+Q4_K  random blocks       1048576 values  bit-identical: True
+Q4_K  reference quantised  1048576 values  bit-identical: True
+Q5_K  random blocks       1048576 values  bit-identical: True
+Q5_K  reference quantised  1048576 values  bit-identical: True
+Q6_K  random blocks       1048576 values  bit-identical: True
+Q6_K  reference quantised  1048576 values  bit-identical: True
+Q8_K  random blocks       1048576 values  bit-identical: True
+Q8_K  reference quantised  1048576 values  bit-identical: True
+failures: 0

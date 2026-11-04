@@ -1,0 +1,37 @@
+comparison: {'kind': 'quantization', 'gguf': ['b'], 'mapping': 'llama', 'values': 'float64'}
+summary: {'tensors': 272, 'by_status': {'unchanged': 61, 'changed': 211, 'added': 0, 'removed': 0, 'reshaped': 0}, 'elements_compared': 134515008, 'elements_changed': 134236927, 'fraction_changed': 0.9979327139466847}
+F32: {'unchanged': 61}
+Q4_K: {'changed': 16}; rel |d|/|a| 0.07214 to 0.08708; changed fraction 0.9999 to 0.9999; top-1 energy max 0.0248 over 16 with a rank
+Q5_0: {'changed': 166}; rel |d|/|a| 0.04098 to 0.05385; changed fraction 0.9960 to 0.9983; top-1 energy max 0.0692 over 166 with a rank
+Q6_K: {'changed': 14}; rel |d|/|a| 0.01768 to 0.01883; changed fraction 0.9995 to 0.9997; top-1 energy max 0.0291 over 14 with a rank
+Q8_0: {'changed': 15}; rel |d|/|a| 0.005461 to 0.006964; changed fraction 0.9966 to 0.9981; top-1 energy max 0.0223 over 15 with a rank
+layer 0: q Q5_0 0.05103, k Q5_0 0.04994, v Q8_0 0.00608
+layer 1: q Q5_0 0.04555, k Q5_0 0.04501, v Q8_0 0.005569
+layer 2: q Q5_0 0.04469, k Q5_0 0.04439, v Q5_0 0.04362
+layer 3: q Q5_0 0.04431, k Q5_0 0.04317, v Q8_0 0.005821
+layer 4: q Q5_0 0.04333, k Q5_0 0.04309, v Q5_0 0.04404
+layer 5: q Q5_0 0.0449, k Q5_0 0.04594, v Q5_0 0.04317
+layer 6: q Q5_0 0.04363, k Q5_0 0.04366, v Q8_0 0.005486
+layer 7: q Q5_0 0.04481, k Q5_0 0.04559, v Q8_0 0.005578
+layer 8: q Q5_0 0.04541, k Q5_0 0.04548, v Q8_0 0.005556
+layer 9: q Q5_0 0.04517, k Q5_0 0.04544, v Q8_0 0.005571
+layer 10: q Q5_0 0.04485, k Q5_0 0.04393, v Q8_0 0.005615
+layer 11: q Q5_0 0.04573, k Q5_0 0.04385, v Q5_0 0.04602
+layer 12: q Q5_0 0.04731, k Q5_0 0.04553, v Q5_0 0.04692
+layer 13: q Q5_0 0.04639, k Q5_0 0.04496, v Q8_0 0.005528
+layer 14: q Q5_0 0.04517, k Q5_0 0.04634, v Q5_0 0.04554
+layer 15: q Q5_0 0.04568, k Q5_0 0.04503, v Q5_0 0.04595
+layer 16: q Q5_0 0.04606, k Q5_0 0.04618, v Q8_0 0.005948
+layer 17: q Q5_0 0.04981, k Q5_0 0.04743, v Q5_0 0.04596
+layer 18: q Q5_0 0.04733, k Q5_0 0.0461, v Q5_0 0.05088
+layer 19: q Q5_0 0.05042, k Q5_0 0.04626, v Q8_0 0.005488
+layer 20: q Q5_0 0.04484, k Q5_0 0.0459, v Q5_0 0.0505
+layer 21: q Q5_0 0.04522, k Q5_0 0.04397, v Q8_0 0.005804
+layer 22: q Q5_0 0.04516, k Q5_0 0.04422, v Q5_0 0.04548
+layer 23: q Q5_0 0.04597, k Q5_0 0.04595, v Q5_0 0.0512
+layer 24: q Q5_0 0.04564, k Q5_0 0.04511, v Q8_0 0.006145
+layer 25: q Q5_0 0.04353, k Q5_0 0.04333, v Q5_0 0.04312
+layer 26: q Q5_0 0.04378, k Q5_0 0.04435, v Q5_0 0.04376
+layer 27: q Q5_0 0.04395, k Q5_0 0.04402, v Q8_0 0.005461
+layer 28: q Q5_0 0.04386, k Q5_0 0.04446, v Q5_0 0.04318
+layer 29: q Q5_0 0.0449, k Q5_0 0.044, v Q5_0 0.04386

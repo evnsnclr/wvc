@@ -11,6 +11,7 @@ build/
 # The tiny spec test vectors are tracked.
 !spec/vectors/**/*.safetensors
 *.gguf
+!spec/vectors/**/*.gguf
 *.npz
 models/
 runs/

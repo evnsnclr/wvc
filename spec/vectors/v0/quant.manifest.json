@@ -1,0 +1,113 @@
+{
+  "format": "wvc-manifest/0",
+  "root": "dfb5cacec920565aec028d3e868c5b79d7d0bd14a9c677360a79e9518336b0bf",
+  "tensor_count": 12,
+  "total_bytes": 10776,
+  "tensors": {
+    "blk.0.attn_k.weight": {
+      "dtype": "Q8_K",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 1168,
+      "sha256": "25e7876e43f50bd497c78b87b3b9edffd3a781d4ad8ceb71e4df62174eba5a17"
+    },
+    "blk.0.attn_norm.weight": {
+      "dtype": "BF16",
+      "shape": [
+        256
+      ],
+      "nbytes": 512,
+      "sha256": "03e95f70dcc539927c2bbf7473272a2835522e173a5604aa55b7fcd1dbf01fe4"
+    },
+    "blk.0.attn_output.weight": {
+      "dtype": "Q5_K",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 704,
+      "sha256": "e8a70828fdcd304873e34d3ec663bf9d30763c300ae4ec154b62f737ef293495"
+    },
+    "blk.0.attn_q.weight": {
+      "dtype": "Q4_K",
+      "shape": [
+        8,
+        256
+      ],
+      "nbytes": 1152,
+      "sha256": "e776edee2291bd4410c693ed06180efcbf34dd36c956f81c5db958d329dad1f6"
+    },
+    "blk.0.attn_v.weight": {
+      "dtype": "Q5_0",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 704,
+      "sha256": "30884cffb04729ac30cbca446fcc9ca665201b4c00f95bc22d9a901c3587a8cd"
+    },
+    "blk.0.ffn_down.weight": {
+      "dtype": "Q5_1",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 768,
+      "sha256": "f5c168ba5046c6dff74cd49e45dbb871f10f22286f2162c9a66fbc0cff81921b"
+    },
+    "blk.0.ffn_gate.weight": {
+      "dtype": "Q4_0",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 576,
+      "sha256": "1fe5a9ce8b6d84ea6fb7a8976a65759526f06672b2ae3772685015278277e430"
+    },
+    "blk.0.ffn_norm.weight": {
+      "dtype": "F16",
+      "shape": [
+        256
+      ],
+      "nbytes": 512,
+      "sha256": "7c866e62581d10726f6ac79418cabed2da1c6db7371a1c879d40d78664df0a09"
+    },
+    "blk.0.ffn_up.weight": {
+      "dtype": "Q4_1",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 640,
+      "sha256": "07a8dc78db999b63bb25fb802800291d99b6361ecb10ece4048b0bbb61db375e"
+    },
+    "output.weight": {
+      "dtype": "Q6_K",
+      "shape": [
+        4,
+        256
+      ],
+      "nbytes": 840,
+      "sha256": "e9beeb1006d44f394f912d124e069c97397c676b8bb6e5dd54fb88409940a0bc"
+    },
+    "output_norm.weight": {
+      "dtype": "F32",
+      "shape": [
+        256
+      ],
+      "nbytes": 1024,
+      "sha256": "981bfe2d39a9cd8cf087dfaaa5d3379f2c786b511d49be94d739f285f7ece452"
+    },
+    "token_embd.weight": {
+      "dtype": "Q8_0",
+      "shape": [
+        8,
+        256
+      ],
+      "nbytes": 2176,
+      "sha256": "75b5cc3646a0cfadcdcdfdd29a12608346419543a629688b964f3f40f6788ef2"
+    }
+  }
+}

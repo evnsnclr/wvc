@@ -3,3 +3,5 @@
 * text=auto eol=lf
 *.safetensors binary
 *.log -text
+*.gguf binary
+spec/vectors/**/*.gguf-hash -text

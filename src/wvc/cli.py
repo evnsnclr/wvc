@@ -17,6 +17,7 @@ from collections.abc import Sequence
 from typing import Any
 
 from wvc import __version__
+from wvc.agent_report import AGENT_FORMAT, render_agent
 from wvc.checkout import CheckoutResult, checkout_commit
 from wvc.cli_bisect import add_bisect_command
 from wvc.cli_common import (
@@ -32,6 +33,8 @@ from wvc.cli_peft import add_peft_commands
 from wvc.cli_remote import add_remote_commands, source_arg
 from wvc.diff import DEFAULT_RANK_CAP, TensorDiff, diff_checkpoints, summarize
 from wvc.errors import WvcError
+from wvc.gguf_diff import compare_quantized, gguf_about, is_quantization_pair
+from wvc.gguf_io import gguf_files, is_gguf, load_gguf
 from wvc.hashing import build_manifest, gguf_hash_lines, tensor_digests
 from wvc.hub import (
     Hub,
@@ -63,8 +66,11 @@ from wvc.safetensors_io import Checkpoint, load_checkpoint
 from wvc.store import ObjectStore, manifest_json
 from wvc.verify import TensorRecord, VerifyReport, load_manifest, verify_checkpoint
 
-CHECKPOINT_HELP = "a .safetensors file, a directory of shards, or hf:OWNER/NAME[@REVISION]"
+CHECKPOINT_HELP = (
+    "a .safetensors file, a directory of shards, a .gguf file, or hf:OWNER/NAME[@REVISION]"
+)
 MANIFEST_FORMATS = ("json", "gguf-hash")
+DIFF_FORMATS = ("table", "json", "agent")
 DEBUG_ENV = "WVC_DEBUG"  # when non-empty, errors propagate with their traceback
 INTERRUPTED_EXIT = 130  # 128 + SIGINT, as a shell reports a command stopped by Ctrl-C
 DIFF_COLUMNS = (
@@ -179,6 +185,8 @@ def _open_checkpoint(arg: str) -> tuple[Checkpoint, dict[str, Any]]:
     checkpoint (``with``).
     """
     if not is_hub_checkpoint(arg):
+        if is_gguf(arg):
+            return load_gguf(arg), {"path": str(arg), "format": "gguf"}
         return load_checkpoint(arg), {"path": str(arg)}
     ref = parse_hub_checkpoint(arg)
     hub = Hub()
@@ -226,16 +234,27 @@ def _report_diff(
     a: dict[str, Any],
     b: dict[str, Any],
     header: list[str],
+    comparison: dict | None = None,
+    unchanged_files: dict | None = None,
 ) -> int:
     summary = summarize(diffs)
-    if args.json:
+    output = _diff_format(args)
+    if output != "table":
         payload = {
             "a": a,
             "b": b,
+            **({} if comparison is None else {"comparison": comparison}),
             "summary": summary,
-            "tensors": [d.to_dict() for d in diffs if args.all or d.status != "unchanged"],
+            "tensors": [
+                d.to_dict()
+                for d in diffs
+                if args.all or output == "agent" or d.status != "unchanged"
+            ],
         }
-        emit_json(payload, allow_nan=False)
+        if output == "agent":
+            emit_text(render_agent(payload, unchanged_files))
+        else:
+            emit_json(payload, allow_nan=False)
     else:
         for line in header:
             print(printable(line))
@@ -244,6 +263,25 @@ def _report_diff(
             print()
             print(render_diff_table(diffs, show_all=args.all))
     return 1 if summary["by_status"]["unchanged"] != summary["tensors"] else 0
+
+
+def _diff_format(args: argparse.Namespace) -> str:
+    """``table``, ``json``, or ``agent``; ``--json`` is ``--format json``."""
+    if args.json and args.format not in (None, "json"):
+        args.usage_error(f"--json and --format {args.format} ask for two formats")
+    return "json" if args.json else (args.format or "table")
+
+
+def _unchanged_files(ckpt: Checkpoint, diffs: list[TensorDiff]) -> dict:
+    """The files of side b whose every tensor the diff reports unchanged."""
+    status = {d.name_b or d.name: d.status for d in diffs}
+    names = [
+        file.path.name
+        for file in ckpt.files
+        if all(status.get(name) == "unchanged" for name in file.tensors)
+    ]
+    return {"label": "files of b whose tensors are all unchanged", "names": names,
+            "total": len(ckpt.files)}  # fmt: skip
 
 
 def _diff_hub_pair(args: argparse.Namespace) -> int:
@@ -259,6 +297,11 @@ def _diff_hub_pair(args: argparse.Namespace) -> int:
         _hub_side(a, result.root_a, plan.skipped, plan.fetch_a),
         _hub_side(b, result.root_b, plan.skipped, plan.fetch_b),
         render_hub_header(a, b, plan),
+        unchanged_files={
+            "label": "shards byte-identical on the Hub (not fetched)",
+            "names": [file.name for file in plan.skipped],
+            "total": len(b.files),
+        },
     )
 
 
@@ -266,17 +309,42 @@ def cmd_diff(args: argparse.Namespace) -> int:
     if is_hub_checkpoint(args.a) and is_hub_checkpoint(args.b):
         return _diff_hub_pair(args)
     ckpt_a, about_a = _open_checkpoint(args.a)
+    comparison = None
     with ckpt_a:
         ckpt_b, about_b = _open_checkpoint(args.b)
         with ckpt_b:
             digests_a = tensor_digests(ckpt_a)
             digests_b = tensor_digests(ckpt_b)
-            diffs = diff_checkpoints(
-                ckpt_a, ckpt_b, digests_a, digests_b, rank=args.rank, rank_cap=args.rank_cap
-            )
-    a = {**about_a, "root": build_manifest(ckpt_a, digests_a)["root"]}  # reads no file
-    b = {**about_b, "root": build_manifest(ckpt_b, digests_b)["root"]}
-    return _report_diff(args, diffs, a, b, [])
+            if is_quantization_pair(ckpt_a, ckpt_b):
+                diffs, comparison = compare_quantized(
+                    ckpt_a, ckpt_b, digests_a, digests_b, rank=args.rank, rank_cap=args.rank_cap
+                )
+            else:
+                diffs = diff_checkpoints(
+                    ckpt_a, ckpt_b, digests_a, digests_b, rank=args.rank, rank_cap=args.rank_cap
+                )
+    a = {**about_a, "root": build_manifest(ckpt_a, digests_a)["root"], **_gguf_side(ckpt_a)}
+    b = {**about_b, "root": build_manifest(ckpt_b, digests_b)["root"], **_gguf_side(ckpt_b)}
+    header = [] if comparison is None else [render_comparison(comparison)]
+    files = _unchanged_files(ckpt_b, diffs)
+    return _report_diff(args, diffs, a, b, header, comparison, files)
+
+
+def _gguf_side(ckpt: Checkpoint) -> dict[str, Any]:
+    """The ``gguf`` key of a diff side that is a GGUF file; nothing for safetensors."""
+    files = gguf_files(ckpt)
+    return {"gguf": gguf_about(files[0])} if files else {}
+
+
+def render_comparison(comparison: dict) -> str:
+    """One line saying that values were compared across a quantization, and how."""
+    sides = " and ".join(comparison["gguf"])
+    mapping = comparison["mapping"]
+    names = f"names mapped by the {mapping} table" if mapping else "names compared as stored"
+    return (
+        f"quantization comparison: {sides} GGUF; {names}; values dequantised to "
+        f"{comparison['values']} where bytes cannot be compared"
+    )
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
@@ -486,6 +554,12 @@ def build_parser() -> argparse.ArgumentParser:
     p_diff.add_argument("a", help=f"base checkpoint: {CHECKPOINT_HELP}")
     p_diff.add_argument("b", help=f"other checkpoint: {CHECKPOINT_HELP}")
     p_diff.add_argument("--json", action="store_true", help="emit JSON instead of a table")
+    p_diff.add_argument(
+        "--format",
+        choices=DIFF_FORMATS,
+        help="table (default), json (as --json), or agent: a compact Markdown report for LLM "
+        f"agents, the stable format {AGENT_FORMAT} (docs/agents-reading-diffs.md)",
+    )
     p_diff.add_argument("--all", action="store_true", help="list unchanged tensors too")
     p_diff.add_argument("--rank", action="store_true", help="estimate the rank of each change")
     p_diff.add_argument(
@@ -494,7 +568,7 @@ def build_parser() -> argparse.ArgumentParser:
         default=DEFAULT_RANK_CAP,
         help="skip the rank estimate when the touched submatrix has more elements than this",
     )
-    p_diff.set_defaults(func=cmd_diff)
+    p_diff.set_defaults(func=cmd_diff, usage_error=p_diff.error)
 
     p_verify = sub.add_parser(
         "verify", help="check a checkpoint against a manifest written by 'wvc hash'"

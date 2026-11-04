@@ -1,0 +1,360 @@
+{
+  "a": {
+    "path": "quant-base.safetensors",
+    "root": "9dfb6bf94da1901d7649c24bd4a92c4da8814c2fe9134d7dac441d308cb382d8"
+  },
+  "b": {
+    "path": "quant.gguf",
+    "format": "gguf",
+    "root": "dfb5cacec920565aec028d3e868c5b79d7d0bd14a9c677360a79e9518336b0bf",
+    "gguf": {
+      "version": 3,
+      "architecture": "llama",
+      "alignment": 32,
+      "types": {
+        "BF16": 1,
+        "F16": 1,
+        "F32": 1,
+        "Q4_0": 1,
+        "Q4_1": 1,
+        "Q4_K": 1,
+        "Q5_0": 1,
+        "Q5_1": 1,
+        "Q5_K": 1,
+        "Q6_K": 1,
+        "Q8_0": 1,
+        "Q8_K": 1
+      }
+    }
+  },
+  "comparison": {
+    "kind": "quantization",
+    "gguf": [
+      "b"
+    ],
+    "mapping": "llama",
+    "values": "float64"
+  },
+  "summary": {
+    "tensors": 12,
+    "by_status": {
+      "unchanged": 2,
+      "changed": 10,
+      "added": 0,
+      "removed": 0,
+      "reshaped": 0
+    },
+    "elements_compared": 12032,
+    "elements_changed": 10952,
+    "fraction_changed": 0.9102393617021277
+  },
+  "tensors": [
+    {
+      "name": "lm_head.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q6_K",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 1005,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.12005615234375,
+      "delta_norm": 0.6067242253859529,
+      "rel_delta_norm": 0.0016250820446442951,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 3,
+      "top1_energy": 0.6073492097791868,
+      "compared": "values",
+      "name_b": "output.weight"
+    },
+    {
+      "name": "model.embed_tokens.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q8_0",
+      "shape_a": [
+        8,
+        256
+      ],
+      "shape_b": [
+        8,
+        256
+      ],
+      "numel": 2048,
+      "changed": 1959,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.0076446533203125,
+      "delta_norm": 0.04895036699838017,
+      "rel_delta_norm": 0.0016547573545245794,
+      "rows_touched": 8,
+      "cols_touched": 256,
+      "rank": 8,
+      "top1_energy": 0.2380673525627896,
+      "compared": "values",
+      "name_b": "token_embd.weight"
+    },
+    {
+      "name": "model.layers.0.input_layernorm.weight",
+      "status": "unchanged",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        256
+      ],
+      "shape_b": [
+        256
+      ],
+      "numel": 256,
+      "changed": 0,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null,
+      "name_b": "blk.0.attn_norm.weight"
+    },
+    {
+      "name": "model.layers.0.mlp.down_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q5_1",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 995,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.00160980224609375,
+      "delta_norm": 0.008527641554851174,
+      "rel_delta_norm": 0.0016414170826415304,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 4,
+      "top1_energy": 0.5120814812439256,
+      "compared": "values",
+      "name_b": "blk.0.ffn_down.weight"
+    },
+    {
+      "name": "model.layers.0.mlp.gate_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q4_0",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 911,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.000396728515625,
+      "delta_norm": 0.0025462322008783195,
+      "rel_delta_norm": 0.0016357320859617373,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 4,
+      "top1_energy": 0.6056093574436644,
+      "compared": "values",
+      "name_b": "blk.0.ffn_gate.weight"
+    },
+    {
+      "name": "model.layers.0.mlp.up_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q4_1",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 983,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.00093841552734375,
+      "delta_norm": 0.004842070974553944,
+      "rel_delta_norm": 0.0017590238297917739,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 4,
+      "top1_energy": 0.4478742340069628,
+      "compared": "values",
+      "name_b": "blk.0.ffn_up.weight"
+    },
+    {
+      "name": "model.layers.0.post_attention_layernorm.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "F16",
+      "shape_a": [
+        256
+      ],
+      "shape_b": [
+        256
+      ],
+      "numel": 256,
+      "changed": 75,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 2.9802322387695312e-08,
+      "delta_norm": 1.5724111980524884e-07,
+      "rel_delta_norm": 3.7229065615235313e-08,
+      "rows_touched": 75,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null,
+      "compared": "values",
+      "name_b": "blk.0.ffn_norm.weight"
+    },
+    {
+      "name": "model.layers.0.self_attn.k_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q8_K",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 1020,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.0038137435913085938,
+      "delta_norm": 0.029913546596454454,
+      "rel_delta_norm": 0.0017006985281108752,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 4,
+      "top1_energy": 0.6379895791665939,
+      "compared": "values",
+      "name_b": "blk.0.attn_k.weight",
+      "transform_b": "unpermute-rotary(heads=1)"
+    },
+    {
+      "name": "model.layers.0.self_attn.o_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q5_K",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 1024,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.12177658081054688,
+      "delta_norm": 0.7096223867672029,
+      "rel_delta_norm": 0.0015045457357642756,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 4,
+      "top1_energy": 0.8796898875046347,
+      "compared": "values",
+      "name_b": "blk.0.attn_output.weight"
+    },
+    {
+      "name": "model.layers.0.self_attn.q_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q4_K",
+      "shape_a": [
+        8,
+        256
+      ],
+      "shape_b": [
+        8,
+        256
+      ],
+      "numel": 2048,
+      "changed": 2035,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.02658843994140625,
+      "delta_norm": 0.17132201376261172,
+      "rel_delta_norm": 0.0014686061705774375,
+      "rows_touched": 8,
+      "cols_touched": 256,
+      "rank": 8,
+      "top1_energy": 0.5364058227699732,
+      "compared": "values",
+      "name_b": "blk.0.attn_q.weight",
+      "transform_b": "unpermute-rotary(heads=2)"
+    },
+    {
+      "name": "model.layers.0.self_attn.v_proj.weight",
+      "status": "changed",
+      "dtype_a": "BF16",
+      "dtype_b": "Q5_0",
+      "shape_a": [
+        4,
+        256
+      ],
+      "shape_b": [
+        4,
+        256
+      ],
+      "numel": 1024,
+      "changed": 945,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 0.000885009765625,
+      "delta_norm": 0.005888175485332665,
+      "rel_delta_norm": 0.0016793023608925868,
+      "rows_touched": 4,
+      "cols_touched": 256,
+      "rank": 4,
+      "top1_energy": 0.3395421277677162,
+      "compared": "values",
+      "name_b": "blk.0.attn_v.weight"
+    },
+    {
+      "name": "model.norm.weight",
+      "status": "unchanged",
+      "dtype_a": "BF16",
+      "dtype_b": "F32",
+      "shape_a": [
+        256
+      ],
+      "shape_b": [
+        256
+      ],
+      "numel": 256,
+      "changed": 0,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null,
+      "compared": "values",
+      "name_b": "output_norm.weight"
+    }
+  ]
+}

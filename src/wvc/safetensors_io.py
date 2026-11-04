@@ -27,6 +27,7 @@ from collections import OrderedDict
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Protocol
 
 import numpy as np
 
@@ -41,6 +42,7 @@ MAX_DIMS = 64  # longer shapes are refused before anything multiplies them
 BYTES_PER_BRACKET = 16
 BRACKET_SLACK = 64
 SHAPE_TEXT_DIMS = 4  # the dims of a long shape that a message quotes
+GGUF_MAGIC = b"GGUF"  # load_checkpoint names a GGUF file instead of misreading its header
 
 ITEMSIZES = {
     "BOOL": 1, "U8": 1, "I8": 1,
@@ -157,6 +159,22 @@ class SafetensorsFile:
     tensors: dict[str, TensorInfo]
 
 
+class TensorFile(Protocol):
+    """What a reader needs from a parsed file: a ``SafetensorsFile`` or a ``gguf_io.GgufFile``.
+
+    ``data_start`` is where the tensor bytes begin; every ``TensorInfo`` offset counts from it.
+    """
+
+    @property
+    def path(self) -> Path: ...
+
+    @property
+    def data_start(self) -> int: ...
+
+    @property
+    def tensors(self) -> dict[str, TensorInfo]: ...
+
+
 def header_size_from(path: Path, size_field: bytes) -> int:
     """The header length from a file's first eight bytes, capped as the reference caps it."""
     if len(size_field) < SIZE_FIELD_BYTES:
@@ -242,7 +260,7 @@ def parse_payload(path: Path, data: bytes, file_nbytes: int) -> SafetensorsFile:
     return SafetensorsFile(path=path, data_start=len(data), metadata=metadata, tensors=tensors)
 
 
-def offset_order(file: SafetensorsFile) -> list[TensorInfo]:
+def offset_order(file: TensorFile) -> list[TensorInfo]:
     """A file's tensors in the order their bytes sit in the buffer; ties broken by name."""
     return sorted(file.tensors.values(), key=lambda info: (info.begin, info.end, info.name))
 
@@ -378,7 +396,7 @@ class TensorReader:
     the map and its descriptor are released when the last such view is dropped instead.
     """
 
-    def __init__(self, file: SafetensorsFile) -> None:
+    def __init__(self, file: TensorFile) -> None:
         from wvc.fsio import open_input  # here: wvc.fsio imports wvc.records, which imports this
 
         self.file = file
@@ -436,10 +454,10 @@ class Checkpoint:
     closed checkpoint refuses further reads.
     """
 
-    def __init__(self, files: Sequence[SafetensorsFile]) -> None:
+    def __init__(self, files: Sequence[TensorFile]) -> None:
         self.files = tuple(files)
         self.tensors: dict[str, TensorInfo] = {}
-        self._owner: dict[str, SafetensorsFile] = {}
+        self._owner: dict[str, TensorFile] = {}
         for file in self.files:
             for name, info in file.tensors.items():
                 if name in self.tensors:
@@ -464,7 +482,7 @@ class Checkpoint:
             _, reader = self._readers.popitem(last=False)
             reader.close()
 
-    def file_of(self, name: str) -> SafetensorsFile:
+    def file_of(self, name: str) -> TensorFile:
         """The file that holds tensor ``name``."""
         return self._owner[name]
 
@@ -503,6 +521,12 @@ def load_checkpoint(path: str | Path) -> Checkpoint:
             raise SafetensorsError(f"{path}: no *.safetensors files found")
     elif path.is_file():
         shards = [path]
+        with path.open("rb") as handle:
+            if handle.read(len(GGUF_MAGIC)) == GGUF_MAGIC:
+                raise SafetensorsError(
+                    f"{path}: a GGUF file; this command reads safetensors checkpoints only "
+                    "(hash, diff, and verify read GGUF files)"
+                )
     else:
         raise SafetensorsError(f"{path}: not a file or directory")
     return Checkpoint([read_header(shard) for shard in shards])

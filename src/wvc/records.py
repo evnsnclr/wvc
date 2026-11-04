@@ -18,6 +18,7 @@ from wvc.codec import FULL_FORM, LOWRANK_FORM, SPARSE_FORM, XOR_FORM
 from wvc.errors import DeltaDepthError as DeltaDepthError  # re-exported
 from wvc.errors import IntegrityError, StoreError, WvcError
 from wvc.extras import commit_extras
+from wvc.gguf_io import BLOCK_TYPES, tensor_nbytes
 from wvc.hashing import MANIFEST_FORMAT, manifest_root
 from wvc.ids import is_count, is_id
 from wvc.lowrank import FLOAT_DTYPES, PROCEDURE
@@ -165,15 +166,9 @@ def _validate_entry(where: str, entry: object) -> None:
         raise ManifestError(
             f"{where}: 'nbytes' must be a non-negative integer, got {shown(nbytes)}"
         )
-    if dtype not in ITEMSIZES:
+    if dtype not in ITEMSIZES and dtype not in BLOCK_TYPES:
         raise ManifestError(f"{where}: unsupported dtype {shown(dtype)}")
-    count = element_count(shape, nbytes)
-    if count is None:
-        raise ManifestError(
-            f"{where}: shape {shape_text(shape)} has more elements than 'nbytes' "
-            f"{shown(nbytes)} allows"
-        )
-    expected = count * ITEMSIZES[dtype]
+    expected = _entry_nbytes(where, dtype, shape, nbytes)
     if nbytes != expected:
         raise ManifestError(
             f"{where}: 'nbytes' is {shown(nbytes)} but {dtype}{shape_text(shape)} holds "
@@ -181,6 +176,27 @@ def _validate_entry(where: str, entry: object) -> None:
         )
     if not is_id(sha256):
         raise ManifestError(f"{where}: 'sha256' must be 64 lowercase hex characters")
+
+
+def _entry_nbytes(where: str, dtype: str, shape: list, nbytes: int) -> int:
+    """The bytes ``dtype`` and ``shape`` occupy; ManifestError when ``nbytes`` cannot hold them.
+
+    A GGUF block type (spec section 1.1) stores whole blocks along the last dimension.
+    """
+    if dtype in BLOCK_TYPES:
+        try:
+            expected = tensor_nbytes(dtype, shape, nbytes)
+        except ValueError as exc:
+            raise ManifestError(f"{where}: shape {shape_text(shape)}: {exc}") from exc
+    else:
+        count = element_count(shape, nbytes)
+        expected = None if count is None else count * ITEMSIZES[dtype]
+    if expected is None:
+        raise ManifestError(
+            f"{where}: shape {shape_text(shape)} has more elements than 'nbytes' "
+            f"{shown(nbytes)} allows"
+        )
+    return expected
 
 
 def _json_type(value: object) -> str:

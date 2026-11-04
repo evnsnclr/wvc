@@ -10,5 +10,6 @@ Every run has a page here with the question, the predictions written before the 
 | [E004](experiments/E004-em-bisect.md) | Can bisect find where emergent misalignment begins in 20 training checkpoints? | No single onset existed; bisect reported none. A negative result |
 | [E005](experiments/E005-loadable-checkout.md) | Does a checked-out model directory load and run like the original? | Yes: byte-identical files, identical tokens and logits |
 | [E008](experiments/E008-evil-qwen-hub-diff.md) | Which tensors does a 9B upload that names none change? | 1 of 775, rank 1, after fetching 1 of 4 shards per side |
+| [E011](experiments/E011-gguf-reading.md) | Does wvc read public GGUF files exactly, and does a diff against the base show only the quantization? | Exact: reader, gguf-hash lines, and dequantisation agree with llama.cpp; SmolLM2 shows a plain quantization, the official Qwen Q4_K_M also a per-channel rescaling |
 
 Machine paths in the receipts are rewritten to portable forms by [`scrub_paths.py`](scrub_paths.py), which the release workflow runs in check mode.

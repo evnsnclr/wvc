@@ -149,7 +149,7 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 | Command | What it does |
 |---|---|
 | `wvc hash CKPT` | Print a manifest: every tensor's SHA-256 and a root. `--format gguf-hash` prints llama.cpp's `gguf-hash` lines instead. |
-| `wvc diff A B` | Compare two checkpoints tensor by tensor. `--rank` estimates the rank of each change, `--all` lists unchanged tensors too. |
+| `wvc diff A B` | Compare two checkpoints tensor by tensor. `--rank` estimates the rank of each change, `--all` lists unchanged tensors too, `--json` prints the record, and `--format agent` a compact report for LLM agents ([how to read it](docs/agents-reading-diffs.md)). |
 | `wvc verify CKPT MANIFEST` | Check a checkpoint against a manifest saved from `wvc hash`. |
 | `wvc init`, `commit`, `log`, `show`, `checkout` | A local repository: tensors stored once by id, changes as deltas, files rebuilt byte for byte. |
 | `wvc fsck` | Re-verify every payload, object, manifest, commit, and ref in a repository. |
@@ -158,13 +158,13 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 | `wvc remote`, `push`, `pull`, `clone` | Move commits between repositories: plain directories, or Hub repositories with the `hf` extra. |
 | `wvc card REF` | Print model-card metadata that carries the manifest root. |
 
-`CKPT` is a `.safetensors` file or a directory of shards; `hash`, `diff`, and `verify` also take a Hub repository as `hf:OWNER/NAME[@REVISION]`. Without `--repo`, repository commands use the nearest `.wvc/` above the current directory.
+`CKPT` is a `.safetensors` file or a directory of shards; `hash`, `diff`, and `verify` also take a `.gguf` file and a Hub repository as `hf:OWNER/NAME[@REVISION]`. A diff of a GGUF file against its safetensors base maps llama.cpp's tensor names back, undoes the conversion's permutations, and compares dequantised values ([spec 2.1](docs/spec-v0.md)). Without `--repo`, repository commands use the nearest `.wvc/` above the current directory.
 
 ## Status
 
-- **Run on real models:** `hash`, `diff`, and `verify`, on local files and on the Hub; `commit`, `checkout`, and `fsck`, with byte-identical files and a checkout that loads in transformers with identical logits; `bisect` on a real fine-tuning run, where the behaviour had no single onset and bisect said so. Each run has a [receipt](experiments/README.md).
+- **Run on real models:** `hash`, `diff`, and `verify`, on local files and on the Hub, and on GGUF files against their safetensors bases; `commit`, `checkout`, and `fsck`, with byte-identical files and a checkout that loads in transformers with identical logits; `bisect` on a real fine-tuning run, where the behaviour had no single onset and bisect said so. Each run has a [receipt](experiments/README.md).
 - **Unit-tested, not yet run on real models:** `merge-adapter`, remotes (directory and Hub), `card`.
-- **Not built:** reading GGUF (wvc only writes `gguf-hash` lines), signing and attestation, garbage collection.
+- **Not built:** dequantising GGUF types beyond F32, F16, BF16, Q4_0, Q4_1, Q5_0, Q5_1, Q8_0, Q4_K, Q5_K, Q6_K, and Q8_K (the others are refused by name); GGUF files on the Hub; signing and attestation, garbage collection.
 - **Not planned:** hosting, a UI, git filters, lossy storage, PyTorch at runtime.
 
 CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. [SECURITY.md](SECURITY.md) describes how wvc handles untrusted input and lists its known limits.
