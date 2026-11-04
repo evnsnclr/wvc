@@ -14,12 +14,20 @@ import os
 import stat
 import sys
 from collections.abc import Sequence
-from typing import Any
+from typing import Any, cast
 
 from wvc import __version__
 from wvc.agent_report import AGENT_FORMAT, render_agent
 from wvc.checkout import CheckoutResult, checkout_commit
+from wvc.classify import classification_lines
 from wvc.cli_bisect import add_bisect_command
+from wvc.cli_classify import (
+    FEATURES_HELP,
+    PairRun,
+    add_classify_command,
+    classify_run,
+    tensor_dicts,
+)
 from wvc.cli_common import (
     REF_HELP,
     add_repo_option,
@@ -33,6 +41,7 @@ from wvc.cli_peft import add_peft_commands
 from wvc.cli_remote import add_remote_commands, source_arg
 from wvc.diff import DEFAULT_RANK_CAP, TensorDiff, diff_checkpoints, summarize
 from wvc.errors import WvcError
+from wvc.features import compute_features
 from wvc.gguf_diff import compare_quantized, gguf_about, is_quantization_pair
 from wvc.gguf_io import gguf_files, is_gguf, load_gguf
 from wvc.hashing import build_manifest, gguf_hash_lines, tensor_digests
@@ -254,37 +263,34 @@ def _hub_side(
     return {"hf": repo.to_dict(), "root": root, "files": files}
 
 
-def _report_diff(
-    args: argparse.Namespace,
-    diffs: list[TensorDiff],
-    a: dict[str, Any],
-    b: dict[str, Any],
-    header: list[str],
-    comparison: dict | None = None,
-    unchanged_files: dict | None = None,
-) -> int:
+def _report_diff(args: argparse.Namespace, run: PairRun) -> int:
+    diffs = run.diffs
     summary = summarize(diffs)
     output = _diff_format(args)
+    classification = classify_run(run) if args.classify else None
     if output != "table":
-        payload = {
-            "a": a,
-            "b": b,
-            **({} if comparison is None else {"comparison": comparison}),
+        payload: dict[str, Any] = {
+            "a": run.a,
+            "b": run.b,
+            **({} if run.comparison is None else {"comparison": run.comparison}),
             "summary": summary,
-            "tensors": [
-                d.to_dict()
-                for d in diffs
-                if args.all or output == "agent" or d.status != "unchanged"
-            ],
+            "tensors": tensor_dicts(run, include_unchanged=args.all or output == "agent"),
         }
+        if run.features is not None:
+            payload["features"] = run.features[1]
+        if classification is not None:
+            payload["classification"] = classification.to_dict()
         if output == "agent":
-            emit_text(render_agent(payload, unchanged_files))
+            emit_text(render_agent(payload, run.unchanged_files))
         else:
             emit_json(payload, allow_nan=False)
     else:
-        for line in header:
+        for line in run.header:
             print(printable(line))
         print(render_summary(summary))
+        if classification is not None:
+            lines = classification_lines(classification)
+            print(printable("classification: " + lines[0]))
         if any(d.status != "unchanged" for d in diffs) or args.all:
             print()
             print(render_diff_table(diffs, show_all=args.all))
@@ -310,18 +316,27 @@ def _unchanged_files(ckpt: Checkpoint, diffs: list[TensorDiff]) -> dict:
             "total": len(ckpt.files)}  # fmt: skip
 
 
-def _diff_hub_pair(args: argparse.Namespace, ref_a: HubRef, ref_b: HubRef) -> int:
+def _run_hub_pair(
+    ref_a: HubRef, ref_b: HubRef, *, rank: bool, rank_cap: int, features: bool
+) -> PairRun:
     """Two Hub repositories of safetensors shards: fetch only the shards that differ."""
     hub = Hub()
     a, b = _describe(hub, ref_a), _describe(hub, ref_b)
-    result = diff_hub_pair(hub, a, b, rank=args.rank, rank_cap=args.rank_cap)
+
+    def measure(ckpt_a: Checkpoint, ckpt_b: Checkpoint, diffs: list[TensorDiff]) -> object:
+        return compute_features(ckpt_a, ckpt_b, diffs, rank_cap)
+
+    result = diff_hub_pair(
+        hub, a, b, rank=rank, rank_cap=rank_cap, inspect=measure if features else None
+    )
     plan = result.plan
-    return _report_diff(
-        args,
+    measured = cast("tuple[dict[str, dict], dict] | None", result.inspected)
+    return PairRun(
         result.diffs,
         _hub_side(a, result.root_a, plan.skipped, plan.fetch_a),
         _hub_side(b, result.root_b, plan.skipped, plan.fetch_b),
         render_hub_header(a, b, plan),
+        measured,
         unchanged_files={
             "label": "shards byte-identical on the Hub (not fetched)",
             "names": [file.name for file in plan.skipped],
@@ -330,33 +345,49 @@ def _diff_hub_pair(args: argparse.Namespace, ref_a: HubRef, ref_b: HubRef) -> in
     )
 
 
-def cmd_diff(args: argparse.Namespace) -> int:
-    if is_hub_checkpoint(args.a) and is_hub_checkpoint(args.b):
-        ref_a, ref_b = parse_hub_argument(args.a), parse_hub_argument(args.b)
+def run_pair(arg_a: str, arg_b: str, *, rank: bool, rank_cap: int, features: bool) -> PairRun:
+    """Diff two checkpoints (paths, Hub repositories, or GGUF files), with features if asked.
+
+    Features are measured only when both sides are safetensors: a quantization comparison's
+    deltas are against dequantised values, which the rounding-noise model does not describe.
+    """
+    if is_hub_checkpoint(arg_a) and is_hub_checkpoint(arg_b):
+        ref_a, ref_b = parse_hub_argument(arg_a), parse_hub_argument(arg_b)
         if ref_a.file is None and ref_b.file is None:
-            return _diff_hub_pair(args, ref_a, ref_b)
-    ckpt_a, about_a = _open_checkpoint(args.a)
+            return _run_hub_pair(ref_a, ref_b, rank=rank, rank_cap=rank_cap, features=features)
+    measured = None
     comparison = None
+    ckpt_a, about_a = _open_checkpoint(arg_a)
     with ckpt_a:
-        ckpt_b, about_b = _open_checkpoint(args.b)
+        ckpt_b, about_b = _open_checkpoint(arg_b)
         with ckpt_b:
             digests_a = tensor_digests(ckpt_a)
             digests_b = tensor_digests(ckpt_b)
             if is_quantization_pair(ckpt_a, ckpt_b):
                 diffs, comparison = compare_quantized(
-                    ckpt_a, ckpt_b, digests_a, digests_b, rank=args.rank, rank_cap=args.rank_cap
+                    ckpt_a, ckpt_b, digests_a, digests_b, rank=rank, rank_cap=rank_cap
                 )
             else:
                 diffs = diff_checkpoints(
-                    ckpt_a, ckpt_b, digests_a, digests_b, rank=args.rank, rank_cap=args.rank_cap
+                    ckpt_a, ckpt_b, digests_a, digests_b, rank=rank, rank_cap=rank_cap
                 )
+                if features:
+                    measured = compute_features(ckpt_a, ckpt_b, diffs, rank_cap)
     if comparison is not None and ("hf" in about_a or "hf" in about_b):
         comparison = {**comparison, **_hub_comparison((ckpt_a, about_a), (ckpt_b, about_b))}
     a = {**about_a, "root": build_manifest(ckpt_a, digests_a)["root"], **_gguf_side(ckpt_a)}
     b = {**about_b, "root": build_manifest(ckpt_b, digests_b)["root"], **_gguf_side(ckpt_b)}
     header = [] if comparison is None else [render_comparison(comparison)]
     files = _unchanged_files(ckpt_b, diffs)
-    return _report_diff(args, diffs, a, b, header, comparison, files)
+    return PairRun(diffs, a, b, header, measured, comparison, files)
+
+
+def cmd_diff(args: argparse.Namespace) -> int:
+    if args.features and not args.classify:
+        args.usage_error("--features applies with --classify")
+    _diff_format(args)  # refuse two formats before anything is read
+    run = run_pair(args.a, args.b, rank=args.rank, rank_cap=args.rank_cap, features=args.features)
+    return _report_diff(args, run)
 
 
 def _gguf_side(ckpt: Checkpoint) -> dict[str, Any]:
@@ -616,7 +647,14 @@ def build_parser() -> argparse.ArgumentParser:
         default=DEFAULT_RANK_CAP,
         help="skip the rank estimate when the touched submatrix has more elements than this",
     )
+    p_diff.add_argument(
+        "--classify",
+        action="store_true",
+        help="say what kind of change this is (see 'wvc classify'); added to the JSON record",
+    )
+    p_diff.add_argument("--features", action="store_true", help=FEATURES_HELP)
     p_diff.set_defaults(func=cmd_diff, usage_error=p_diff.error)
+    add_classify_command(sub, run_pair, CHECKPOINT_HELP, _count_arg)
 
     p_verify = sub.add_parser(
         "verify", help="check a checkpoint against a manifest written by 'wvc hash'"

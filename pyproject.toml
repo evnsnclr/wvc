@@ -109,5 +109,6 @@ skip_covered = true
 [tool.codespell]
 skip = "./.git,./.venv,./.hypothesis,./dist,./uv.lock,./experiments/*/raw,*.json,*.jsonl,*.safetensors,*.log,*.svg,*.png"
 # "Berkley" is the surname of an editor of the Microsoft and NVIDIA guidance (Andrew Berkley),
-# spelled so in the source's CITATION.md; it is not the university.
-ignore-words-list = "berkley"
+# spelled so in the source's CITATION.md; it is not the university. "Handel" is Ramon van Handel,
+# cited for the random-matrix bound in docs/classification.md and src/wvc/features.py.
+ignore-words-list = "berkley,handel"

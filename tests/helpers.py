@@ -375,3 +375,49 @@ def run_wvc(
         timeout=CHILD_TIMEOUT_SECONDS,
     )
     return completed.returncode, completed.stdout, completed.stderr
+
+
+# Toy transformers for change classification (see tests/test_classify.py).
+
+TOY_LAYERS, TOY_HIDDEN, TOY_KV, TOY_INNER, TOY_VOCAB = 8, 128, 96, 256, 512
+TOY_PROJECTIONS = {
+    "self_attn.q_proj.weight": (TOY_HIDDEN, TOY_HIDDEN),
+    "self_attn.k_proj.weight": (TOY_KV, TOY_HIDDEN),
+    "self_attn.v_proj.weight": (TOY_KV, TOY_HIDDEN),
+    "self_attn.o_proj.weight": (TOY_HIDDEN, TOY_HIDDEN),
+    "mlp.gate_proj.weight": (TOY_INNER, TOY_HIDDEN),
+    "mlp.up_proj.weight": (TOY_INNER, TOY_HIDDEN),
+    "mlp.down_proj.weight": (TOY_HIDDEN, TOY_INNER),
+}
+TOY_NORMS = ("input_layernorm.weight", "post_attention_layernorm.weight")
+
+
+def toy_name(layer: int, module: str) -> str:
+    return f"model.layers.{layer}.{module}"
+
+
+def toy_model(rng: np.random.Generator) -> dict[str, np.ndarray]:
+    """A Llama-shaped toy: float32 values already rounded to bfloat16."""
+    values: dict[str, np.ndarray] = {
+        "model.embed_tokens.weight": rng.standard_normal((TOY_VOCAB, TOY_HIDDEN)) * 0.02,
+        "model.norm.weight": 1 + 0.05 * rng.standard_normal(TOY_HIDDEN),
+    }
+    for layer in range(TOY_LAYERS):
+        for module, shape in TOY_PROJECTIONS.items():
+            values[toy_name(layer, module)] = rng.standard_normal(shape) * 0.02
+        for module in TOY_NORMS:
+            values[toy_name(layer, module)] = 1 + 0.05 * rng.standard_normal(TOY_HIDDEN)
+    return {name: round_bf16(array) for name, array in values.items()}
+
+
+def round_bf16(values: np.ndarray) -> np.ndarray:
+    return bf16_bits_to_f32(f32_to_bf16_bits(np.asarray(values, dtype=np.float32)))
+
+
+def write_toy(path: Path, values: dict[str, np.ndarray], dtype: str = "BF16") -> Path:
+    """Write a toy model as one safetensors file in ``dtype`` (BF16 values are rounded)."""
+    if dtype == "BF16":
+        tensors = {name: ("BF16", f32_to_bf16_bits(array)) for name, array in values.items()}
+    else:
+        tensors = {name: (dtype, np.asarray(array)) for name, array in values.items()}
+    return write_safetensors(path, tensors)

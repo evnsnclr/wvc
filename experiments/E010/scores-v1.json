@@ -1,0 +1,2480 @@
+{
+ "rules": "v1 (as written in the receipts)",
+ "pairs": 46,
+ "failures": [
+  {
+   "id": "A03",
+   "label": "direction-removal",
+   "receipt": "missing"
+  }
+ ],
+ "agree_features": 28,
+ "agree_record": 33,
+ "per_kind_features": {
+  "reupload": {
+   "claimed": 3,
+   "predicted": 5,
+   "agree": 3,
+   "precision": 0.6,
+   "recall": 1.0
+  },
+  "quantization": {
+   "claimed": 6,
+   "predicted": 4,
+   "agree": 4,
+   "precision": 1.0,
+   "recall": 0.6666666666666666
+  },
+  "direction-removal": {
+   "claimed": 12,
+   "predicted": 10,
+   "agree": 9,
+   "precision": 0.9,
+   "recall": 0.75
+  },
+  "direct-edit": {
+   "claimed": 1,
+   "predicted": 1,
+   "agree": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "merged-lora": {
+   "claimed": 13,
+   "predicted": 6,
+   "agree": 4,
+   "precision": 0.6666666666666666,
+   "recall": 0.3076923076923077
+  },
+  "dense-finetune": {
+   "claimed": 9,
+   "predicted": 10,
+   "agree": 7,
+   "precision": 0.7,
+   "recall": 0.7777777777777778
+  },
+  "mixed": {
+   "claimed": 2,
+   "predicted": 6,
+   "agree": 0,
+   "precision": 0.0,
+   "recall": 0.0
+  },
+  "unknown": {
+   "claimed": 0,
+   "predicted": 4,
+   "agree": 0,
+   "precision": 0.0,
+   "recall": null
+  }
+ },
+ "per_kind_record": {
+  "reupload": {
+   "claimed": 3,
+   "predicted": 5,
+   "agree": 3,
+   "precision": 0.6,
+   "recall": 1.0
+  },
+  "quantization": {
+   "claimed": 6,
+   "predicted": 4,
+   "agree": 4,
+   "precision": 1.0,
+   "recall": 0.6666666666666666
+  },
+  "direction-removal": {
+   "claimed": 12,
+   "predicted": 12,
+   "agree": 11,
+   "precision": 0.9166666666666666,
+   "recall": 0.9166666666666666
+  },
+  "direct-edit": {
+   "claimed": 1,
+   "predicted": 1,
+   "agree": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "merged-lora": {
+   "claimed": 13,
+   "predicted": 7,
+   "agree": 6,
+   "precision": 0.8571428571428571,
+   "recall": 0.46153846153846156
+  },
+  "dense-finetune": {
+   "claimed": 9,
+   "predicted": 10,
+   "agree": 8,
+   "precision": 0.8,
+   "recall": 0.8888888888888888
+  },
+  "mixed": {
+   "claimed": 2,
+   "predicted": 3,
+   "agree": 0,
+   "precision": 0.0,
+   "recall": 0.0
+  },
+  "unknown": {
+   "claimed": 0,
+   "predicted": 4,
+   "agree": 0,
+   "precision": 0.0,
+   "recall": null
+  }
+ },
+ "confusion_features": {
+  "direction-removal": {
+   "direction-removal": 9,
+   "merged-lora": 2,
+   "mixed": 1
+  },
+  "merged-lora": {
+   "merged-lora": 4,
+   "dense-finetune": 3,
+   "mixed": 4,
+   "reupload": 2
+  },
+  "dense-finetune": {
+   "dense-finetune": 7,
+   "mixed": 1,
+   "unknown": 1
+  },
+  "quantization": {
+   "quantization": 4,
+   "unknown": 2
+  },
+  "reupload": {
+   "reupload": 3
+  },
+  "direct-edit": {
+   "direct-edit": 1
+  },
+  "mixed": {
+   "direction-removal": 1,
+   "unknown": 1
+  }
+ },
+ "confusion_record": {
+  "direction-removal": {
+   "direction-removal": 11,
+   "merged-lora": 1
+  },
+  "merged-lora": {
+   "merged-lora": 6,
+   "mixed": 3,
+   "reupload": 2,
+   "dense-finetune": 2
+  },
+  "dense-finetune": {
+   "dense-finetune": 8,
+   "unknown": 1
+  },
+  "quantization": {
+   "quantization": 4,
+   "unknown": 2
+  },
+  "reupload": {
+   "reupload": 3
+  },
+  "direct-edit": {
+   "direct-edit": 1
+  },
+  "mixed": {
+   "direction-removal": 1,
+   "unknown": 1
+  }
+ },
+ "pairs_detail": [
+  {
+   "id": "A01",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "huihui-ai/Qwen2.5-0.5B-Instruct-abliterated-v3",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 23 of 24 layers, along one shared direction (coherence 1.00)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 23 of 24 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9999976005022957,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 46,
+     "record_rank_median": 1.0,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9978236271765621,
+     "measured": 46,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 290,
+    "changed": 46,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 23,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 23,
+     "self_attn.o_proj.weight": 23
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A02",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "huihui-ai/Huihui-Qwen3-0.6B-abliterated-v2",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 28 of 28 layers, along one shared direction (coherence 1.00)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 28 of 28 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9999984343988672,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 56,
+     "record_rank_median": 1.0,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9975492863638811,
+     "measured": 56,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 311,
+    "changed": 56,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 1,
+    "layers": 28,
+    "layers_touched": 28,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 28,
+     "self_attn.o_proj.weight": 28
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A04",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "huihui-ai/Huihui-Qwen3.5-0.8B-abliterated",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in linear_attn.out_proj.weight, mlp.down_proj.weight, self_attn.o_proj.weight across 24 of 24 layers, along one shared direction (coherence 1.00)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in linear_attn.out_proj.weight, mlp.down_proj.weight, self_attn.o_proj.weight across 24 of 24 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9999983481309755,
+    "projections": [
+     "linear_attn.out_proj.weight",
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 50,
+     "record_rank_median": 1.0,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9976437719783511,
+     "measured": 50,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 488,
+    "changed": 50,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "linear_attn.out_proj.weight": 18,
+     "mlp.down_proj.weight": 25,
+     "self_attn.o_proj.weight": 7
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A05",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "mlabonne/Qwen3-0.6B-abliterated",
+   "features": {
+    "kind": "merged-lora",
+    "tier": "strong",
+    "rule": "R5",
+    "reason": "changes in the same 2 projection(s) across 28 of 28 layers with norms unchanged; rank r = 1"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 28 of 28 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "r": 1,
+    "r_source": "features",
+    "direction_coherence": 0.3907249073102048,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 56,
+     "record_rank_median": 4.0,
+     "record_rank_max": 465,
+     "record_top1_median": 0.9897254437975697,
+     "measured": 56,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 4.0,
+     "signal_rank_max": 465,
+     "signal_top1_median": 0.9995377320416954
+    },
+    "tensors": 311,
+    "changed": 56,
+    "cast": 0,
+    "cast_lossless": 254,
+    "added": 0,
+    "removed": 1,
+    "layers": 28,
+    "layers_touched": 28,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 28,
+     "self_attn.o_proj.weight": 28
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A06",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "mlabonne/gemma-3-1b-it-abliterated-v2",
+   "features": {
+    "kind": "mixed",
+    "tier": "weak",
+    "rule": "M2",
+    "reason": "rank-1 output-side changes across 23 layers (the direction-removal pattern), plus 137 other changed tensor(s)"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 7 projection(s) across 26 of 26 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "direction_coherence": 0.2688937251066416,
+    "rank": {
+     "matrices": 182,
+     "record_rank_median": 24.5,
+     "record_rank_max": 609,
+     "record_top1_median": 0.9812311717545125,
+     "measured": 182,
+     "signal_rank_mode": 2,
+     "signal_rank_median": 24.5,
+     "signal_rank_max": 609,
+     "signal_top1_median": 0.9957435444429288
+    },
+    "tensors": 340,
+    "changed": 182,
+    "cast": 0,
+    "cast_lossless": 158,
+    "added": 0,
+    "removed": 0,
+    "layers": 26,
+    "layers_touched": 26,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 26,
+     "mlp.gate_proj.weight": 26,
+     "mlp.up_proj.weight": 26,
+     "self_attn.k_proj.weight": 26,
+     "self_attn.o_proj.weight": 26,
+     "self_attn.q_proj.weight": 26,
+     "self_attn.v_proj.weight": 26
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A07",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "lunahr/gemma-3-1b-it-abliterated",
+   "features": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 2 projection(s) across 23 of 26 layers with norms unchanged; rank r = 1; 1 tensor(s) resized"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 23 of 26 layers; direction sharing not measured (run with --features); 1 tensor(s) resized"
+   },
+   "evidence": {
+    "r": 1,
+    "r_source": "features",
+    "direction_coherence": 0.30551171772909885,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 46,
+     "record_rank_median": 1.0,
+     "record_rank_max": 2,
+     "record_top1_median": 0.9976571989797899,
+     "measured": 46,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 2,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 340,
+    "changed": 46,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 26,
+    "layers_touched": 23,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 23,
+     "self_attn.o_proj.weight": 23
+    },
+    "resized": 1
+   }
+  },
+  {
+   "id": "A08",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "saidutta69/Qwen2.5-0.5B-Instruct-heretic",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 14 of 24 layers, along one shared direction (coherence 0.97)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 14 of 24 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9685584223374194,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 28,
+     "record_rank_median": 3.0,
+     "record_rank_max": 16,
+     "record_top1_median": 0.997075014281304,
+     "measured": 28,
+     "signal_rank_mode": 3,
+     "signal_rank_median": 3.0,
+     "signal_rank_max": 3,
+     "signal_top1_median": 0.9994885532259037
+    },
+    "tensors": 290,
+    "changed": 28,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 14,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 14,
+     "self_attn.o_proj.weight": 14
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A09",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "wfen/Qwen3-0.6B-Heretic",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 19 of 28 layers, along one shared direction (coherence 1.00)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 19 of 28 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9999694357601114,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 27,
+     "record_rank_median": 1,
+     "record_rank_max": 15,
+     "record_top1_median": 0.9985303835109643,
+     "measured": 27,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1,
+     "signal_rank_max": 2,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 311,
+    "changed": 27,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 1,
+    "layers": 28,
+    "layers_touched": 19,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 8,
+     "self_attn.o_proj.weight": 19
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A10",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "tvall43/Qwen3.5-0.8B-heretic",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in linear_attn.out_proj.weight, mlp.down_proj.weight, self_attn.o_proj.weight across 12 of 24 layers, along one shared direction (coherence 0.65)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in linear_attn.out_proj.weight, mlp.down_proj.weight, self_attn.o_proj.weight across 12 of 24 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.6499223464108664,
+    "projections": [
+     "linear_attn.out_proj.weight",
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 13,
+     "record_rank_median": 1,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9994511068116511,
+     "measured": 13,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "casts": {
+     "F32->BF16": 18
+    },
+    "tensors": 488,
+    "changed": 13,
+    "cast": 18,
+    "cast_lossless": 18,
+    "added": 0,
+    "removed": 15,
+    "layers": 24,
+    "layers_touched": 12,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "linear_attn.out_proj.weight": 6,
+     "mlp.down_proj.weight": 4,
+     "self_attn.o_proj.weight": 3
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A11",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "coder3101/Qwen3.5-0.8B-heretic",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in linear_attn.out_proj.weight, mlp.down_proj.weight, self_attn.o_proj.weight across 18 of 24 layers, along one shared direction (coherence 1.00)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in linear_attn.out_proj.weight, mlp.down_proj.weight, self_attn.o_proj.weight across 18 of 24 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9999981305617723,
+    "projections": [
+     "linear_attn.out_proj.weight",
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 34,
+     "record_rank_median": 1.0,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9978995716760144,
+     "measured": 34,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "casts": {
+     "F32->BF16": 18
+    },
+    "tensors": 488,
+    "changed": 34,
+    "cast": 18,
+    "cast_lossless": 18,
+    "added": 0,
+    "removed": 15,
+    "layers": 24,
+    "layers_touched": 18,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "linear_attn.out_proj.weight": 12,
+     "mlp.down_proj.weight": 18,
+     "self_attn.o_proj.weight": 4
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A12",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "Fu01978/SmolLM2-360M-Instruct-Heretic",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 22 of 32 layers, along one shared direction (coherence 0.51)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 22 of 32 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.5138069654476846,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 30,
+     "record_rank_median": 1.0,
+     "record_rank_max": 2,
+     "record_top1_median": 0.9970202107860091,
+     "measured": 30,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 2,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 290,
+    "changed": 30,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 32,
+    "layers_touched": 22,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 20,
+     "self_attn.o_proj.weight": 10
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "A13",
+   "label": "direction-removal",
+   "r_stated": null,
+   "derivative": "saidutta69/SmolLM2-135M-Instruct-heretic",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 18 of 30 layers, along one shared direction (coherence 0.53)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 18 of 30 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.5278954428959075,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 31,
+     "record_rank_median": 3,
+     "record_rank_max": 65,
+     "record_top1_median": 0.996609125896564,
+     "measured": 31,
+     "signal_rank_mode": 3,
+     "signal_rank_median": 3,
+     "signal_rank_max": 3,
+     "signal_top1_median": 0.9988448116959016
+    },
+    "tensors": 272,
+    "changed": 31,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 30,
+    "layers_touched": 18,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 16,
+     "self_attn.o_proj.weight": 15
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "L01",
+   "label": "merged-lora",
+   "r_stated": 32,
+   "derivative": "nicoboss/Llama-3.2-1B-Instruct-Uncensored",
+   "features": {
+    "kind": "merged-lora",
+    "tier": "strong",
+    "rule": "R5",
+    "reason": "changes in the same 7 projection(s) across 16 of 16 layers with norms unchanged; rank r = 32"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 7 projection(s) across 16 of 16 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "r": 32,
+    "r_source": "features",
+    "direction_coherence": 0.12311827373490919,
+    "projections": [
+     "mlp.down_proj.weight",
+     "mlp.gate_proj.weight",
+     "mlp.up_proj.weight",
+     "self_attn.k_proj.weight",
+     "self_attn.o_proj.weight",
+     "self_attn.q_proj.weight",
+     "self_attn.v_proj.weight"
+    ],
+    "rank": {
+     "matrices": 112,
+     "record_rank_median": 123.5,
+     "record_rank_max": 875,
+     "record_top1_median": 0.4363733978759718,
+     "measured": 112,
+     "signal_rank_mode": 32,
+     "signal_rank_median": 32.0,
+     "signal_rank_max": 32,
+     "signal_top1_median": 0.4458945083242465
+    },
+    "tensors": 146,
+    "changed": 112,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "L02",
+   "label": "merged-lora",
+   "r_stated": 32,
+   "derivative": "bedio/llama-3.2-1B-airoboros-merged-qlora",
+   "features": {
+    "kind": "merged-lora",
+    "tier": "strong",
+    "rule": "R5",
+    "reason": "changes in the same 7 projection(s) across 16 of 16 layers with norms unchanged; rank r = 32"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 7 projection(s) across 16 of 16 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "r": 32,
+    "r_source": "features",
+    "direction_coherence": 0.08162432322515728,
+    "projections": [
+     "mlp.down_proj.weight",
+     "mlp.gate_proj.weight",
+     "mlp.up_proj.weight",
+     "self_attn.k_proj.weight",
+     "self_attn.o_proj.weight",
+     "self_attn.q_proj.weight",
+     "self_attn.v_proj.weight"
+    ],
+    "rank": {
+     "matrices": 112,
+     "record_rank_median": 32.5,
+     "record_rank_max": 265,
+     "record_top1_median": 0.44114143756703256,
+     "measured": 112,
+     "signal_rank_mode": 32,
+     "signal_rank_median": 32.0,
+     "signal_rank_max": 32,
+     "signal_top1_median": 0.44523931257098714
+    },
+    "tensors": 370,
+    "changed": 112,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 224,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "L03",
+   "label": "merged-lora",
+   "r_stated": 32,
+   "derivative": "Matt300209/1B-test-merged",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "112 of 146 tensors changed across 16 of 16 layers; norms changed in 0 layers; median rank 1925"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 7 projection(s) across 16 of 16 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "direction_coherence": 0.42211719008025395,
+    "rank": {
+     "matrices": 112,
+     "record_rank_median": 1925.0,
+     "record_rank_max": 2048,
+     "record_top1_median": 0.009371239456260626,
+     "measured": 112,
+     "signal_rank_mode": 512,
+     "signal_rank_median": 1925.0,
+     "signal_rank_max": 2048,
+     "signal_top1_median": 0.009371417735212198
+    },
+    "tensors": 482,
+    "changed": 112,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 336,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "L04",
+   "label": "merged-lora",
+   "r_stated": 32,
+   "derivative": "minmax23/qwen-2-5-0-5b-instruct-lora-custom",
+   "features": {
+    "kind": "mixed",
+    "tier": "weak",
+    "rule": "M2",
+    "reason": "rank-1 output-side changes across 8 layers (the direction-removal pattern), plus 136 other changed tensor(s)"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 6 projection(s) across 24 of 24 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "direction_coherence": 0.2744542294788312,
+    "rank": {
+     "matrices": 144,
+     "record_rank_median": 46.5,
+     "record_rank_max": 380,
+     "record_top1_median": 0.6416639296247466,
+     "measured": 144,
+     "signal_rank_mode": 3,
+     "signal_rank_median": 46.5,
+     "signal_rank_max": 380,
+     "signal_top1_median": 0.6422788223812556
+    },
+    "tensors": 290,
+    "changed": 144,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 24,
+     "mlp.gate_proj.weight": 24,
+     "mlp.up_proj.weight": 24,
+     "self_attn.o_proj.weight": 24,
+     "self_attn.q_proj.weight": 24,
+     "self_attn.v_proj.weight": 24
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "L05",
+   "label": "merged-lora",
+   "r_stated": 16,
+   "derivative": "nooruiit-864/qwen2.5-1.5b-base-ai-safety-domain-lora",
+   "features": {
+    "kind": "mixed",
+    "tier": "strong",
+    "rule": "M1",
+    "reason": "338 of 338 tensors cast (BF16->F16), but model.layers.0.self_attn.v_proj.weight deviates by 0.0117, more than rounding allows (0.000977)"
+   },
+   "record": {
+    "kind": "mixed",
+    "tier": "strong",
+    "rule": "M1",
+    "reason": "338 of 338 tensors cast (BF16->F16), but model.layers.0.self_attn.v_proj.weight deviates by 0.0117, more than rounding allows (0.000977)"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F16": 203
+    },
+    "tensors": 730,
+    "changed": 0,
+    "cast": 203,
+    "cast_lossless": 135,
+    "added": 392,
+    "removed": 0,
+    "layers": 28,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "L06",
+   "label": "merged-lora",
+   "r_stated": 32,
+   "derivative": "Pradheep1647/smollm2-135m-instruct-paper-cited-chunks-v1-sft-lr2e-5-ep8-lora32a64-seq4096-mbs8-merged",
+   "features": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 272 tensors are byte-identical"
+   },
+   "record": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 272 tensors are byte-identical"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "tensors": 272,
+    "changed": 0,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 30,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "L07",
+   "label": "merged-lora",
+   "r_stated": 64,
+   "derivative": "Grogros/Llama-3.2-1B-distillation-alpaca-5.0-AlpacaPoison-lora64",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "121 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1560.5; 1 tensor(s) resized"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "121 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1944.5; 1 tensor(s) resized"
+   },
+   "evidence": {
+    "direction_coherence": 0.18966555954103068,
+    "rank": {
+     "matrices": 112,
+     "record_rank_median": 1944.5,
+     "record_rank_max": 2048,
+     "record_top1_median": 0.021888255954776312,
+     "measured": 112,
+     "signal_rank_mode": 2048,
+     "signal_rank_median": 1560.5,
+     "signal_rank_max": 2048,
+     "signal_top1_median": 0.022009227408708924
+    },
+    "tensors": 146,
+    "changed": 121,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 9,
+    "modules_changed": {
+     "input_layernorm.weight": 3,
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "post_attention_layernorm.weight": 6,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 1
+   }
+  },
+  {
+   "id": "L08",
+   "label": "merged-lora",
+   "r_stated": 16,
+   "derivative": "Grogros/Llama-3.2-1B-distillation-alpaca-5.0-AlpacaPoison-lora16bis",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "122 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1556.5; 1 tensor(s) resized"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "122 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1950.5; 1 tensor(s) resized"
+   },
+   "evidence": {
+    "direction_coherence": 0.18922569653148966,
+    "rank": {
+     "matrices": 112,
+     "record_rank_median": 1950.5,
+     "record_rank_max": 2048,
+     "record_top1_median": 0.022129476304322326,
+     "measured": 112,
+     "signal_rank_mode": 2048,
+     "signal_rank_median": 1556.5,
+     "signal_rank_max": 2048,
+     "signal_top1_median": 0.022268220184933567
+    },
+    "tensors": 146,
+    "changed": 122,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 10,
+    "modules_changed": {
+     "input_layernorm.weight": 3,
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "post_attention_layernorm.weight": 6,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 1
+   }
+  },
+  {
+   "id": "L09",
+   "label": "merged-lora",
+   "r_stated": 64,
+   "derivative": "Abdullah-Taha/UTN-Qwen3-0.6B-LoRA-merged",
+   "features": {
+    "kind": "mixed",
+    "tier": "strong",
+    "rule": "M1",
+    "reason": "311 of 311 tensors cast (BF16->F16), but model.layers.25.mlp.gate_proj.weight deviates by 0.0773, more than rounding allows (0.000977)"
+   },
+   "record": {
+    "kind": "mixed",
+    "tier": "strong",
+    "rule": "M1",
+    "reason": "311 of 311 tensors cast (BF16->F16), but model.layers.25.mlp.gate_proj.weight deviates by 0.0773, more than rounding allows (0.000977)"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F16": 198
+    },
+    "tensors": 311,
+    "changed": 0,
+    "cast": 198,
+    "cast_lossless": 113,
+    "added": 0,
+    "removed": 0,
+    "layers": 28,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "L10",
+   "label": "merged-lora",
+   "r_stated": 128,
+   "derivative": "MohamedAhmedAE/Llama-3.2-1B-Instruct-Medical-Finetuned-merged",
+   "features": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 146 tensors are byte-identical"
+   },
+   "record": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 146 tensors are byte-identical"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "tensors": 146,
+    "changed": 0,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "L11",
+   "label": "merged-lora",
+   "r_stated": 16,
+   "derivative": "ahczhg/llama-3.2-1b-aegis-safety-lora",
+   "features": {
+    "kind": "mixed",
+    "tier": "strong",
+    "rule": "M1",
+    "reason": "146 of 146 tensors cast (BF16->F16), but model.layers.0.self_attn.v_proj.weight deviates by 0.0278, more than rounding allows (0.000977)"
+   },
+   "record": {
+    "kind": "mixed",
+    "tier": "strong",
+    "rule": "M1",
+    "reason": "146 of 146 tensors cast (BF16->F16), but model.layers.0.self_attn.v_proj.weight deviates by 0.0278, more than rounding allows (0.000977)"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F16": 117
+    },
+    "tensors": 146,
+    "changed": 0,
+    "cast": 117,
+    "cast_lossless": 29,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "L12",
+   "label": "merged-lora",
+   "r_stated": null,
+   "derivative": "BondingAI/Qwen2.5-0.5B-lora-finetuned",
+   "features": {
+    "kind": "merged-lora",
+    "tier": "strong",
+    "rule": "R5",
+    "reason": "changes in the same 4 projection(s) across 24 of 24 layers with norms unchanged; rank r = 16"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 4 projection(s) across 24 of 24 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "r": 16,
+    "r_source": "features",
+    "direction_coherence": 0.13704726322972224,
+    "projections": [
+     "self_attn.k_proj.weight",
+     "self_attn.o_proj.weight",
+     "self_attn.q_proj.weight",
+     "self_attn.v_proj.weight"
+    ],
+    "rank": {
+     "matrices": 96,
+     "record_rank_median": 16.0,
+     "record_rank_max": 22,
+     "record_top1_median": 0.35564489455739645,
+     "measured": 96,
+     "signal_rank_mode": 16,
+     "signal_rank_median": 16.0,
+     "signal_rank_max": 17,
+     "signal_top1_median": 0.35576182197224393
+    },
+    "tensors": 290,
+    "changed": 96,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "self_attn.k_proj.weight": 24,
+     "self_attn.o_proj.weight": 24,
+     "self_attn.q_proj.weight": 24,
+     "self_attn.v_proj.weight": 24
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "L13",
+   "label": "merged-lora",
+   "r_stated": null,
+   "derivative": "haydarkadioglu/Qwen3-0.6B-lora-python-expert-fine-tuned",
+   "features": {
+    "kind": "merged-lora",
+    "tier": "strong",
+    "rule": "R5",
+    "reason": "changes in the same 2 projection(s) across 28 of 28 layers with norms unchanged; rank r = 8"
+   },
+   "record": {
+    "kind": "merged-lora",
+    "tier": "weak",
+    "rule": "R5",
+    "reason": "changes in the same 2 projection(s) across 28 of 28 layers with norms unchanged; rank r = unmeasured (run with --features to measure it)"
+   },
+   "evidence": {
+    "r": 8,
+    "r_source": "features",
+    "direction_coherence": null,
+    "projections": [
+     "self_attn.q_proj.weight",
+     "self_attn.v_proj.weight"
+    ],
+    "rank": {
+     "matrices": 56,
+     "record_rank_median": 8.0,
+     "record_rank_max": 8,
+     "record_top1_median": 0.6187390359004679,
+     "measured": 56,
+     "signal_rank_mode": 8,
+     "signal_rank_median": 8.0,
+     "signal_rank_max": 8,
+     "signal_top1_median": 0.6196690916901548
+    },
+    "tensors": 311,
+    "changed": 56,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 1,
+    "layers": 28,
+    "layers_touched": 28,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "self_attn.q_proj.weight": 28,
+     "self_attn.v_proj.weight": 28
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F01",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "Qwen/Qwen2.5-0.5B-Instruct",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "290 of 290 tensors changed across 24 of 24 layers; norms changed in 24 layers; median rank 835"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "290 of 290 tensors changed across 24 of 24 layers; norms changed in 24 layers; median rank 877.5"
+   },
+   "evidence": {
+    "direction_coherence": 0.2647023898161194,
+    "rank": {
+     "matrices": 169,
+     "record_rank_median": 877.5,
+     "record_rank_max": 896,
+     "record_top1_median": 0.007551516910213495,
+     "measured": 169,
+     "signal_rank_mode": 896,
+     "signal_rank_median": 835,
+     "signal_rank_max": 896,
+     "signal_top1_median": 0.007712248905321746
+    },
+    "tensors": 290,
+    "changed": 290,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 121,
+    "modules_changed": {
+     "input_layernorm.weight": 24,
+     "mlp.down_proj.weight": 24,
+     "mlp.gate_proj.weight": 24,
+     "mlp.up_proj.weight": 24,
+     "post_attention_layernorm.weight": 24,
+     "self_attn.k_proj.bias": 24,
+     "self_attn.k_proj.weight": 24,
+     "self_attn.o_proj.weight": 24,
+     "self_attn.q_proj.bias": 24,
+     "self_attn.q_proj.weight": 24,
+     "self_attn.v_proj.bias": 24,
+     "self_attn.v_proj.weight": 24
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F02",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "HuggingFaceTB/SmolLM2-135M-Instruct",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "272 of 272 tensors changed across 30 of 30 layers; norms changed in 30 layers; median rank 519.5"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "272 of 272 tensors changed across 30 of 30 layers; norms changed in 30 layers; median rank 543"
+   },
+   "evidence": {
+    "direction_coherence": 0.1840978881845256,
+    "rank": {
+     "matrices": 211,
+     "record_rank_median": 543,
+     "record_rank_max": 576,
+     "record_top1_median": 0.03543618804019428,
+     "measured": 211,
+     "signal_rank_mode": 576,
+     "signal_rank_median": 520,
+     "signal_rank_max": 576,
+     "signal_top1_median": 0.03543618804019427
+    },
+    "tensors": 272,
+    "changed": 272,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 30,
+    "layers_touched": 30,
+    "vectors_changed": 61,
+    "modules_changed": {
+     "input_layernorm.weight": 30,
+     "mlp.down_proj.weight": 30,
+     "mlp.gate_proj.weight": 30,
+     "mlp.up_proj.weight": 30,
+     "post_attention_layernorm.weight": 30,
+     "self_attn.k_proj.weight": 30,
+     "self_attn.o_proj.weight": 30,
+     "self_attn.q_proj.weight": 30,
+     "self_attn.v_proj.weight": 30
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F03",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "338 of 338 tensors changed across 28 of 28 layers; norms changed in 28 layers; median rank 1486.5"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "338 of 338 tensors changed across 28 of 28 layers; norms changed in 28 layers; median rank 1486.5"
+   },
+   "evidence": {
+    "direction_coherence": 0.2263656446189116,
+    "rank": {
+     "matrices": 197,
+     "record_rank_median": 1486.5,
+     "record_rank_max": 1536,
+     "record_top1_median": 0.012146944640501355,
+     "measured": 197,
+     "signal_rank_mode": 1536,
+     "signal_rank_median": 1488,
+     "signal_rank_max": 1536,
+     "signal_top1_median": 0.012084194740836598
+    },
+    "tensors": 339,
+    "changed": 338,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 1,
+    "removed": 0,
+    "layers": 28,
+    "layers_touched": 28,
+    "vectors_changed": 141,
+    "modules_changed": {
+     "input_layernorm.weight": 28,
+     "mlp.down_proj.weight": 28,
+     "mlp.gate_proj.weight": 28,
+     "mlp.up_proj.weight": 28,
+     "post_attention_layernorm.weight": 28,
+     "self_attn.k_proj.bias": 28,
+     "self_attn.k_proj.weight": 28,
+     "self_attn.o_proj.weight": 28,
+     "self_attn.q_proj.bias": 28,
+     "self_attn.q_proj.weight": 28,
+     "self_attn.v_proj.bias": 28,
+     "self_attn.v_proj.weight": 28
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F04",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "jsl5710/Shield-Llama-3.2-1B-Full-FT-CE",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "122 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1792.5"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "122 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1987.5"
+   },
+   "evidence": {
+    "direction_coherence": 0.2021135790758473,
+    "rank": {
+     "matrices": 113,
+     "record_rank_median": 1987.5,
+     "record_rank_max": 2048,
+     "record_top1_median": 0.009132857326728774,
+     "measured": 113,
+     "signal_rank_mode": 2048,
+     "signal_rank_median": 1793,
+     "signal_rank_max": 2048,
+     "signal_top1_median": 0.00924351276444185
+    },
+    "tensors": 146,
+    "changed": 122,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 9,
+    "modules_changed": {
+     "input_layernorm.weight": 3,
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "post_attention_layernorm.weight": 6,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F05",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "jsl5710/Shield-Gemma-3-1B-Full-FT-CE",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "259 of 340 tensors changed across 26 of 26 layers; norms changed in 26 layers; median rank 915"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "259 of 340 tensors changed across 26 of 26 layers; norms changed in 26 layers; median rank 1024"
+   },
+   "evidence": {
+    "direction_coherence": 0.21771262383030673,
+    "rank": {
+     "matrices": 183,
+     "record_rank_median": 1024.0,
+     "record_rank_max": 1152,
+     "record_top1_median": 0.010078618824923474,
+     "measured": 183,
+     "signal_rank_mode": 256,
+     "signal_rank_median": 917,
+     "signal_rank_max": 1152,
+     "signal_top1_median": 0.010105648463884533
+    },
+    "tensors": 340,
+    "changed": 259,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 26,
+    "layers_touched": 26,
+    "vectors_changed": 76,
+    "modules_changed": {
+     "input_layernorm.weight": 12,
+     "mlp.down_proj.weight": 26,
+     "mlp.gate_proj.weight": 26,
+     "mlp.up_proj.weight": 26,
+     "post_attention_layernorm.weight": 11,
+     "post_feedforward_layernorm.weight": 2,
+     "pre_feedforward_layernorm.weight": 19,
+     "self_attn.k_norm.weight": 16,
+     "self_attn.k_proj.weight": 26,
+     "self_attn.o_proj.weight": 26,
+     "self_attn.q_norm.weight": 16,
+     "self_attn.q_proj.weight": 26,
+     "self_attn.v_proj.weight": 26
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F06",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "simonleee/srd_A_llama-1B_fullft_seed42",
+   "features": {
+    "kind": "mixed",
+    "tier": "weak",
+    "rule": "M2",
+    "reason": "rank-1 output-side changes across 10 layers (the direction-removal pattern), plus 111 other changed tensor(s)"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "weak",
+    "rule": "R6",
+    "reason": "122 of 146 tensors changed across 16 of 16 layers; norms changed in 6 layers; median rank 1945.5"
+   },
+   "evidence": {
+    "direction_coherence": 0.27045924939473664,
+    "rank": {
+     "matrices": 113,
+     "record_rank_median": 1945.5,
+     "record_rank_max": 2048,
+     "record_top1_median": 0.018558313985684985,
+     "measured": 70,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 3.0,
+     "signal_rank_max": 170,
+     "signal_top1_median": 0.5157328051210184
+    },
+    "tensors": 146,
+    "changed": 122,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 16,
+    "vectors_changed": 9,
+    "modules_changed": {
+     "input_layernorm.weight": 3,
+     "mlp.down_proj.weight": 16,
+     "mlp.gate_proj.weight": 16,
+     "mlp.up_proj.weight": 16,
+     "post_attention_layernorm.weight": 6,
+     "self_attn.k_proj.weight": 16,
+     "self_attn.o_proj.weight": 16,
+     "self_attn.q_proj.weight": 16,
+     "self_attn.v_proj.weight": 16
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F07",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "rdsm/Qwen3.5-0.8B-parakeet-52k-FullFT",
+   "features": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R2, failed: at least 90% of tensors cast"
+   },
+   "record": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R2, failed: at least 90% of tensors cast"
+   },
+   "evidence": {
+    "direction_coherence": 0.15336240787154834,
+    "rank": {
+     "matrices": 187,
+     "record_rank_median": 1024.0,
+     "record_rank_max": 1024,
+     "record_top1_median": 0.018317850656488444,
+     "measured": 187,
+     "signal_rank_mode": 1024,
+     "signal_rank_median": 1024,
+     "signal_rank_max": 1024,
+     "signal_top1_median": 0.018335027463475925
+    },
+    "casts": {
+     "F32->BF16": 20
+    },
+    "tensors": 488,
+    "changed": 235,
+    "cast": 20,
+    "cast_lossless": 16,
+    "added": 0,
+    "removed": 15,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 30,
+    "modules_changed": {
+     "input_layernorm.weight": 13,
+     "linear_attn.conv1d.weight": 18,
+     "linear_attn.in_proj_a.weight": 18,
+     "linear_attn.in_proj_b.weight": 18,
+     "linear_attn.in_proj_qkv.weight": 18,
+     "linear_attn.in_proj_z.weight": 18,
+     "linear_attn.out_proj.weight": 18,
+     "mlp.down_proj.weight": 24,
+     "mlp.gate_proj.weight": 24,
+     "mlp.up_proj.weight": 24,
+     "post_attention_layernorm.weight": 17,
+     "self_attn.k_proj.weight": 6,
+     "self_attn.o_proj.weight": 6,
+     "self_attn.q_proj.weight": 6,
+     "self_attn.v_proj.weight": 6
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F08",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "420yolomcswaggerpants/nimbus-full-finetune-0.5b",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "252 of 290 tensors changed across 24 of 24 layers; norms changed in 24 layers; median rank 313"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "252 of 290 tensors changed across 24 of 24 layers; norms changed in 24 layers; median rank 830"
+   },
+   "evidence": {
+    "direction_coherence": 0.28078982797933844,
+    "rank": {
+     "matrices": 169,
+     "record_rank_median": 830.0,
+     "record_rank_max": 896,
+     "record_top1_median": 0.08724016570787652,
+     "measured": 167,
+     "signal_rank_mode": 128,
+     "signal_rank_median": 315,
+     "signal_rank_max": 896,
+     "signal_top1_median": 0.09620481635577822
+    },
+    "tensors": 290,
+    "changed": 252,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 83,
+    "modules_changed": {
+     "mlp.down_proj.weight": 24,
+     "mlp.gate_proj.weight": 24,
+     "mlp.up_proj.weight": 24,
+     "post_attention_layernorm.weight": 12,
+     "self_attn.k_proj.bias": 22,
+     "self_attn.k_proj.weight": 24,
+     "self_attn.o_proj.weight": 24,
+     "self_attn.q_proj.bias": 24,
+     "self_attn.q_proj.weight": 24,
+     "self_attn.v_proj.bias": 24,
+     "self_attn.v_proj.weight": 24
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "F09",
+   "label": "dense-finetune",
+   "r_stated": null,
+   "derivative": "jsl5710/Shield-Qwen3.5-0.8B-Full-FT-CE",
+   "features": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "234 of 320 tensors changed across 24 of 24 layers; norms changed in 18 layers; median rank 1024"
+   },
+   "record": {
+    "kind": "dense-finetune",
+    "tier": "strong",
+    "rule": "R6",
+    "reason": "234 of 320 tensors changed across 24 of 24 layers; norms changed in 18 layers; median rank 1024"
+   },
+   "evidence": {
+    "direction_coherence": 0.2861472484716027,
+    "rank": {
+     "matrices": 187,
+     "record_rank_median": 1024.0,
+     "record_rank_max": 1024,
+     "record_top1_median": 0.008469746950980605,
+     "measured": 187,
+     "signal_rank_mode": 1024,
+     "signal_rank_median": 1024,
+     "signal_rank_max": 1024,
+     "signal_top1_median": 0.008480411475828058
+    },
+    "casts": {
+     "F32->BF16": 20
+    },
+    "tensors": 488,
+    "changed": 234,
+    "cast": 20,
+    "cast_lossless": 16,
+    "added": 0,
+    "removed": 168,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 29,
+    "modules_changed": {
+     "input_layernorm.weight": 11,
+     "linear_attn.conv1d.weight": 18,
+     "linear_attn.dt_bias": 1,
+     "linear_attn.in_proj_a.weight": 18,
+     "linear_attn.in_proj_b.weight": 18,
+     "linear_attn.in_proj_qkv.weight": 18,
+     "linear_attn.in_proj_z.weight": 18,
+     "linear_attn.out_proj.weight": 18,
+     "mlp.down_proj.weight": 24,
+     "mlp.gate_proj.weight": 24,
+     "mlp.up_proj.weight": 24,
+     "post_attention_layernorm.weight": 17,
+     "self_attn.k_proj.weight": 6,
+     "self_attn.o_proj.weight": 6,
+     "self_attn.q_proj.weight": 6,
+     "self_attn.v_proj.weight": 6
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "Q01",
+   "label": "quantization",
+   "r_stated": null,
+   "derivative": "Qwen/Qwen2.5-0.5B-Instruct-GPTQ-Int4",
+   "features": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "672 of 794 tensors in B carry quantization companion names (a packed format the diff cannot compare by value)"
+   },
+   "record": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "672 of 794 tensors in B carry quantization companion names (a packed format the diff cannot compare by value)"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F16": 4
+    },
+    "tensors": 962,
+    "changed": 0,
+    "cast": 4,
+    "cast_lossless": 118,
+    "added": 672,
+    "removed": 168,
+    "layers": 24,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "Q02",
+   "label": "quantization",
+   "r_stated": null,
+   "derivative": "Qwen/Qwen2.5-0.5B-Instruct-AWQ",
+   "features": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "504 of 627 tensors in B carry quantization companion names (a packed format the diff cannot compare by value)"
+   },
+   "record": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "504 of 627 tensors in B carry quantization companion names (a packed format the diff cannot compare by value)"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F16": 50
+    },
+    "tensors": 795,
+    "changed": 0,
+    "cast": 50,
+    "cast_lossless": 72,
+    "added": 505,
+    "removed": 168,
+    "layers": 24,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "Q03",
+   "label": "quantization",
+   "r_stated": null,
+   "derivative": "Qwen/Qwen3-0.6B-FP8",
+   "features": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R1, failed: no tensor may be quantized"
+   },
+   "record": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R1, failed: no tensor may be quantized"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F8_E4M3": 196
+    },
+    "tensors": 507,
+    "changed": 0,
+    "cast": 196,
+    "cast_lossless": 0,
+    "added": 196,
+    "removed": 0,
+    "layers": 28,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "Q04",
+   "label": "quantization",
+   "r_stated": null,
+   "derivative": "RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic",
+   "features": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R1, failed: no tensor may be quantized"
+   },
+   "record": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R1, failed: no tensor may be quantized"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F8_E4M3": 112
+    },
+    "tensors": 259,
+    "changed": 0,
+    "cast": 112,
+    "cast_lossless": 0,
+    "added": 113,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "Q05",
+   "label": "quantization",
+   "r_stated": null,
+   "derivative": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+   "features": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "560 of 706 tensors in B carry quantization companion names (a packed format the diff cannot compare by value); 112 tensor(s) resized"
+   },
+   "record": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "560 of 706 tensors in B carry quantization companion names (a packed format the diff cannot compare by value); 112 tensor(s) resized"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "tensors": 706,
+    "changed": 0,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 560,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 112
+   }
+  },
+  {
+   "id": "Q06",
+   "label": "quantization",
+   "r_stated": null,
+   "derivative": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+   "features": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "338 of 628 tensors in B carry quantization companion names (a packed format the diff cannot compare by value); 169 tensor(s) resized"
+   },
+   "record": {
+    "kind": "quantization",
+    "tier": "weak",
+    "rule": "R2b",
+    "reason": "338 of 628 tensors in B carry quantization companion names (a packed format the diff cannot compare by value); 169 tensor(s) resized"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "casts": {
+     "BF16->F16": 3
+    },
+    "tensors": 628,
+    "changed": 0,
+    "cast": 3,
+    "cast_lossless": 118,
+    "added": 338,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 169
+   }
+  },
+  {
+   "id": "U01",
+   "label": "reupload",
+   "r_stated": null,
+   "derivative": "mlx-community/Qwen2.5-0.5B-Instruct-bf16",
+   "features": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 290 tensors are byte-identical"
+   },
+   "record": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 290 tensors are byte-identical"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "tensors": 290,
+    "changed": 0,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "U02",
+   "label": "reupload",
+   "r_stated": null,
+   "derivative": "unsloth/Llama-3.2-1B-Instruct",
+   "features": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 146 tensors are byte-identical"
+   },
+   "record": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 146 tensors are byte-identical"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "tensors": 146,
+    "changed": 0,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 16,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "U03",
+   "label": "reupload",
+   "r_stated": null,
+   "derivative": "unsloth/gemma-3-1b-it",
+   "features": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 340 tensors are byte-identical"
+   },
+   "record": {
+    "kind": "reupload",
+    "tier": "strong",
+    "rule": "R1",
+    "reason": "all 340 tensors are byte-identical"
+   },
+   "evidence": {
+    "direction_coherence": null,
+    "rank": {
+     "matrices": 0,
+     "record_rank_median": null,
+     "record_rank_max": null,
+     "record_top1_median": null,
+     "measured": 0
+    },
+    "tensors": 340,
+    "changed": 0,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 26,
+    "layers_touched": 0,
+    "vectors_changed": 0,
+    "modules_changed": {},
+    "resized": 0
+   }
+  },
+  {
+   "id": "E01",
+   "label": "direct-edit",
+   "r_stated": null,
+   "derivative": "RikiyaT/Qwen3.5-0.8B-weight-space-programming",
+   "features": {
+    "kind": "direct-edit",
+    "tier": "strong",
+    "rule": "R4",
+    "reason": "2 of 488 tensors changed: model.language_model.layers.15.mlp.down_proj.weight (1024 rows x 64 cols, rank 1); model.language_model.layers.19.mlp.down_proj.weight (1023 rows x 64 cols, rank 1)"
+   },
+   "record": {
+    "kind": "direct-edit",
+    "tier": "strong",
+    "rule": "R4",
+    "reason": "2 of 488 tensors changed: model.language_model.layers.15.mlp.down_proj.weight (1024 rows x 64 cols, rank 1); model.language_model.layers.19.mlp.down_proj.weight (1023 rows x 64 cols, rank 1)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9245024521912886,
+    "rank": {
+     "matrices": 2,
+     "record_rank_median": 1.0,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9999929608058956,
+     "measured": 2,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 488,
+    "changed": 2,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 0,
+    "layers": 24,
+    "layers_touched": 2,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 2
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "M01",
+   "label": "mixed",
+   "r_stated": null,
+   "derivative": "Goekdeniz-Guelmez/Josiefied-Qwen3-0.6B-abliterated-v1",
+   "features": {
+    "kind": "direction-removal",
+    "tier": "strong",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 27 of 28 layers, along one shared direction (coherence 1.00)"
+   },
+   "record": {
+    "kind": "direction-removal",
+    "tier": "weak",
+    "rule": "R3",
+    "reason": "rank-1 changes in mlp.down_proj.weight, self_attn.o_proj.weight across 27 of 28 layers; direction sharing not measured (run with --features)"
+   },
+   "evidence": {
+    "direction_coherence": 0.9999982475966069,
+    "projections": [
+     "mlp.down_proj.weight",
+     "self_attn.o_proj.weight"
+    ],
+    "rank": {
+     "matrices": 54,
+     "record_rank_median": 1.0,
+     "record_rank_max": 1,
+     "record_top1_median": 0.9975846596598272,
+     "measured": 54,
+     "signal_rank_mode": 1,
+     "signal_rank_median": 1.0,
+     "signal_rank_max": 1,
+     "signal_top1_median": 1.0
+    },
+    "tensors": 311,
+    "changed": 54,
+    "cast": 0,
+    "cast_lossless": 0,
+    "added": 0,
+    "removed": 1,
+    "layers": 28,
+    "layers_touched": 27,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "mlp.down_proj.weight": 27,
+     "self_attn.o_proj.weight": 27
+    },
+    "resized": 0
+   }
+  },
+  {
+   "id": "M02",
+   "label": "mixed",
+   "r_stated": 16,
+   "derivative": "amkkk/Qwen3.5-0.8B-finetuned-lora-uncensored",
+   "features": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R5, failed: at least 80% of touched layers must change the same modules"
+   },
+   "record": {
+    "kind": "unknown",
+    "tier": "weak",
+    "rule": "U",
+    "reason": "no rule fired; the closest, R5, failed: at least 80% of touched layers must change the same modules"
+   },
+   "evidence": {
+    "direction_coherence": 0.20308622718846506,
+    "rank": {
+     "matrices": 168,
+     "record_rank_median": 51.5,
+     "record_rank_max": 832,
+     "record_top1_median": 0.24867539994026966,
+     "measured": 168,
+     "signal_rank_mode": 16,
+     "signal_rank_median": 16.0,
+     "signal_rank_max": 16,
+     "signal_top1_median": 0.25164635331231766
+    },
+    "casts": {
+     "F32->BF16": 18
+    },
+    "tensors": 488,
+    "changed": 168,
+    "cast": 18,
+    "cast_lossless": 18,
+    "added": 0,
+    "removed": 15,
+    "layers": 24,
+    "layers_touched": 24,
+    "vectors_changed": 0,
+    "modules_changed": {
+     "linear_attn.in_proj_a.weight": 18,
+     "linear_attn.in_proj_b.weight": 18,
+     "linear_attn.in_proj_qkv.weight": 18,
+     "linear_attn.out_proj.weight": 18,
+     "mlp.down_proj.weight": 24,
+     "mlp.gate_proj.weight": 24,
+     "mlp.up_proj.weight": 24,
+     "self_attn.k_proj.weight": 6,
+     "self_attn.o_proj.weight": 6,
+     "self_attn.q_proj.weight": 6,
+     "self_attn.v_proj.weight": 6
+    },
+    "resized": 0
+   }
+  }
+ ]
+}

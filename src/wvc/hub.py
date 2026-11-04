@@ -151,6 +151,7 @@ class PairDiff:
     plan: PairPlan
     root_a: str | None  # None when a shard was skipped: its tensors were never hashed
     root_b: str | None
+    inspected: object = None  # what diff_hub_pair's ``inspect`` returned
 
 
 def is_hub_checkpoint(arg: object) -> bool:
@@ -432,14 +433,21 @@ def plan_pair(a: HubRepo, b: HubRepo) -> PairPlan:
 
 
 def diff_hub_pair(
-    hub: Hub, a: HubRepo, b: HubRepo, *, rank: bool = False, rank_cap: int = DEFAULT_RANK_CAP
+    hub: Hub,
+    a: HubRepo,
+    b: HubRepo,
+    *,
+    rank: bool = False,
+    rank_cap: int = DEFAULT_RANK_CAP,
+    inspect: Callable[[Checkpoint, Checkpoint, list[TensorDiff]], object] | None = None,
 ) -> PairDiff:
     """Diff two Hub repositories, fetching only the shards that differ on the Hub.
 
     The skipped shards' headers are read and checked first, before any download. Their
     tensors are ``unchanged`` by construction (the two files are byte-identical). A tensor
     name that appears in a skipped shard and in any other shard on either side is refused,
-    as a local reader refuses a duplicate.
+    as a local reader refuses a duplicate. ``inspect``, when given, runs while the fetched
+    shards are open, on them and on the whole sorted diff; its result is ``inspected``.
     """
     plan = plan_pair(a, b)
     unchanged: dict[str, TensorDiff] = {}
@@ -460,12 +468,13 @@ def diff_hub_pair(
             )
         digests_a, digests_b = tensor_digests(ckpt_a), tensor_digests(ckpt_b)
         diffs = diff_checkpoints(ckpt_a, ckpt_b, digests_a, digests_b, rank=rank, rank_cap=rank_cap)
-    diffs = sorted([*diffs, *unchanged.values()], key=lambda item: item.name)
+        diffs = sorted([*diffs, *unchanged.values()], key=lambda item: item.name)
+        inspected = None if inspect is None else inspect(ckpt_a, ckpt_b, diffs)
     if plan.skipped:
-        return PairDiff(diffs, plan, None, None)
+        return PairDiff(diffs, plan, None, None, inspected)
     root_a = build_manifest(ckpt_a, digests_a)["root"]  # from the digests: no file is read
     root_b = build_manifest(ckpt_b, digests_b)["root"]
-    return PairDiff(diffs, plan, root_a, root_b)
+    return PairDiff(diffs, plan, root_a, root_b, inspected)
 
 
 def _is_shard(name: object) -> bool:

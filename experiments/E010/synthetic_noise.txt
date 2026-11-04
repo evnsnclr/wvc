@@ -1,0 +1,7 @@
+change | relative size | record rank | record top-1 | rank above noise edge
+LoRA r=8 | 0.0101 | 808 | 0.14 | 8
+LoRA r=16 | 0.00201 | 896 | 0.0555 | 16
+LoRA r=64 | 0.0101 | 896 | 0.025 | 64
+rank-1 removal x1.0 | 0.0338 | 1 | 0.998 | 1
+rank-1 removal x0.3 | 0.0102 | 9 | 0.979 | 9
+dense power-law | 0.0101 | 890 | 0.331 | 619

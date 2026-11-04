@@ -394,3 +394,25 @@ def test_the_table_names_the_comparison(tmp_path, rng, capsys):
     out = capsys.readouterr().out.splitlines()
     assert out[0].startswith("quantization comparison: b GGUF; names mapped by the llama table")
     assert any("F32->Q8_0" in line and "up_proj" in line for line in out)
+
+
+MATRICES = [name for name in GGUF_NAMES if name.startswith(LAYER) and "proj" in name]
+
+
+def test_a_plain_quantization_classifies_as_quantization(tmp_path, rng, capsys):
+    _, st, gguf = _pair(tmp_path, rng, types=dict.fromkeys(MATRICES, "Q8_0"))
+    status, record = _diff_json(capsys, st, gguf, "--classify")
+    assert status == 1
+    assert (record["classification"]["kind"], record["classification"]["rule"]) == (
+        "quantization",
+        "R2",
+    )
+
+
+def test_a_quantization_with_a_changed_norm_classifies_as_mixed(tmp_path, rng, capsys):
+    base, _, gguf = _pair(tmp_path, rng, types=dict.fromkeys(MATRICES, "Q8_0"))
+    moved = {k: ("F32", v * 1.5 if k.endswith("layernorm.weight") else v) for k, v in base.items()}
+    st = write_safetensors(tmp_path / "moved.safetensors", moved)
+    status, record = _diff_json(capsys, st, gguf, "--classify")
+    assert status == 1
+    assert (record["classification"]["kind"], record["classification"]["rule"]) == ("mixed", "M3")
