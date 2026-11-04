@@ -45,6 +45,16 @@ Two public weight changes and what `wvc diff` reports for them. The figure is dr
 | **Check** | changed counts and hashes equal the authors' own manifest | none beyond the bytes: no method was published |
 | **Read** | one 1.7 GB file per side; the diff took 9.8 s on an M4 Max | 1 of 4 shards per side: 10.67 of the pair's 38.61 GB |
 
+Then the Hub at large: 93 of the most-downloaded derivatives of eleven popular bases (Qwen2.5, Qwen3, Qwen3.5, Llama 3.1 and 3.2, Gemma 2 and 3; up to ten per base), each diffed against the base it declares ([a census of Hub uploads](experiments/E009-hub-census.md), [summary](experiments/E009/summary.md)). None was refused and none crashed wvc. Nine uploads tagged `finetune` are byte-for-byte copies of their base, all of them `unsloth` mirrors; 46 are tagged `quantized`; 13 are dense fine-tunes with full-rank changes; five are LoRA merges with the same low rank on every projection; two named as abliterations change only `o_proj` and `down_proj` matrices, at rank 1 to 16, and one of them is tagged `quantized` with nothing in it quantized. On twelve uploads the bytes contradict the Hub's tag. The figure is drawn from the receipts by [`make_census.py`](docs/assets/make_census.py), which checks its counts against the committed summary.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/census-dark.png">
+  <img src="docs/assets/census-light.png" width="100%" alt="93 Hub uploads, one square each, coloured by the Hub's relation tag (finetune 43, quantized 46, merge 4) and grouped by what the diff shows: byte-identical to the base 9, all unsloth mirrors tagged finetune; a few projections at low rank 2; renamed with values kept 5; renamed with values changed 6; saved in another dtype 8, four of them LoRA merges saved in F32; some tensors changed 23, thirteen of them dense fine-tunes at full rank and five FP8 casts; renamed and still unpaired 40, 35 of them tagged quantized. Twelve squares are ringed where the bytes contradict the Hub's tag.">
+</picture>
+
+- **Naming the change.** `wvc classify` names the kind of change from a diff. On 46 uploads whose cards state the method, rules frozen before the run agreed on 28 with its second pass and 33 from the diff record alone; rules revised on the same 46 agree on 37 and 39, a training-set number. The bytes contradict seven of the 46 stated methods ([change classification](experiments/E010-change-classification.md), [rules](docs/classification.md)).
+- **GGUF.** wvc's GGUF reader, gguf-hash lines, and dequantisation agree with llama.cpp's exactly, bit for bit; Qwen's official Q4_K_M of Qwen2.5-0.5B-Instruct changes all 48 layer norms and moves a per-channel scale into the projections, while three other GGUF uploads, read from the Hub, leave every norm unchanged ([GGUF reading](experiments/E011-gguf-reading.md), [GGUF uploads on the Hub](experiments/E012-gguf-uploads.md)).
+
 A diff shows where a model changed and how, not what the change does.
 
 ## Quick start
@@ -164,7 +174,7 @@ Byte-level chunk dedup, fixed or content-defined, found nothing beyond whole-ten
 
 - **Run on real models:** `hash`, `diff`, and `verify`, on local files and on the Hub, and on GGUF files against their safetensors bases; `commit`, `checkout`, and `fsck`, with byte-identical files and a checkout that loads in transformers with identical logits; `bisect` on a real fine-tuning run, where the behaviour had no single onset and bisect said so. Each run has a [receipt](experiments/README.md).
 - **Unit-tested, not yet run on real models:** `merge-adapter`, remotes (directory and Hub), `card`.
-- **Not built:** dequantising GGUF types beyond F32, F16, BF16, Q4_0, Q4_1, Q5_0, Q5_1, Q8_0, Q4_K, Q5_K, Q6_K, and Q8_K (the others are refused by name); GGUF files on the Hub; signing and attestation, garbage collection.
+- **Not built:** dequantising GGUF types beyond F32, F16, BF16, Q4_0, Q4_1, Q5_0, Q5_1, Q8_0, Q4_K, Q5_K, Q6_K, and Q8_K (the others are refused by name); signing and attestation, garbage collection.
 - **Not planned:** hosting, a UI, git filters, lossy storage, PyTorch at runtime.
 
 CI runs the tests, ruff, and a type check on Ubuntu, macOS, and Windows with Python 3.11 and 3.13, with warnings as errors, a coverage floor, a dependency audit, and header-parser fuzzing. Every measurement so far comes from one machine (an Apple M4 Max), safetensors files, and the model families named in the receipts. [SECURITY.md](SECURITY.md) describes how wvc handles untrusted input and lists its known limits.
