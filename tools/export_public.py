@@ -37,6 +37,7 @@ PUBLIC = (
     "CHANGELOG.md",
     "LICENSE",
     "CONTRIBUTING.md",
+    "ROADMAP.md",
     "SECURITY.md",
     "CITATION.cff",
     "AGENTS.md",
