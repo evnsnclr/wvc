@@ -241,14 +241,17 @@ def coherence(features: dict[str, TensorFeatures]) -> tuple[float | None, int, d
     Returns the coherence (None for fewer than two directions), their count, and each
     tensor's |cos| to the consensus direction.
     """
-    names = [
-        name
-        for name, item in sorted(features.items())
-        if item.direction is not None and (is_embedding(name) or is_output_side(layer_of(name)[1]))
-    ]
+    directions: list[np.ndarray] = []
+    names: list[str] = []
+    for name, item in sorted(features.items()):
+        if item.direction is None:
+            continue
+        if is_embedding(name) or is_output_side(layer_of(name)[1]):
+            names.append(name)
+            directions.append(item.direction)
     if len(names) < 2:
         return None, len(names), {}
-    stacked = np.stack([features[name].direction for name in names])
+    stacked = np.stack(directions)
     _, singular, rows = np.linalg.svd(stacked, full_matrices=False)
     consensus = rows[0]
     alignment = np.abs(stacked @ consensus)
