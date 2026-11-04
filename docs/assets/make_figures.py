@@ -253,14 +253,20 @@ def typing(c: dict, tl: Timeline, x: float, y: float, command: str) -> list[str]
     start, end = 0.6, 3.4
     move = f"transform: translateX({len(command) * ADV:.1f}px)"
     steps = f"animation-timing-function: steps({len(command)}, end)"
-    cover = [(0, "transform: translateX(0px)"), (start, steps), (end, move)]
+    # The cover goes once the command is typed, so a font wider than ADV never hides its end.
+    cover = [
+        (0, "opacity: 1; transform: translateX(0px)"),
+        (start, steps),
+        (end, f"opacity: 1; {move}"),
+    ]
+    cover += [(end + 0.05, f"opacity: 0; {move}"), (tl.seconds, f"opacity: 0; {move}")]
     caret = [(0, "opacity: 1; transform: translateX(0px)"), (start, steps)]
     caret += [(end, f"opacity: 1; {move}"), (end + 0.3, "opacity: 1"), (end + 0.31, "opacity: 0")]
     caret += [(tl.seconds, f"opacity: 0; {move}")]
     box = {"x": x, "y": y - FS + 1, "width": ADV, "height": FS + 4}
     return [
         term(x, y, command, c["text"]),
-        tag("rect", class_=tl.add("cover", cover, f"{move};"), x=x - 2, y=y - FS - 2,
+        tag("rect", class_=tl.add("cover", cover, f"opacity: 0; {move};"), x=x - 2, y=y - FS - 2,
             width=1600 - x - 2, height=FS + 10, fill=c["bg"]),
         tag("rect", class_=tl.add("caret", caret, "opacity: 0;"), fill=c["body"], **box),
     ]  # fmt: skip

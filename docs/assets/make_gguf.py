@@ -104,7 +104,7 @@ def axes(f: Canvas) -> None:
 
 def draw(theme: str, sides: list[dict]) -> Path:
     f = Canvas(THEMES[theme], W, H)
-    f.text(52, 74, "Two GGUF files of one model: one is not only a quantization", 36, "text",
+    f.text(52, 74, "Same model, two GGUF quantizations: one changes every layer norm", 36, "text",
            weight="semibold")  # fmt: skip
     f.text(52, 116, "Qwen2.5-0.5B-Instruct against two Q4/Q5 GGUF uploads. One dot per tensor, "
            "values dequantised exactly and compared with the base.", 22, "muted")  # fmt: skip

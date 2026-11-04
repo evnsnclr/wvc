@@ -165,6 +165,18 @@ def draw(theme: str, diffed: list[dict[str, str]], labels: dict[str, list[str]])
                 f.rect(x - 4.5, top - 4.5, size + 9, size + 9, None, "text", 3.2, radius=6)
         lines = (len(group) - 1) // per_line + 1
         y += max(70, lines * (size + gap) + 34)
+    ringed = Counter(summarize.category(r) for r in diffed if contradicted(r))
+    if ringed != Counter({"byte-identical": 9, "low rank, few projections": 1,
+                          "partial change": 1, "renamed, unchanged": 1}):  # fmt: skip
+        raise SystemExit(f"ringed uploads by category changed: {dict(ringed)}")
+    f.text(
+        52,
+        H - 104,
+        "Ringed: 9 mirrors tagged finetune; a heretic upload and a BF16 fine-tune "
+        "tagged quantized; the base's own weights, renamed, tagged finetune",
+        19,
+        "muted",
+    )
     ly = H - 52
     x = 52
     for tag, colour in TAGS.items():

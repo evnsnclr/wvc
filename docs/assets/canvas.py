@@ -78,3 +78,9 @@ class Canvas:
         if image.size != (self.w, self.h):
             raise SystemExit(f"{path.name}: {image.size}, expected {(self.w, self.h)}")
         image.quantize(256, dither=Image.Dither.NONE).save(path, optimize=True)
+
+    def image(self, rgb: object, x: float, y: float, w: float, h: float) -> None:
+        """An RGB array drawn into the box, pixel for pixel when its size equals the box."""
+        self.ax.imshow(rgb, extent=(x, x + w, y + h, y), interpolation="nearest", zorder=0)
+        self.ax.set_xlim(0, self.w)
+        self.ax.set_ylim(self.h, 0)
