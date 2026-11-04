@@ -1,0 +1,99 @@
+{
+  "a": {
+    "path": "wrap-a.safetensors",
+    "root": "397470075d4bf05992f8b5101cc86af8327844ec6517fe92b67ab6f7e4af9f47"
+  },
+  "b": {
+    "path": "wrap-b.safetensors",
+    "root": "8bf7859b80330a5929e209de68f9c74bfb8737c4e95ec434ffbca77f76783213"
+  },
+  "summary": {
+    "tensors": 3,
+    "by_status": {
+      "unchanged": 2,
+      "changed": 1,
+      "added": 0,
+      "removed": 0,
+      "reshaped": 0
+    },
+    "renamed": 3,
+    "elements_compared": 52,
+    "elements_changed": 20,
+    "fraction_changed": 0.38461538461538464
+  },
+  "tensors": [
+    {
+      "name": "model.embed_tokens.weight",
+      "status": "unchanged",
+      "dtype_a": "F32",
+      "dtype_b": "F32",
+      "shape_a": [
+        6,
+        4
+      ],
+      "shape_b": [
+        6,
+        4
+      ],
+      "numel": 24,
+      "changed": 0,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null,
+      "renamed_to": "language_model.model.embed_tokens.weight"
+    },
+    {
+      "name": "model.layers.0.mlp.down_proj.weight",
+      "status": "changed",
+      "dtype_a": "F32",
+      "dtype_b": "F32",
+      "shape_a": [
+        4,
+        6
+      ],
+      "shape_b": [
+        4,
+        6
+      ],
+      "numel": 24,
+      "changed": 20,
+      "nonfinite_changed": 0,
+      "max_abs_delta": 2.5000000596046448,
+      "delta_norm": 7.416198456956583,
+      "rel_delta_norm": 1.7554363612534103,
+      "rows_touched": 4,
+      "cols_touched": 5,
+      "rank": 1,
+      "top1_energy": 0.9999999999999997,
+      "renamed_to": "language_model.model.layers.0.mlp.down_proj.weight"
+    },
+    {
+      "name": "model.norm.weight",
+      "status": "unchanged",
+      "dtype_a": "BF16",
+      "dtype_b": "BF16",
+      "shape_a": [
+        4
+      ],
+      "shape_b": [
+        4
+      ],
+      "numel": 4,
+      "changed": 0,
+      "nonfinite_changed": null,
+      "max_abs_delta": null,
+      "delta_norm": null,
+      "rel_delta_norm": null,
+      "rows_touched": null,
+      "cols_touched": null,
+      "rank": null,
+      "top1_energy": null,
+      "renamed_to": "language_model.model.norm.weight"
+    }
+  ]
+}

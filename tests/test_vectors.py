@@ -93,6 +93,27 @@ def test_gguf_diff_matches_vector(capsys):
         assert got == _with_tolerance(want), got["name"]
 
 
+def test_renamed_diff_matches_vector(capsys):
+    args = ["diff", "--rank", "--json", "--all"]
+    pair = [str(VECTORS / "wrap-a.safetensors"), str(VECTORS / "wrap-b.safetensors")]
+    assert main([*args, *pair]) == 1
+    actual = _basename_paths(json.loads(capsys.readouterr().out))
+    expected = json.loads((VECTORS / "wrap-diff.json").read_text(encoding="utf-8"))
+    assert {**actual, "tensors": None} == {**expected, "tensors": None}
+    assert [t["name"] for t in actual["tensors"]] == [t["name"] for t in expected["tensors"]]
+    for got, want in zip(actual["tensors"], expected["tensors"], strict=True):
+        assert got == _with_tolerance(want), got["name"]
+    assert expected["summary"]["renamed"] == len(expected["tensors"]) == 3
+    assert all(t["renamed_to"] == "language_model." + t["name"] for t in expected["tensors"])
+
+
+def test_generator_reproduces_the_renamed_pair(tmp_path):
+    generator = runpy.run_path(str(VECTORS / "make_vectors.py"))
+    generator["write_wrapped_vectors"](tmp_path)
+    for name in ("wrap-a.safetensors", "wrap-b.safetensors"):
+        assert (tmp_path / name).read_bytes() == (VECTORS / name).read_bytes(), name
+
+
 def test_generator_reproduces_the_gguf_pair(tmp_path):
     generator = runpy.run_path(str(VECTORS / "make_vectors.py"))
     generator["write_gguf_vectors"](tmp_path)

@@ -244,6 +244,7 @@ def common_evidence(view: View) -> dict:
         "resized": [t.name for t in view.resized],
         "added": len(view.added),
         "removed": len(view.removed),
+        "renamed": view.renamed,
         "layers": view.layers,
         "layers_known": view.full,
         "stack": view.stack,
@@ -313,13 +314,17 @@ def rule_reupload(view: View, attempt: _Attempt) -> Classification | None:
         )
     ):
         return None
+    renamed = f", {view.renamed} of them under another name" if view.renamed else ""
     if not extra and not view.lossless:
-        return _result(view, "reupload", True, "R1", f"all {view.total} tensors are byte-identical")
+        reason = f"all {view.total} tensors are byte-identical{renamed}"
+        return _result(view, "reupload", True, "R1", reason)
     parts = []
     if view.lossless:
         parts.append(f"{len(view.lossless)} stored in another dtype with identical values")
     if extra:
         parts.append(f"{extra} global tensor(s) added or removed")
+    if view.renamed:
+        parts.append(f"{view.renamed} under another name")
     reason = "every value is identical; " + " and ".join(parts)
     return _result(view, "reupload", False, "R1b", reason)
 

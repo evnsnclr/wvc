@@ -9,6 +9,10 @@ change only with a new format id. ``docs/agents-reading-diffs.md`` says how to r
 Layer grouping is by name: the first dot-separated part that is all digits is the layer
 index, what precedes it the stack (``model.layers``), what follows it the projection
 (``mlp.down_proj.weight``). Tensors without such a part are grouped as ``(no layer)``.
+
+A tensor paired across a rename is grouped under its name in a; the headline counts such pairs
+and the last list names them, and both are absent when there are none, so a record without
+renames reads as before.
 """
 
 from __future__ import annotations
@@ -200,6 +204,12 @@ def _headline(record: dict, tensors: list[dict], unchanged_files: dict | None) -
         f"- elements changed: {_count(summary['elements_changed'], summary['elements_compared'])}",
         f"- layers with a changed tensor: {len(layers_changed)} of {len(layers_all)}",
     ]
+    renamed = summary.get("renamed") or 0
+    if renamed:
+        lines.append(
+            f"- renamed: {renamed} of the changed and unchanged tensors, each paired with a "
+            "tensor of another name in b and listed under its name in a"
+        )
     if unchanged_files is not None:
         names = unchanged_files["names"]
         listed = ", ".join(code(name) for name in names[:MAX_LISTED])
@@ -374,6 +384,19 @@ def _listed(status: str, tensors: list[dict]) -> list[str]:
     return lines
 
 
+def _renamed(tensors: list[dict]) -> list[str]:
+    """The tensors paired across a rename, as ``name in a -> name in b``; none, no lines."""
+    chosen = [t for t in tensors if t.get("renamed_to") is not None]
+    if not chosen:
+        return []
+    lines = [f"- renamed ({len(chosen)}):"]
+    for t in chosen[:MAX_LISTED]:
+        lines.append(f"  - {code(t['name'])} -> {code(t['renamed_to'])} {t['status']}")
+    if len(chosen) > MAX_LISTED:
+        lines.append(f"  - and {len(chosen) - MAX_LISTED} more")
+    return lines
+
+
 def render_agent(record: dict, unchanged_files: dict | None = None) -> str:
     """The ``wvc-diff-agent/0`` Markdown for a diff record whose ``tensors`` lists every tensor.
 
@@ -397,7 +420,7 @@ def render_agent(record: dict, unchanged_files: dict | None = None) -> str:
         sections.append(["## Changed tensors", "- none"])
     sections.append(
         ["## Added, removed, reshaped", *(line for s in ("added", "removed", "reshaped")
-                                          for line in _listed(s, tensors))]
+                                          for line in _listed(s, tensors)), *_renamed(tensors)]
     )  # fmt: skip
     footer = [*FOOTER, QUANTIZATION_FOOTER] if record.get("comparison") else list(FOOTER)
     sections.append(["## What this does and does not show", *(f"- {line}" for line in footer)])

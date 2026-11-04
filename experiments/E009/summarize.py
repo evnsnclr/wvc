@@ -2,6 +2,13 @@
 
     uv run python experiments/E009/summarize.py experiments/E009/census.csv \
         > experiments/E009/summary.md
+    uv run python experiments/E009/summarize.py --rediff experiments/E009/census.csv
+
+``--rediff`` lists instead the diffed pairs whose receipts have tensors both added and removed
+and no tensor ids, with both pinned commits: the pairs to diff again with a wvc that pairs
+renamed tensors. A receipt that has ids (``summary.renamed``) splits "renamed layout" into
+"renamed, unchanged" and "renamed, changed"; those columns and the renamed section appear
+only then, so the summary of receipts without ids is what it was.
 
 The latest row for each (base, upload) is its state. Categories follow the definitions frozen
 in ``experiments/E009-hub-census.md``; a diffed pair falls in the first that applies.
@@ -37,6 +44,10 @@ CATEGORIES = (
     "dtype rewrite",
     "partial change",
 )
+# Receipts written by a wvc that pairs renamed tensors (spec section 2, ``summary.renamed``)
+# split "renamed layout" into these two; it then holds only what stayed unpaired.
+RENAMED_SPLIT = ("renamed, unchanged", "renamed, changed")
+RENAMED_ANY = ("renamed layout", *RENAMED_SPLIT)
 
 
 def latest(rows: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -47,15 +58,62 @@ def latest(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 
 
 def num(row: dict[str, str], key: str) -> int:
-    return int(row[key]) if row[key] not in ("", None) else 0
+    value = row.get(key)
+    return int(value) if value not in ("", None) else 0
+
+
+def receipt_path(out: Path, row: dict[str, str]) -> Path:
+    return out / "pairs" / f"{row['upload'].replace('/', '__')}.json"
+
+
+def renamed_counts(diff: dict) -> dict[str, str] | None:
+    """Renamed pairs in a receipt's diff record, or None for a record without ids (old wvc).
+
+    The census diffs without ``--all``, so renamed tensors that are unchanged are counted from
+    the summary, not listed.
+    """
+    total = diff["summary"].get("renamed")
+    if total is None:
+        return None
+    changed = sum(
+        1 for t in diff["tensors"] if t.get("renamed_to") is not None and t["status"] != "unchanged"
+    )
+    return {
+        "renamed": str(total),
+        "renamed_changed": str(changed),
+        "renamed_unchanged": str(total - changed),
+    }
+
+
+def with_receipts(out: Path, rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """The rows, each diffed one with its receipt's renamed counts when the receipt has them."""
+    enriched = []
+    for row in rows:
+        path = receipt_path(out, row)
+        counts = None
+        if row["outcome"] == "diffed" and path.is_file():
+            counts = renamed_counts(json.loads(path.read_text(encoding="utf-8"))["diff"])
+        enriched.append(row if counts is None else {**row, **counts})
+    return enriched
+
+
+def categories(rows: list[dict[str, str]]) -> tuple[str, ...]:
+    """CATEGORIES, with the renamed split after "renamed layout" once a row falls in it."""
+    if not any(category(row) in RENAMED_SPLIT for row in rows):
+        return CATEGORIES
+    at = CATEGORIES.index("renamed layout") + 1
+    return (*CATEGORIES[:at], *RENAMED_SPLIT, *CATEGORIES[at:])
 
 
 def category(row: dict[str, str]) -> str:
     tensors = num(row, "tensors")
     unchanged, changed = num(row, "unchanged"), num(row, "changed")
     added, removed, reshaped = num(row, "added"), num(row, "removed"), num(row, "reshaped")
-    if unchanged == tensors and tensors:
+    renamed = num(row, "renamed")  # 0 for a receipt without ids
+    if unchanged == tensors and tensors and not renamed:
         return "byte-identical"
+    if renamed and (renamed + added + removed >= tensors / 2 or unchanged == tensors):
+        return RENAMED_SPLIT[0] if changed == reshaped == 0 else RENAMED_SPLIT[1]
     if added + removed >= tensors / 2:
         return "renamed layout"
     if reshaped >= tensors / 2:
@@ -111,6 +169,7 @@ def walks(out: Path) -> dict[str, dict]:
 
 
 def per_base(rows: list[dict[str, str]], selections: dict[str, dict]) -> list[str]:
+    order = categories([row for row in rows if row["outcome"] == "diffed"])
     by_base = defaultdict(list)
     for row in rows:
         by_base[row["base"]].append(row)
@@ -130,7 +189,7 @@ def per_base(rows: list[dict[str, str]], selections: dict[str, dict]) -> list[st
                 sum(1 for e in selection["walked"] if e["eligible"])
                 - outcomes["diffed"]
                 - outcomes["failed"],
-                *(cats[name] for name in CATEGORIES),
+                *(cats[name] for name in order),
                 f"{min(shares):.2f} / {statistics.median(shares):.2f} / {max(shares):.2f}"
                 if shares
                 else "-",
@@ -143,7 +202,7 @@ def per_base(rows: list[dict[str, str]], selections: dict[str, dict]) -> list[st
         "diffed",
         "failed",
         "not run",
-        *CATEGORIES,
+        *order,
         "tensors touched, min / median / max",
     ]
     return table(header, body)
@@ -267,12 +326,13 @@ def distribution(diffed: list[dict[str, str]]) -> list[str]:
 
 
 def by_tag(diffed: list[dict[str, str]]) -> list[str]:
+    order = categories(diffed)
     tags = sorted({row["relation_tag"] for row in diffed})
     body = []
     for tag in tags:
         cats = Counter(category(row) for row in diffed if row["relation_tag"] == tag)
-        body.append([tag or "(none)", sum(cats.values()), *(cats[name] for name in CATEGORIES)])
-    return table(["Hub tag", "diffed", *CATEGORIES], body)
+        body.append([tag or "(none)", sum(cats.values()), *(cats[name] for name in order)])
+    return table(["Hub tag", "diffed", *order], body)
 
 
 def rank_rows(diffed: list[dict[str, str]]) -> list[str]:
@@ -329,8 +389,9 @@ def predictions(
             and num(row, "added") == 0
         )
     ]
-    quant_ok = sum(1 for row in quantized if category(row) in ("dtype rewrite", "renamed layout"))
-    renamed = [row for row in diffed if category(row) == "renamed layout"]
+    quant_ok = sum(1 for row in quantized if category(row) in ("dtype rewrite", *RENAMED_ANY))
+    renamed = [row for row in diffed if category(row) in RENAMED_ANY]
+    split = ", ".join(f"{name} {cats[name]}" for name in RENAMED_SPLIT if cats[name])
     renamed_q35 = sum(1 for row in renamed if row["base"].startswith("Qwen/Qwen3.5-"))
     low = sum(1 for r in finetune if category(r) == "low rank, few projections")
     tagged = ", ".join(f"`{r['upload']}` ({r['relation_tag']}, {category(r)})" for r in contradict)
@@ -339,7 +400,8 @@ def predictions(
         "P1": f"byte-identical: {share(cats['byte-identical'], total)}",
         "P2": f"every tensor changed: {share(cats['every tensor changed'], total)}",
         "P3": f"low rank among `finetune`: {share(low, len(finetune))}",
-        "P4": f"renamed layout: {share(len(renamed), total)}, {renamed_q35} on Qwen3.5 bases",
+        "P4": f"renamed layout: {share(len(renamed), total)}, {renamed_q35} on Qwen3.5 bases"
+        + (f" ({split})" if split else ""),
         "P5": f"`quantized` that are dtype rewrites or renamed: {share(quant_ok, len(quantized))}",
         "P6": f"`no-safetensors` among small-base candidates: {share(no_st, walked)}",
         "P7": f"crashes: {len(crashes)}; refusals: {share(len(refusals), len(attempted))}",
@@ -347,6 +409,80 @@ def predictions(
         "P9": f"pairs contradicting their tag: {len(contradict)}: {tagged or 'none'}",
     }
     return [f"- {key} {text} (predicted {PREDICTED[key]})" for key, text in observed.items()]
+
+
+def renamed_rows(diffed: list[dict[str, str]]) -> list[str]:
+    """Pairs whose receipt pairs renamed tensors: how many, and how many of them changed."""
+    rows = [row for row in diffed if num(row, "renamed")]
+    body = [
+        [
+            row["base"],
+            row["upload"],
+            category(row),
+            row["renamed"],
+            row["renamed_unchanged"],
+            row["renamed_changed"],
+            row["added"],
+            row["removed"],
+        ]
+        for row in sorted(rows, key=lambda r: (r["base"], r["upload"]))
+    ]
+    header = ["base", "upload", "category", "renamed", "unchanged", "changed", "added", "removed"]
+    return table(header, body)
+
+
+def renamed_section(diffed: list[dict[str, str]]) -> list[str]:
+    """The section on renamed pairs; nothing when no receipt carries ``summary.renamed``."""
+    if not any("renamed" in row for row in diffed):
+        return []
+    return [
+        "## Renamed tensors paired by the diff",
+        "",
+        "From receipts written by a wvc that pairs renamed tensors by id and by name prefix "
+        '(spec section 2); receipts without ids keep the frozen "renamed layout".',
+        "",
+        *renamed_rows(diffed),
+        "",
+    ]
+
+
+def needs_rediff(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Diffed pairs with tensors both added and removed whose receipt carries no ids."""
+    return sorted(
+        (
+            row
+            for row in rows
+            if row["outcome"] == "diffed"
+            and "renamed" not in row
+            and num(row, "added")
+            and num(row, "removed")
+        ),
+        key=lambda r: (r["base"], r["upload"]),
+    )
+
+
+def rediff_list(rows: list[dict[str, str]]) -> list[str]:
+    """What ``--rediff`` prints: the pairs to diff again, with both pinned commits."""
+    chosen = needs_rediff(rows)
+    body = [
+        [
+            row["base"],
+            row["base_sha"],
+            row["upload"],
+            row["upload_sha"],
+            row["added"],
+            row["removed"],
+        ]
+        for row in chosen
+    ]
+    header = ["base", "base sha", "upload", "upload sha", "added", "removed"]
+    bases = len({row["base"] for row in chosen})
+    return [
+        f"{len(chosen)} diffed pairs on {bases} bases have tensors both added and removed and "
+        "a receipt without tensor ids; diff them again to pair their renames.",
+        "",
+        *table(header, body),
+    ]
 
 
 def pair_table(diffed: list[dict[str, str]]) -> list[str]:
@@ -383,11 +519,15 @@ def pair_table(diffed: list[dict[str, str]]) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
-    csv_path = Path(argv[1])
+    rediff = "--rediff" in argv[1:]
+    csv_path = Path(next(arg for arg in argv[1:] if arg != "--rediff"))
     out = csv_path.parent
     with csv_path.open(encoding="utf-8", newline="") as handle:
         all_rows = list(csv.DictReader(handle))
-    rows = latest(all_rows)
+    rows = with_receipts(out, latest(all_rows))
+    if rediff:
+        sys.stdout.buffer.write(("\n".join(rediff_list(rows)) + "\n").encode("utf-8"))
+        return 0
     selections = walks(out)
     diffed = [row for row in rows if row["outcome"] == "diffed"]
     total_bytes = sum(num(row, "bytes_new") for row in all_rows)
@@ -442,6 +582,7 @@ def main(argv: list[str]) -> int:
         "",
         *value_ranks(out, diffed),
         "",
+        *renamed_section(diffed),
         "## Receipt consistency",
         "",
         *consistency(out),

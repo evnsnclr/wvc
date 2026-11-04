@@ -152,11 +152,15 @@ def _pair(
 ) -> TensorDiff | None:
     """The record of a pair that needs no reading, or None when its values must be read."""
     if name not in b.located:
-        info = a.info(name)
-        return TensorDiff(name, "removed", dtype_a=info.dtype, shape_a=info.shape, numel=info.numel)
+        info, sha256 = a.info(name), digests[0][a.located[name].gguf_name]
+        return TensorDiff(
+            name, "removed", dtype_a=info.dtype, shape_a=info.shape, numel=info.numel, sha256=sha256
+        )
     if name not in a.located:
-        info = b.info(name)
-        return TensorDiff(name, "added", dtype_b=info.dtype, shape_b=info.shape, numel=info.numel)
+        info, sha256 = b.info(name), digests[1][b.located[name].gguf_name]
+        return TensorDiff(
+            name, "added", dtype_b=info.dtype, shape_b=info.shape, numel=info.numel, sha256=sha256
+        )
     info_a, info_b = a.info(name), b.info(name)
     if info_a.shape != info_b.shape:
         return TensorDiff(

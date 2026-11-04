@@ -107,7 +107,7 @@ def _check_tensor(where: str, entry: object) -> None:
         _fail(f"{where}.name", "must be a string")
     if entry.get("status") not in STATUSES:
         _fail(f"{where}.status", f"must be one of {', '.join(STATUSES)}")
-    for key in ("dtype_a", "dtype_b"):
+    for key in ("dtype_a", "dtype_b", "renamed_to", "sha256"):
         _check_optional(f"{where}.{key}", entry.get(key), "str")
     for key in ("shape_a", "shape_b"):
         _check_shape(f"{where}.{key}", entry.get(key))
@@ -282,6 +282,7 @@ class View:
     module_layers: dict[str, set[int]] = field(default_factory=dict)  # full records only
     main_tensors: int = 0  # tensors of the main stack on both sides (full records only)
     main_matrices: int = 0  # of which 2-D
+    renamed: int = 0  # tensors paired across a rename (spec 2), placed by their status
 
     @property
     def both_sides(self) -> int:
@@ -336,6 +337,7 @@ def build_view(record: dict) -> View:
     )
     for t in tensors:
         _place(view, t)
+        view.renamed += t.entry.get("renamed_to") is not None
         if full and t.layer is not None and t.status not in ("added", "removed"):
             view.module_layers.setdefault(t.module, set()).add(t.layer)
             view.main_tensors += 1

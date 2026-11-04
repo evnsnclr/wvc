@@ -4,7 +4,8 @@ Writes two small safetensors checkpoints (``a``, ``b``), their ``wvc-manifest/0`
 manifests, and the diff record between them into OUT_DIR (default: this directory), and the
 GGUF vectors: ``quant.gguf`` (one tensor per dequantised ggml type), its safetensors twin
 ``quant-base.safetensors``, the GGUF's manifest, gguf-hash lines, and dequantised digests,
-and the quantization comparison between the two:
+the quantization comparison between the two, and the renamed pair ``wrap-a``/``wrap-b``
+(every tensor under a wrapper prefix in b, one of them edited) with its diff record:
 
     uv run python spec/vectors/v0/make_vectors.py [OUT_DIR]
 
@@ -250,8 +251,45 @@ def write_gguf_vectors(out_dir: Path) -> None:
     write_json(out_dir / "quant-diff.json", diff_record(base, path))
 
 
+# The renamed pair (spec section 2): b holds a's tensors under the prefix "language_model.",
+# as a vision model wrapping a language model does; one tensor also carries a rank-1 edit,
+# so the record pins pairing by id (the identical tensors) and by suffix (the edited one).
+WRAP_SEED = 20261104
+WRAP_PREFIX = "language_model."
+WRAP_EDITED = "model.layers.0.mlp.down_proj.weight"
+
+
+def make_wrapped(seed: int = WRAP_SEED) -> tuple[TensorMap, TensorMap]:
+    """The tensors of wrap-a and wrap-b, in file order."""
+    rng = np.random.default_rng(seed)
+    embed = rng.standard_normal((6, 4)).astype(np.float32)
+    down = rng.standard_normal((4, 6)).astype(np.float32)
+    norm = f32_to_bf16_bits(rng.standard_normal(4).astype(np.float32))
+    tensors_a = {
+        "model.embed_tokens.weight": ("F32", embed),
+        WRAP_EDITED: ("F32", down),
+        "model.norm.weight": ("BF16", norm),
+    }
+    # A rank-1 edit: 0.5 times the column index added to every row (columns 1 to 5 touched).
+    edited = down + np.outer(np.ones(4, np.float32), np.arange(6, dtype=np.float32) * 0.5)
+    tensors_b = {
+        WRAP_PREFIX + name: (dtype, edited if name == WRAP_EDITED else array)
+        for name, (dtype, array) in tensors_a.items()
+    }
+    return tensors_a, tensors_b
+
+
+def write_wrapped_vectors(out_dir: Path) -> None:
+    """Write wrap-a.safetensors, wrap-b.safetensors, and wrap-diff.json into ``out_dir``."""
+    tensors_a, tensors_b = make_wrapped()
+    path_a = write_safetensors(out_dir / "wrap-a.safetensors", tensors_a, METADATA)
+    path_b = write_safetensors(out_dir / "wrap-b.safetensors", tensors_b, METADATA)
+    write_json(out_dir / "wrap-diff.json", diff_record(path_a, path_b))
+
+
 def write_vectors(out_dir: Path) -> None:
-    """Write a.safetensors, b.safetensors, their manifests, diff.json, and the GGUF vectors."""
+    """Write a.safetensors, b.safetensors, their manifests, diff.json, the GGUF vectors, and
+    the renamed pair."""
     tensors_a, tensors_b = make_checkpoints()
     path_a = write_safetensors(out_dir / "a.safetensors", tensors_a, METADATA)
     path_b = write_safetensors(out_dir / "b.safetensors", tensors_b, METADATA)
@@ -259,6 +297,7 @@ def write_vectors(out_dir: Path) -> None:
     write_json(out_dir / "b.manifest.json", build_manifest(load_checkpoint(path_b)))
     write_json(out_dir / "diff.json", diff_record(path_a, path_b))
     write_gguf_vectors(out_dir)
+    write_wrapped_vectors(out_dir)
 
 
 def main(argv: Sequence[str] | None = None) -> None:

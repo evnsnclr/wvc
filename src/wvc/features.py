@@ -272,7 +272,8 @@ def compute_features(
     for item in diffs:
         if not wants_features(item) or item.name not in ckpt_a.tensors:
             continue
-        found = tensor_features(ckpt_a.raw(item.name), ckpt_b.raw(item.name), item, hidden, cap)
+        raw_b = ckpt_b.raw(item.renamed_to or item.name)  # b's name of a renamed pair
+        found = tensor_features(ckpt_a.raw(item.name), raw_b, item, hidden, cap)
         if found is not None:
             measured[item.name] = found
     value, count, alignment = coherence(measured)

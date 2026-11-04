@@ -116,8 +116,15 @@ def _fmt_num(value: float | None, spec: str) -> str:
     return "-" if value is None else format(value, spec)
 
 
+def _differs(d: TensorDiff) -> bool:
+    """Whether a tensor is a difference between the two checkpoints: its bytes or its name."""
+    return d.status != "unchanged" or d.renamed_to is not None
+
+
 def render_diff_table(diffs: list[TensorDiff], *, show_all: bool) -> str:
-    rows = [d for d in diffs if show_all or d.status != "unchanged"]
+    """One row per tensor that differs (every tensor with ``show_all``); a tensor paired
+    across a rename is named ``name in a -> name in b``."""
+    rows = [d for d in diffs if show_all or _differs(d)]
     table = [DIFF_COLUMNS]
     for d in rows:
         dtype = (
@@ -132,7 +139,7 @@ def render_diff_table(diffs: list[TensorDiff], *, show_all: bool) -> str:
         table.append(
             (
                 d.status,
-                d.name,
+                d.name if d.renamed_to is None else f"{d.name} -> {d.renamed_to}",
                 dtype or "-",
                 shape,
                 changed,
@@ -156,6 +163,12 @@ def render_summary(summary: dict) -> str:
         f"elements changed: {summary['elements_changed']:,} of {summary['elements_compared']:,}"
         + (f" ({fraction:.4%})" if fraction is not None else ""),
     ]
+    renamed = summary.get("renamed") or 0
+    if renamed:
+        lines.append(
+            f"renamed: {renamed} of the changed and unchanged tensors are paired across a name "
+            "change (shown as name in a -> name in b)"
+        )
     return "\n".join(lines)
 
 
@@ -291,10 +304,10 @@ def _report_diff(args: argparse.Namespace, run: PairRun) -> int:
         if classification is not None:
             lines = classification_lines(classification)
             print(printable("classification: " + lines[0]))
-        if any(d.status != "unchanged" for d in diffs) or args.all:
+        if any(_differs(d) for d in diffs) or args.all:
             print()
             print(render_diff_table(diffs, show_all=args.all))
-    return 1 if summary["by_status"]["unchanged"] != summary["tensors"] else 0
+    return 1 if any(_differs(d) for d in diffs) else 0
 
 
 def _diff_format(args: argparse.Namespace) -> str:
@@ -306,7 +319,7 @@ def _diff_format(args: argparse.Namespace) -> str:
 
 def _unchanged_files(ckpt: Checkpoint, diffs: list[TensorDiff]) -> dict:
     """The files of side b whose every tensor the diff reports unchanged."""
-    status = {d.name_b or d.name: d.status for d in diffs}
+    status = {d.renamed_to or d.name_b or d.name: d.status for d in diffs}
     names = [
         file.path.name
         for file in ckpt.files

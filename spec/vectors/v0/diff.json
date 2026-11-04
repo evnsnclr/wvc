@@ -16,6 +16,7 @@
       "removed": 1,
       "reshaped": 0
     },
+    "renamed": 0,
     "elements_compared": 32,
     "elements_changed": 4,
     "fraction_changed": 0.125
@@ -63,7 +64,8 @@
       "rows_touched": null,
       "cols_touched": null,
       "rank": null,
-      "top1_energy": null
+      "top1_energy": null,
+      "sha256": "f6a487ad8fb982e1fa7a945f182f86c3d82607b3046b79e85fa9d1e892ef6123"
     },
     {
       "name": "w",
@@ -107,7 +109,8 @@
       "rows_touched": null,
       "cols_touched": null,
       "rank": null,
-      "top1_energy": null
+      "top1_energy": null,
+      "sha256": "1d74e51dc95ab2f595cecb72fbb5522e89997027058b107101de73143f17a16b"
     }
   ]
 }

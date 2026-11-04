@@ -20,7 +20,18 @@ The diff covers four of the five statuses:
 | `w` | changed | 4 of 24 elements, 4 rows and 1 column touched, rank 1 |
 | `x` | added | I8 [3] |
 
+`h` and `x` carry their ids in `sha256`, and `summary.renamed` is 0.
+
 Not covered yet: `reshaped`, dtype changes, NaN handling, sharded checkpoints.
+
+## Renamed pair (spec section 2)
+| File | Content |
+|---|---|
+| `wrap-a.safetensors` | Tensors in header order: `model.embed_tokens.weight` F32 [6, 4], `model.layers.0.mlp.down_proj.weight` F32 [4, 6], `model.norm.weight` BF16 [4]; metadata and padding as `a`. |
+| `wrap-b.safetensors` | The same tensors under the prefix `language_model.`, as a vision model wrapping a language model writes them; the down projection has 0.5 times the column index added to every row (a rank-1 edit of columns 1 to 5). |
+| `wrap-diff.json` | What `wvc diff --rank --json --all wrap-a.safetensors wrap-b.safetensors` prints, with paths reduced to basenames. |
+
+The generator draws from `numpy.random.default_rng(20261104)`, in header order. The embedding and the norm are paired by id (`unchanged`); the down projection by suffix (`changed`, 20 of 24 elements, 4 rows and 5 columns touched, rank 1). Every entry has `renamed_to`, `summary.renamed` is 3, and nothing is added or removed.
 
 ## GGUF vectors (spec sections 1.1 and 2.1)
 | File | Content |
@@ -43,11 +54,11 @@ An implementation conforms if, reading `a.safetensors` and `b.safetensors`, it:
 
 Every other field of `diff.json` (names, dtypes, shapes, roots, the summary, and nulls) must match exactly; the two `path` fields are informational. The JSON is written with `indent=2` plus a newline, but byte-level formatting is not part of the rule while canonical JSON is an open point (spec section 6).
 
-`quant-diff.json` is held to the same rule as `diff.json`, including its `comparison` object, its `gguf` side object, and the per-tensor `compared`, `name_b`, and `transform_b` fields.
+`quant-diff.json` and `wrap-diff.json` are held to the same rule as `diff.json` (with `renamed_to` and `sha256` among the fields that match exactly), including its `comparison` object, its `gguf` side object, and the per-tensor `compared`, `name_b`, and `transform_b` fields.
 
 ## Regenerate
 ```bash
 uv run python spec/vectors/v0/make_vectors.py            # rewrite the files in this directory
 uv run python spec/vectors/v0/make_vectors.py OUT_DIR    # or write them elsewhere
 ```
-[`tests/test_vectors.py`](../../../tests/test_vectors.py) checks that `wvc` reproduces every manifest, the gguf-hash lines, the dequantised digests, and both diff records from the committed files, and that the generator reproduces all four checkpoints byte for byte. The files were generated with NumPy 2.5.4. NumPy may change `Generator` streams in feature releases; if that happens the regeneration check fails, and the committed files remain the reference.
+[`tests/test_vectors.py`](../../../tests/test_vectors.py) checks that `wvc` reproduces every manifest, the gguf-hash lines, the dequantised digests, and the three diff records from the committed files, and that the generator reproduces all six checkpoints byte for byte. The files were generated with NumPy 2.5.4. NumPy may change `Generator` streams in feature releases; if that happens the regeneration check fails, and the committed files remain the reference.
