@@ -132,3 +132,23 @@ def test_the_summary_of_receipts_with_ids_counts_renames(summary, tmp_path, caps
     assert rediff.startswith("1 diffed pairs on 1 bases")
     assert "| org/old-layout |" in rediff
     assert "org/packed" not in rediff
+
+
+def test_a_later_csv_in_a_sibling_directory_supersedes_earlier_rows(
+    summary, tmp_path, capsysbinary
+):
+    (tmp_path / "first").mkdir()
+    first = _census(tmp_path / "first")
+    later = tmp_path / "later"
+    (later / "pairs").mkdir(parents=True)
+    with first.open(encoding="utf-8", newline="") as handle:
+        redone = next(r for r in csv.DictReader(handle) if r["upload"] == "org/old-layout")
+    with (later / "census.csv").open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(redone))
+        writer.writeheader()
+        writer.writerow(redone | {"unchanged": 10, "added": 0, "removed": 0})
+    receipt = later / "pairs" / "org__old-layout.json"
+    receipt.write_text(json.dumps(_receipt(6, [])), encoding="utf-8")
+    text = _run(summary, capsysbinary, first, later / "census.csv")
+    assert "Rows and receipts from `../later/census.csv` supersede earlier rows" in text
+    assert "(renamed, unchanged 2, renamed, changed 1)" in text

@@ -15,6 +15,12 @@ A diff that exits 0 or 1 with a JSON document becomes a receipt under
 every blob no remaining snapshot references, so only the bases stay. Every pair, diffed or
 not, appends one row to ``census.csv``. No machine path enters a receipt.
 
+``--pairs FILE`` diffs exactly the pairs a CSV lists (columns ``base``, ``base_sha``,
+``upload``, ``upload_sha``) at those commits, taking each from the saved selection under
+``selection/`` here, and nothing else; each receipt's census block then names the receipt it
+reruns (``rerun_of``). Use it with a fresh ``--out`` so the first receipts stay as they are.
+A base leaves the cache once its last listed pair is done.
+
     uv run python experiments/E009/census.py --cache ~/.cache/wvc-census/hub \
         --group small --max-bytes 300e9 --min-free 100e9
 """
@@ -39,6 +45,7 @@ from typing import Any
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
+PAIR_COLUMNS = ("base", "base_sha", "upload", "upload_sha")
 RECEIPT_FORMAT = "wvc-census-pair/1"
 FAILURE_FORMAT = "wvc-census-failure/1"
 SELECTION_FORMAT = "wvc-census-selection/1"
@@ -515,6 +522,8 @@ def run_pair(
     }
     document = parse_document(proc) if proc else None
     name = f"{slug(entry['upload'])}.json"
+    if args.pairs is not None:
+        block["rerun_of"] = f"experiments/E009/pairs/{name}"
     if document is not None:
         block["shards_fetched"] = fetched_shards(document, selection, entry)
         write_json(
@@ -607,7 +616,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--retry-failed", action="store_true")
     parser.add_argument("--select-only", action="store_true", help="write the selections and stop")
     parser.add_argument("--purge-bases", action="store_true", help="empty the cache at the end")
+    parser.add_argument(
+        "--pairs", type=Path, help="diff only the pairs this CSV lists, at its pinned commits"
+    )
     args = parser.parse_args(argv)
+    if args.pairs is not None and args.select_only:
+        parser.error("--pairs reruns saved selections; it cannot be combined with --select-only")
     args.cache = args.cache.expanduser().resolve()
     return args
 
@@ -618,6 +632,49 @@ def chosen_bases(args: argparse.Namespace) -> list[tuple[str, int]]:
         for base, (group, k) in BASES.items()
         if (not args.group or group in args.group) and (not args.base or base in args.base)
     ]
+
+
+def read_pairs(path: Path) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        missing = set(PAIR_COLUMNS) - set(reader.fieldnames or ())
+        if missing:
+            raise SystemExit(f"{path.name}: missing columns {sorted(missing)}")
+        return list(reader)
+
+
+def listed_pair(row: dict[str, str]) -> tuple[dict[str, Any], dict[str, Any]]:
+    """The saved selection and walk entry of a listed pair; refuse one pinned elsewhere."""
+    path = HERE / "selection" / f"{slug(row['base'])}.json"
+    if not path.is_file():
+        raise SystemExit(f"no saved selection for {row['base']}")
+    selection = json.loads(path.read_text(encoding="utf-8"))
+    if selection["base"]["sha"] != row["base_sha"]:
+        raise SystemExit(f"{row['base']}: the selection pins another commit")
+    for entry in selection["walked"]:
+        same = entry["upload"] == row["upload"] and entry["sha"] == row["upload_sha"]
+        if same and entry["eligible"]:
+            return selection, entry
+    raise SystemExit(f"{row['upload']} at that commit is not an eligible upload of {row['base']}")
+
+
+def run_listed(args: argparse.Namespace, state: dict[str, Any]) -> bool:
+    """Diff the pairs ``--pairs`` lists; False when a budget stops the run."""
+    wanted = {base for base, _ in chosen_bases(args)}
+    failed = failed_before(args.out)
+    skip = set() if args.retry_failed else failed  # a failed pair reruns only when asked
+    rows = [row for row in read_pairs(args.pairs) if row["base"] in wanted]
+    last_of = {row["base"]: index for index, row in enumerate(rows)}
+    for index, row in enumerate(rows):
+        done = (args.out / "pairs" / f"{slug(row['upload'])}.json").exists()
+        if not done and (row["base"], row["upload"]) not in skip:
+            selection, entry = listed_pair(row)
+            if not run_pair(args, selection, entry, state):
+                return False
+        if last_of[row["base"]] == index:
+            freed = collect_garbage(args.cache, row["base"])
+            print(f"{row['base']}: listed pairs done, freed {gb(freed)}")
+    return True
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -636,7 +693,11 @@ def main(argv: list[str] | None = None) -> int:
     retry = failed_before(args.out) if args.retry_failed else set()
     done_failed = failed_before(args.out) - retry
     start = time.monotonic()
-    for base, k in chosen_bases(args):
+    if args.pairs is not None and not run_listed(args, state):
+        elapsed = time.monotonic() - start
+        print(f"stopped on budget after {elapsed:.0f} s; {gb(state['bytes_new'])} new")
+        return 3
+    for base, k in [] if args.pairs is not None else chosen_bases(args):
         selection = load_or_select(api, args.out, base, k, args.host)
         print(
             f"{base}: {sum(e['eligible'] for e in selection['walked'])} eligible "
